@@ -13,6 +13,10 @@
     source = ../configfiles/.Xresources;
     recursive = true;
   };
+  home.file.".config/tofi/config" = {
+    source = ../configfiles/tofi/config;
+    recursive = true;
+  };
   home.file.".config/wallpaper.png" = {
     source = ../configfiles/wallpaper.png;
     recursive = true;
@@ -34,7 +38,7 @@
     recursive = true;
   };
   home.file.".local/share/fonts/UniSans-Heavy.otf" = {
-    source = ../fonts/UniSans-Heavy.otf;
+    source = ../configfiles/UniSans-Heavy.otf;
     recursive = true;
   };
   home.pointerCursor = {
@@ -83,150 +87,6 @@
         enable = true;
         createDirectories = true;
     };
-  };
-  wayland.windowManager.hyprland = {
-    enable = true;
-    extraConfig = ''
-        $mainMod = SUPER
-        bind = , XF86AudioRaiseVolume,	exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-        bind = , XF86AudioLowerVolume,	exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-        bind = , XF86AudioMute,			exec, pactl set-sink-mute @DEFAULT_SINK@ toggle
-        bind = , XF86AudioMicMute,		exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle
-        bind = , XF86MonBrightnessDown, exec, brightnessctl set 5%-
-        bind = , XF86MonBrightnessUp,   exec, brightnessctl set +5%
-        bind = $mainMod,		Return, exec, kitty
-        bind = $mainMod SHIFT,	Return, exec, tofi-drun | xargs hyprctl dispatch exec --
-        bind = $mainMod SHIFT,	W,		exec, web-search
-        bind = $mainMod,		W,		exec, firefox
-        bind = $mainMod,		E,		exec, emopicker9000
-        bind = $mainMod,		S,		exec, grim -g "$(slurp)"
-        bind = $mainMod,		D,		exec, discord
-        bind = $mainMod,		O,		exec, obs
-        bind = $mainMod,		G,		exec, gimp
-        bind = $mainMod,		T,		exec, thunar
-        bind = $mainMod,		M,		exec, ario
-        bind = $mainMod,		Q,		killactive,
-        bind = $mainMod,		P,		pseudo, # dwindle
-        bind = $mainMod SHIFT,	I,		togglesplit, # dwindle
-        bind = $mainMod,	    F,		fullscreen,
-        bind = $mainMod SHIFT,	F,		togglefloating,
-        bind = $mainMod SHIFT,	C,		exit,
-        bind = $mainMod SHIFT,	left,	movewindow, l
-        bind = $mainMod SHIFT,	right,	movewindow, r
-        bind = $mainMod SHIFT,	up,		movewindow, u
-        bind = $mainMod SHIFT,	down,	movewindow, d
-        bind = $mainMod SHIFT,	h,		movewindow, l
-        bind = $mainMod SHIFT,	l,		movewindow, r
-        bind = $mainMod SHIFT,	k,		movewindow, u
-        bind = $mainMod SHIFT,	j,		movewindow, d
-        bind = $mainMod,		left,	movefocus, l
-        bind = $mainMod,		right,	movefocus, r
-        bind = $mainMod,		up,		movefocus, u
-        bind = $mainMod,		down,	movefocus, d
-        bind = $mainMod,		h,		movefocus, l
-        bind = $mainMod,		l,		movefocus, r
-        bind = $mainMod,		k,		movefocus, u
-        bind = $mainMod,		j,		movefocus, d
-        bind = $mainMod,		1,		workspace, 1
-        bind = $mainMod,		2,		workspace, 2
-        bind = $mainMod,		3,		workspace, 3
-        bind = $mainMod,		4,		workspace, 4
-        bind = $mainMod,		5,		workspace, 5
-        bind = $mainMod,		6,		workspace, 6
-        bind = $mainMod,		7,		workspace, 7
-        bind = $mainMod,		8,		workspace, 8
-        bind = $mainMod,		9,		workspace, 9
-        bind = $mainMod,		0,		workspace, 10
-        bind = $mainMod SHIFT,	1,		movetoworkspace, 1
-        bind = $mainMod SHIFT,	2,		movetoworkspace, 2
-        bind = $mainMod SHIFT,	3,		movetoworkspace, 3
-        bind = $mainMod SHIFT,	4,		movetoworkspace, 4
-        bind = $mainMod SHIFT,	5,		movetoworkspace, 5
-        bind = $mainMod SHIFT,	6,		movetoworkspace, 6
-        bind = $mainMod SHIFT,	7,		movetoworkspace, 7
-        bind = $mainMod SHIFT,	8,		movetoworkspace, 8
-        bind = $mainMod SHIFT,	9,		movetoworkspace, 9
-        bind = $mainMod SHIFT,	0,		movetoworkspace, 10
-        bind = $mainMod,		mouse_down, workspace, e+1
-        bind = $mainMod,		mouse_up,	workspace, e-1
-        bindm = $mainMod,		mouse:272,	movewindow
-        bindm = $mainMod,		mouse:273,	resizewindow
-
-        monitor=,highres,auto,auto          # Automatic Configuration
-
-        input {
-            kb_layout = us
-            kb_options=caps:super
-            follow_mouse = 1
-
-            touchpad {
-                natural_scroll = false
-            }
-
-            sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
-        }
-
-        gestures {
-            workspace_swipe = true
-            workspace_swipe_fingers = 3
-        }
-
-        animations {
-            enabled = yes
-
-            # Define Settings For Animation Bezier Curve
-            bezier = wind, 0.05, 0.9, 0.1, 1.05
-            bezier = winIn, 0.1, 1.1, 0.1, 1.1
-            bezier = winOut, 0.3, -0.3, 0, 1
-            bezier = liner, 1, 1, 1, 1
-
-            animation = windows, 1, 6, wind, slide
-            animation = windowsIn, 1, 6, winIn, slide
-            animation = windowsOut, 1, 5, winOut, slide
-            animation = windowsMove, 1, 5, wind, slide
-            animation = border, 1, 1, liner
-            animation = borderangle, 1, 30, liner, loop
-            animation = fade, 1, 10, default
-            animation = workspaces, 1, 5, wind
-        }
-
-        general {
-            gaps_in = 4
-            gaps_out = 8
-            border_size = 3
-            col.active_border = rgba(bb9af7ff) rgba(b4f9f8ff) 45deg
-            col.inactive_border = rgba(565f89cc) rgba(9aa5cecc) 45deg
-            layout = dwindle
-            resize_on_border = true
-        }
-
-        decoration {
-            rounding = 10
-            drop_shadow = false
-
-            blur {
-                enabled = true
-                size = 6
-                passes = 3
-                new_optimizations = on
-                ignore_opacity = on
-                xray = true
-            }
-        }
-
-        exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1        # You Must Have A Polkit
-        exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # For XDPH
-        exec-once = dbus-update-activation-environment --systemd --all # For XDPH
-        exec-once = systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # For XDPH
-        exec-once = swww init # Wallpaper Daemon
-        exec-once = swaync # Notification Center
-        exec-once = waybar # Status Bar
-        exec-once = wl-clipboard-history -t # Clipboard
-        exec-once = thunar --daemon # File Managers Daemon
-        exec-once = $HOME/.config/hypr/hyprdesktop # Ensure Proper Portals Are Loaded
-        exec-once = hyprctl setcursor Bibata-Modern-Ice 24 # Set Proper Curser & Size
-        exec-once = swww img ~/.config/wallpaper.png
-    '';
   };
   programs = {
     kitty = {

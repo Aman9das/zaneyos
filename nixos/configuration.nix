@@ -2,12 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    [   # Include the results of the hardware scan.
+        ./hardware-configuration.nix
+        # Include Home Manager
+        <home-manager/nixos>
     ];
 
   # Bootloader
@@ -45,7 +47,6 @@
   };
 
   programs.hyprland.enable = true;
-  programs.hyprland.package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -67,7 +68,7 @@
     lm_sensors
     unzip
     unrar
-    xarchiver
+    gnome.file-roller
     libnotify
     swaynotificationcenter
     tofi
@@ -86,8 +87,6 @@
     cmatrix
     lolcat
     transmission-gtk
-    rustup
-    rust-analyzer
     # Photo & Video
     mpv
     gimp
@@ -105,6 +104,9 @@
     ninja
     go
     nodejs_21
+    godot_4
+    rustup
+    rust-analyzer
     # Audio
     pavucontrol
     audacity
@@ -140,7 +142,6 @@
   # Nix Package Management
   nix = {
     settings.auto-optimise-store = true;
-    settings.experimental-features = [ "nix-command" "flakes" ];
     gc = {
       automatic = true;
       dates = "weekly";

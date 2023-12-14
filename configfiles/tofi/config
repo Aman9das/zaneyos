@@ -1,0 +1,35 @@
+# ███████╗ █████╗ ███╗   ██╗███████╗██╗   ██╗███████╗
+# ╚══███╔╝██╔══██╗████╗  ██║██╔════╝╚██╗ ██╔╝██╔════╝
+#   ███╔╝ ███████║██╔██╗ ██║█████╗   ╚████╔╝ ███████╗
+#  ███╔╝  ██╔══██║██║╚██╗██║██╔══╝    ╚██╔╝  ╚════██║
+# ███████╗██║  ██║██║ ╚████║███████╗   ██║   ███████║
+# ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝   ╚═╝   ╚══════╝
+# Dotfiles circa 2023
+
+# Font
+font = Ubuntu Nerd Font
+font-size = 18
+
+# Window Style
+anchor = top
+width = 100%
+height = 100%
+outline-width = 0
+border-width = 0
+min-input-width = 130
+result-spacing = 30
+padding-top = 35%
+padding-bottom = 0
+padding-left = 35%
+padding-right = 0
+num-results = 5
+prompt-text = "What Ya Need? "
+
+background-color = #000A
+text-color = #c0caf5
+input-color = #7aa2f7
+selection-color = #7dcfff
+selection-match-color = #9ece6a
+
+clip-to-padding = false
+require-match = false
