@@ -9,7 +9,7 @@
     [   # Include the results of the hardware scan.
         ./hardware-configuration.nix
         # Include Home Manager
-        <home-manager/nixos>
+        ./home.nix
     ];
 
   # Bootloader
@@ -118,12 +118,12 @@
     font-awesome
     symbola
     noto-fonts-color-emoji
-    nerdfonts
     material-icons
   ];
 
-  # Bash Completion
-  environment.pathsToLink = [ "/share/bash-completion" ];
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
 
   # Steam Configuration
   programs.steam = {

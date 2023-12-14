@@ -1,6 +1,15 @@
 { config, pkgs, ... }:
 
+let
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
+in
 {
+  imports = [
+    (import "${home-manager}/nixos")
+  ];
+
+  home-manager.users.zaney = {
+
   home.username = "zaney";
   home.homeDirectory = "/home/zaney";
   home.stateVersion = "23.11";
@@ -11,6 +20,10 @@
   };
   home.file.".Xresources" = {
     source = ../configfiles/.Xresources;
+    recursive = true;
+  };
+  home.file.".vimrc" = {
+    source = ../configfiles/.vimrc;
     recursive = true;
   };
   home.file.".config/tofi/config" = {
@@ -35,6 +48,26 @@
   };
   home.file.".local/share/scriptdeps/emoji" = {
     source = ../configfiles/emoji;
+    recursive = true;
+  };
+  home.file.".config/hypr/hyprland.conf" = {
+    source = ../configfiles/hypr/hyprland.conf;
+    recursive = true;
+  };
+  home.file.".config/hypr/keybindings.conf" = {
+    source = ../configfiles/hypr/keybindings.conf;
+    recursive = true;
+  };
+  home.file.".config/hypr/theme.conf" = {
+    source = ../configfiles/hypr/theme.conf;
+    recursive = true;
+  };
+  home.file.".config/hypr/animations.conf" = {
+    source = ../configfiles/hypr/animations.conf;
+    recursive = true;
+  };
+  home.file.".config/hypr/autostart.conf" = {
+    source = ../configfiles/hypr/autostart.conf;
     recursive = true;
   };
   home.file.".local/share/fonts/UniSans-Heavy.otf" = {
@@ -147,7 +180,8 @@
       
       };
       shellAliases = {
-        svim="sudo vim";
+        sv="sudo vim";
+	v="vim";
         ls="lsd";
         ll="lsd -l";
         la="lsd -a";
@@ -380,5 +414,6 @@
 	}
       '';
     };
+  };
   };
 }
