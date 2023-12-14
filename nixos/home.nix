@@ -78,6 +78,12 @@
         '';
     };
   };
+  xdg = {
+    userDirs = {
+        enable = true;
+        createDirectories = true;
+    };
+  };
   wayland.windowManager.hyprland = {
     enable = true;
     extraConfig = ''
