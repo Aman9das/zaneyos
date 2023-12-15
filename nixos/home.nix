@@ -92,7 +92,7 @@ in
   gtk = {
       enable = true;
       font = {
-	name = "Ubuntu Nerd Font";
+	name = "Ubuntu";
 	size = 12;
 	package = pkgs.ubuntu_font_family;
     };
