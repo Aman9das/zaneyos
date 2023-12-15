@@ -55,6 +55,7 @@
     (import ../scripts/emopicker9000.nix { inherit pkgs; })
     (import ../scripts/task-waybar.nix { inherit pkgs; })
     (import ../scripts/squirtle.nix { inherit pkgs; })
+    (import ../scripts/autohypr.nix { inherit pkgs; })
     # Utils
     vim
     wget

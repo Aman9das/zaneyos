@@ -70,6 +70,10 @@ in
     source = ../configfiles/hypr/autostart.conf;
     recursive = true;
   };
+  home.file.".config/zaney-stinger.mov" = {
+    source = ../configfiles/zaney-stinger.mov;
+    recursive = true;
+  };
   home.file.".local/share/fonts/UniSans-Heavy.otf" = {
     source = ../configfiles/UniSans-Heavy.otf;
     recursive = true;
@@ -127,7 +131,6 @@ in
       package = pkgs.kitty;
       font.name = "JetBrainsMono Nerd Font";
       font.size = 16;
-      font.package = pkgs.nerdfonts;
       settings = {
         scrollback_lines = 2000;
         wheel_scroll_min_lines = 1;
