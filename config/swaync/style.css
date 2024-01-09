@@ -1,5 +1,5 @@
 * {
-    font-family: Ubuntu Nerd Font;
+    font-family: Ubuntu;
     font-weight: bolder;
 }
 
@@ -166,7 +166,7 @@
 }
 
 .blank-window {
-    background: alpha(black, 0.1)
+    background: alpha(black, 0)
 }
 
 .widget-title {
