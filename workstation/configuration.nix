@@ -106,6 +106,9 @@
   hardware.pulseaudio.enable = false;
   sound.enable = true;
   security.rtkit.enable = true;
+  programs.thunar.enable = true;
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
 
 
   system.stateVersion = "23.11";

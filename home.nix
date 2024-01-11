@@ -8,8 +8,9 @@
   home.file.".config/zaney-stinger.mov" = {
     source = ./media/zaney-stinger.mov;
   };
-  home.file.".config/wallpaper.png" = {
-    source = ./media/wallpaper.png;
+  home.file."Pictures/Wallpapers" = {
+    source = ./media/Wallpapers;
+    recursive = true;
   };
   home.file.".local/share/fonts" = {
     source = ./fonts;
@@ -50,18 +51,21 @@
     userEmail = "tylerzanekelley@gmail.com";
   };
 
+
   home.packages = with pkgs; [
     neofetch lolcat cmatrix discord firefox btop libvirt
     swww polkit_gnome grim slurp lm_sensors unzip unrar gnome.file-roller
-    libnotify swaynotificationcenter rofi-wayland xfce.thunar imv v4l-utils
+    libnotify swaynotificationcenter rofi-wayland imv v4l-utils
     ydotool wl-clipboard socat cowsay lsd pkg-config transmission-gtk mpv
     gimp obs-studio blender kdenlive meson glibc hugo gnumake ninja go
-    nodejs godot_4 rustup pavucontrol audacity zeroad xonotic gvfs udiskie
+    nodejs godot_4 rustup pavucontrol audacity zeroad xonotic
     openra font-awesome symbola noto-fonts-color-emoji material-icons
+    spotify
     # Import Scripts
     (import ./scripts/emopicker9000.nix { inherit pkgs; })
     (import ./scripts/task-waybar.nix { inherit pkgs; })
     (import ./scripts/squirtle.nix { inherit pkgs; })
+    (import ./scripts/wallsetter.nix { inherit pkgs; })
   ];
 
   home.pointerCursor = {
@@ -115,11 +119,18 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
+    profileExtra = ''
+      if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+        exec Hyprland
+      fi
+    '';
     sessionVariables = {
     
     };
     shellAliases = {
       sv="sudo vim";
+      flake-rebuild="sudo nixos-rebuild switch --flake ~/zaneyos/#workstation";
+      laptop-rebuild="sudo nixos-rebuild switch --flake ~/zaneyos/#laptop";
       v="vim";
       ls="lsd";
       ll="lsd -l";

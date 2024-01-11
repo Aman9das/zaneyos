@@ -1,6 +1,6 @@
 # ZaneyOS 🟰 Best ❄️ NixOS Configs
 
-ZaneyOS is my production machines config files.
+ZaneyOS is a way of reproducing my configuration on any NixOS system. This includes the wallpaper, scripts, applications, config files, and more. *Please remember to change username in flake.nix, home.nix, and the configuration.nix.*
 
 ![](demo.jpg)
 
@@ -43,6 +43,6 @@ Clone this repo, replace your hardware-configuration.nix with the one inside the
 sudo nixos-rebuild switch --flake .#workstation
 ```
 
-Replace #workstation with laptop to switch to my Intel Whitebook laptop's configuration.
+Replace #workstation with #laptop to switch to my Intel Whitebook laptop's configuration.
 
 Hope you enjoy!
