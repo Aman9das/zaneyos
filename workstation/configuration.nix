@@ -91,11 +91,17 @@
   services.openssh.enable = true;
   services.fstrim.enable = true;
   services.xserver = {
-    enable = true;
     layout = "us";
     xkbVariant = "";
     libinput.enable = true;
     videoDrivers = [ "amdgpu" ];
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+      banner = ''
+        Welcome To The Future 🤤
+      '';
+    };
   };
   services.pipewire = {
     enable = true;
@@ -110,13 +116,6 @@
   programs.thunar.enable = true;
   services.gvfs.enable = true;
   services.tumbler.enable = true;
-  services.xserver.displayManager.lightdm = {
-    enable = true;
-    greeter.enable = true;
-    greeter.package = pkgs.lightdm-enso-os-greeter;
-    greeter.name = "pantheon-greeter";
-  };
-
 
   system.stateVersion = "23.11";
   nix = {
