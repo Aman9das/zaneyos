@@ -41,6 +41,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.zaney = {
+    homeMode = "755";
     isNormalUser = true;
     description = "Tyler Kelley";
     extraGroups = [ "networkmanager" "wheel" ];

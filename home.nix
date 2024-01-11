@@ -5,9 +5,12 @@
   home.homeDirectory = "/home/zaney";
   home.stateVersion = "23.11";
 
-  home.file.".config/zaney-stinger.mov" = {
-    source = ./media/zaney-stinger.mov;
-  };
+  home.file.".config/zaney-stinger.mov".source = ./media/zaney-stinger.mov;
+  home.file.".config/pipewire/pipewire.conf".source = ./config/pipewire/pipewire.conf;
+  home.file.".config/neofetch/config.conf".source = ./config/neofetch/config.conf;
+  home.file.".vimrc".source = ./config/vimrc;
+  home.file.".emoji".source = ./config/emoji;
+  home.file.".face".source = ./config/face.jpg;
   home.file."Pictures/Wallpapers" = {
     source = ./media/Wallpapers;
     recursive = true;
@@ -16,12 +19,6 @@
     source = ./fonts;
     recursive = true;
   };
-  home.file.".vimrc" = {
-    source = ./config/vimrc;
-  };
-  home.file.".emoji" = {
-    source = ./config/emoji;
-  };
   home.file.".config/rofi" = {
     source = ./config/rofi;
     recursive = true;
@@ -29,12 +26,6 @@
   home.file.".config/swaync" = {
     source = ./config/swaync;
     recursive = true;
-  };
-  home.file.".config/pipewire/pipewire.conf" = {
-    source = ./config/pipewire/pipewire.conf;
-  };
-  home.file.".config/neofetch/config.conf" = {
-    source = ./config/neofetch/config.conf;
   };
   home.file.".config/hypr" = {
     source = ./config/hyprland;
