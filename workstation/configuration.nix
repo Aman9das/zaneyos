@@ -91,6 +91,7 @@
   services.openssh.enable = true;
   services.fstrim.enable = true;
   services.xserver = {
+    enable = true;
     layout = "us";
     xkbVariant = "";
     libinput.enable = true;
