@@ -98,9 +98,6 @@
     displayManager.gdm = {
       enable = true;
       wayland = true;
-      banner = ''
-        Welcome To The Future 🤤
-      '';
     };
   };
   services.pipewire = {
