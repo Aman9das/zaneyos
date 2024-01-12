@@ -35,6 +35,7 @@
 	    specialArgs = { inherit system; inherit inputs; inherit username; inherit hostname; };
 	    modules = [ ./workstation/configuration.nix
           home-manager.nixosModules.home-manager {
+	        home-manager.extraSpecialArgs = { inherit username; };
 	        home-manager.useGlobalPkgs = true;
 	        home-manager.useUserPackages = true;
 	        home-manager.users.${username} = import ./home.nix;

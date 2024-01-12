@@ -1,6 +1,6 @@
 # ZaneyOS 🟰 Best ❄️ NixOS Configs
 
-ZaneyOS is a way of reproducing my configuration on any NixOS system. This includes the wallpaper, scripts, applications, config files, and more. *Please remember to change username in flake.nix, home.nix, and the configuration.nix.*
+ZaneyOS is a way of reproducing my configuration on any NixOS system. This includes the wallpaper, scripts, applications, config files, and more. *Please remember to change username and hostname in flake.nix.*
 
 ![](demo.jpg)
 
@@ -37,7 +37,12 @@ NixOS has an active community that contributes to its growth, sharing configurat
 # Steps To Reproduce My System
 
 
-Clone this repo, replace your hardware-configuration.nix with the one inside the workstation folder, enable flakes in your default configuration.nix, then go into repo folder and run this command:
+- Clone this repo
+- Change username and hostname in flake.nix
+- Replace your hardware-configuration.nix with the one inside the workstation or laptop folders
+- Enable flakes in your default configuration.nix
+- Rebuild your system 
+- Then go into repo folder and run this command:
 
 ```
 sudo nixos-rebuild switch --flake .#workstation
