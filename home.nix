@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "zaney";
-  home.homeDirectory = "/home/zaney";
+  home.username = ${username};
+  home.homeDirectory = "/home/${username}";
   home.stateVersion = "23.11";
 
   home.file.".config/zaney-stinger.mov".source = ./media/zaney-stinger.mov;

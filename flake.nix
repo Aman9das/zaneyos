@@ -11,6 +11,8 @@
   outputs = inputs@{ nixpkgs, home-manager, ... }:
   let
     system = "x86_64-linux";
+    hostname = "hyprnix";
+    username = "zaney";
     pkgs = import nixpkgs {
       inherit system;
       config = {
@@ -25,7 +27,7 @@
           home-manager.nixosModules.home-manager {
 	        home-manager.useGlobalPkgs = true;
 	        home-manager.useUserPackages = true;
-	        home-manager.users.zaney = import ./home.nix;
+	        home-manager.users.${username} = import ./home.nix;
 	      }
 	    ];
       };
@@ -35,7 +37,7 @@
           home-manager.nixosModules.home-manager {
 	        home-manager.useGlobalPkgs = true;
 	        home-manager.useUserPackages = true;
-	        home-manager.users.zaney = import ./home.nix;
+	        home-manager.users.${username} = import ./home.nix;
 	      }
 	    ];
       };
