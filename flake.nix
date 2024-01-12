@@ -22,7 +22,7 @@
   in {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
-	    specialArgs = { inherit system; inherit inputs; inherit username; inherit hostname };
+	    specialArgs = { inherit system; inherit inputs; inherit username; inherit hostname; };
 	    modules = [ ./laptop/configuration.nix
           home-manager.nixosModules.home-manager {
 	        home-manager.useGlobalPkgs = true;
