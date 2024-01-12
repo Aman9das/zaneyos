@@ -16,7 +16,7 @@
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
-  networking.hostName = ${hostname}; # Define your hostname.
+  networking.hostName = "${hostname}"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -40,7 +40,7 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${username} = {
+  users.users."${username}" = {
     homeMode = "755";
     isNormalUser = true;
     description = "Tyler Kelley";

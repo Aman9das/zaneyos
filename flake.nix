@@ -27,12 +27,12 @@
           home-manager.nixosModules.home-manager {
 	        home-manager.useGlobalPkgs = true;
 	        home-manager.useUserPackages = true;
-	        home-manager.users.zaney = import ./home.nix;
+	        home-manager.users.${username} = import ./home.nix;
 	      }
 	    ];
       };
       workstation = nixpkgs.lib.nixosSystem {
-	    specialArgs = { inherit system; inherit inputs; };
+	    specialArgs = { inherit system; inherit inputs; inherit username; inherit hostname; };
 	    modules = [ ./workstation/configuration.nix
           home-manager.nixosModules.home-manager {
 	        home-manager.useGlobalPkgs = true;
