@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, ... }:
+{ inputs, config, pkgs, username, hostname, ... }:
 
 {
   imports =
@@ -16,7 +16,7 @@
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
-  networking.hostName = "hyprnix"; # Define your hostname.
+  networking.hostName = ${hostname}; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
