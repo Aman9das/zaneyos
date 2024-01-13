@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ config, pkgs, username, gitUsername, gitEmail, ... }:
 
 {
   # Home Manager Settings

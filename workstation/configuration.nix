@@ -2,7 +2,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, username, hostname, ... }:
+{ inputs, config, pkgs, username,
+  hostname, gitUsername, theLocale,
+  theTimezone, ... }:
 
 {
   imports =
@@ -22,28 +24,28 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "America/Chicago";
+  time.timeZone = "${theTimezone}";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "${theLocale}";
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+    LC_ADDRESS = "${theLocale}";
+    LC_IDENTIFICATION = "${theLocale}";
+    LC_MEASUREMENT = "${theLocale}";
+    LC_MONETARY = "${theLocale}";
+    LC_NAME = "${theLocale}";
+    LC_NUMERIC = "${theLocale}";
+    LC_PAPER = "${theLocale}";
+    LC_TELEPHONE = "${theLocale}";
+    LC_TIME = "${theLocale}";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${username}" = {
     homeMode = "755";
     isNormalUser = true;
-    description = "Tyler Kelley";
+    description = "${gitUsername}";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };

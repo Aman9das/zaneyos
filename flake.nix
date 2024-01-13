@@ -15,6 +15,8 @@
     username = "zaney";
     gitUsername = "Tyler Kelley";
     gitEmail = "tylerzanekelley@gmail.com";
+    theLocale = "en_US.UTF-8";
+    theTimezone = "America/Chicago";
     pkgs = import nixpkgs {
       inherit system;
       config = {
@@ -26,7 +28,7 @@
       laptop = nixpkgs.lib.nixosSystem {
 	    specialArgs = { inherit system; inherit inputs;
             inherit username; inherit hostname; inherit gitUsername;
-            inherit gitEmail; 
+            inherit gitEmail; inherit theLocale; inherit theTimezone;
             };
 	    modules = [ ./laptop/configuration.nix
           home-manager.nixosModules.home-manager {
@@ -42,7 +44,7 @@
       workstation = nixpkgs.lib.nixosSystem {
 	    specialArgs = { inherit system; inherit inputs; 
             inherit username; inherit hostname; inherit gitUsername;
-            inherit gitEmail; 
+            inherit gitEmail; inherit theLocale; inherit theTimezone;
         };
 	    modules = [ ./workstation/configuration.nix
           home-manager.nixosModules.home-manager {
