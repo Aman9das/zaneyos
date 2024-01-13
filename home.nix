@@ -1,10 +1,12 @@
 { config, pkgs, username, ... }:
 
 {
+  # Home Manager Settings
   home.username = "${username}";
-  home.homeDirectory = "/home/zaney";
+  home.homeDirectory = "/home/${username}";
   home.stateVersion = "23.11";
 
+  # Place Files Inside Home Directory
   home.file.".config/zaney-stinger.mov".source = ./media/zaney-stinger.mov;
   home.file.".config/pipewire/pipewire.conf".source = ./config/pipewire/pipewire.conf;
   home.file.".config/neofetch/config.conf".source = ./config/neofetch/config.conf;
@@ -32,23 +34,25 @@
     recursive = true;
   };
 
+  # Define Settings For Xresources
   xresources.properties = {
     "Xcursor.size" = 24;
   };
 
+  # Install & Configure Git
   programs.git = {
     enable = true;
-    userName = "Tyler Kelley";
-    userEmail = "tylerzanekelley@gmail.com";
+    userName = "${gitUsername}";
+    userEmail = "${gitEmail}";
   };
 
-
+  # Install Packages For The User
   home.packages = with pkgs; [
     neofetch lolcat cmatrix discord firefox btop libvirt
     swww polkit_gnome grim slurp lm_sensors unzip unrar gnome.file-roller
     libnotify swaynotificationcenter rofi-wayland imv v4l-utils
     ydotool wl-clipboard socat cowsay lsd pkg-config transmission-gtk mpv
-    gimp obs-studio blender kdenlive meson glibc hugo gnumake ninja go
+    gimp obs-studio blender kdenlive meson hugo gnumake ninja go
     nodejs godot_4 rustup pavucontrol audacity zeroad xonotic
     openra font-awesome symbola noto-fonts-color-emoji material-icons
     spotify
@@ -59,6 +63,7 @@
     (import ./scripts/wallsetter.nix { inherit pkgs; })
   ];
 
+  # Configure Cursor Theme
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
@@ -66,10 +71,14 @@
     name = "Bibata-Modern-Ice";
     size = 24;
   };
+
+  # Enable & Configure QT
   qt.enable = true;
   qt.platformTheme = "gtk";
   qt.style.name = "adwaita-dark";
   qt.style.package = pkgs.adwaita-qt;
+
+  # Theme GTK
   gtk = {
     enable = true;
     font = {
@@ -100,6 +109,8 @@
       '';
     };
   };
+
+  # Create XDG Dirs
   xdg = {
     userDirs = {
         enable = true;
@@ -107,6 +118,7 @@
     };
   };
 
+  # Configure Bash
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -131,6 +143,7 @@
     };
   };
 
+  # Configure Kitty
   programs.kitty = {
     enable = true;
     package = pkgs.kitty;
@@ -182,6 +195,7 @@
     '';
   };
 
+  # Configure & Theme Waybar
   programs.waybar = {
     enable = true;
     package = pkgs.waybar;

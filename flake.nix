@@ -13,6 +13,8 @@
     system = "x86_64-linux";
     hostname = "hyprnix";
     username = "zaney";
+    gitUsername = "Tyler Kelley";
+    gitEmail = "tylerzanekelley@gmail.com";
     pkgs = import nixpkgs {
       inherit system;
       config = {
@@ -22,9 +24,15 @@
   in {
     nixosConfigurations = {
       laptop = nixpkgs.lib.nixosSystem {
-	    specialArgs = { inherit system; inherit inputs; inherit username; inherit hostname; };
+	    specialArgs = { inherit system; inherit inputs;
+            inherit username; inherit hostname; inherit gitUsername;
+            inherit gitEmail; 
+            };
 	    modules = [ ./laptop/configuration.nix
           home-manager.nixosModules.home-manager {
+	        home-manager.extraSpecialArgs = { inherit username;
+            inherit gitUsername; inherit gitEmail;
+            };
 	        home-manager.useGlobalPkgs = true;
 	        home-manager.useUserPackages = true;
 	        home-manager.users.${username} = import ./home.nix;
@@ -32,10 +40,15 @@
 	    ];
       };
       workstation = nixpkgs.lib.nixosSystem {
-	    specialArgs = { inherit system; inherit inputs; inherit username; inherit hostname; };
+	    specialArgs = { inherit system; inherit inputs; 
+            inherit username; inherit hostname; inherit gitUsername;
+            inherit gitEmail; 
+        };
 	    modules = [ ./workstation/configuration.nix
           home-manager.nixosModules.home-manager {
-	        home-manager.extraSpecialArgs = { inherit username; };
+	        home-manager.extraSpecialArgs = { inherit username; 
+                inherit gitUsername; inherit gitEmail;
+            };
 	        home-manager.useGlobalPkgs = true;
 	        home-manager.useUserPackages = true;
 	        home-manager.users.${username} = import ./home.nix;
