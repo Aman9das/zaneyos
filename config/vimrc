@@ -55,7 +55,7 @@ set encoding=UTF-8              " Set encoding
 let NERDTreeShowHidden=1        " NERDtree shows hidden files
 set term=kitty                  " fix for kitty terminal
 set termguicolors
-:source .vimcolors.vim
+:source $HOME/.vimcolors.vim
 
 " get transparent bg & some markdown stuffs
 hi Normal           guibg=NONE      ctermbg=NONE
