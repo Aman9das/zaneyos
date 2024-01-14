@@ -13,6 +13,7 @@
     inputs.nix-colors.homeManagerModules.default
     ./config/waybar.nix
     ./config/kitty.nix
+    ./config/vimcolors.nix
   ];
 
   # Place Files Inside Home Directory
