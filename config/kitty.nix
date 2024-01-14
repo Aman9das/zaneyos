@@ -15,7 +15,7 @@
       background_opacity = "0.85";
     };
     extraConfig = ''
-      foreground ${config.colorScheme.colors.base15}
+      foreground ${config.colorScheme.colors.base0F}
       background ${config.colorScheme.colors.base00}
       color0  ${config.colorScheme.colors.base00}
       color8  ${config.colorScheme.colors.base00}

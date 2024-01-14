@@ -50,7 +50,7 @@
 	    modules = [ ./workstation/configuration.nix
           home-manager.nixosModules.home-manager {
 	        home-manager.extraSpecialArgs = { inherit username; 
-                inherit gitUsername; inherit gitEmail;
+                inherit gitUsername; inherit gitEmail; inherit inputs;
             };
 	        home-manager.useGlobalPkgs = true;
 	        home-manager.useUserPackages = true;

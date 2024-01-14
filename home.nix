@@ -10,6 +10,7 @@
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 
   imports = [
+    inputs.nix-colors.homeManagerModules.default
     ./config/waybar.nix
     ./config/kitty.nix
   ];
