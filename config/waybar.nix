@@ -114,115 +114,115 @@
 		    background-color: rgba(26,27,38,0);
     		border-bottom: 1px solid rgba(26,27,38,0);
     		border-radius: 0px;
-		    color: ${base0F};
+		    color: ${config.colorScheme.colors.base0F};
 	}
 	#workspaces {
-		    background: linear-gradient(180deg, ${base00}, ${base08});
+		    background: linear-gradient(180deg, ${config.colorScheme.colors.base00}, ${config.colorScheme.colors.base08});
     		margin: 5px;
     		padding: 0px 1px;
     		border-radius: 15px;
     		border: 0px;
     		font-style: normal;
-    		color: ${base00};
+    		color: ${config.colorScheme.colors.base00};
 	}
 	#workspaces button {
     		padding: 0px 5px;
     		margin: 4px 3px;
     		border-radius: 15px;
     		border: 0px;
-    		color: ${base00};
-    		background-color: ${base00};
+    		color: ${config.colorScheme.colors.base00};
+    		background-color: ${config.colorScheme.colors.base00};
     		opacity: 1.0;
     		transition: all 0.3s ease-in-out;
 	}
 	#workspaces button.active {
-    		color: ${base00};
-    		background: ${base04};
+    		color: ${config.colorScheme.colors.base00};
+    		background: ${config.colorScheme.colors.base04};
     		border-radius: 15px;
     		min-width: 40px;
     		transition: all 0.3s ease-in-out;
     		opacity: 1.0;
 	}
 	#workspaces button:hover {
-    		color: ${base00};
-    		background: ${base04};
+    		color: ${config.colorScheme.colors.base00};
+    		background: ${config.colorScheme.colors.base04};
     		border-radius: 15px;
     		opacity: 1.0;
 	}
 	tooltip {
-  		background: ${base00};
-  		border: 1px solid ${base04};
+  		background: ${config.colorScheme.colors.base00};
+  		border: 1px solid ${config.colorScheme.colors.base04};
   		border-radius: 10px;
 	}
 	tooltip label {
-  		color: ${base07};
+  		color: ${config.colorScheme.colors.base07};
 	}
 	#window {
-    		color: ${base06};
-    		background: ${base00};
+    		color: ${config.colorScheme.colors.base06};
+    		background: ${config.colorScheme.colors.base00};
     		border-radius: 0px 15px 50px 0px;
     		margin: 5px 5px 5px 0px;
     		padding: 2px 20px;
 	}
 	#memory {
-    		color: ${base05};
-    		background: ${base00};
+    		color: ${config.colorScheme.colors.base05};
+    		background: ${config.colorScheme.colors.base00};
     		border-radius: 15px 50px 15px 50px;
     		margin: 5px;
     		padding: 2px 20px;
 	}
 	#clock {
-    		color: ${base07};
-    		background: ${base00};
+    		color: ${config.colorScheme.colors.base07};
+    		background: ${config.colorScheme.colors.base00};
     		border-radius: 15px 50px 15px 50px;
     		margin: 5px;
     		padding: 2px 20px;
 	}
 	#cpu {
-    		color: ${base05};
-    		background: ${base00};
+    		color: ${config.colorScheme.colors.base05};
+    		background: ${config.colorScheme.colors.base00};
     		border-radius: 50px 15px 50px 15px;
     		margin: 5px;
     		padding: 2px 20px;
 	}
 	#disk {
-    		color: ${base02};
-    		background: ${base00};
+    		color: ${config.colorScheme.colors.base02};
+    		background: ${config.colorScheme.colors.base00};
     		border-radius: 15px 50px 15px 50px;
     		margin: 5px;
     		padding: 2px 20px;
 	}
 	#battery {
-    		color: ${base01};
-    		background: ${base00};
+    		color: ${config.colorScheme.colors.base01};
+    		background: ${config.colorScheme.colors.base00};
     		border-radius: 15px;
     		margin: 5px;
     		padding: 2px 20px;
 	}
 	#network {
-    		color: ${base03};
-    		background: ${base00};
+    		color: ${config.colorScheme.colors.base03};
+    		background: ${config.colorScheme.colors.base00};
     		border-radius: 50px 15px 50px 15px;
     		margin: 5px;
     		padding: 2px 20px;
 	}
 	#tray {
-    		color: ${base07};
-    		background: ${base00};
+    		color: ${config.colorScheme.colors.base07};
+    		background: ${config.colorScheme.colors.base00};
     		border-radius: 15px 0px 0px 50px;
     		margin: 5px 0px 5px 5px;
     		padding: 2px 20px;
 	}
 	#pulseaudio {
-    		color: ${base05};
-    		background: ${base00};
+    		color: ${config.colorScheme.colors.base05};
+    		background: ${config.colorScheme.colors.base00};
     		border-radius: 50px 15px 50px 15px;
     		margin: 5px;
     		padding: 2px 20px;
 	}
 	#custom-notification {
-    		color: ${base04};
-    		background: ${base00};
+    		color: ${config.colorScheme.colors.base04};
+    		background: ${config.colorScheme.colors.base00};
     		border-radius: 15px 50px 15px 50px;
     		margin: 5px;
     		padding: 2px 20px;
