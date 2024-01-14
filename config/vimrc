@@ -1,3 +1,4 @@
+
 " ███████╗ █████╗ ███╗   ██╗███████╗██╗   ██╗███████╗
 " ╚══███╔╝██╔══██╗████╗  ██║██╔════╝╚██╗ ██╔╝██╔════╝
 "   ███╔╝ ███████║██╔██╗ ██║█████╗   ╚████╔╝ ███████╗
@@ -33,7 +34,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'https://github.com/tpope/vim-commentary'     " Comment Out With gcc & Uncomment With gcgc
     Plug 'neoclide/coc.nvim', {'branch': 'release'}    " Code Completion (requires node)
     Plug 'suan/vim-instant-markdown', {'rtp': 'after'} " Markdown Preview
-    Plug 'ghifarit53/tokyonight-vim'                   " Tokyo Night Theme
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -55,14 +55,55 @@ set mouse=a                     " Required
 set encoding=UTF-8              " Set encoding
 let NERDTreeShowHidden=1        " NERDtree shows hidden files
 set term=kitty                  " fix for kitty terminal
-" colorscheme dracula             " Dracula Color Scheme
 set termguicolors
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
 
-colorscheme tokyonight
 " get transparent bg & some markdown stuffs
-highlight Normal guibg=NONE ctermbg=NONE
+hi Normal           guibg=none      ctermbg=none
+hi LineNr           ctermfg=8       ctermbg=none    cterm=none
+hi CursorLineNr     ctermfg=7       ctermbg=8       cterm=none
+hi VertSplit        ctermfg=0       ctermbg=8       cterm=none
+hi Statement        ctermfg=2       ctermbg=none    cterm=none
+hi Directory        ctermfg=4       ctermbg=none    cterm=none
+hi StatusLine       ctermfg=7       ctermbg=8       cterm=none
+hi StatusLineNC     ctermfg=7       ctermbg=8       cterm=none
+hi NERDTreeClosable ctermfg=2
+hi NERDTreeOpenable ctermfg=8
+hi Comment          ctermfg=4       ctermbg=none    cterm=italic
+hi Constant         ctermfg=12      ctermbg=none    cterm=none
+hi Special          ctermfg=4       ctermbg=none    cterm=none
+hi Identifier       ctermfg=6       ctermbg=none    cterm=none
+hi PreProc          ctermfg=5       ctermbg=none    cterm=none
+hi String           ctermfg=12      ctermbg=none    cterm=none
+hi Number           ctermfg=1       ctermbg=none    cterm=none
+hi Function         ctermfg=1       ctermbg=none    cterm=none
+hi WildMenu         ctermfg=0       ctermbg=80      cterm=none
+hi Folded           ctermfg=103     ctermbg=234     cterm=none
+hi FoldColumn       ctermfg=103     ctermbg=234     cterm=none
+hi DiffAdd          ctermfg=none    ctermbg=23      cterm=none
+hi DiffChange       ctermfg=none    ctermbg=56      cterm=none
+hi DiffDelete       ctermfg=168     ctermbg=96      cterm=none
+hi DiffText         ctermfg=0       ctermbg=80      cterm=none
+hi SignColumn       ctermfg=244     ctermbg=235     cterm=none
+hi Conceal          ctermfg=251     ctermbg=none    cterm=none
+hi SpellBad         ctermfg=168     ctermbg=none    cterm=underline
+hi SpellCap         ctermfg=80      ctermbg=none    cterm=underline
+hi SpellRare        ctermfg=121     ctermbg=none    cterm=underline
+hi SpellLocal       ctermfg=186     ctermbg=none    cterm=underline
+hi Pmenu            ctermfg=251     ctermbg=234     cterm=none
+hi PmenuSel         ctermfg=0       ctermbg=111     cterm=none
+hi PmenuSbar        ctermfg=206     ctermbg=235     cterm=none
+hi PmenuThumb       ctermfg=235     ctermbg=206     cterm=none
+hi TabLine          ctermfg=244     ctermbg=234     cterm=none
+hi TablineSel       ctermfg=0       ctermbg=247     cterm=none
+hi TablineFill      ctermfg=244     ctermbg=234     cterm=none
+hi CursorColumn     ctermfg=none    ctermbg=236     cterm=none
+hi CursorLine       ctermfg=none    ctermbg=236     cterm=none
+hi ColorColumn      ctermfg=none    ctermbg=236     cterm=none
+hi Cursor           ctermfg=0       ctermbg=5       cterm=none
+hi htmlEndTag       ctermfg=114     ctermbg=none    cterm=none
+hi xmlEndTag        ctermfg=114     ctermbg=none    cterm=none
+
+
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
