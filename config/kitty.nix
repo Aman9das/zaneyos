@@ -15,23 +15,23 @@
       background_opacity = "0.85";
     };
     extraConfig = ''
-      foreground #${config.colorScheme.colors.base0F}
+      foreground #${config.colorScheme.colors.base05}
       background #${config.colorScheme.colors.base00}
       color0  #${config.colorScheme.colors.base00}
-      color8  #${config.colorScheme.colors.base00}
-      color1  #${config.colorScheme.colors.base01}
-      color9  #${config.colorScheme.colors.base09}
-      color2  #${config.colorScheme.colors.base02}
-      color10 #${config.colorScheme.colors.base0A}
-      color3  #${config.colorScheme.colors.base03}
-      color11 #${config.colorScheme.colors.base0B}
-      color4  #${config.colorScheme.colors.base04}
-      color12 #${config.colorScheme.colors.base0C}
-      color5  #${config.colorScheme.colors.base05}
-      color13 #${config.colorScheme.colors.base0D}
-      color6  #${config.colorScheme.colors.base06}
-      color14 #${config.colorScheme.colors.base0E}
-      color7  #${config.colorScheme.colors.base07}
+      color8  #${config.colorScheme.colors.base01}
+      color1  #${config.colorScheme.colors.base02}
+      color9  #${config.colorScheme.colors.base03}
+      color2  #${config.colorScheme.colors.base04}
+      color10 #${config.colorScheme.colors.base05}
+      color3  #${config.colorScheme.colors.base06}
+      color11 #${config.colorScheme.colors.base07}
+      color4  #${config.colorScheme.colors.base08}
+      color12 #${config.colorScheme.colors.base09}
+      color5  #${config.colorScheme.colors.base0A}
+      color13 #${config.colorScheme.colors.base0B}
+      color6  #${config.colorScheme.colors.base0C}
+      color14 #${config.colorScheme.colors.base0D}
+      color7  #${config.colorScheme.colors.base0E}
       color15 #${config.colorScheme.colors.base0F}
       cursor  #${config.colorScheme.colors.base07}
       cursor_text_color #${config.colorScheme.colors.base00}

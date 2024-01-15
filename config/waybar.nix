@@ -117,7 +117,7 @@
 		    color: #${config.colorScheme.colors.base0F};
 	}
 	#workspaces {
-		    background: linear-gradient(180deg, #${config.colorScheme.colors.base00}, #${config.colorScheme.colors.base08});
+		    background: linear-gradient(180deg, #${config.colorScheme.colors.base00}, #${config.colorScheme.colors.base01});
     		margin: 5px;
     		padding: 0px 1px;
     		border-radius: 15px;

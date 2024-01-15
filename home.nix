@@ -7,11 +7,12 @@
   home.stateVersion = "23.11";
 
   # Set The Colorscheme
-  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
+  colorScheme = inputs.nix-colors.colorSchemes.rose-pine-moon;
 
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ./config/waybar.nix
+    ./config/hyprland.nix
     ./config/kitty.nix
     ./config/vimcolors.nix
   ];
@@ -37,10 +38,6 @@
   };
   home.file.".config/swaync" = {
     source = ./config/swaync;
-    recursive = true;
-  };
-  home.file.".config/hypr" = {
-    source = ./config/hyprland;
     recursive = true;
   };
 

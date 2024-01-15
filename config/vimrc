@@ -20,7 +20,6 @@ endif
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
-    Plug 'itchyny/lightline.vim'                       " Lightline statusbar
     Plug 'scrooloose/nerdtree'                         " Nerdtree
     Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
     Plug 'dracula/vim', { 'as': 'dracula' }            " Dracula Color Scheme
@@ -55,10 +54,10 @@ set encoding=UTF-8              " Set encoding
 let NERDTreeShowHidden=1        " NERDtree shows hidden files
 set term=kitty                  " fix for kitty terminal
 set termguicolors
-:source $HOME/.vimcolors.vim
 
-" get transparent bg & some markdown stuffs
+" Theme System & Ensure Transparency works
 hi Normal           guibg=NONE      ctermbg=NONE
+:source $HOME/.vimcolors.vim
 
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
@@ -93,10 +92,6 @@ inoremap <silent><expr> <Tab>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status Line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" The lightline.vim theme
-let g:lightline = {
-      \ 'colorscheme': 'one',
-      \ }
 " Always show statusline
 set laststatus=2
 " Uncomment to prevent non-normal modes showing in powerline and below powerline.
