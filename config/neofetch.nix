@@ -18,7 +18,7 @@
         }
         distro_shorthand="on"
         memory_unit="gib"
-        cpu_temp="F"
+        cpu_temp="C"
         separator=" $(color 4)>"
         stdout="off"
     '';

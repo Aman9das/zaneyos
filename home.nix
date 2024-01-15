@@ -16,13 +16,12 @@
     ./config/neofetch.nix
     ./config/hyprland.nix
     ./config/kitty.nix
-    ./config/vimcolors.nix
+    ./config/vim.nix
   ];
 
   # Place Files Inside Home Directory
   home.file.".config/zaney-stinger.mov".source = ./media/zaney-stinger.mov;
   home.file.".config/pipewire/pipewire.conf".source = ./config/pipewire/pipewire.conf;
-  home.file.".vimrc".source = ./config/vimrc;
   home.file.".emoji".source = ./config/emoji;
   home.file.".face".source = ./config/face.jpg;
   home.file."Pictures/Wallpapers" = {
