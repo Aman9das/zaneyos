@@ -44,10 +44,10 @@
     openra font-awesome symbola noto-fonts-color-emoji material-icons
     spotify
     # Import Scripts
-    (import ./scripts/emopicker9000.nix { inherit pkgs; })
-    (import ./scripts/task-waybar.nix { inherit pkgs; })
-    (import ./scripts/squirtle.nix { inherit pkgs; })
-    (import ./scripts/wallsetter.nix { inherit pkgs; })
+    (import ./config/scripts/emopicker9000.nix { inherit pkgs; })
+    (import ./config/scripts/task-waybar.nix { inherit pkgs; })
+    (import ./config/scripts/squirtle.nix { inherit pkgs; })
+    (import ./config/scripts/wallsetter.nix { inherit pkgs; })
   ];
 
   # Configure Cursor Theme
