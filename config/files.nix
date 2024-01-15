@@ -18,3 +18,4 @@
     source = ./config/swaync;
     recursive = true;
   };
+}
