@@ -5,7 +5,7 @@
     @theme "/dev/null"
 
     * {
-        bg: #${base00};
+        bg: #${config.colorScheme.colors.base00};
         background-color: @bg;
     }
 
@@ -13,7 +13,7 @@
 	    show-icons: true;
 	    icon-theme: "Papirus";
 	    location: 0;
-	    font: "JetBrainsMono Nerd Font 12";	
+	    font: "Ubuntu 12";	
 	    display-drun: "Launch:";
     }
 
@@ -21,7 +21,7 @@
 	    width: 35%;
 	    transparency: "real";
 	    orientation: vertical;
-	    border-color: #${base0B};
+	    border-color: #${config.colorScheme.colors.base0B};
         border-radius: 5px;
     }
 
@@ -35,12 +35,12 @@
 
     element {
 	    padding: 4 12;
-	    text-color: #${base05};
+	    text-color: #${config.colorScheme.colors.base05};
     }
 
     element selected {
-	    text-color: #${base01};
-	    background-color: #${base0B};
+	    text-color: #${config.colorScheme.colors.base01};
+	    background-color: #${config.colorScheme.colors.base0B};
     }
 
     element-text {
@@ -69,7 +69,7 @@
     //------------------------------------------------
 
     entry {
-	    text-color: #${base05};
+	    text-color: #${config.colorScheme.colors.base05};
 	    padding: 10 10 0 0;
 	    margin: 0 -2 0 0;
     }
@@ -81,7 +81,7 @@
     } 
 
     prompt {
-	    text-color: #${base0D};
+	    text-color: #${config.colorScheme.colors.base0D};
 	    padding: 10 6 0 10;
 	    margin: 0 -2 0 0;
     }
