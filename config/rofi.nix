@@ -5,7 +5,7 @@
     @theme "/dev/null"
 
     * {
-        bg: #181E27;
+        bg: #${base00};
         background-color: @bg;
     }
 
@@ -21,7 +21,8 @@
 	    width: 35%;
 	    transparency: "real";
 	    orientation: vertical;
-	    border-color: #74adc0;
+	    border-color: #${base0B};
+        border-radius: 5px;
     }
 
     mainbox {
@@ -34,11 +35,12 @@
 
     element {
 	    padding: 4 12;
-	    text-color: #EFE7DD;
+	    text-color: #${base05};
     }
 
     element selected {
-	    background-color: #74adc0;
+	    text-color: #${base01};
+	    background-color: #${base0B};
     }
 
     element-text {
@@ -67,7 +69,7 @@
     //------------------------------------------------
 
     entry {
-	    text-color: #EFE7DD;
+	    text-color: #${base05};
 	    padding: 10 10 0 0;
 	    margin: 0 -2 0 0;
     }
@@ -79,7 +81,7 @@
     } 
 
     prompt {
-	    text-color: #aaffaa;
+	    text-color: #${base0D};
 	    padding: 10 6 0 10;
 	    margin: 0 -2 0 0;
     }
