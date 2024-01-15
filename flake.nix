@@ -18,6 +18,7 @@
     gitEmail = "tylerzanekelley@gmail.com";
     theLocale = "en_US.UTF-8";
     theTimezone = "America/Chicago";
+    theme = "tokyo-night-storm";
     pkgs = import nixpkgs {
       inherit system;
       config = {
@@ -34,7 +35,7 @@
 	    modules = [ ./laptop/configuration.nix
           home-manager.nixosModules.home-manager {
 	        home-manager.extraSpecialArgs = { inherit username;
-                inherit gitUsername; inherit gitEmail;
+                inherit gitUsername; inherit gitEmail; inherit theme;
                 inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
 	        home-manager.useGlobalPkgs = true;
@@ -51,7 +52,7 @@
 	    modules = [ ./workstation/configuration.nix
           home-manager.nixosModules.home-manager {
 	        home-manager.extraSpecialArgs = { inherit username; 
-                inherit gitUsername; inherit gitEmail; inherit inputs;
+                inherit gitUsername; inherit gitEmail; inherit inputs; inherit theme;
                 inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
 	        home-manager.useGlobalPkgs = true;

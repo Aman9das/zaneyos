@@ -36,7 +36,7 @@
     element {
 	    padding: 4 12;
 	    text-color: #${config.colorScheme.colors.base05};
-        border-radius: 10px;
+        border-radius: 5px;
     }
 
     element selected {

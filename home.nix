@@ -1,5 +1,6 @@
 { config, pkgs, inputs, username,
-  gitUsername, gitEmail, gtkThemeFromScheme, ... }:
+  gitUsername, gitEmail, gtkThemeFromScheme,
+  theme, ... }:
 
 {
   # Home Manager Settings
@@ -8,7 +9,7 @@
   home.stateVersion = "23.11";
 
   # Set The Colorscheme
-  colorScheme = inputs.nix-colors.colorSchemes.rose-pine-moon;
+  colorScheme = inputs.nix-colors.colorSchemes."${theme}";
 
   imports = [
     inputs.nix-colors.homeManagerModules.default
