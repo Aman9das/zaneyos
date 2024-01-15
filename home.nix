@@ -13,6 +13,7 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ./config/waybar.nix
+    ./config/swaync.nix
     ./config/neofetch.nix
     ./config/hyprland.nix
     ./config/kitty.nix
