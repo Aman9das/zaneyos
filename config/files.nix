@@ -13,8 +13,4 @@
     source = ./files/fonts;
     recursive = true;
   };
-  home.file.".config/swaync" = {
-    source = ./swaync;
-    recursive = true;
-  };
 }
