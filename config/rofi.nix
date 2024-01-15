@@ -22,7 +22,7 @@
 	    transparency: "real";
 	    orientation: vertical;
 	    border-color: #${config.colorScheme.colors.base0B};
-        border-radius: 5px;
+        border-radius: 10px;
     }
 
     mainbox {
@@ -36,6 +36,7 @@
     element {
 	    padding: 4 12;
 	    text-color: #${config.colorScheme.colors.base05};
+        border-radius: 10px;
     }
 
     element selected {
