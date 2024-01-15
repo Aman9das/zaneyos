@@ -11,8 +11,9 @@
 
   outputs = inputs@{ nixpkgs, home-manager, ... }:
   let
-    # User Variables
     system = "x86_64-linux";
+
+    # User Variables
     hostname = "hyprnix";
     username = "zaney";
     gitUsername = "Tyler Kelley";
@@ -20,6 +21,7 @@
     theLocale = "en_US.UTF-8";
     theTimezone = "America/Chicago";
     theme = "tokyo-night-storm";
+
     pkgs = import nixpkgs {
       inherit system;
       config = {
