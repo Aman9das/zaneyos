@@ -1,4 +1,5 @@
-{ config, pkgs, inputs, username, gitUsername, gitEmail, ... }:
+{ config, pkgs, inputs, username,
+  gitUsername, gitEmail, gtkThemeFromScheme, ... }:
 
 {
   # Home Manager Settings
@@ -12,6 +13,7 @@
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ./config/waybar.nix
+    ./config/neofetch.nix
     ./config/hyprland.nix
     ./config/kitty.nix
     ./config/vimcolors.nix
@@ -20,7 +22,6 @@
   # Place Files Inside Home Directory
   home.file.".config/zaney-stinger.mov".source = ./media/zaney-stinger.mov;
   home.file.".config/pipewire/pipewire.conf".source = ./config/pipewire/pipewire.conf;
-  home.file.".config/neofetch/config.conf".source = ./config/neofetch/config.conf;
   home.file.".vimrc".source = ./config/vimrc;
   home.file.".emoji".source = ./config/emoji;
   home.file.".face".source = ./config/face.jpg;
@@ -94,8 +95,8 @@
       package = pkgs.ubuntu_font_family;
     };
     theme = {
-      name = "Tokyonight-Storm-BL";
-      package = pkgs.tokyo-night-gtk;
+      name = "${config.colorScheme.slug}";
+      package = gtkThemeFromScheme {scheme = config.colorScheme;};
     };
     iconTheme = {
       name = "Papirus-Dark";

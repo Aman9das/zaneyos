@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 {
-    home.file.".config/hyprland".text = ''
+    home.file.".config/hypr/hyprland.conf".text = ''
 
 # monitor=[monitor-name],[resolution@framerate],[pos-x,y],[scale factor],transform,[rotation]
 # Rotation Degrees Shorthand
@@ -165,8 +165,8 @@ general {
     gaps_in = 4
     gaps_out = 8
     border_size = 3
-    col.active_border = rgba(${base0C}ff) rgba(${base0D}ff) 45deg
-    col.inactive_border = rgba(${base00}cc) rgba(${base01}cc) 45deg
+    col.active_border = rgba(${config.colorScheme.colors.base0C}ff) rgba(${config.colorScheme.colors.base0D}ff) 45deg
+    col.inactive_border = rgba(${config.colorScheme.colors.base00}cc) rgba(${config.colorScheme.colors.base01}cc) 45deg
     layout = dwindle
     resize_on_border = true
 }
