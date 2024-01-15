@@ -11,6 +11,7 @@
 
   outputs = inputs@{ nixpkgs, home-manager, ... }:
   let
+    # User Variables
     system = "x86_64-linux";
     hostname = "hyprnix";
     username = "zaney";
