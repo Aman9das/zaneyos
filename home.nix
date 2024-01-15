@@ -35,6 +35,21 @@
     userEmail = "${gitEmail}";
   };
 
+  # Starship Prompt
+  programs.starship = {
+    enable = true;
+    package = pkgs.starship;
+    settings = {
+        add_newline = true;
+        character = {
+            success_symbol = '[➜](bold green)';
+        };
+        package = {
+            disabled = false;
+        };
+    };
+  };
+
   # Install Packages For The User
   home.packages = with pkgs; [
     neofetch lolcat cmatrix discord firefox btop libvirt
