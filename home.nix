@@ -16,30 +16,10 @@
     ./config/neofetch.nix
     ./config/hyprland.nix
     ./config/kitty.nix
+    ./config/rofi.nix
     ./config/vim.nix
+    ./config/files.nix
   ];
-
-  # Place Files Inside Home Directory
-  home.file.".config/zaney-stinger.mov".source = ./media/zaney-stinger.mov;
-  home.file.".config/pipewire/pipewire.conf".source = ./config/pipewire/pipewire.conf;
-  home.file.".emoji".source = ./config/emoji;
-  home.file.".face".source = ./config/face.jpg;
-  home.file."Pictures/Wallpapers" = {
-    source = ./media/Wallpapers;
-    recursive = true;
-  };
-  home.file.".local/share/fonts" = {
-    source = ./fonts;
-    recursive = true;
-  };
-  home.file.".config/rofi" = {
-    source = ./config/rofi;
-    recursive = true;
-  };
-  home.file.".config/swaync" = {
-    source = ./config/swaync;
-    recursive = true;
-  };
 
   # Define Settings For Xresources
   xresources.properties = {
