@@ -1,7 +1,7 @@
 { pkgs }:
 
 pkgs.writeShellScriptBin "wallsetter" ''
-TIMEOUT=5
+TIMEOUT=120
 OSRELEASE=$(cat /etc/os-release | grep nixos | shuf -n 1)
 FILETYPE="l"
 TRANSITION1="--transition-type wave --transition-angle 120 --transition-step 30"

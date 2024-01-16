@@ -67,6 +67,7 @@ exec-once = hyprctl setcursor Bibata-Modern-Ice 24
 exec-once = swww init
 exec-once = waybar
 exec-once = swaync
+# exec-once = wallsetter
 exec-once = swayidle -w timeout 150 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
 
 $mainMod = SUPER
