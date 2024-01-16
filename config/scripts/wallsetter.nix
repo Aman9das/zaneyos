@@ -10,7 +10,7 @@ TRANSITION3="--transition-type center --transition-step 30"
 TRANSITION4="--transition-type outer --transition-pos 0.3,0.8 --transition-step 30"
 TRANSITION5="--transition-type wipe --transition-angle 270 --transition-step 30"
 
-[[ ! -z "$testvar" ]] && $FILETYPE="l" || $FILETYPE="f"
+[[ ! -z "$testvar" ]] && FILETYPE="l" || FILETYPE="f"
 WALLPAPER=$(find $HOME/Pictures/Wallpapers -type $FILETYPE | shuf -n 1)
 PREVIOUS=$WALLPAPER
 
