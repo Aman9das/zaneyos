@@ -1,7 +1,7 @@
 { pkgs }:
 
 pkgs.writeShellScriptBin "wallsetter" ''
-WALLPAPER=$(find $HOME/Pictures/Wallpapers -type f | shuf -n 1)
+WALLPAPER=$(find $HOME/Pictures/Wallpapers -type l | shuf -n 1)
 PREVIOUS=$WALLPAPER
 TRANSITION1="--transition-type wave --transition-angle 120 --transition-step 30"
 TRANSITION2="--transition-type wipe --transition-angle 30 --transition-step 30"
@@ -13,7 +13,7 @@ while true;
 do
     if [ $WALLPAPER == $PREVIOUS ]
     then
-        WALLPAPER=$(find $HOME/Pictures/Wallpapers -type f | shuf -n 1)
+        WALLPAPER=$(find $HOME/Pictures/Wallpapers -type l | shuf -n 1)
     else
         PREVIOUS=$WALLPAPER
         NUM=$(shuf -i 1-5 -n 1)

@@ -20,7 +20,7 @@
     gitEmail = "tylerzanekelley@gmail.com";
     theLocale = "en_US.UTF-8";
     theTimezone = "America/Chicago";
-    theme = "tokyo-night-storm";
+    theme = "gigavolt";
 
     pkgs = import nixpkgs {
       inherit system;
