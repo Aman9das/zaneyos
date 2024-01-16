@@ -54,14 +54,14 @@
 
   # Install Packages For The User
   home.packages = with pkgs; [
-    neofetch lolcat cmatrix discord firefox btop libvirt
+    neofetch lolcat cmatrix discord firefox htop btop libvirt
     swww polkit_gnome grim slurp lm_sensors unzip unrar gnome.file-roller
     libnotify swaynotificationcenter rofi-wayland imv v4l-utils
     ydotool wl-clipboard socat cowsay lsd pkg-config transmission-gtk mpv
     gimp obs-studio blender kdenlive meson hugo gnumake ninja go
     nodejs godot_4 rustup pavucontrol audacity zeroad xonotic
     openra font-awesome symbola noto-fonts-color-emoji material-icons
-    spotify swaylock-effects swayidle
+    spotify brightnessctl swayidle
     # Import Scripts
     (import ./config/scripts/emopicker9000.nix { inherit pkgs; })
     (import ./config/scripts/task-waybar.nix { inherit pkgs; })
@@ -77,12 +77,6 @@
     name = "Bibata-Modern-Ice";
     size = 24;
   };
-
-  # Enable & Configure QT
-  qt.enable = true;
-  qt.platformTheme = "gtk";
-  qt.style.name = "adwaita-dark";
-  qt.style.package = pkgs.adwaita-qt;
 
   # Theme GTK
   gtk = {

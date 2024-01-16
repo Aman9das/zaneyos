@@ -56,7 +56,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim wget curl
+    vim wget curl libsForQt5.qtstyleplugin-kvantum libsForQt5.qt5ct
   ];
 
   fonts.packages = with pkgs; [
@@ -75,6 +75,15 @@
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+  };
+
+  nixpkgs.config.qt5 = {
+    enable = true;
+    platformTheme = "qt5ct"; 
+    style = {
+      package = pkgs.utterly-nord-plasma;
+      name = "Utterly Nord Plasma";
+    };
   };
 
   programs.hyprland = {
