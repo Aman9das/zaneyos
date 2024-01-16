@@ -60,7 +60,7 @@
     gimp obs-studio blender kdenlive meson hugo gnumake ninja go
     nodejs godot_4 rustup pavucontrol audacity zeroad xonotic
     openra font-awesome symbola noto-fonts-color-emoji material-icons
-    spotify
+    spotify brightnessctl
     # Import Scripts
     (import ./config/scripts/emopicker9000.nix { inherit pkgs; })
     (import ./config/scripts/task-waybar.nix { inherit pkgs; })
