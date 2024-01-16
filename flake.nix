@@ -21,6 +21,7 @@
     theLocale = "en_US.UTF-8";
     theTimezone = "America/Chicago";
     theme = "gigavolt";
+    browser= pkgs.firefox;
 
     pkgs = import nixpkgs {
       inherit system;
@@ -39,6 +40,7 @@
           home-manager.nixosModules.home-manager {
 	        home-manager.extraSpecialArgs = { inherit username;
                 inherit gitUsername; inherit gitEmail; inherit theme;
+                inherit browser;
                 inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
 	        home-manager.useGlobalPkgs = true;
@@ -56,6 +58,7 @@
           home-manager.nixosModules.home-manager {
 	        home-manager.extraSpecialArgs = { inherit username; 
                 inherit gitUsername; inherit gitEmail; inherit inputs; inherit theme;
+                inherit browser;
                 inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
 	        home-manager.useGlobalPkgs = true;

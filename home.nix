@@ -1,6 +1,6 @@
 { config, pkgs, inputs, username,
   gitUsername, gitEmail, gtkThemeFromScheme,
-  theme, ... }:
+  theme, browser, ... }:
 
 {
   # Home Manager Settings
@@ -54,7 +54,7 @@
 
   # Install Packages For The User
   home.packages = with pkgs; [
-    neofetch lolcat cmatrix discord firefox htop btop libvirt
+    "${browser}" neofetch lolcat cmatrix discord htop btop libvirt
     swww polkit_gnome grim slurp lm_sensors unzip unrar gnome.file-roller
     libnotify swaynotificationcenter rofi-wayland imv v4l-utils
     ydotool wl-clipboard socat cowsay lsd pkg-config transmission-gtk mpv
