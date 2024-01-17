@@ -10,7 +10,7 @@ pkgs.writeShellScriptBin "theme-selector" ''
     if [ -n "$1" ]; then
 	    themechange "$chosen"
     else
-	    ${pkgs.libnotify}/bin/notify-send "'$chosen' theme is building this will take a second" &
+	    ${pkgs.libnotify}/bin/notify-send "$chosen is building please wait" &
 	    themechange "$chosen"
     fi
 ''

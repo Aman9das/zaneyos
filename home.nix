@@ -150,6 +150,7 @@
       sv="sudo vim";
       flake-rebuild="sudo nixos-rebuild switch --flake ~/zaneyos/#workstation";
       laptop-rebuild="sudo nixos-rebuild switch --flake ~/zaneyos/#laptop";
+      gcCleanup="nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       v="vim";
       ls="lsd";
       ll="lsd -l";

@@ -11,7 +11,7 @@
 
       modules-left = [ "hyprland/window" ];
       modules-center = [ "network" "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock" ];
-      modules-right = [ "custom/notification" "tray" ];
+      modules-right = [ "custom/themeselector" "custom/notification" "tray" ];
       "hyprland/workspaces" = {
       	format = "{icon}";
       	format-icons = {
@@ -71,6 +71,11 @@
           default = ["" "" ""];
         };
         on-click = "pavucontrol";
+      };
+      "custom/themeselector" = {
+        tooltip = false;
+        format = "";
+        on-click = "theme-selector";
       };
       "custom/notification" = {
         tooltip = false;
@@ -227,6 +232,13 @@
     		margin: 5px;
     		padding: 2px 20px;
 	}
+    #custom-themeselector {
+    		color: #${config.colorScheme.colors.base0D};
+    		background: transparent;
+    		border-radius: 5px;
+    		margin: 5px;
+    		padding: 2px 2px;
+    }
     '';
   };
 }
