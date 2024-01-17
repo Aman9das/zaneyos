@@ -1,6 +1,7 @@
 { config, pkgs, inputs, username,
   gitUsername, gitEmail, gtkThemeFromScheme,
-  theme, browser, wallpaperDir, wallpaperGit, ... }:
+  theme, browser, wallpaperDir, wallpaperGit,
+  flakeDir, ... }:
 
 {
   # Home Manager Settings
@@ -68,6 +69,7 @@
     (import ./config/scripts/task-waybar.nix { inherit pkgs; })
     (import ./config/scripts/squirtle.nix { inherit pkgs; })
     (import ./config/scripts/wallsetter.nix { inherit pkgs; inherit wallpaperDir; })
+    (import ./config/scripts/themechange.nix { inherit pkgs; inherit flakeDir; })
   ];
 
 

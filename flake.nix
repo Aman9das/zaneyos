@@ -22,8 +22,9 @@
     theTimezone = "America/Chicago";
     theme = "tokyo-night-storm";
     browser = "firefox";
-    wallpaperDir = "/home/${username}/Pictures/Wallpapers";
     wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
+    wallpaperDir = "/home/${username}/Pictures/Wallpapers";
+    flakeDir = "/home/zaney/zaneyos";
 
     pkgs = import nixpkgs {
       inherit system;
@@ -61,7 +62,7 @@
           home-manager.nixosModules.home-manager {
 	        home-manager.extraSpecialArgs = { inherit username; 
                 inherit gitUsername; inherit gitEmail; inherit inputs; inherit theme;
-                inherit browser; inherit wallpaperDir; inherit wallpaperGit;
+                inherit browser; inherit wallpaperDir; inherit wallpaperGit; inherit flakeDir;
                 inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
 	        home-manager.useGlobalPkgs = true;
