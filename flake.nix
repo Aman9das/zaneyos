@@ -22,7 +22,7 @@
     theTimezone = "America/Chicago";
     theme = "tokyo-night-storm";
     browser = "firefox";
-    wallpaperDir = "home/${username}/Pictures/Wallpapers";
+    wallpaperDir = "/home/${username}/Pictures/Wallpapers";
     wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
 
     pkgs = import nixpkgs {
