@@ -1,34 +1,30 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { inputs, config, pkgs, username,
   hostname, gitUsername, theLocale,
-  theTimezone, ... }:
+  theTimezone, wallpaperDir, wallpaperGit, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ # Include the results of the hardware scan
       ./hardware-configuration.nix
     ];
 
-  # Bootloader.
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # This is for OBS Virtual Cam Support - v4l2loopback setup
   boot.kernelModules = [ "v4l2loopback" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
-  networking.hostName = "${hostname}"; # Define your hostname.
-
   # Enable networking
+  networking.hostName = "${hostname}"; # Define your hostname
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
+  # Set your time zone
   time.timeZone = "${theTimezone}";
 
-  # Select internationalisation properties.
+  # Select internationalisation properties
   i18n.defaultLocale = "${theLocale}";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "${theLocale}";
     LC_IDENTIFICATION = "${theLocale}";
@@ -41,7 +37,7 @@
     LC_TIME = "${theLocale}";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account.
   users.users."${username}" = {
     homeMode = "755";
     isNormalUser = true;
@@ -56,7 +52,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim wget curl libsForQt5.qtstyleplugin-kvantum libsForQt5.qt5ct
+    vim wget curl
   ];
 
   fonts.packages = with pkgs; [
@@ -77,18 +73,19 @@
     driSupport32Bit = true;
   };
 
-  nixpkgs.config.qt5 = {
-    enable = true;
-    platformTheme = "qt5ct"; 
-    style = {
-      package = pkgs.utterly-nord-plasma;
-      name = "Utterly Nord Plasma";
-    };
-  };
-
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
+
+  system.activationScripts = {
+    installwallpapers.text = ''
+        if [ -d "${wallpaperDir}" ]; then
+            cd "${wallpaperDir}" && ${pkgs.git}/bin/git pull
+        else
+            ${pkgs.git}/bin/git clone "${wallpaperGit}" "${wallpaperDir}"
+        fi
+    '';
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -127,7 +124,7 @@
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
-  system.stateVersion = "23.11";
+  # Optimization settings and garbage collection automation
   nix = {
     settings.auto-optimise-store = true;
     gc = {
@@ -137,29 +134,6 @@
     };
   };
 
-  # Set Environment Variables
-  environment.variables={
-   NIXOS_OZONE_WL = "1";
-   PATH = [
-     "\${HOME}/.local/bin"
-     "\${HOME}/.cargo/bin"
-     "\$/usr/local/bin"
-   ];
-   NIXPKGS_ALLOW_UNFREE = "1";
-   SCRIPTDIR = "\${HOME}/.local/share/scriptdeps";
-   XDG_CURRENT_DESKTOP = "Hyprland";
-   XDG_SESSION_TYPE = "wayland";
-   XDG_SESSION_DESKTOP = "Hyprland";
-   GDK_BACKEND = "wayland";
-   CLUTTER_BACKEND = "wayland";
-   SDL_VIDEODRIVER = "x11";
-   XCURSOR_SIZE = "24";
-   XCURSOR_THEME = "Bibata-Modern-Ice";
-   QT_QPA_PLATFORM = "wayland";
-   QT_QPA_PLATFORMTHEME = "qt5ct";
-   QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-   QT_AUTO_SCREEN_SCALE_FACTOR = "1";
-   MOZ_ENABLE_WAYLAND = "1";
-  };
+  system.stateVersion = "23.11";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

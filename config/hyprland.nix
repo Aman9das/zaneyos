@@ -61,13 +61,29 @@ animations {
     animation = workspaces, 1, 5, wind
 }
 
+# Set Environment Variables
+env = NIXOS_OZONE_WL, 1
+env = NIXPKGS_ALLOW_UNFREE, 1
+env = XDG_CURRENT_DESKTOP, Hyprland
+env = XDG_SESSION_TYPE, wayland
+env = XDG_SESSION_DESKTOP, Hyprland
+env = GDK_BACKEND, wayland
+env = CLUTTER_BACKEND, wayland
+env = SDL_VIDEODRIVER, x11
+env = XCURSOR_SIZE, 24
+env = XCURSOR_THEME, Bibata-Modern-Ice
+env = QT_QPA_PLATFORM, wayland
+env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
+env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
+env = MOZ_ENABLE_WAYLAND, 1
+
 exec-once = dbus-update-activation-environment --systemd --all
 exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once = hyprctl setcursor Bibata-Modern-Ice 24
 exec-once = swww init
 exec-once = waybar
 exec-once = swaync
-# exec-once = wallsetter
+exec-once = wallsetter
 exec-once = swayidle -w timeout 150 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
 
 $mainMod = SUPER

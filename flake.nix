@@ -20,8 +20,10 @@
     gitEmail = "tylerzanekelley@gmail.com";
     theLocale = "en_US.UTF-8";
     theTimezone = "America/Chicago";
-    theme = "gigavolt";
-    browser= pkgs.firefox;
+    theme = "tokyo-night-storm";
+    browser = "firefox";
+    wallpaperDir = "home/${username}/Pictures/Wallpapers";
+    wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
 
     pkgs = import nixpkgs {
       inherit system;
@@ -53,12 +55,13 @@
 	    specialArgs = { inherit system; inherit inputs; 
             inherit username; inherit hostname; inherit gitUsername;
             inherit gitEmail; inherit theLocale; inherit theTimezone;
+            inherit wallpaperDir; inherit wallpaperGit;
         };
 	    modules = [ ./workstation/configuration.nix
           home-manager.nixosModules.home-manager {
 	        home-manager.extraSpecialArgs = { inherit username; 
                 inherit gitUsername; inherit gitEmail; inherit inputs; inherit theme;
-                inherit browser;
+                inherit browser; inherit wallpaperDir; inherit wallpaperGit;
                 inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
 	        home-manager.useGlobalPkgs = true;

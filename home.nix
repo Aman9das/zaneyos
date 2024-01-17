@@ -1,6 +1,6 @@
 { config, pkgs, inputs, username,
   gitUsername, gitEmail, gtkThemeFromScheme,
-  theme, browser, ... }:
+  theme, browser, wallpaperDir, wallpaperGit, ... }:
 
 {
   # Home Manager Settings
@@ -11,6 +11,7 @@
   # Set The Colorscheme
   colorScheme = inputs.nix-colors.colorSchemes."${theme}";
 
+  # Import Program Configurations
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ./config/waybar.nix
@@ -54,7 +55,7 @@
 
   # Install Packages For The User
   home.packages = with pkgs; [
-    "${browser}" neofetch lolcat cmatrix discord htop btop libvirt
+    pkgs."${browser}" neofetch lolcat cmatrix discord htop btop libvirt
     swww polkit_gnome grim slurp lm_sensors unzip unrar gnome.file-roller
     libnotify swaynotificationcenter rofi-wayland imv v4l-utils
     ydotool wl-clipboard socat cowsay lsd pkg-config transmission-gtk mpv
@@ -66,8 +67,9 @@
     (import ./config/scripts/emopicker9000.nix { inherit pkgs; })
     (import ./config/scripts/task-waybar.nix { inherit pkgs; })
     (import ./config/scripts/squirtle.nix { inherit pkgs; })
-    (import ./config/scripts/wallsetter.nix { inherit pkgs; })
+    (import ./config/scripts/wallsetter.nix { inherit pkgs; inherit wallpaperDir; })
   ];
+
 
   # Configure Cursor Theme
   home.pointerCursor = {
@@ -109,6 +111,17 @@
       '';
     };
   };
+
+  # Theme QT -> GTK
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+    style = {
+        name = "adwaita-dark";
+        package = pkgs.adwaita-qt;
+    };
+  };
+
 
   # Create XDG Dirs
   xdg = {
