@@ -70,6 +70,7 @@
     (import ./config/scripts/squirtle.nix { inherit pkgs; })
     (import ./config/scripts/wallsetter.nix { inherit pkgs; inherit wallpaperDir; })
     (import ./config/scripts/themechange.nix { inherit pkgs; inherit flakeDir; })
+    (import ./config/scripts/theme-selector.nix { inherit pkgs; })
   ];
 
 
