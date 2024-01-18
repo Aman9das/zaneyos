@@ -6,6 +6,6 @@ pkgs.writeShellScriptBin "themechange" ''
     else
         replacement="$1"
         sed -i "/^\s*theme[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$replacement\"/" ${flakeDir}/flake.nix
-        kitty -e sudo nixos-rebuild switch --flake ${flakeDir}#workstation && swaync-client -R && swaync-client -rs
+        kitty -e sudo nixos-rebuild switch --flake ${flakeDir} && swaync-client -R && swaync-client -rs
     fi
 ''

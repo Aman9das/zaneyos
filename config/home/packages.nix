@@ -13,11 +13,11 @@
     spotify brightnessctl swayidle vim wget curl neovide neovim
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
-    (import ./config/scripts/emopicker9000.nix { inherit pkgs; })
-    (import ./config/scripts/task-waybar.nix { inherit pkgs; })
-    (import ./config/scripts/squirtle.nix { inherit pkgs; })
-    (import ./config/scripts/wallsetter.nix { inherit pkgs; inherit wallpaperDir; })
-    (import ./config/scripts/themechange.nix { inherit pkgs; inherit flakeDir; })
-    (import ./config/scripts/theme-selector.nix { inherit pkgs; })
+    (import ./../scripts/emopicker9000.nix { inherit pkgs; })
+    (import ./../scripts/task-waybar.nix { inherit pkgs; })
+    (import ./../scripts/squirtle.nix { inherit pkgs; })
+    (import ./../scripts/wallsetter.nix { inherit pkgs; inherit wallpaperDir; })
+    (import ./../scripts/themechange.nix { inherit pkgs; inherit flakeDir; })
+    (import ./../scripts/theme-selector.nix { inherit pkgs; })
   ];
 }
