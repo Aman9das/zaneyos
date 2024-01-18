@@ -40,15 +40,15 @@ I have gone through a lot of effort of making my configuration something that is
 
 ## Explaining My Flake
 
-My Flake controls where we are getting things from, allows me to define variables for you to set your information for configurations, as well as lets us choose which configuration we want. 
+My Flake controls where we are getting things from, allows me to define variables, as well as lets us choose which configuration (profile) we want. 
 
-When you choose which configuration you want it just sources the configuration.nix and hardware-configuration.nix from the corresponding workstation, laptop, etc folders from the git repo. The hardware-configuration.nix is automatically generated with all the things you need and the configuration.nix mainly just has services, Steam, and other system level stuff. 
+When you run the rebuild switch command from below it just sources the flake.nix that then sources default.nix and home.nix from the git repo. The hardware.nix is automatically generated with all the things you need and the default.nix imports other nix files containing certain aspects of the config that might change based on a profile. You'll notice some of these files have a Nix conditional statement so those settings only get used if that profile is selected. Additional profiles are being added and worked on, but you can always create another for your setup.
 
 ### How The Config Files Work
 
-I am using home manager and as of now all configurations use the same home.nix configuration file. That is where all of the main configuration for stuff is. 
+I am using home manager and as of now all configurations use the same home.nix configuration file. That is where all of the main configuration for stuff is.
 
-All of the configuration files that we need in the home filesystem for our programs are stored in the folder config. You might have noticed something quite different about all of them... They are in a .nix format. These files are imported by home.nix. 
+All of the configuration files that we have being imported in the home.nix are stored in the folder config/home. You might have noticed something quite different about all of them... They are in a .nix format. These files are imported by home.nix. 
 
 ### This Makes Theming Incredible
 
@@ -74,18 +74,19 @@ This file should be located at /etc/nixos/configuration.nix
 - Clone this repo.
 - Then go into repo folder (stay in this folder)
 - Change username, hostname, theme, and any other variables you may want under user information in flake.nix
-- Replace your hardware-configuration.nix with the one inside the workstation or laptop folders like so:
+- Ensure you have selected the proper profile in the flake as well. I use amd-desktop.
+- Generate your hardware.nix like so:
 
 ```
-nixos-generate-config --show-hardware-config > workstation/hardware-configuration.nix
+nixos-generate-config --show-hardware-config > hardware.nix
 ```
 
 - Run this command:
 
 ```
-sudo nixos-rebuild switch --flake .#workstation
+sudo nixos-rebuild switch --flake .
 ```
 
-Replace #workstation with #laptop to switch to my Intel Whitebook laptop's configuration. *My laptop's configuration is well behind my workstation as I do not use it as often. For what you see in videos look at using the workstation one.*
+Now when you want to rebuild the configuration you have access to an alias called flake-rebuild that will rebuild the flake based of the flakeDir variable you set in flake.nix!
 
 Hope you enjoy!
