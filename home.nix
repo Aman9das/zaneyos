@@ -63,7 +63,7 @@
     gimp obs-studio blender kdenlive meson hugo gnumake ninja go
     nodejs godot_4 rustup pavucontrol audacity zeroad xonotic
     openra font-awesome symbola noto-fonts-color-emoji material-icons
-    spotify brightnessctl swayidle vim wget curl
+    spotify brightnessctl swayidle vim wget curl neovide neovim
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
     (import ./config/scripts/emopicker9000.nix { inherit pkgs; })
@@ -131,13 +131,6 @@
     userDirs = {
         enable = true;
         createDirectories = true;
-    };
-    portals = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-hyprland
-        xdg-desktop-portal-gtk
-      ];
     };
   };
 
