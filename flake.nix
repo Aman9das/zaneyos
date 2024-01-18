@@ -20,50 +20,41 @@
     gitEmail = "tylerzanekelley@gmail.com";
     theLocale = "en_US.UTF-8";
     theTimezone = "America/Chicago";
-    theme = "grayscale-light";
+    theme = "tokyo-night-storm";
     browser = "firefox";
     wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
     wallpaperDir = "/home/${username}/Pictures/Wallpapers";
-    flakeDir = "/home/zaney/zaneyos";
+    flakeDir = "/home/${username}/zaneyos";
+    # Configuration option profile
+    # default options amd-desktop, intel-laptop, vm (WIP)
+    deviceProfile = "amd-desktop";
 
     pkgs = import nixpkgs {
       inherit system;
       config = {
-	  allowUnfree = true;
+	    allowUnfree = true;
       };
     };
   in {
     nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
-	    specialArgs = { inherit system; inherit inputs;
-            inherit username; inherit hostname; inherit gitUsername;
-            inherit gitEmail; inherit theLocale; inherit theTimezone;
-            };
-	    modules = [ ./laptop/configuration.nix
-          home-manager.nixosModules.home-manager {
-	        home-manager.extraSpecialArgs = { inherit username;
-                inherit gitUsername; inherit gitEmail; inherit theme;
-                inherit browser;
-                inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
-            };
-	        home-manager.useGlobalPkgs = true;
-	        home-manager.useUserPackages = true;
-	        home-manager.users.${username} = import ./home.nix;
-	      }
-	    ];
-      };
-      workstation = nixpkgs.lib.nixosSystem {
-	    specialArgs = { inherit system; inherit inputs; 
-            inherit username; inherit hostname; inherit gitUsername;
-            inherit gitEmail; inherit theLocale; inherit theTimezone;
-            inherit wallpaperDir; inherit wallpaperGit;
+      "${hostname}" = nixpkgs.lib.nixosSystem {
+	    specialArgs = { 
+          inherit system; inherit inputs; 
+          inherit username; inherit hostname;
+          inherit gitUsername; inherit theTimezone;
+          inherit gitEmail; inherit theLocale;
+          inherit wallpaperDir; inherit wallpaperGit;
+          inherit deviceProfile;
         };
-	    modules = [ ./workstation/configuration.nix
+	    modules = [ ./default.nix
           home-manager.nixosModules.home-manager {
 	        home-manager.extraSpecialArgs = { inherit username; 
-                inherit gitUsername; inherit gitEmail; inherit inputs; inherit theme;
-                inherit browser; inherit wallpaperDir; inherit wallpaperGit; inherit flakeDir;
-                inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
+              inherit gitUsername; inherit gitEmail;
+              inherit inputs; inherit theme;
+              inherit browser; inherit wallpaperDir;
+              inherit wallpaperGit; inherit flakeDir;
+              inherit deviceProfile;
+              inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
 	        home-manager.useGlobalPkgs = true;
 	        home-manager.useUserPackages = true;

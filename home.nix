@@ -15,15 +15,15 @@
   # Import Program Configurations
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ./config/waybar.nix
-    ./config/swaync.nix
-    ./config/swaylock.nix
-    ./config/neofetch.nix
-    ./config/hyprland.nix
-    ./config/kitty.nix
-    ./config/rofi.nix
-    ./config/vim.nix
-    ./config/files.nix
+    ./config/home/waybar.nix
+    ./config/home/swaync.nix
+    ./config/home/swaylock.nix
+    ./config/home/neofetch.nix
+    ./config/home/hyprland.nix
+    ./config/home/kitty.nix
+    ./config/home/rofi.nix
+    ./config/home/vim.nix
+    ./config/home/files.nix
   ];
 
   # Define Settings For Xresources
@@ -63,7 +63,8 @@
     gimp obs-studio blender kdenlive meson hugo gnumake ninja go
     nodejs godot_4 rustup pavucontrol audacity zeroad xonotic
     openra font-awesome symbola noto-fonts-color-emoji material-icons
-    spotify brightnessctl swayidle
+    spotify brightnessctl swayidle wget curl
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
     (import ./config/scripts/emopicker9000.nix { inherit pkgs; })
     (import ./config/scripts/task-waybar.nix { inherit pkgs; })
@@ -125,7 +126,6 @@
     };
   };
 
-
   # Create XDG Dirs
   xdg = {
     userDirs = {
@@ -148,8 +148,8 @@
     };
     shellAliases = {
       sv="sudo vim";
-      flake-rebuild="sudo nixos-rebuild switch --flake ~/zaneyos/#workstation";
-      laptop-rebuild="sudo nixos-rebuild switch --flake ~/zaneyos/#laptop";
+      flake-rebuild="sudo nixos-rebuild switch --flake ${flakeDir}";
+      laptop-rebuild="sudo nixos-rebuild switch --flake ${flakeDir}";
       gcCleanup="nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       v="vim";
       ls="lsd";

@@ -4,17 +4,12 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan
-      ./hardware-configuration.nix
+    [
+      ./hardware.nix
+      ./config/system/boot.nix
+      ./config/system/intel-opengl.nix
+      ./config/system/amd-opengl.nix
     ];
-
-  # Bootloader
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # This is for OBS Virtual Cam Support - v4l2loopback setup
-  boot.kernelModules = [ "v4l2loopback" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
 
   # Enable networking
   networking.hostName = "${hostname}"; # Define your hostname
@@ -49,16 +44,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim wget curl
-  ];
-
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-  ];
-
   # Steam Configuration
   programs.steam = {
     enable = true;
@@ -66,26 +51,9 @@
     dedicatedServer.openFirewall = true;
   };
 
-  # OpenGL
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  };
-
-  system.activationScripts = {
-    installwallpapers.text = ''
-        if [ -d "${wallpaperDir}" ]; then
-            cd "${wallpaperDir}" && ${pkgs.git}/bin/git pull
-        else
-            ${pkgs.git}/bin/git clone "${wallpaperGit}" "${wallpaperDir}"
-        fi
-    '';
   };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -94,6 +62,10 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
+  };
+
+  environment.variables = {
+    POLKIT_BIN = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
   };
 
   # List services that you want to enable:
