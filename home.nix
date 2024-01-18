@@ -21,9 +21,9 @@
     ./config/home/neofetch.nix
     ./config/home/hyprland.nix
     ./config/home/kitty.nix
-    # ./config/home/rofi.nix
+    ./config/home/rofi.nix
     ./config/home/vim.nix
-    # ./config/home/files.nix
+    ./config/home/files.nix
   ];
 
   # Define Settings For Xresources
@@ -63,7 +63,7 @@
     gimp obs-studio blender kdenlive meson hugo gnumake ninja go
     nodejs godot_4 rustup pavucontrol audacity zeroad xonotic
     openra font-awesome symbola noto-fonts-color-emoji material-icons
-    spotify brightnessctl swayidle wget curl
+    spotify brightnessctl swayidle vim wget curl
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
     (import ./config/scripts/emopicker9000.nix { inherit pkgs; })
@@ -131,6 +131,13 @@
     userDirs = {
         enable = true;
         createDirectories = true;
+    };
+    portals = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
+        xdg-desktop-portal-gtk
+      ];
     };
   };
 
