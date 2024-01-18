@@ -10,6 +10,7 @@
       ./config/system/intel-opengl.nix
       ./config/system/amd-opengl.nix
       ./config/system/programs.nix
+      ./config/system/autorun.nix
     ];
 
   # Enable networking
