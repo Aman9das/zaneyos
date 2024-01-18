@@ -21,9 +21,9 @@
     ./config/home/neofetch.nix
     ./config/home/hyprland.nix
     ./config/home/kitty.nix
-    ./config/home/rofi.nix
+    # ./config/home/rofi.nix
     ./config/home/vim.nix
-    ./config/home/files.nix
+    # ./config/home/files.nix
   ];
 
   # Define Settings For Xresources

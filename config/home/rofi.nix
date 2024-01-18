@@ -87,6 +87,4 @@
 	    margin: 0 -2 0 0;
     }
   '';
-
-  home.file.".config/rofi/rofi.jpg".source = ./files/rofi.jpg;
 }

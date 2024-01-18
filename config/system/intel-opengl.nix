@@ -1,6 +1,6 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, deviceProfile, ... }:
 
-libmkIf (${deviceProfile} == "intel-laptop") {
+lib.mkIf ("${deviceProfile}" == "intel-laptop") {
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
