@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, gtkThemeFromScheme, ... }:
 
 {
   # Configure Cursor Theme
