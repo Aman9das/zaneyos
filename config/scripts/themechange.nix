@@ -7,5 +7,7 @@ pkgs.writeShellScriptBin "themechange" ''
         replacement="$1"
         sed -i "/^\s*theme[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$replacement\"/" ${flakeDir}/flake.nix
         sudo nixos-rebuild switch --flake ${flakeDir}
+        ${pkgs.toybox}/bin/pkill swaync
+        ${pkgs.swaynotificationcenter}/bin/swaync &
     fi
 ''

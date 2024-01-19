@@ -2,15 +2,16 @@
   hostname, gitUsername, theLocale,
   theTimezone, wallpaperDir, wallpaperGit, ... }:
 
-{
+let
+    userPrograms = builtins.readFile ./user-programs;
+in {
   imports =
     [
       ./hardware.nix
       ./config/system/boot.nix
       ./config/system/intel-opengl.nix
       ./config/system/amd-opengl.nix
-      ./config/system/programs.nix
-      ./config/system/autorun.nix
+      # ./config/system/autorun.nix
     ];
 
   # Enable networking
@@ -45,6 +46,11 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # List System Programs
+  environment.systemPackages = with pkgs; [
+    (import /dev/stdin { inherit userPrograms;})
+  ];
 
   # Steam Configuration
   programs.steam = {
