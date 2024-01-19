@@ -79,7 +79,6 @@ env = MOZ_ENABLE_WAYLAND, 1
 #env = WLR_NO_HARDWARE_CURSORS,1
 #env = WLR_RENDERER_ALLOW_SOFTWARE,1
 
-exec-once = $POLKIT_BIN
 exec-once = dbus-update-activation-environment --systemd --all
 exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec-once = hyprctl setcursor Bibata-Modern-Ice 24

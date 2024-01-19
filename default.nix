@@ -2,13 +2,12 @@
   hostname, gitUsername, theLocale,
   theTimezone, wallpaperDir, wallpaperGit, ... }:
 
-let
-    userPrograms = builtins.readFile ./user-programs;
-in {
+{
   imports =
     [
       ./hardware.nix
       ./config/system/boot.nix
+      ./config/system/polkit.nix
       ./config/system/intel-opengl.nix
       ./config/system/amd-opengl.nix
       ./config/system/autorun.nix
@@ -77,7 +76,6 @@ in {
   };
 
   environment.variables = {
-    POLKIT_BIN = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
   };
 
   # List services that you want to enable:
