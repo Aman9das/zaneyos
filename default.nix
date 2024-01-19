@@ -11,6 +11,7 @@ in {
       ./config/system/boot.nix
       ./config/system/intel-opengl.nix
       ./config/system/amd-opengl.nix
+      ./config/system/programs.nix { inherit userPrograms; }
       # ./config/system/autorun.nix
     ];
 
@@ -46,11 +47,6 @@ in {
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List System Programs
-  environment.systemPackages = with pkgs; [
-    (import /dev/stdin { inherit userPrograms;})
-  ];
 
   # Steam Configuration
   programs.steam = {
