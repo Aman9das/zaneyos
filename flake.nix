@@ -20,7 +20,7 @@
     gitEmail = "tylerzanekelley@gmail.com";
     theLocale = "en_US.UTF-8";
     theTimezone = "America/Chicago";
-    theme = "gigavolt";
+    theme = "catppuccin-latte";
     browser = "firefox";
     wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
     wallpaperDir = "/home/${username}/Pictures/Wallpapers";
