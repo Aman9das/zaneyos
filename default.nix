@@ -11,8 +11,7 @@ in {
       ./config/system/boot.nix
       ./config/system/intel-opengl.nix
       ./config/system/amd-opengl.nix
-      ./config/system/programs.nix { inherit userPrograms; }
-      # ./config/system/autorun.nix
+      ./config/system/autorun.nix
     ];
 
   # Enable networking
@@ -47,6 +46,15 @@ in {
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # List System Programs
+  environment.systemPackages = with pkgs; [
+    wget curl cmatrix lolcat neofetch htop btop libvirt
+    polkit_gnome lm_sensors unzip unrar libnotify 
+    v4l-utils ydotool wl-clipboard socat cowsay lsd 
+    pkg-config meson hugo gnumake ninja go nodejs symbola
+    noto-fonts-color-emoji material-icons brightnessctl 
+  ];
 
   # Steam Configuration
   programs.steam = {
