@@ -17,5 +17,6 @@
       inherit username; inherit wallpaperGit; })
     (import ./../scripts/themechange.nix { inherit pkgs; inherit flakeDir; })
     (import ./../scripts/theme-selector.nix { inherit pkgs; })
+    (import ./../scripts/swaync-reloader.nix { inherit pkgs; })
   ];
 }
