@@ -75,7 +75,7 @@
       "custom/themeselector" = {
         tooltip = false;
         format = "";
-        on-click = "theme-selector && swaync-reloader";
+        on-click = "theme-selector";
       };
       "custom/notification" = {
         tooltip = false;
