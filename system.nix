@@ -6,7 +6,12 @@
   imports =
     [
       ./hardware.nix
-      ./config/system
+      ./config/system/amd-opengl.nix
+      ./config/system/autorun.nix
+      ./config/system/boot.nix
+      ./config/system/default.nix
+      ./config/system/intel-opengl.nix
+      ./config/system/polkit.nix
     ];
 
   # Enable networking
