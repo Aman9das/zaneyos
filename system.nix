@@ -6,7 +6,7 @@
   imports =
     [
       ./hardware.nix
-      ./config/system
+      ./config/
     ];
 
   # Enable networking
