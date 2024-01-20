@@ -1,5 +1,7 @@
+{ config, pkgs, ... }:
+
 {
-  import = [
+  imports = [
     ./amd-opengl.nix
     ./autorun.nix
     ./boot.nix
