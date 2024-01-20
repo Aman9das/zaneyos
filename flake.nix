@@ -46,7 +46,7 @@
           inherit wallpaperDir; inherit wallpaperGit;
           inherit deviceProfile;
         };
-	    modules = [ ./default.nix
+	    modules = [ ./system.nix
           home-manager.nixosModules.home-manager {
 	        home-manager.extraSpecialArgs = { inherit username; 
               inherit gitUsername; inherit gitEmail;
