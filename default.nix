@@ -48,7 +48,7 @@
 
   # List System Programs
   environment.systemPackages = with pkgs; [
-    wget curl cmatrix lolcat neofetch htop btop libvirt
+    wget curl git cmatrix lolcat neofetch htop btop libvirt
     polkit_gnome lm_sensors unzip unrar libnotify 
     v4l-utils ydotool wl-clipboard socat cowsay lsd 
     pkg-config meson hugo gnumake ninja go nodejs symbola
@@ -66,7 +66,7 @@
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
-
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs.mtr.enable = true;

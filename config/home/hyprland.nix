@@ -1,4 +1,5 @@
-{ pkgs, config, lib, browser, deviceProfile, ... }:
+{ pkgs, config, lib, browser,
+  deviceProfile, wallpaperDir, ... }:
 
 let
   theme = config.colorScheme.colors;
