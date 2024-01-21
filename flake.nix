@@ -20,7 +20,7 @@
     gitEmail = "tylerzanekelley@gmail.com";
     theLocale = "en_US.UTF-8";
     theTimezone = "America/Chicago";
-    theme = "gruvbox-dark-medium";
+    theme = "tokyo-night-storm";
     browser = "firefox";
     wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
     wallpaperDir = "/home/${username}/Pictures/Wallpapers";
