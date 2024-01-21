@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 lib.mkIf ("${deviceProfile}" == "amd-desktop") {
   # Steam Configuration
