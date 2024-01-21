@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, deviceProfile, ... }:
 
 lib.mkIf ("${deviceProfile}" == "intel-laptop") {
   # Steam Configuration
@@ -8,8 +8,7 @@ lib.mkIf ("${deviceProfile}" == "intel-laptop") {
     dedicatedServer.openFirewall = true;
     package = pkgs.steam.override {
       withPrimus = true;
-      withJava = true;
-      extraPkgs = pkgs: [ bumblebee glxinfo ];
+      extraPkgs = pkgs: [ pkgs.bumblebee pkgs.glxinfo ];
     };
   };
 }

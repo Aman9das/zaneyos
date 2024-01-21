@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, deviceProfile, ... }:
 
 lib.mkIf ("${deviceProfile}" == "amd-desktop") {
   # Steam Configuration
@@ -6,6 +6,5 @@ lib.mkIf ("${deviceProfile}" == "amd-desktop") {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    package = pkgs.steam.override { withJava = true; };
   };
 }
