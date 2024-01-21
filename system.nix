@@ -51,17 +51,14 @@
     noto-fonts-color-emoji material-icons brightnessctl 
   ];
 
-  # Steam Configuration
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
+
+  programs.java.enable = true;
+
+  programs.steam.gamescopeSession.enable = true;
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
