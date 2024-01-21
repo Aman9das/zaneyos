@@ -41,7 +41,7 @@ pkgs.writeShellScriptBin "wallsetter" ''
           TRANSITION=$TRANSITION5
         ;;
       esac
-      ${pkgs.swww}/bin/swww img '$WALLPAPER' $TRANSITION
+      ${pkgs.swww}/bin/swww img "$WALLPAPER" $TRANSITION
       sleep $TIMEOUT
     fi
   done
