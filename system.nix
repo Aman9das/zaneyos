@@ -51,11 +51,6 @@
     noto-fonts-color-emoji material-icons brightnessctl 
   ];
 
-  programs.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  };
-
   programs.java.enable = true;
 
   programs.steam.gamescopeSession.enable = true;
