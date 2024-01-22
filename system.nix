@@ -49,10 +49,11 @@
     v4l-utils ydotool wl-clipboard socat cowsay lsd 
     pkg-config meson hugo gnumake ninja go nodejs symbola
     noto-fonts-color-emoji material-icons brightnessctl 
+    gnome.adwaita-icon-theme
   ];
 
   programs.java.enable = true;
-
+  programs.dconf.enable = true;
   programs.steam.gamescopeSession.enable = true;
   
   # Some programs need SUID wrappers, can be configured further or are
@@ -65,6 +66,15 @@
 
   environment.variables = {
     POLKIT_BIN = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+  };
+
+  xdg = {
+    portal = {
+      extraPortals = with pkgs; [
+        xdg-desktop-portal
+        xdg-desktop-portal-hyprland
+      ];
+    };
   };
 
   # Optimization settings and garbage collection automation

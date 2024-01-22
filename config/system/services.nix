@@ -10,10 +10,6 @@
     xkbVariant = "";
     libinput.enable = true;
     videoDrivers = [ "amdgpu" ];
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
   };
   services.pipewire = {
     enable = true;
@@ -31,5 +27,4 @@
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;
-  services.mpris-proxy.enable = true; # enables playback control from Bluetooth headphones
 }
