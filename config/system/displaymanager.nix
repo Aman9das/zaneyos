@@ -1,9 +1,9 @@
-{ pkgs, config, ... }:
+{ pkgs, config, theKBDLayout, ... }:
 
 {
   services.xserver = {
     enable = true;
-    layout = "us";
+    layout = "${theKBDLayout}";
     xkbVariant = "";
     libinput.enable = true;
     displayManager.sddm = {

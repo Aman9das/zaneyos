@@ -18,6 +18,8 @@
     gitUsername = "Tyler Kelley";
     gitEmail = "tylerzanekelley@gmail.com";
     theLocale = "en_US.UTF-8";
+    theKBDLayout = "us";
+    theLCVariables = "en_US.UTF-8";
     theTimezone = "America/Chicago";
     theme = "tokyo-night-storm";
     browser = "firefox";
@@ -43,7 +45,8 @@
           inherit gitUsername; inherit theTimezone;
           inherit gitEmail; inherit theLocale;
           inherit wallpaperDir; inherit wallpaperGit;
-          inherit deviceProfile;
+          inherit deviceProfile; inherit theKBDLayout;
+          inherit theLCVariables;
         };
 	    modules = [ ./system.nix
           home-manager.nixosModules.home-manager {

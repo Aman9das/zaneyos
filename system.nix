@@ -1,6 +1,7 @@
 { inputs, config, pkgs, username,
   hostname, gitUsername, theLocale,
-  theTimezone, wallpaperDir, wallpaperGit, ... }:
+  theTimezone, wallpaperDir, wallpaperGit, 
+  theLCVariables, theKBDLayout, ... }:
 
 {
   imports =
@@ -19,15 +20,15 @@
   # Select internationalisation properties
   i18n.defaultLocale = "${theLocale}";
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "${theLocale}";
-    LC_IDENTIFICATION = "${theLocale}";
-    LC_MEASUREMENT = "${theLocale}";
-    LC_MONETARY = "${theLocale}";
-    LC_NAME = "${theLocale}";
-    LC_NUMERIC = "${theLocale}";
-    LC_PAPER = "${theLocale}";
-    LC_TELEPHONE = "${theLocale}";
-    LC_TIME = "${theLocale}";
+    LC_ADDRESS = "${theLCVariables}";
+    LC_IDENTIFICATION = "${theLCVariables}";
+    LC_MEASUREMENT = "${theLCVariables}";
+    LC_MONETARY = "${theLCVariables}";
+    LC_NAME = "${theLCVariables}";
+    LC_NUMERIC = "${theLCVariables}";
+    LC_PAPER = "${theLCVariables}";
+    LC_TELEPHONE = "${theLCVariables}";
+    LC_TIME = "${theLCVariables}";
   };
 
   # Define a user account.
