@@ -4,12 +4,16 @@
   # List services that you want to enable:
   services.openssh.enable = true;
   services.fstrim.enable = true;
-  services.xserver = {
+  xdg.portal = {
     enable = true;
-    layout = "us";
-    xkbVariant = "";
-    libinput.enable = true;
-    videoDrivers = [ "amdgpu" ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal
+    ];
+    configPackages = [ pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal
+    ];
   };
   services.pipewire = {
     enable = true;

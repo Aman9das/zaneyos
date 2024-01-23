@@ -7,7 +7,7 @@
     pkgs."${browser}" discord libvirt swww grim slurp gnome.file-roller
     swaynotificationcenter rofi-wayland imv transmission-gtk mpv
     gimp obs-studio blender kdenlive godot_4 rustup pavucontrol audacity
-    zeroad xonotic openra font-awesome spotify swayidle vim neovide neovim
+    font-awesome spotify swayidle vim neovide neovim
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })

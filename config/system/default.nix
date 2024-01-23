@@ -6,6 +6,7 @@
     ./amd-steam.nix
     ./autorun.nix
     ./boot.nix
+    ./displaymanager.nix
     ./intel-opengl.nix
     ./intel-steam.nix
     ./polkit.nix
