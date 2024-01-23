@@ -56,7 +56,7 @@
   programs.dconf.enable = true;
   programs.hyprland = {
     enable = true;
-    xwayland.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
   
   # Some programs need SUID wrappers, can be configured further or are

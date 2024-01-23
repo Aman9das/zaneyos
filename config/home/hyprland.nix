@@ -1,13 +1,18 @@
 { pkgs, config, lib, browser,
-  deviceProfile, wallpaperDir, ... }:
+  deviceProfile, wallpaperDir,
+  inputs, ... }:
 
 let
   theme = config.colorScheme.colors;
+  hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
 in with lib; {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
+    plugins = [
+      hyprplugins.hyprtrails
+    ];
     extraConfig = let
       modifier = "SUPER";
     in concatStrings [ ''
@@ -84,6 +89,11 @@ in with lib; {
             passes = 3
             new_optimizations = on
             ignore_opacity = on
+        }
+      }
+      plugin {
+        hyprtrails {
+          color = rgba(${theme.base0A}ff)
         }
       }
       exec-once = $POLKIT_BIN

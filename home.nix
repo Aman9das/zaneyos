@@ -15,6 +15,7 @@
   # Import Program Configurations
   imports = [
     inputs.nix-colors.homeManagerModules.default
+    inputs.hyprland.homeManagerModules.default
 
     # Enable &/ Configure Programs
     ./config/home/waybar.nix
