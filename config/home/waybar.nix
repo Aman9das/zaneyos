@@ -51,7 +51,7 @@
           activated = "";
           deactivated = "";
         };
-        on-click-right = "swaylock";
+        on-click-right = "trnoffmon";
       };
       "network" = {
         format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
