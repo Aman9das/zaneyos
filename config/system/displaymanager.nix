@@ -10,6 +10,7 @@
       enable = true;
       autoNumlock = true;
       wayland.enable = true;
+      theme = "sugar-dark";
     };
   };
 
