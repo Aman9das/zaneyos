@@ -11,7 +11,7 @@
 
       modules-left = [ "hyprland/window" ];
       modules-center = [ "network" "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock" ];
-      modules-right = [ "custom/themeselector" "custom/notification" "tray" ];
+      modules-right = [ "idle_inhibitor" "custom/themeselector" "custom/notification" "tray" ];
       "hyprland/workspaces" = {
       	format = "{icon}";
       	format-icons = {
@@ -43,6 +43,15 @@
       "disk" = {
         format = "  {free}";
         tooltip = true;
+      };
+      "idle_inhibitor" = { 
+        format = "{icon}";
+        tooltip = true;
+        format-icons = { 
+          activated = "";
+          deactivated = "";
+        };
+        on-click-right = "swaylock";
       };
       "network" = {
         format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
@@ -180,6 +189,13 @@
     		color: #${config.colorScheme.colors.base0B};
     		background: #${config.colorScheme.colors.base00};
     		border-radius: 15px 50px 15px 50px;
+    		margin: 5px;
+    		padding: 2px 20px;
+	}
+	#idle_inhibitor {
+    		color: #${config.colorScheme.colors.base0A};
+    		background: #${config.colorScheme.colors.base00};
+    		border-radius: 50px 15px 50px 15px;
     		margin: 5px;
     		padding: 2px 20px;
 	}
