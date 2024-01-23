@@ -21,7 +21,7 @@
     theKBDLayout = "us";
     theLCVariables = "en_US.UTF-8";
     theTimezone = "America/Chicago";
-    theme = "tokyo-night-storm";
+    theme = "catppuccin-mocha";
     browser = "firefox";
     wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
     wallpaperDir = "/home/${username}/Pictures/Wallpapers";
