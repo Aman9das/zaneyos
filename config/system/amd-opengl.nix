@@ -1,6 +1,6 @@
-{ pkgs, config, lib, deviceProfile, ... }:
+{ pkgs, config, lib, gpuType, ... }:
 
-lib.mkIf ("${deviceProfile}" == "amd-desktop") {
+lib.mkIf ("${gpuType}" == "amd") {
   # OpenGL
   hardware.opengl = {
     enable = true;

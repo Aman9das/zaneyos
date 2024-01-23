@@ -31,9 +31,10 @@
     wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
     wallpaperDir = "/home/${username}/Pictures/Wallpapers";
     flakeDir = "/home/${username}/zaneyos";
-    # Configuration option profile
-    # default options amd-desktop, intel-laptop, vm (WIP)
-    deviceProfile = "amd-desktop";
+    # Driver selection profile
+    # default options amd, intel, nvidia, vm (WIP)
+    cpuType = "amd";
+    gpuType = "amd";
 
     pkgs = import nixpkgs {
       inherit system;
@@ -50,8 +51,8 @@
           inherit gitUsername; inherit theTimezone;
           inherit gitEmail; inherit theLocale;
           inherit wallpaperDir; inherit wallpaperGit;
-          inherit deviceProfile; inherit theKBDLayout;
-          inherit theLCVariables;
+          inherit cpuType; inherit theKBDLayout;
+          inherit theLCVariables; inherit gpuType;
         };
 	    modules = [ ./system.nix
           home-manager.nixosModules.home-manager {
