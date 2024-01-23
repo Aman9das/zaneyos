@@ -11,7 +11,7 @@
 
       modules-left = [ "hyprland/window" ];
       modules-center = [ "network" "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock" ];
-      modules-right = [ "idle_inhibitor" "custom/themeselector" "custom/notification" "tray" ];
+      modules-right = [ "custom/themeselector" "custom/notification" "tray" ];
       "hyprland/workspaces" = {
       	format = "{icon}";
       	format-icons = {
@@ -48,8 +48,8 @@
         format = "{icon}";
         tooltip = true;
         format-icons = { 
-          activated = "";
-          deactivated = "";
+          activated = "";
+          deactivated = "";
         };
         on-click-right = "trnoffmon";
       };

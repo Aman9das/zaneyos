@@ -16,7 +16,7 @@
     (import ./../scripts/wallsetter.nix { inherit pkgs; inherit wallpaperDir;
       inherit username; inherit wallpaperGit; })
     (import ./../scripts/themechange.nix { inherit pkgs; inherit flakeDir; })
-    (import ./../scripts/trnoffmon.nix { inherit pkgs; })
+    (import ./../scripts/idle-switcher.nix { inherit pkgs; })
     (import ./../scripts/theme-selector.nix { inherit pkgs; })
   ];
 }

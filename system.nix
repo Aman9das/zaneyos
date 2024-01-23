@@ -50,6 +50,7 @@
     v4l-utils ydotool wl-clipboard socat cowsay lsd 
     pkg-config meson hugo gnumake ninja go nodejs symbola
     noto-fonts-color-emoji material-icons brightnessctl
+    toybox
   ];
 
   programs.steam.gamescopeSession.enable = true;
