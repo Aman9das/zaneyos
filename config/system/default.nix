@@ -9,6 +9,7 @@
     ./displaymanager.nix
     ./intel-opengl.nix
     ./intel-steam.nix
+    ./packages.nix
     ./polkit.nix
     ./services.nix
   ];
