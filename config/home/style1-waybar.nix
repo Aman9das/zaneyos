@@ -1,6 +1,6 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, waybarStyle, ... }:
 
-{
+lib.mkIf ("${waybarStyle}" == "style1") {
   # Configure & Theme Waybar
   programs.waybar = {
     enable = true;
