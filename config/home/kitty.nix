@@ -18,7 +18,7 @@
       foreground #${config.colorScheme.colors.base05}
       background #${config.colorScheme.colors.base00}
       color0  #${config.colorScheme.colors.base03}
-      color1  #${config.colorScheme.colors.base02}
+      color1  #${config.colorScheme.colors.base08}
       color2  #${config.colorScheme.colors.base0B}
       color3  #${config.colorScheme.colors.base09}
       color4  #${config.colorScheme.colors.base0D}
@@ -34,10 +34,17 @@
       color14 #${config.colorScheme.colors.base0C}
       color15 #${config.colorScheme.colors.base07}
       color16 #${config.colorScheme.colors.base00}
+      color17 #${config.colorScheme.colors.base0F}
+      color18 #${config.colorScheme.colors.base0B}
+      color19 #${config.colorScheme.colors.base09}
+      color20 #${config.colorScheme.colors.base0D}
+      color21 #${config.colorScheme.colors.base0E}
+      color22 #${config.colorScheme.colors.base0C}
+      color23 #${config.colorScheme.colors.base06}
       cursor  #${config.colorScheme.colors.base07}
       cursor_text_color #${config.colorScheme.colors.base00}
-      selection_foreground none
-      selection_background #${config.colorScheme.colors.base08}
+      selection_foreground #${config.colorScheme.colors.base01}
+      selection_background #${config.colorScheme.colors.base0D}
       url_color #${config.colorScheme.colors.base0C}
       active_border_color #${config.colorScheme.colors.base04}
       inactive_border_color #${config.colorScheme.colors.base00}

@@ -9,7 +9,7 @@
     package = lib.mkIf ("${cpuType}" == "intel") {
       pkgs.steam.override = {
         withPrimus = true;
-        extraPkgs = pkgs: [ pkgs.bumblebee pkgs.glxinfo ];
+        extraPkgs = [ pkgs.bumblebee pkgs.glxinfo ];
       };
     };
   };
