@@ -16,7 +16,7 @@ in with lib; {
     extraConfig = let
       modifier = "SUPER";
     in concatStrings [ ''
-      monitor=,highres,auto,1
+      monitor=,preferred,auto,1
       windowrule = float, ^(steam)$
       windowrule = center, ^(steam)$
       windowrule = size 1080 900, ^(steam)$

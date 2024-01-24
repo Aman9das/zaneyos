@@ -74,7 +74,8 @@ This file should be located at /etc/nixos/configuration.nix
 - Clone this repo.
 - Then go into repo folder (stay in this folder)
 - Change username, hostname, theme, and any other variables you may want under user information in flake.nix
-- Ensure you have selected the proper profile in the flake as well. I use amd-desktop.
+- If you change your hostname in the flake.nix know you need to update your defualt config, rebuild, and reboot.
+- Ensure you have selected the proper profile in the flake as well.
 - Generate your hardware.nix like so:
 
 ```
@@ -84,7 +85,7 @@ nixos-generate-config --show-hardware-config > hardware.nix
 - Run this command:
 
 ```
-sudo nixos-rebuild switch --flake .#the-username-you-put-in-the-flake
+sudo nixos-rebuild switch --flake .
 ```
 
 Now when you want to rebuild the configuration you have access to an alias called flake-rebuild that will rebuild the flake based of the flakeDir variable you set in flake.nix!

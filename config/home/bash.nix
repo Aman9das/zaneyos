@@ -10,6 +10,9 @@
       #  exec Hyprland
       #fi
     '';
+    initExtra = ''
+      neofetch
+    '';
     sessionVariables = {
     
     };
