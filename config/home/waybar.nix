@@ -55,7 +55,7 @@
       };
       "network" = {
         format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
-        format-ethernet = ": {bandwidthDownOctets} : {bandwidthUpOctets}";
+        format-ethernet = ": {bandwidthDownOctets}";
         format-wifi = "{icon} {signalStrength}%";
         format-disconnected = "󰤮";
         tooltip = false;
