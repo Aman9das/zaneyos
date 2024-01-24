@@ -9,7 +9,7 @@
       layer = "top";
       position = "top";
 
-      modules-left = [ "hyprland/window" ];
+      modules-left = [ "hyprland/window" "custom/startmenu" ];
       modules-center = [ "network" "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock" ];
       modules-right = [ "custom/themeselector" "custom/notification" "tray" ];
       "hyprland/workspaces" = {
@@ -27,7 +27,7 @@
       	tooltip = false;
       };
       "hyprland/window" = {
-      	max-length = 60;
+      	max-length = 25;
       	separate-outputs = false;
       };
       "memory" = {
@@ -84,7 +84,14 @@
       "custom/themeselector" = {
         tooltip = false;
         format = "";
+        # exec = "theme-selector";
         on-click = "theme-selector";
+      };
+      "custom/startmenu" = {
+        tooltip = false;
+        format = "";
+        # exec = "rofi -show drun";
+        on-click = "rofi -show drun";
       };
       "custom/notification" = {
         tooltip = false;
@@ -255,6 +262,13 @@
     		margin: 5px;
     		padding: 2px 2px;
     }
+	#custom-startmenu {
+    		color: #${config.colorScheme.colors.base03};
+    		background: #${config.colorScheme.colors.base00};
+    		border-radius: 50px 15px 50px 15px;
+    		margin: 5px;
+    		padding: 2px 20px;
+	}
     '';
   };
 }
