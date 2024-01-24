@@ -1,6 +1,11 @@
 { pkgs, config, inputs, ... }:
 
-{
+let
+  my-python-packages = ps: with ps; [
+    pandas
+    requests
+  ];
+in {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -11,7 +16,8 @@
     v4l-utils ydotool wl-clipboard socat cowsay lsd 
     pkg-config meson hugo gnumake ninja go nodejs symbola
     noto-fonts-color-emoji material-icons brightnessctl
-    toybox virt-viewer
+    toybox virt-viewer jetbrains.pycharm-community-bin
+    (pkgs.python3.withPackages my-python-packages)
   ];
 
   programs.steam.gamescopeSession.enable = true;
