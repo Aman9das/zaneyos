@@ -36,13 +36,11 @@ The hardware.nix is automatically generated with all the things you need and the
 
 ### How The Config Files Work
 
-I am using home manager and as of now all configurations use the same home.nix configuration file. That is where all of the main configuration for stuff is, as most things are in user space.
+I am using home manager that is where all of the main configuration for stuff is, as most things are in user space. All of the configuration files that we have being imported in the home.nix are stored in the folder config/home. You might have noticed something quite different about all of them... They are in a .nix format. These files that are imported by home.nix through default.nix in that folder. In nix when we import an entire folders .nix files, like I'm doing in home.nix, we need a default.nix to import everything else.
 
-All of the configuration files that we have being imported in the home.nix are stored in the folder config/home. You might have noticed something quite different about all of them... They are in a .nix format. These files are imported by home.nix. 
+Now I am doing the same thing with the systems configuration too. You'll see a similar folder in config called system that has files for configuring services and such. If you are hunting for the file that is the configuration.nix equivelent it is the system.nix file and the files in config/system.
 
-### This Makes Theming Incredible
-
-Having the configuration files as a .nix file that I have creating the home files allows me to have variables passed into them. This allows me to use Nix Colors, **a phenomenal tool in NixOS**, to define a base16 colorscheme and let the user change it in the flake and have all the programs change upon rebuild. *Do note that some programs like SwayNotificationCenter may require a relaunch to show changes.*
+Having the configuration files as a .nix file that I have creating the home files allows me to have variables passed into them. This allows me to use Nix Colors, **a phenomenal tool in NixOS**, to define a [base16 colorscheme](https://github.com/tinted-theming/base16-schemes) and let the user change it in the flake and have all the programs change upon rebuild. *Do note that some programs like SwayNotificationCenter may require a relaunch to show changes.*
 
 Themes you have available for you to set in the flake.nix are available [here](https://github.com/tinted-theming/base16-schemes). Just take off the .yaml part of any of those names and use that as your theme variable.
 
