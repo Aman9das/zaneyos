@@ -27,7 +27,7 @@
     theLCVariables = "en_US.UTF-8";
     theTimezone = "America/Chicago";
     theme = "gigavolt";
-    waybarStyle = "style1"; # can be style1-2
+    waybarStyle = "style2"; # can be style1-2
     browser = "firefox";
     wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
     wallpaperDir = "/home/${username}/Pictures/Wallpapers";
