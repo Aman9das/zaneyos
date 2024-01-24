@@ -1,8 +1,11 @@
-{ pkgs, config, lib, deviceProfile, ... }:
+{ pkgs, config, lib, gpuType, ... }:
 
-lib.mkIf ("${deviceProfile}" == "intel-laptop") {
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+lib.mkIf ("${gpuType}" == "intel") { 
+  nixpkgs.config.packageOverrides =
+    pkgs: {
+      vaapiIntel = pkgs.vaapiIntel.override {
+      enableHybridCodec = true;
+    };
   };
 
   # OpenGL

@@ -61,7 +61,7 @@
               inherit inputs; inherit theme;
               inherit browser; inherit wallpaperDir;
               inherit wallpaperGit; inherit flakeDir;
-              inherit deviceProfile;
+              inherit gpuType; inherit cpuType;
               inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
 	        home-manager.useGlobalPkgs = true;

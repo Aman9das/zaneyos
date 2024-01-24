@@ -7,7 +7,7 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     package = lib.mkIf ("${cpuType}" == "intel") {
-      pkgs.steam.override {
+      pkgs.steam.override = {
         withPrimus = true;
         extraPkgs = pkgs: [ pkgs.bumblebee pkgs.glxinfo ];
       };
