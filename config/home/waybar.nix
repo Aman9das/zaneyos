@@ -11,7 +11,7 @@
 
       modules-left = [ "hyprland/window" "custom/startmenu" ];
       modules-center = [ "network" "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock" ];
-      modules-right = [ "custom/themeselector" "custom/notification" "tray" ];
+      modules-right = [ "idle_inhibitor" "custom/themeselector" "custom/notification" "tray" ];
       "hyprland/workspaces" = {
       	format = "{icon}";
       	format-icons = {
@@ -43,15 +43,6 @@
       "disk" = {
         format = "  {free}";
         tooltip = true;
-      };
-      "idle_inhibitor" = { 
-        format = "{icon}";
-        tooltip = true;
-        format-icons = { 
-          activated = "";
-          deactivated = "";
-        };
-        on-click-right = "trnoffmon";
       };
       "network" = {
         format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
@@ -92,6 +83,14 @@
         format = "";
         # exec = "rofi -show drun";
         on-click = "rofi -show drun";
+      };
+      "idle_inhibitor" = {
+        format = "{icon}";
+        format-icons = {
+            activated = "";
+            deactivated = "";
+        };
+        tooltip = "true";
       };
       "custom/notification" = {
         tooltip = false;
@@ -257,15 +256,22 @@
 	}
     #custom-themeselector {
     		color: #${config.colorScheme.colors.base0D};
-    		background: transparent;
-    		border-radius: 5px;
+    		background: #${config.colorScheme.colors.base00};
+    		border-radius: 15px 50px 15px 50px;
     		margin: 5px;
-    		padding: 2px 2px;
+    		padding: 2px 20px;
     }
 	#custom-startmenu {
     		color: #${config.colorScheme.colors.base03};
     		background: #${config.colorScheme.colors.base00};
     		border-radius: 50px 15px 50px 15px;
+    		margin: 5px;
+    		padding: 2px 20px;
+	}
+	#idle_inhibitor {
+    		color: #${config.colorScheme.colors.base09};
+    		background: #${config.colorScheme.colors.base00};
+    		border-radius: 15px 50px 15px 50px;
     		margin: 5px;
     		padding: 2px 20px;
 	}
