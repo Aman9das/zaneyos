@@ -33,7 +33,8 @@
     wallpaperDir = "/home/${username}/Pictures/Wallpapers";
     flakeDir = "/home/${username}/zaneyos";
     # Driver selection profile
-    # default options amd, intel, nvidia, vm (WIP)
+    # Options include amd (tested), intel, nvidia
+    # vm for both if you are running a vm
     cpuType = "amd";
     gpuType = "amd";
 

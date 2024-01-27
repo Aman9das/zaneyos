@@ -1,4 +1,4 @@
-{ pkgs, config, lib, cpuType, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   # Steam Configuration
@@ -6,11 +6,5 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
-    package = lib.mkIf ("${cpuType}" == "intel") {
-      pkgs.steam.override = {
-        withPrimus = true;
-        extraPkgs = [ pkgs.bumblebee pkgs.glxinfo ];
-      };
-    };
   };
 }

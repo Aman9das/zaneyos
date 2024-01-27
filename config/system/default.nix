@@ -2,14 +2,14 @@
 
 {
   imports = [
-    ./amd-opengl.nix
-    ./steam.nix
+    ./amd-gpu.nix
     ./autorun.nix
     ./boot.nix
     ./displaymanager.nix
-    ./intel-opengl.nix
+    ./intel-gpu.nix
     ./packages.nix
     ./polkit.nix
     ./services.nix
+    ./steam.nix
   ];
 }

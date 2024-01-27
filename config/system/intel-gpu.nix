@@ -10,14 +10,11 @@ lib.mkIf ("${gpuType}" == "intel") {
 
   # OpenGL
   hardware.opengl = {
-    enable = true;
     extraPackages = with pkgs; [
       intel-media-driver
       vaapiIntel
       vaapiVdpau
       libvdpau-va-gl
     ];
-    driSupport = true;
-    driSupport32Bit = true;
   };
 }

@@ -18,7 +18,6 @@
     call plug#begin('~/.vim/plugged')
         Plug 'scrooloose/nerdtree'                         " Nerdtree
         Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
-        Plug 'dracula/vim', { 'as': 'dracula' }            " Dracula Color Scheme
         Plug 'tpope/vim-surround'                          " Change surrounding marks
         Plug 'PotatoesMaster/i3-vim-syntax'                " i3 config highlighting
         Plug 'kovetskiy/sxhkd-vim'                         " sxhkd highlighting
@@ -27,6 +26,7 @@
         Plug 'junegunn/vim-emoji'                          " Vim needs emojis!
         Plug 'https://github.com/tpope/vim-commentary'     " Comment Out With gcc & Uncomment With gcgc
         Plug 'neoclide/coc.nvim', {'branch': 'release'}    " Code Completion (requires node)
+        Plug 'LnL7/vim-nix'                                " Nix highlighting and detection
         Plug 'suan/vim-instant-markdown', {'rtp': 'after'} " Markdown Preview
     call plug#end()
 
