@@ -34,9 +34,15 @@
     flakeDir = "/home/${username}/zaneyos";
     # Driver selection profile
     # Options include amd (tested), intel, nvidia
+    # GPU hybrid options: intel-nvidia, amd-nvidia
     # vm for both if you are running a vm
     cpuType = "amd";
     gpuType = "amd";
+    # Run: sudo lshw -c display to find this info
+    # This is needed for hybrid nvidia offloading
+    # Run: nvidia-offload (insert program name)
+    intel-bus-id = "PCI:0:2:0";
+    nvidia-bus-id = "PCI:14:0:0";
 
     pkgs = import nixpkgs {
       inherit system;
