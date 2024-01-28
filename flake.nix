@@ -34,7 +34,7 @@
     flakeDir = "/home/${username}/zaneyos";
     # Driver selection profile
     # Options include amd (tested), intel, nvidia
-    # GPU hybrid options: intel-nvidia, amd-nvidia
+    # GPU hybrid options: intel-nvidia, intel-amd
     # vm for both if you are running a vm
     cpuType = "amd";
     gpuType = "amd";

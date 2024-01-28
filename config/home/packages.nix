@@ -6,8 +6,8 @@
   home.packages = with pkgs; [
     pkgs."${browser}" discord libvirt swww grim slurp gnome.file-roller
     swaynotificationcenter rofi-wayland imv transmission-gtk mpv
-    gimp obs-studio blender kdenlive godot_4 rustup pavucontrol audacity
-    font-awesome spotify swayidle vim neovide neovim
+    gimp obs-studio blender-hip kdenlive godot_4 rustup audacity
+    font-awesome spotify swayidle vim neovide neovim pavucontrol
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })
