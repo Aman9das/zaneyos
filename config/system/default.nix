@@ -14,5 +14,6 @@
     ./polkit.nix
     ./services.nix
     ./steam.nix
+    ./vm.nix
   ];
 }

@@ -1,4 +1,4 @@
-{ pkgs, config, lib, cpuType, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   # List services that you want to enable:
@@ -30,7 +30,4 @@
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;
-  services.qemuGuest = lib.mkIf ("${cpuType}" == "vm") {
-    enable = true;
-  };
 }
