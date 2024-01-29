@@ -46,7 +46,7 @@ in with lib; {
       env = XDG_SESSION_DESKTOP, Hyprland
       env = GDK_BACKEND, wayland
       env = CLUTTER_BACKEND, wayland
-      env = SDL_VIDEODRIVER, x11
+      env = SDL_VIDEODRIVER, wayland
       env = XCURSOR_SIZE, 24
       env = XCURSOR_THEME, Bibata-Modern-Ice
       env = QT_QPA_PLATFORM, wayland

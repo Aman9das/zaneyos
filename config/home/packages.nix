@@ -4,7 +4,7 @@
 {
   # Install Packages For The User
   home.packages = with pkgs; [
-    pkgs."${browser}" discord libvirt swww grim slurp gnome.file-roller
+    pkgs."${browser}" discord-canary libvirt swww grim slurp gnome.file-roller
     swaynotificationcenter rofi-wayland imv transmission-gtk mpv
     gimp obs-studio blender-hip kdenlive godot_4 rustup audacity
     font-awesome spotify swayidle vim neovide neovim pavucontrol
