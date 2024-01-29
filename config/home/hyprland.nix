@@ -109,7 +109,7 @@ in with lib; {
       exec-once = waybar
       exec-once = swaync
       exec-once = wallsetter
-      exec-once = swayidle -w timeout 150 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on'
+      exec-once = swayidle -w timeout 10 'swaylock -f' timeout 20 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f -c 000000'
       dwindle {
         pseudotile = true
         preserve_split = true
