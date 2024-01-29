@@ -28,6 +28,7 @@
     theTimezone = "America/Chicago";
     theme = "gigavolt";
     waybarStyle = "style2"; # can be style1-2
+    borderAnim = "on"; # anything other than on disables anim borders in Hyprland
     browser = "firefox";
     wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
     wallpaperDir = "/home/${username}/Pictures/Wallpapers";
@@ -70,7 +71,7 @@
               inherit browser; inherit wallpaperDir;
               inherit wallpaperGit; inherit flakeDir;
               inherit gpuType; inherit cpuType;
-              inherit waybarStyle;
+              inherit waybarStyle; inherit borderAnim;
               inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
 	        home-manager.useGlobalPkgs = true;

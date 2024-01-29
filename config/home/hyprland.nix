@@ -1,6 +1,6 @@
 { pkgs, config, lib, browser,
   cpuType, gpuType, wallpaperDir,
-  inputs, ... }:
+  inputs, borderAnim, ... }:
 
 let
   theme = config.colorScheme.colors;
@@ -24,7 +24,7 @@ in with lib; {
         gaps_in = 6
         gaps_out = 8
         border_size = 2
-        col.active_border = rgba(${theme.base0C}ff) rgba(${theme.base0D}ff) 45deg
+        col.active_border = rgba(${theme.base0C}ff) rgba(${theme.base0D}ff) rgba(${theme.base0B}ff) rgba(${theme.base0E}ff) 45deg
         col.inactive_border = rgba(${theme.base00}cc) rgba(${theme.base01}cc) 45deg
         layout = dwindle
         resize_on_border = true
@@ -81,7 +81,10 @@ in with lib; {
         animation = windowsOut, 1, 5, winOut, slide
         animation = windowsMove, 1, 5, wind, slide
         animation = border, 1, 1, liner
-        animation = borderangle, 1, 30, liner, loop
+        ${if borderAnim == "on" then ''
+          animation = borderangle, 1, 30, liner, loop
+        '' else ''
+        ''}
         animation = fade, 1, 10, default
         animation = workspaces, 1, 5, wind
       }
