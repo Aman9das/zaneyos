@@ -1,5 +1,5 @@
 { pkgs, config, lib, browser,
-  cpuType, wallpaperDir,
+  cpuType, gpuType, wallpaperDir,
   inputs, ... }:
 
 let
@@ -56,6 +56,10 @@ in with lib; {
       ${if cpuType == "vm" then ''
         env = WLR_NO_HARDWARE_CURSORS,1
         env = WLR_RENDERER_ALLOW_SOFTWARE,1
+      '' else ''
+      ''}
+      ${if gpuType == "nvidia" then ''
+        env = WLR_NO_HARDWARE_CURSORS,1
       '' else ''
       ''}
       gestures {
