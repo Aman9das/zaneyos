@@ -46,7 +46,17 @@ Themes you have available for you to set in the flake.nix are available [here](h
 
 Another cool thing I can do is have that [theme](https://github.com/tinted-theming/base16-schemes) the user set in the flake.nix used to generate a GTK theme as well! So when you change that one variable all you system programs will change upon a rebuild. I have included some fun scripts as well so definitely have some fun playing around with what you can do with my setup.
 
-# Steps To Reproduce My System
+## Common Issues
+
+```
+File system "/boot" is not a FAT EFI System Partition (ESP) file system.
+systemd-boot not installed in ESP.
+No default/fallback boot loader installed in ESP.
+```
+
+This error is caused by installing using MBR and not UEFI. It is important to use GPT and UEFI when installing the system. If you get this error just reinstall ensuring you are correcting booting and installing using UEFI.
+
+# Install / Steps To Reproduce My System
 
 - Enable flakes in your default configuration.nix by adding this:
 
