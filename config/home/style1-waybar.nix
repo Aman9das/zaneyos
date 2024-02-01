@@ -76,13 +76,13 @@ lib.mkIf ("${waybarStyle}" == "style1") {
         tooltip = false;
         format = "";
         # exec = "theme-selector";
-        on-click = "theme-selector";
+        on-click = "sleep 0.1 && theme-selector";
       };
       "custom/startmenu" = {
         tooltip = false;
         format = "";
         # exec = "rofi -show drun";
-        on-click = "rofi -show drun";
+        on-click = "sleep 0.1 && rofi -show drun";
       };
       "idle_inhibitor" = {
         format = "{icon}";
