@@ -75,7 +75,8 @@
               inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
 	        home-manager.useGlobalPkgs = true;
-	        home-manager.useUserPackages = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "backup";
 	        home-manager.users.${username} = import ./home.nix;
 	      }
 	    ];
