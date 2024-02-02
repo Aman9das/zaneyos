@@ -11,6 +11,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }:
@@ -26,7 +30,7 @@
     theKBDLayout = "us";
     theLCVariables = "en_US.UTF-8";
     theTimezone = "America/Chicago";
-    theme = "gigavolt";
+    theme = "tokyo-night-storm";
     waybarStyle = "style2"; # can be style1-2
     borderAnim = "on"; # anything other than on disables anim borders in Hyprland
     browser = "firefox";
