@@ -1,6 +1,6 @@
 { pkgs, config, lib, browser,
   cpuType, gpuType, wallpaperDir,
-  inputs, borderAnim, ... }:
+  inputs, borderAnim, theKBDLayout, ... }:
 
 let
   theme = config.colorScheme.colors;
@@ -30,7 +30,7 @@ in with lib; {
         resize_on_border = true
       }
       input {
-        kb_layout = us
+        kb_layout = ${theKBDLayout}
         kb_options=caps:super
         follow_mouse = 1
         touchpad {

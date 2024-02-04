@@ -71,11 +71,12 @@
           home-manager.nixosModules.home-manager {
 	        home-manager.extraSpecialArgs = { inherit username; 
               inherit gitUsername; inherit gitEmail;
-              inherit inputs; inherit theme;
-              inherit browser; inherit wallpaperDir;
-              inherit wallpaperGit; inherit flakeDir;
-              inherit gpuType; inherit cpuType;
-              inherit waybarStyle; inherit borderAnim;
+              inherit theKBDLayout; inherit inputs;
+              inherit theme; inherit browser;
+              inherit wallpaperDir; inherit wallpaperGit;
+              inherit flakeDir; inherit gpuType;
+              inherit cpuType; inherit waybarStyle;
+              inherit borderAnim;
               inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
 	        home-manager.useGlobalPkgs = true;
