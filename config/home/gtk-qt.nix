@@ -26,10 +26,6 @@
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
-    cursorTheme = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
-    };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme=1;
     };

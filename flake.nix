@@ -41,7 +41,7 @@
     # Options include amd (tested), intel, nvidia
     # GPU hybrid options: intel-nvidia, intel-amd
     # vm for both if you are running a vm
-    cpuType = "amd";
+    cpuType = "intel";
     gpuType = "amd";
     # Run: sudo lshw -c display to find this info
     # This is needed ONLY for hybrid nvidia offloading
