@@ -12,7 +12,6 @@
     ./hyprland.nix
     ./kitty.nix
     ./rofi.nix
-    ./vim.nix
     ./bash.nix
     ./gtk-qt.nix
 

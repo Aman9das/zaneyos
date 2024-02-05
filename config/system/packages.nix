@@ -17,9 +17,16 @@ in {
     pkg-config meson hugo gnumake ninja go nodejs symbola
     noto-fonts-color-emoji material-icons brightnessctl
     toybox virt-viewer jetbrains.pycharm-community-bin
+    swappy
     (pkgs.python3.withPackages my-python-packages)
   ];
 
+  programs.nixvim = {
+    enable = true;
+    colorschemes.gruvbox.enable = true;
+    plugins.lightline.enable = true;
+  };
+  
   programs.steam.gamescopeSession.enable = true;
   programs.dconf.enable = true;
   programs.hyprland = {

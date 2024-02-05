@@ -6,6 +6,7 @@
 {
   imports =
     [
+      inputs.nixvim.nixosModules.nixvim
       ./hardware.nix
       ./config/system
     ];
