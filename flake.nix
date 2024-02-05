@@ -30,7 +30,7 @@
     theKBDLayout = "us";
     theLCVariables = "en_US.UTF-8";
     theTimezone = "America/Chicago";
-    theme = "tokyo-night-storm";
+    theme = "rose-pine";
     waybarStyle = "style2"; # can be style1-2
     borderAnim = "on"; # anything other than on disables anim borders in Hyprland
     browser = "firefox";
@@ -66,6 +66,7 @@
           inherit wallpaperDir; inherit wallpaperGit;
           inherit cpuType; inherit theKBDLayout;
           inherit theLCVariables; inherit gpuType;
+	  inherit theme;
         };
 	    modules = [ ./system.nix
           home-manager.nixosModules.home-manager {
