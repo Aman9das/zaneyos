@@ -1,5 +1,8 @@
 { pkgs, config, lib, waybarStyle, ... }:
 
+let
+  palette = config.colorScheme.palette;
+in
 lib.mkIf ("${waybarStyle}" == "style2") {
   # Configure & Theme Waybar
   programs.waybar = {
@@ -131,146 +134,146 @@ lib.mkIf ("${waybarStyle}" == "style2") {
     		font-weight: bold;
 	}
 	window#waybar {
-		    background-color: #${config.colorScheme.colors.base00};
-    		border-bottom: 1px solid #${config.colorScheme.colors.base00};
+		    background-color: #${palette.base00};
+    		border-bottom: 1px solid #${palette.base00};
     		border-radius: 0px;
-		    color: #${config.colorScheme.colors.base0F};
+		    color: #${palette.base0F};
 	}
 	#workspaces {
-		    background: #${config.colorScheme.colors.base01};
+		    background: #${palette.base01};
     		margin: 4px;
     		padding: 0px 1px;
     		border-radius: 10px;
     		border: 0px;
     		font-style: normal;
-    		color: #${config.colorScheme.colors.base00};
+    		color: #${palette.base00};
 	}
 	#workspaces button {
     		padding: 0px 5px;
     		margin: 4px 3px;
     		border-radius: 10px;
     		border: 0px;
-    		color: #${config.colorScheme.colors.base00};
-		    background: linear-gradient(45deg, #${config.colorScheme.colors.base06}, #${config.colorScheme.colors.base0E});
+    		color: #${palette.base00};
+		    background: linear-gradient(45deg, #${palette.base06}, #${palette.base0E});
     		opacity: 0.5;
     		transition: all 0.3s ease-in-out;
 	}
 	#workspaces button.active {
-    		color: #${config.colorScheme.colors.base00};
-		    background: linear-gradient(45deg, #${config.colorScheme.colors.base06}, #${config.colorScheme.colors.base0E});
+    		color: #${palette.base00};
+		    background: linear-gradient(45deg, #${palette.base06}, #${palette.base0E});
     		border-radius: 10px;
     		min-width: 40px;
     		transition: all 0.3s ease-in-out;
     		opacity: 1.0;
 	}
 	#workspaces button:hover {
-    		color: #${config.colorScheme.colors.base00};
-		    background: linear-gradient(45deg, #${config.colorScheme.colors.base06}, #${config.colorScheme.colors.base0E});
+    		color: #${palette.base00};
+		    background: linear-gradient(45deg, #${palette.base06}, #${palette.base0E});
     		border-radius: 10px;
     		opacity: 0.8;
 	}
 	tooltip {
-  		background: #${config.colorScheme.colors.base00};
-  		border: 1px solid #${config.colorScheme.colors.base04};
+  		background: #${palette.base00};
+  		border: 1px solid #${palette.base04};
   		border-radius: 10px;
 	}
 	tooltip label {
-  		color: #${config.colorScheme.colors.base07};
+  		color: #${palette.base07};
 	}
 	#window {
-    		color: #${config.colorScheme.colors.base05};
-    		background: #${config.colorScheme.colors.base01};
+    		color: #${palette.base05};
+    		background: #${palette.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px;
 	}
 	#memory {
-    		color: #${config.colorScheme.colors.base0F};
-    		background: #${config.colorScheme.colors.base01};
+    		color: #${palette.base0F};
+    		background: #${palette.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px;
 	}
 	#clock {
-    		color: #${config.colorScheme.colors.base0B};
-    		background: #${config.colorScheme.colors.base01};
+    		color: #${palette.base0B};
+    		background: #${palette.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px;
 	}
 	#idle_inhibitor {
-    		color: #${config.colorScheme.colors.base0A};
-    		background: #${config.colorScheme.colors.base01};
+    		color: #${palette.base0A};
+    		background: #${palette.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px;
 	}
 	#cpu {
-    		color: #${config.colorScheme.colors.base07};
-    		background: #${config.colorScheme.colors.base01};
+    		color: #${palette.base07};
+    		background: #${palette.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px;
 	}
 	#disk {
-    		color: #${config.colorScheme.colors.base03};
-    		background: #${config.colorScheme.colors.base01};
+    		color: #${palette.base03};
+    		background: #${palette.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px;
 	}
 	#battery {
-    		color: #${config.colorScheme.colors.base08};
-    		background: #${config.colorScheme.colors.base01};
+    		color: #${palette.base08};
+    		background: #${palette.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px;
 	}
 	#network {
-    		color: #${config.colorScheme.colors.base09};
-    		background: #${config.colorScheme.colors.base01};
+    		color: #${palette.base09};
+    		background: #${palette.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px;
 	}
 	#tray {
-    		color: #${config.colorScheme.colors.base05};
-    		background: #${config.colorScheme.colors.base01};
+    		color: #${palette.base05};
+    		background: #${palette.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px;
 	}
 	#pulseaudio {
-    		color: #${config.colorScheme.colors.base0D};
-    		background: #${config.colorScheme.colors.base01};
+    		color: #${palette.base0D};
+    		background: #${palette.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px;
 	}
 	#custom-notification {
-    		color: #${config.colorScheme.colors.base0C};
-    		background: #${config.colorScheme.colors.base01};
+    		color: #${palette.base0C};
+    		background: #${palette.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px;
 	}
     #custom-themeselector {
-    		color: #${config.colorScheme.colors.base0D};
-    		background: #${config.colorScheme.colors.base01};
+    		color: #${palette.base0D};
+    		background: #${palette.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px;
     }
 	#custom-startmenu {
-    		color: #${config.colorScheme.colors.base03};
-    		background: #${config.colorScheme.colors.base01};
+    		color: #${palette.base03};
+    		background: #${palette.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px 2px 13px;
 	}
 	#idle_inhibitor {
-    		color: #${config.colorScheme.colors.base09};
-    		background: #${config.colorScheme.colors.base01};
+    		color: #${palette.base09};
+    		background: #${palette.base01};
     		border-radius: 10px;
     		margin: 4px;
     		padding: 2px 10px 2px 13px;

@@ -3,7 +3,7 @@
   inputs, borderAnim, theKBDLayout, ... }:
 
 let
-  theme = config.colorScheme.colors;
+  theme = config.colorScheme.palette;
   hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
 in with lib; {
   wayland.windowManager.hyprland = {

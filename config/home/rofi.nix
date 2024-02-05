@@ -1,11 +1,13 @@
 { pkgs, config, ... }:
 
-{
+let
+  palette = config.colorScheme.palette;
+in {
   home.file.".config/rofi/config.rasi".text = ''
     @theme "/dev/null"
 
     * {
-        bg: #${config.colorScheme.colors.base00};
+        bg: #${palette.base00};
         background-color: @bg;
     }
 
@@ -21,7 +23,7 @@
 	    width: 35%;
 	    transparency: "real";
 	    orientation: vertical;
-	    border-color: #${config.colorScheme.colors.base0B};
+	    border-color: #${palette.base0B};
         border-radius: 10px;
     }
 
@@ -35,13 +37,13 @@
 
     element {
 	    padding: 4 12;
-	    text-color: #${config.colorScheme.colors.base05};
+	    text-color: #${palette.base05};
         border-radius: 5px;
     }
 
     element selected {
-	    text-color: #${config.colorScheme.colors.base01};
-	    background-color: #${config.colorScheme.colors.base0B};
+	    text-color: #${palette.base01};
+	    background-color: #${palette.base0B};
     }
 
     element-text {
@@ -70,7 +72,7 @@
     //------------------------------------------------
 
     entry {
-	    text-color: #${config.colorScheme.colors.base05};
+	    text-color: #${palette.base05};
 	    padding: 10 10 0 0;
 	    margin: 0 -2 0 0;
     }
@@ -82,7 +84,7 @@
     } 
 
     prompt {
-	    text-color: #${config.colorScheme.colors.base0D};
+	    text-color: #${palette.base0D};
 	    padding: 10 6 0 10;
 	    margin: 0 -2 0 0;
     }
