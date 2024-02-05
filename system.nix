@@ -31,6 +31,8 @@
     LC_TIME = "${theLCVariables}";
   };
 
+  console.keyMap = "${theKBDLayout}";
+
   # Define a user account.
   users.users."${username}" = {
     homeMode = "755";
