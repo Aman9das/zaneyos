@@ -25,7 +25,9 @@
   # Optional Settings
   intel-bus-id = "PCI:0:2:0";
   nvidia-bus-id = "PCI:14:0:0";
-  nfs = "on";
+  nfs = "off";
+  nfsMountPoint = "/mnt/nas";
+  nfsDevice = "nas:/volume1/nas";
   localHWClock = "off";
   ntp = "on";
 

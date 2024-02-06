@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 let inherit (import ../../options.nix) nfs; in
 lib.mkIf ("${nfs}" == "on") {
