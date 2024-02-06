@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, options, ... }:
 
 {
   # List services that you want to enable:
@@ -35,4 +35,5 @@
       auth include login
     '';
   };
+  networking.timeServers = options.networking.timeServers.default ++ [ "pool.ntp.org" ];
 }
