@@ -26,5 +26,7 @@
   intel-bus-id = "PCI:0:2:0";
   nvidia-bus-id = "PCI:14:0:0";
   nfs = "on";
+  localHWClock = "off";
+  ntp = "on";
 
 }
