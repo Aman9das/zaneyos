@@ -1,10 +1,12 @@
-{ pkgs, config, lib, browser,
-  cpuType, gpuType, wallpaperDir,
-  inputs, borderAnim, theKBDLayout, ... }:
+{ pkgs, config, lib, inputs, ... }:
 
 let
   theme = config.colorScheme.palette;
   hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
+  inherit (import ../../options.nix) 
+    browser cpuType gpuType
+    wallpaperDir borderAnim
+    theKBDLayout;
 in with lib; {
   wayland.windowManager.hyprland = {
     enable = true;

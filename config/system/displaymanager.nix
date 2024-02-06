@@ -1,5 +1,6 @@
-{ pkgs, config, theKBDLayout, ... }:
+{ pkgs, config, ... }:
 
+let inherit (import ../../options.nix) theKBDLayout; in
 {
   services.xserver = {
     enable = true;

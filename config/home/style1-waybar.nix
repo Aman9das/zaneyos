@@ -1,7 +1,8 @@
-{ pkgs, config, lib, waybarStyle, ... }:
+{ pkgs, config, lib, ... }:
 
 let
   palette = config.colorScheme.palette;
+  inherit (import ../../options.nix) waybarStyle;
 in
 lib.mkIf ("${waybarStyle}" == "style1") {
   # Configure & Theme Waybar

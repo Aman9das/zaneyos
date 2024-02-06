@@ -1,7 +1,9 @@
-{ pkgs, config, browser, wallpaperDir, flakeDir,
-  username, wallpaperGit, ... }:
+{ pkgs, config, username, ... }:
 
-{
+let 
+  inherit (import ../../options.nix) 
+    browser wallpaperDir wallpaperGit flakeDir;
+in {
   # Install Packages For The User
   home.packages = with pkgs; [
     pkgs."${browser}" discord libvirt swww grim slurp gnome.file-roller

@@ -1,5 +1,6 @@
 { pkgs, config, lib, gpuType, ... }:
 
+let inherit (import ../../options.nix) gpuType; in
 lib.mkIf ("${gpuType}" == "nvidia") { 
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {

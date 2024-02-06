@@ -1,5 +1,6 @@
-{ config, pkgs, flakeDir, ... }:
+{ config, pkgs, ... }:
 
+let inherit (import ../../options.nix) flakeDir; in
 {
   # Configure Bash
   programs.bash = {

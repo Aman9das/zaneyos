@@ -1,9 +1,12 @@
-{ inputs, config, pkgs, username,
-  hostname, gitUsername, theLocale,
-  theTimezone, wallpaperDir, wallpaperGit, 
-  theLCVariables, theKBDLayout, ... }:
+{ inputs, config, pkgs,
+  username, hostname, ... }:
 
-{
+let 
+  inherit (import ./options.nix) 
+    theLocale theTimezone gitUsername
+    wallpaperDir wallpaperGit
+    theLCVariables theKBDLayout;
+in {
   imports =
     [
       inputs.nixvim.nixosModules.nixvim

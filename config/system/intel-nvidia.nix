@@ -1,6 +1,6 @@
-{ pkgs, config, lib, gpuType,
-  intel-bus-id, nvidia-bus-id, ... }:
+{ pkgs, config, lib, ... }:
 
+let inherit (import ../../options.nix) intel-bus-id nvidia-bus-id gpuType; in
 lib.mkIf ("${gpuType}" == "intel-nvidia") { 
   nixpkgs.config.packageOverrides =
     pkgs: {

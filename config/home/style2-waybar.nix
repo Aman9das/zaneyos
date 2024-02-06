@@ -2,6 +2,7 @@
 
 let
   palette = config.colorScheme.palette;
+  inherit (import ../../options.nix) waybarStyle;
 in
 lib.mkIf ("${waybarStyle}" == "style2") {
   # Configure & Theme Waybar
