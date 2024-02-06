@@ -127,7 +127,7 @@ in with lib; {
       }
       bind = ${modifier},Return,exec,kitty
       bind = ${modifier}SHIFT,Return,exec,rofi -show drun
-      bind = ${modifier}SHIFT,W,exec,kitty -e amfora
+      bind = ${modifier}SHIFT,W,exec,web-search
       bind = ${modifier}SHIFT,S,exec,swaync-client -rs
       bind = ${modifier},W,exec,${browser}
       bind = ${modifier},E,exec,emopicker9000
