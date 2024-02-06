@@ -17,6 +17,7 @@
   # System Settings
   theLocale = "en_US.UTF-8";
   theKBDLayout = "us";
+  theSecondKBDLayout = "pl";
   theLCVariables = "en_US.UTF-8";
   theTimezone = "America/Chicago";
   cpuType = "intel";

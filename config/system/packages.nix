@@ -17,7 +17,7 @@ in {
     pkg-config meson hugo gnumake ninja go nodejs symbola
     noto-fonts-color-emoji material-icons brightnessctl
     toybox virt-viewer jetbrains.pycharm-community-bin
-    swappy ripgrep
+    swappy ripgrep appimage-run
     (pkgs.python3.withPackages my-python-packages)
   ];
 

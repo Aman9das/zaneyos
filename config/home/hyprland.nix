@@ -6,7 +6,8 @@ let
   inherit (import ../../options.nix) 
     browser cpuType gpuType
     wallpaperDir borderAnim
-    theKBDLayout;
+    theKBDLayout
+    theSecondKBDLayout;
 in with lib; {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -31,8 +32,10 @@ in with lib; {
         layout = dwindle
         resize_on_border = true
       }
+
       input {
-        kb_layout = ${theKBDLayout}
+        kb_layout = ${theKBDLayout},${theSecondKBDLayout}
+	kb_options = grp:alt_shift_toggle
         kb_options=caps:super
         follow_mouse = 1
         touchpad {
