@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, options, ... }:
 
 let inherit (import ../../options.nix) ntp; in
 lib.mkIf ("${ntp}" == "on") {

@@ -1,4 +1,4 @@
-{ pkgs, config, lib, options, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   # List services that you want to enable:
