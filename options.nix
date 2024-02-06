@@ -30,5 +30,6 @@
   nfsDevice = "nas:/volume1/nas";
   localHWClock = "off";
   ntp = "on";
+  flatpak = "on";
 
 }
