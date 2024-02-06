@@ -8,7 +8,7 @@
   gitEmail = "tylerzanekelley@gmail.com";
   theme = "rose-pine";
   waybarStyle = "style2"; # can be style1-2
-  borderAnim = "on"; # anything other than on disables anim borders in Hyprland
+  borderAnim = true; # anything other than on disables anim borders in Hyprland
   browser = "firefox";
   wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
   wallpaperDir = "/home/zaney/Pictures/Wallpapers";
@@ -25,11 +25,13 @@
   # Optional Settings
   intel-bus-id = "PCI:0:2:0";
   nvidia-bus-id = "PCI:14:0:0";
-  nfs = "off";
+  nfs = false;
   nfsMountPoint = "/mnt/nas";
   nfsDevice = "nas:/volume1/nas";
-  localHWClock = "off";
-  ntp = "on";
-  flatpak = "on";
+  localHWClock = false;
+  ntp = true;
+  flatpak = false;
+  kdenlive = true;
+  blender = true;
 
 }

@@ -1,6 +1,6 @@
 { config, lib, ... }:
 
 let inherit (import ../../options.nix) localHWClock; in
-lib.mkIf ("${localHWClock}" == "on") {
+lib.mkIf (localHWClock == true) {
   time.hardwareClockInLocalTime = true;
 }

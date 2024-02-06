@@ -8,7 +8,7 @@ in {
   home.packages = with pkgs; [
     pkgs."${browser}" discord libvirt swww grim slurp gnome.file-roller
     swaynotificationcenter rofi-wayland imv transmission-gtk mpv
-    gimp obs-studio blender-hip kdenlive godot_4 rustup audacity
+    gimp obs-studio blender-hip godot_4 rustup audacity
     font-awesome spotify swayidle neovide pavucontrol
     element-desktop swaylock
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })

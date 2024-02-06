@@ -83,7 +83,7 @@ in with lib; {
         animation = windowsOut, 1, 5, winOut, slide
         animation = windowsMove, 1, 5, wind, slide
         animation = border, 1, 1, liner
-        ${if borderAnim == "on" then ''
+        ${if borderAnim == true then ''
           animation = borderangle, 1, 30, liner, loop
         '' else ''
         ''}
