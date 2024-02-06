@@ -37,9 +37,9 @@ sudo nixos-rebuild switch
 
 - Reboot your system.
 - Clone this repo.
-- Then go into repo folder (stay in this folder)
-- Change username, hostname, theme, and any other variables you may want under user information in flake.nix
-- Ensure you have selected the proper cpuType and gpuType in the flake as well.
+- Then go into repo folder (stay in this folder).
+- Change username and hostname in flake.nix file.
+- Change all options in options.nix as needed.
 - Generate your hardware.nix like so:
 
 ```
