@@ -6,7 +6,7 @@
   # User Variables
   gitUsername = "Tyler Kelley";
   gitEmail = "tylerzanekelley@gmail.com";
-  theme = "rose-pine";
+  theme = "gigavolt";
   waybarStyle = "style2"; # can be style1-2
   borderAnim = true; # anything other than on disables anim borders in Hyprland
   browser = "firefox";
