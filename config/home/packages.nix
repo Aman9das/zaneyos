@@ -10,7 +10,7 @@ in {
     swaynotificationcenter rofi-wayland imv transmission-gtk mpv
     gimp obs-studio blender-hip godot_4 rustup audacity
     font-awesome spotify swayidle neovide pavucontrol
-    element-desktop swaylock
+    element-desktop swaylock wezterm
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })
@@ -25,4 +25,6 @@ in {
     (import ./../scripts/rofi-launcher.nix { inherit pkgs; })
     (import ./../scripts/screenshootin.nix { inherit pkgs; })
   ];
+
+  programs.gh.enable = true;
 }

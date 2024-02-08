@@ -12,6 +12,7 @@
     ./intel-amd.nix
     ./intel-gpu.nix
     ./intel-nvidia.nix
+    ./logitech.nix
     ./neovim.nix
     ./nfs.nix
     ./ntp.nix

@@ -38,5 +38,6 @@ in {
   flatpak = false;
   kdenlive = true;
   blender = true;
+  logitech = true;
 
 }
