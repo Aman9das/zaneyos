@@ -9,10 +9,20 @@ in {
 
     plugins = {
       telescope.enable = true;
+      neo-tree.enable = true;
       airline = {
 	enable = true;
 	powerlineFonts = true;
 	theme = "tomorrow";
+      };
+      startup = { 
+	enable = true;
+	theme = "evil";
+	userMappings = {
+	  "<leader>ff" = "<cmd>Telescope find_files<CR>";
+	  "<leader>s"  = "<cmd>Telescope live_grep<CR>";
+	  "<leader>f"  = "<cmd>Neotree reveal right<CR>";
+	};
       };
       comment-nvim.enable = true;
       lsp = {
@@ -65,9 +75,9 @@ in {
 
     extraConfigLua = ''
       local builtin = require('telescope.builtin')
-      vim.keymap.set('n', '<leader>f', builtin.find_files, {})
+      vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
       vim.keymap.set('n', '<leader>s', function()
-      builtin.grep_string({ search = vim.fn.input("Grep > ") })
+        builtin.grep_string({ search = vim.fn.input("Grep > ") })
       end)
     '';
 
@@ -83,6 +93,12 @@ in {
         key = "<leader>tf";
         options.silent = false;
         action = "<cmd>Ex<CR>";
+      }
+      {
+        mode = "n";
+        key = "<leader>f";
+        options.silent = false;
+        action = "<cmd>Neotree reveal right<CR>";
       }
     ];
 

@@ -3,6 +3,7 @@
 # https://gitlab.com/Zaney/zaneyos/-/wikis/Setting-Options
 
 let
+  # YOU MUST CHANGE THIS 
   userHome = "/home/zaney";
 in {
   # User Variables

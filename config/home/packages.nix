@@ -8,9 +8,12 @@ in {
   home.packages = with pkgs; [
     pkgs."${browser}" discord libvirt swww grim slurp gnome.file-roller
     swaynotificationcenter rofi-wayland imv transmission-gtk mpv
-    gimp obs-studio blender-hip godot_4 rustup audacity
-    font-awesome spotify swayidle neovide pavucontrol
-    element-desktop swaylock wezterm
+    gimp obs-studio godot_4 rustup audacity pavucontrol wezterm
+    font-awesome spotify swayidle neovide element-desktop swaylock
+    (vivaldi.override {
+      proprietaryCodecs = true;
+      enableWidevine = true;
+    })
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })
