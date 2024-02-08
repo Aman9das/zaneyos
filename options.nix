@@ -31,6 +31,7 @@
   nfsDevice = "nas:/volume1/nas";
   localHWClock = false;
   ntp = true;
+  printer = false;
   flatpak = false;
   kdenlive = true;
   blender = true;
