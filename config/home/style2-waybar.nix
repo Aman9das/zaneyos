@@ -86,7 +86,7 @@ lib.mkIf ("${waybarStyle}" == "style2") {
         tooltip = false;
         format = " ";
         # exec = "rofi -show drun";
-        on-click = "sleep 0.1 && rofi -show drun";
+        on-click = "sleep 0.1 && rofi-launcher";
       };
       "idle_inhibitor" = {
         format = "{icon}";
