@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, username, ... }:
 
 let inherit (import ../../options.nix) printer; in
 lib.mkIf (printer == true) {
@@ -10,4 +10,6 @@ lib.mkIf (printer == true) {
       openFirewall = true;
     };
   };
+  hardware.sane.enable = true;
+  users.users.${username}.extraGroups = ["scanner" "lp"];
 }
