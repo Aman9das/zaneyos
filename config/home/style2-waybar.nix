@@ -45,12 +45,12 @@ lib.mkIf ("${waybarStyle}" == "style2") {
         tooltip = true;
       };
       "disk" = {
-        format = "  {free}";
+        format = " {free}";
         tooltip = true;
       };
       "network" = {
         format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
-        format-ethernet = ": {bandwidthDownOctets}";
+        format-ethernet = " {bandwidthDownOctets}";
         format-wifi = "{icon} {signalStrength}%";
         format-disconnected = "󰤮";
         tooltip = false;

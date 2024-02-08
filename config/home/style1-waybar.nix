@@ -45,12 +45,12 @@ lib.mkIf ("${waybarStyle}" == "style1") {
         tooltip = true;
       };
       "disk" = {
-        format = "  {free}";
+        format = " {free}";
         tooltip = true;
       };
       "network" = {
         format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
-        format-ethernet = ": {bandwidthDownOctets}";
+        format-ethernet = " {bandwidthDownOctets}";
         format-wifi = "{icon} {signalStrength}%";
         format-disconnected = "󰤮";
         tooltip = false;
@@ -84,7 +84,7 @@ lib.mkIf ("${waybarStyle}" == "style1") {
       };
       "custom/startmenu" = {
         tooltip = false;
-        format = "";
+        format = " ";
         # exec = "rofi -show drun";
         on-click = "sleep 0.1 && rofi -show drun";
       };
