@@ -14,6 +14,7 @@
     ./starship.nix
     ./style1-waybar.nix
     ./style2-waybar.nix
+    ./swappy.nix
     ./swaylock.nix
     ./swaync.nix
 

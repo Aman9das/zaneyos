@@ -126,12 +126,12 @@ in with lib; {
         new_is_master = true
       }
       bind = ${modifier},Return,exec,kitty
-      bind = ${modifier}SHIFT,Return,exec,rofi -show drun
+      bind = ${modifier}SHIFT,Return,exec,rofi-launcher
       bind = ${modifier}SHIFT,W,exec,web-search
       bind = ${modifier}SHIFT,S,exec,swaync-client -rs
       bind = ${modifier},W,exec,${browser}
       bind = ${modifier},E,exec,emopicker9000
-      bind = ${modifier},S,exec,grim -g "$(slurp)" - | swappy -f -
+      bind = ${modifier},S,exec,screenshootin
       bind = ${modifier},D,exec,discord
       bind = ${modifier},O,exec,obs
       bind = ${modifier},G,exec,gimp

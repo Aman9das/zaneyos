@@ -22,5 +22,7 @@ in {
     (import ./../scripts/theme-selector.nix { inherit pkgs; })
     (import ./../scripts/nvidia-offload.nix { inherit pkgs; })
     (import ./../scripts/web-search.nix { inherit pkgs; })
+    (import ./../scripts/rofi-launcher.nix { inherit pkgs; })
+    (import ./../scripts/screenshootin.nix { inherit pkgs; })
   ];
 }

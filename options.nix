@@ -2,7 +2,9 @@
 # VALUES FOR THIS PAGE. 
 # https://gitlab.com/Zaney/zaneyos/-/wikis/Setting-Options
 
-{
+let
+  userHome = "/home/zaney";
+in {
   # User Variables
   gitUsername = "Tyler Kelley";
   gitEmail = "tylerzanekelley@gmail.com";
@@ -11,8 +13,9 @@
   borderAnim = true; # anything other than on disables anim borders in Hyprland
   browser = "firefox";
   wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
-  wallpaperDir = "/home/zaney/Pictures/Wallpapers";
-  flakeDir = "/home/zaney/zaneyos";
+  wallpaperDir = "${userHome}/Pictures/Wallpapers";
+  flakeDir = "${userHome}/zaneyos";
+  screenshotDir = "${userHome}/Pictures/Screenshots";
 
   # System Settings
   theLocale = "en_US.UTF-8";
