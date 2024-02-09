@@ -117,6 +117,7 @@ in with lib; {
       exec-once = waybar
       exec-once = swaync
       exec-once = wallsetter
+      exec-once = nm-applet --indicator & disown
       exec-once = swayidle -w timeout 720 'swaylock -f' timeout 800 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f -c 000000'
       dwindle {
         pseudotile = true
