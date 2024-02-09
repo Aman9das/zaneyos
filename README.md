@@ -52,6 +52,6 @@ nixos-generate-config --show-hardware-config > hardware.nix
 sudo nixos-rebuild switch --flake .
 ```
 
-Now when you want to rebuild the configuration you have access to an alias called flake-rebuild that will rebuild the flake based of the flakeDir variable you set in flake.nix!
+Now when you want to rebuild the configuration you have access to an alias called flake-rebuild that will rebuild the flake based of the flakeDir variable you set in options.nix!
 
 Hope you enjoy!
