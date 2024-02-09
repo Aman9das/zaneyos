@@ -17,6 +17,7 @@
     ./swappy.nix
     ./swaylock.nix
     ./swaync.nix
+    ./zsh.nix
 
     # Place Home Files Like Pictures
     ./files.nix

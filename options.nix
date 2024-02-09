@@ -24,6 +24,7 @@ in {
   theSecondKBDLayout = "pl";
   theLCVariables = "en_US.UTF-8";
   theTimezone = "America/Chicago";
+  theShell = "bash"; # Possible options: bash, zsh
   cpuType = "intel";
   gpuType = "amd";
 
