@@ -1,4 +1,4 @@
-{ config, pkgs, username, ... }:
+{ config, lib, pkgs, ... }:
 
 let inherit (import ../../options.nix) flakeDir theShell; in
 lib.mkIf (theShell == "bash") {
@@ -33,5 +33,4 @@ lib.mkIf (theShell == "bash") {
       ".."="cd ..";
     };
   };
-  users.users.${username}.shell = pkgs.bash;
 }

@@ -1,20 +1,12 @@
-{ config, pkgs, username, ... }:
+{ config, lib, pkgs, ... }:
 
 let inherit (import ../../options.nix) flakeDir theShell; in
 lib.mkIf (theShell == "zsh") {
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
-    autosuggestions = {
-      enable = true;
-      async = true;
-      highlightStyle = "fg=cyan";
-      strategy = ["completion"];
-    };
-    ohMyZsh = {
-      enable = true;
-      plugins = ["history-substring-search"];
-    };
+    enableAutosuggestions = true;
+    historySubstringSearch.enable = true;
     profileExtra = ''
       #if [ -z "$DISPLAY" ] && [ "$XDG_VNTR" = 1 ]; then
       #  exec Hyprland
@@ -64,5 +56,4 @@ lib.mkIf (theShell == "zsh") {
       ".."="cd ..";
     };
   };
-  users.users.${username}.shell = pkgs.zsh;
 }
