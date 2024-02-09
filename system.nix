@@ -4,7 +4,7 @@
 let 
   inherit (import ./options.nix) 
     theLocale theTimezone gitUsername
-    wallpaperDir wallpaperGit
+    theShell wallpaperDir wallpaperGit
     theLCVariables theKBDLayout;
 in {
   imports =
@@ -43,6 +43,8 @@ in {
     isNormalUser = true;
     description = "${gitUsername}";
     extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    shell = pkgs.${theShell};
+    ignoreShellProgramCheck = true;
     packages = with pkgs; [];
   };
 

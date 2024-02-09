@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-let inherit (import ../../options.nix) flakeDir; in
-{
+let inherit (import ../../options.nix) flakeDir theShell; in
+lib.mkIf (theShell == "bash") {
   # Configure Bash
   programs.bash = {
     enable = true;
