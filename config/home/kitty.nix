@@ -1,8 +1,10 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 let
   palette = config.colorScheme.palette;
-in {
+  inherit (import ../../options.nix) alacritty wezterm kitty;
+in lib.mkIf (wezterm == false && alacritty == false
+	     || kitty == true) {
   # Configure Kitty
   programs.kitty = {
     enable = true;

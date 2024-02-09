@@ -6,7 +6,7 @@ let
   inherit (import ../../options.nix) 
     browser cpuType gpuType
     wallpaperDir borderAnim
-    theKBDLayout wezterm
+    theKBDLayout terminal
     theSecondKBDLayout;
 in with lib; {
   wayland.windowManager.hyprland = {
@@ -125,11 +125,7 @@ in with lib; {
       master {
         new_is_master = true
       }
-      ${if wezterm == true then ''
-	bind = ${modifier},Return,exec,wezterm
-      '' else ''
-	bind = ${modifier},Return,exec,kitty
-      ''}
+      bind = ${modifier},Return,exec,${terminal}
       bind = ${modifier}SHIFT,Return,exec,rofi-launcher
       bind = ${modifier}SHIFT,W,exec,web-search
       bind = ${modifier}SHIFT,S,exec,swaync-client -rs
