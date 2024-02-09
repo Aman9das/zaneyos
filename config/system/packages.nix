@@ -16,9 +16,8 @@ in {
     v4l-utils ydotool wl-clipboard socat cowsay lsd lshw
     pkg-config meson hugo gnumake ninja go nodejs symbola
     noto-fonts-color-emoji material-icons brightnessctl
-    toybox virt-viewer jetbrains.pycharm-community-bin
-    swappy ripgrep appimage-run networkmanagerapplet
-    (pkgs.python3.withPackages my-python-packages)
+    toybox virt-viewer swappy ripgrep appimage-run 
+    networkmanagerapplet
   ];
 
   programs.steam.gamescopeSession.enable = true;

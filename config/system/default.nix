@@ -19,6 +19,7 @@
     ./nvidia.nix
     ./packages.nix
     ./polkit.nix
+    ./python.nix
     ./printer.nix
     ./services.nix
     ./steam.nix

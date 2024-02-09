@@ -62,4 +62,7 @@ in {
   alacritty = true;
   kitty = false;
 
+  # Enable Python & PyCharm
+  python = false;
+
 }
