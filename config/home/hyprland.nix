@@ -129,7 +129,11 @@ in with lib; {
       bind = ${modifier}SHIFT,Return,exec,rofi-launcher
       bind = ${modifier}SHIFT,W,exec,web-search
       bind = ${modifier}SHIFT,S,exec,swaync-client -rs
-      bind = ${modifier},W,exec,${browser}
+      ${if browser == "google-chrome" then ''
+	bind = ${modifier},W,exec,google-chrome-stable
+      '' else ''
+	bind = ${modifier},W,exec,${browser}
+      ''}
       bind = ${modifier},E,exec,emopicker9000
       bind = ${modifier},S,exec,screenshootin
       bind = ${modifier},D,exec,discord
