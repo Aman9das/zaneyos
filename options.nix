@@ -10,8 +10,8 @@ in {
   gitUsername = "Tyler Kelley";
   gitEmail = "tylerzanekelley@gmail.com";
   theme = "gigavolt";
-  waybarStyle = "style2"; # can be style1-2
-  borderAnim = true; # anything other than on disables anim borders in Hyprland
+  slickbar = true;
+  borderAnim = true;
   browser = "firefox";
   wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
   wallpaperDir = "${userHome}/Pictures/Wallpapers";

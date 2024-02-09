@@ -13,8 +13,7 @@
     ./packages.nix
     ./rofi.nix
     ./starship.nix
-    ./style1-waybar.nix
-    ./style2-waybar.nix
+    ./waybar.nix
     ./swappy.nix
     ./swaylock.nix
     ./swaync.nix
