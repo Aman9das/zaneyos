@@ -41,5 +41,6 @@ in {
   kdenlive = true;
   blender = true;
   logitech = true;
+  wezterm = false;
 
 }
