@@ -12,7 +12,8 @@ disabled = false
 format = "[$hostname]($style) in "
 ssh_only = false
 style = "bold dimmed red"
-trim_at = "-"
+# If enabled hostnames with dashes will be cut off  ##
+#trim_at = "-"
 
 # Third param
 [directory]
