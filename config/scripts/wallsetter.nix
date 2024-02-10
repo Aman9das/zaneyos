@@ -23,7 +23,7 @@ pkgs.writeShellScriptBin "wallsetter" ''
       WALLPAPER=$(find ${wallpaperDir} -name '*' | awk '!/.git/' | tail -n +2 | shuf -n 1)
     else
       PREVIOUS=$WALLPAPER
-      NUM=$(shuf -i 1-5 -n 1)
+      NUM=$(shuf -e 1 2 3 4 5 -n 1)
       case $NUM in
         1)
           TRANSITION=$TRANSITION1

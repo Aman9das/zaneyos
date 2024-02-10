@@ -1,11 +1,6 @@
 { pkgs, config, inputs, ... }:
 
-let
-  my-python-packages = ps: with ps; [
-    pandas
-    requests
-  ];
-in {
+{
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -17,7 +12,7 @@ in {
     pkg-config meson hugo gnumake ninja go nodejs symbola
     noto-fonts-color-emoji material-icons brightnessctl
     toybox virt-viewer swappy ripgrep appimage-run 
-    networkmanagerapplet
+    networkmanagerapplet yadm
   ];
 
   programs.steam.gamescopeSession.enable = true;
