@@ -43,9 +43,11 @@ in {
   nfsMountPoint = "/mnt/nas";
   nfsDevice = "nas:/volume1/nas";
 
-  # Printer, NTP, HWClock Settings
-  localHWClock = false;
+  # NTP & HWClock Settings
   ntp = true;
+  localHWClock = false;
+
+  # Enable Printer & Scanner Support
   printer = false;
 
   # Enable Flatpak & Larger Programs

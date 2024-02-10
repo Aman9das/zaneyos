@@ -16,6 +16,6 @@ lib.mkIf (printer == true) {
     extraBackends = [pkgs.sane-airscan];
     disabledDefaultBackends = ["escl"];
   };
-  environment.systemPackages = with pkgs; [ system-config-printer ];
+  programs.system-config-printer.enable = true;
   users.users.${username}.extraGroups = ["scanner" "lp"];
 }
