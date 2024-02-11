@@ -1,0 +1,217 @@
+01:24:10.319: Platform: Wayland
+01:24:10.319: CPU Name: Intel(R) Xeon(R) CPU E5-2697A v4 @ 2.60GHz
+01:24:10.319: CPU Speed: 3278.541MHz
+01:24:10.320: Physical Cores: 16, Logical Cores: 32
+01:24:10.320: Physical Memory: 64154MB Total, 6315MB Free
+01:24:10.320: Kernel Version: Linux 6.1.75
+01:24:10.320: Distribution: NixOS "24.05"
+01:24:10.320: Desktop Environment: Hyprland (Hyprland)
+01:24:10.320: Session Type: wayland
+01:24:10.322: Qt Version: 6.6.1 (runtime), 6.6.1 (compiled)
+01:24:10.322: Portable mode: false
+01:24:10.357: OBS 30.0.2 (linux)
+01:24:10.357: ---------------------------------
+01:24:10.358: ---------------------------------
+01:24:10.358: audio settings reset:
+01:24:10.358: 	samples per sec: 48000
+01:24:10.358: 	speakers:        2
+01:24:10.358: 	max buffering:   960 milliseconds
+01:24:10.358: 	buffering type:  dynamically increasing
+01:24:10.374: ---------------------------------
+01:24:10.374: Initializing OpenGL...
+01:24:10.374: Using EGL/Wayland
+01:24:10.439: Initialized EGL 1.5
+01:24:10.459: Loading up OpenGL on adapter AMD AMD Radeon RX 6600 XT (radeonsi, navi23, LLVM 16.0.6, DRM 3.49, 6.1.75)
+01:24:10.459: OpenGL loaded successfully, version 4.6 (Core Profile) Mesa 23.3.3, shading language 4.60
+01:24:10.496: ---------------------------------
+01:24:10.496: video settings reset:
+01:24:10.496: 	base resolution:   1920x1080
+01:24:10.496: 	output resolution: 1920x1080
+01:24:10.496: 	downscale filter:  Bicubic
+01:24:10.496: 	fps:               60/1
+01:24:10.496: 	format:            NV12
+01:24:10.496: 	YUV mode:          Rec. 709/Partial
+01:24:10.497: NV12 texture support not available
+01:24:10.497: P010 texture support not available
+01:24:10.499: Audio monitoring device:
+01:24:10.499: 	name: Default
+01:24:10.499: 	id: default
+01:24:10.499: ---------------------------------
+01:24:10.548: No AJA devices found, skipping loading AJA UI plugin
+01:24:10.548: Failed to initialize module 'aja-output-ui.so'
+01:24:10.591: No AJA devices found, skipping loading AJA plugin
+01:24:10.591: Failed to initialize module 'aja.so'
+01:24:10.607: Failed to load 'en-US' text for module: 'decklink-captions.so'
+01:24:10.626: Failed to load 'en-US' text for module: 'decklink-output-ui.so'
+01:24:10.643: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+01:24:10.643: Failed to initialize module 'decklink.so'
+01:24:10.974: [pipewire] Available captures:
+01:24:10.974: [pipewire]     - Desktop capture
+01:24:10.974: [pipewire]     - Window capture
+01:24:11.033: [obs-browser]: Version 2.22.2
+01:24:11.033: [obs-browser]: CEF Version 117.0.5938.150 (runtime), 117.2.4+g5053a95+chromium-117.0.5938.150 (compiled)
+01:24:11.149: VAAPI: API version 1.20
+01:24:11.151: FFmpeg VAAPI H264 encoding supported
+01:24:11.160: FFmpeg VAAPI HEVC encoding supported
+01:24:11.389: [obs-websocket] [obs_module_load] you can haz websockets (Version: 5.3.4 | RPC Version: 1)
+01:24:11.389: [obs-websocket] [obs_module_load] Qt version (compile-time): 6.6.1 | Qt version (run-time): 6.6.1
+01:24:11.389: [obs-websocket] [obs_module_load] Linked ASIO Version: 102400
+01:24:11.395: [obs-websocket] [obs_module_load] Module loaded.
+01:24:11.470: [vlc-video]: VLC 3.0.20 Vetinari found, VLC video source enabled
+01:24:11.470: ---------------------------------
+01:24:11.470:   Loaded Modules:
+01:24:11.470:     vlc-video.so
+01:24:11.470:     text-freetype2.so
+01:24:11.470:     rtmp-services.so
+01:24:11.470:     obs-x264.so
+01:24:11.470:     obs-websocket.so
+01:24:11.470:     obs-webrtc.so
+01:24:11.470:     obs-vst.so
+01:24:11.470:     obs-transitions.so
+01:24:11.470:     obs-qsv11.so
+01:24:11.470:     obs-outputs.so
+01:24:11.470:     obs-libfdk.so
+01:24:11.470:     obs-filters.so
+01:24:11.470:     obs-ffmpeg.so
+01:24:11.470:     obs-browser.so
+01:24:11.470:     linux-v4l2.so
+01:24:11.470:     linux-pulseaudio.so
+01:24:11.470:     linux-pipewire.so
+01:24:11.470:     linux-jack.so
+01:24:11.470:     linux-capture.so
+01:24:11.470:     linux-alsa.so
+01:24:11.470:     image-source.so
+01:24:11.470:     frontend-tools.so
+01:24:11.470:     decklink-output-ui.so
+01:24:11.470:     decklink-captions.so
+01:24:11.470: ---------------------------------
+01:24:11.470: QWidget::setTabOrder: 'first' and 'second' must be in the same window
+01:24:11.470: ==== Startup complete ===============================================
+01:24:11.515: All scene data cleared
+01:24:11.515: ------------------------------------------------
+01:24:11.519: pulse-input: Server name: 'PulseAudio (on PipeWire 1.0.1) 15.0.0'
+01:24:11.519: pulse-input: Audio format: s16le, 48000 Hz, 2 channels
+01:24:11.519: pulse-input: Started recording from 'alsa_output.usb-MV-SILICON_Maonocaster_E2_20190808-00.analog-stereo.monitor' (default)
+01:24:11.519: [Loaded global audio device]: 'Desktop Audio'
+01:24:11.520: pulse-input: Server name: 'PulseAudio (on PipeWire 1.0.1) 15.0.0'
+01:24:11.520: pulse-input: Audio format: s16le, 48000 Hz, 2 channels
+01:24:11.520: pulse-input: Started recording from 'alsa_input.usb-MV-SILICON_Maonocaster_E2_20190808-00.analog-stereo' (default)
+01:24:12.086: adding 42 milliseconds of audio buffering, total audio buffering is now 42 milliseconds (source: Desktop Audio)
+01:24:12.086: 
+01:24:16.412: [Loaded global audio device]: 'Mic/Aux'
+01:24:16.412:     - filter: 'Noise Suppression' (noise_suppress_filter_v2)
+01:24:16.413: v4l2-input: Start capture from /dev/video1
+01:24:16.413: v4l2-input: Input: 0
+01:24:16.414: v4l2-input: Resolution: 1920x1080
+01:24:16.414: v4l2-input: Pixelformat: BGR3
+01:24:16.414: v4l2-input: Linesize: 5760 Bytes
+01:24:16.415: v4l2-input: Framerate: 60.00 fps
+01:24:16.417: v4l2-input: /dev/video1: select timeout set to 83333 (5x frame periods)
+01:24:16.417: PipeWire initialized
+01:24:16.487: Switched to scene 'Camera'
+01:24:16.487: ------------------------------------------------
+01:24:16.487: Loaded scenes:
+01:24:16.487: - scene 'Camera':
+01:24:16.487:     - source: 'Desktop' (scene)
+01:24:16.487:     - source: 'Sony A6000' (v4l2_input)
+01:24:16.487: - scene 'CamTop':
+01:24:16.487:     - source: 'Desktop' (scene)
+01:24:16.487:     - source: 'CamBordered' (scene)
+01:24:16.487: - scene 'Desktop':
+01:24:16.487:     - source: 'Main Desktop' (pipewire-desktop-capture-source)
+01:24:16.487: - scene 'CamBordered':
+01:24:16.487:     - source: 'Camera Outline' (image_source)
+01:24:16.487:     - source: 'Cam-Mask' (scene)
+01:24:16.487:         - filter: 'Image Mask/Blend' (mask_filter_v2)
+01:24:16.487: - scene 'Cam-Mask':
+01:24:16.487:     - source: 'Camera' (scene)
+01:24:16.487:     - filter: 'Image Mask/Blend' (mask_filter_v2)
+01:24:16.487: ------------------------------------------------
+01:24:16.539: [pipewire] Screencast session created
+01:24:16.555: [Media Source 'Stinger (Stinger)']: settings:
+01:24:16.555: 	input:                   /home/zaney/.config/zaney-stinger.mov
+01:24:16.555: 	input_format:            (null)
+01:24:16.555: 	speed:                   100
+01:24:16.555: 	is_looping:              no
+01:24:16.555: 	is_linear_alpha:         no
+01:24:16.555: 	is_hw_decoding:          yes
+01:24:16.555: 	is_clear_on_media_end:   yes
+01:24:16.555: 	restart_on_activate:     yes
+01:24:16.555: 	close_when_inactive:     no
+01:24:16.555: 	full_decode:             no
+01:24:16.555: 	ffmpeg_options:          
+01:24:17.688: [pipewire] Asking for desktop
+01:24:17.690: [pipewire] desktop selected, setting up screencast
+01:24:17.696: [pipewire] Server version: 1.0.1
+01:24:17.696: [pipewire] Library version: 1.0.1
+01:24:17.696: [pipewire] Header version: 1.0.1
+01:24:17.696: [pipewire] Created stream 0x2af0b20
+01:24:17.696: [pipewire] Stream 0x2af0b20 state: "connecting" (error: none)
+01:24:17.696: [pipewire] Playing stream 0x2af0b20
+01:24:17.696: [pipewire] Stream 0x2af0b20 state: "paused" (error: none)
+01:24:17.698: [pipewire] Negotiated format:
+01:24:17.698: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+01:24:17.698: [pipewire]     Modifier: 0x0
+01:24:17.698: [pipewire]     Size: 1920x1080
+01:24:17.698: [pipewire]     Framerate: 0/1
+01:24:17.699: [pipewire] Negotiated format:
+01:24:17.699: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+01:24:17.699: [pipewire]     Modifier: 0x20000001876bb03
+01:24:17.699: [pipewire]     Size: 1920x1080
+01:24:17.699: [pipewire]     Framerate: 0/1
+01:24:17.700: [pipewire] Stream 0x2af0b20 state: "streaming" (error: none)
+01:24:17.701: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+01:24:17.701: [pipewire] Renegotiating stream
+01:24:17.701: [pipewire] Negotiated format:
+01:24:17.701: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+01:24:17.701: [pipewire]     Modifier: 0x20000001876bb03
+01:24:17.701: [pipewire]     Size: 1920x1080
+01:24:17.701: [pipewire]     Framerate: 0/1
+01:24:17.701: [pipewire] Negotiated format:
+01:24:17.701: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+01:24:17.701: [pipewire]     Modifier: 0x200000018767b03
+01:24:17.701: [pipewire]     Size: 1920x1080
+01:24:17.701: [pipewire]     Framerate: 0/1
+01:24:17.734: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+01:24:17.734: [pipewire] Renegotiating stream
+01:24:17.735: [pipewire] Stream 0x2af0b20 state: "paused" (error: none)
+01:24:17.735: [pipewire] Negotiated format:
+01:24:17.735: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+01:24:17.735: [pipewire]     Modifier: 0x200000018767b03
+01:24:17.735: [pipewire]     Size: 1920x1080
+01:24:17.735: [pipewire]     Framerate: 0/1
+01:24:17.735: [pipewire] Negotiated format:
+01:24:17.735: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+01:24:17.735: [pipewire]     Modifier: 0x200000018737b03
+01:24:17.735: [pipewire]     Size: 1920x1080
+01:24:17.735: [pipewire]     Framerate: 0/1
+01:24:17.736: [pipewire] Stream 0x2af0b20 state: "streaming" (error: none)
+01:24:17.751: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+01:24:17.751: [pipewire] Renegotiating stream
+01:24:17.751: [pipewire] Negotiated format:
+01:24:17.751: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+01:24:17.751: [pipewire]     Modifier: 0x200000018737b03
+01:24:17.751: [pipewire]     Size: 1920x1080
+01:24:17.751: [pipewire]     Framerate: 0/1
+01:24:17.751: [pipewire] Negotiated format:
+01:24:17.751: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+01:24:17.751: [pipewire]     Modifier: 0x200000018601b03
+01:24:17.751: [pipewire]     Size: 1920x1080
+01:24:17.751: [pipewire]     Framerate: 0/1
+01:26:41.648: Created profile 'ZaneyOS' (duplicate, ZaneyOS)
+01:26:41.648: ------------------------------------------------
+01:26:41.649: ------------------------------------------------
+01:26:41.649: Removed profile 'Untitled' (Untitled)
+01:26:41.649: ------------------------------------------------
+01:29:45.799: Failed to open file '/home/zaney/Pictures/My Artwork/OBS Camera Mask.png': No such file or directory
+01:29:45.799: gs_image_file_init_internal: Failed to load file '/home/zaney/Pictures/My Artwork/OBS Camera Mask.png'
+01:29:48.854: User switched to scene 'CamTop'
+01:29:48.866: Failed to open file '/home/zaney/Pictures/My Artwork/OBS Camera BG.png': No such file or directory
+01:29:48.866: gs_image_file_init_internal: Failed to load file '/home/zaney/Pictures/My Artwork/OBS Camera BG.png'
+01:29:48.866: [image_source: 'Camera Outline'] failed to load texture '/home/zaney/Pictures/My Artwork/OBS Camera BG.png'
+01:29:54.067: User switched to scene 'CamBordered'
+01:30:23.419: User switched to scene 'Cam-Mask'
+01:30:27.985: User switched to scene 'Camera'
+01:30:29.332: User switched to scene 'Cam-Mask'
+01:30:41.754: User switched to scene 'Camera'
+01:30:44.816: User switched to scene 'CamTop'

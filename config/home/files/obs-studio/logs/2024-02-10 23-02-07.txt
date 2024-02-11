@@ -1,0 +1,324 @@
+23:02:07.655: [Safe Mode] Unclean shutdown detected!
+23:02:09.013: [Safe Mode] User elected to launch normally.
+23:02:09.014: Platform: Wayland
+23:02:09.014: CPU Name: Intel(R) Xeon(R) CPU E5-2697A v4 @ 2.60GHz
+23:02:09.014: CPU Speed: 3086.109MHz
+23:02:09.015: Physical Cores: 16, Logical Cores: 32
+23:02:09.015: Physical Memory: 64154MB Total, 61266MB Free
+23:02:09.015: Kernel Version: Linux 6.1.75
+23:02:09.015: Distribution: NixOS "24.05"
+23:02:09.015: Desktop Environment: Hyprland (Hyprland)
+23:02:09.015: Session Type: wayland
+23:02:09.017: Qt Version: 6.6.1 (runtime), 6.6.1 (compiled)
+23:02:09.017: Portable mode: false
+23:02:09.057: OBS 30.0.2 (linux)
+23:02:09.057: ---------------------------------
+23:02:09.058: ---------------------------------
+23:02:09.058: audio settings reset:
+23:02:09.058: 	samples per sec: 48000
+23:02:09.058: 	speakers:        2
+23:02:09.058: 	max buffering:   960 milliseconds
+23:02:09.058: 	buffering type:  dynamically increasing
+23:02:09.077: ---------------------------------
+23:02:09.077: Initializing OpenGL...
+23:02:09.077: Using EGL/Wayland
+23:02:09.146: Initialized EGL 1.5
+23:02:09.168: Loading up OpenGL on adapter AMD AMD Radeon RX 6600 XT (radeonsi, navi23, LLVM 16.0.6, DRM 3.49, 6.1.75)
+23:02:09.168: OpenGL loaded successfully, version 4.6 (Core Profile) Mesa 23.3.3, shading language 4.60
+23:02:09.220: ---------------------------------
+23:02:09.220: video settings reset:
+23:02:09.220: 	base resolution:   1920x1080
+23:02:09.220: 	output resolution: 1920x1080
+23:02:09.220: 	downscale filter:  Bicubic
+23:02:09.220: 	fps:               60/1
+23:02:09.220: 	format:            NV12
+23:02:09.220: 	YUV mode:          Rec. 709/Partial
+23:02:09.220: NV12 texture support not available
+23:02:09.220: P010 texture support not available
+23:02:09.224: Audio monitoring device:
+23:02:09.224: 	name: Default
+23:02:09.224: 	id: default
+23:02:09.224: ---------------------------------
+23:02:09.286: No AJA devices found, skipping loading AJA UI plugin
+23:02:09.286: Failed to initialize module 'aja-output-ui.so'
+23:02:09.348: No AJA devices found, skipping loading AJA plugin
+23:02:09.348: Failed to initialize module 'aja.so'
+23:02:09.367: Failed to load 'en-US' text for module: 'decklink-captions.so'
+23:02:09.388: Failed to load 'en-US' text for module: 'decklink-output-ui.so'
+23:02:09.408: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+23:02:09.408: Failed to initialize module 'decklink.so'
+23:02:09.837: [pipewire] Available captures:
+23:02:09.837: [pipewire]     - Desktop capture
+23:02:09.837: [pipewire]     - Window capture
+23:02:09.903: [obs-browser]: Version 2.22.2
+23:02:09.903: [obs-browser]: CEF Version 117.0.5938.150 (runtime), 117.2.4+g5053a95+chromium-117.0.5938.150 (compiled)
+23:02:10.068: VAAPI: API version 1.20
+23:02:10.069: FFmpeg VAAPI H264 encoding supported
+23:02:10.078: FFmpeg VAAPI HEVC encoding supported
+23:02:10.337: [obs-websocket] [obs_module_load] you can haz websockets (Version: 5.3.4 | RPC Version: 1)
+23:02:10.337: [obs-websocket] [obs_module_load] Qt version (compile-time): 6.6.1 | Qt version (run-time): 6.6.1
+23:02:10.337: [obs-websocket] [obs_module_load] Linked ASIO Version: 102400
+23:02:10.344: [obs-websocket] [obs_module_load] Module loaded.
+23:02:10.423: [vlc-video]: VLC 3.0.20 Vetinari found, VLC video source enabled
+23:02:10.423: ---------------------------------
+23:02:10.423:   Loaded Modules:
+23:02:10.423:     vlc-video.so
+23:02:10.423:     text-freetype2.so
+23:02:10.423:     rtmp-services.so
+23:02:10.423:     obs-x264.so
+23:02:10.423:     obs-websocket.so
+23:02:10.423:     obs-webrtc.so
+23:02:10.423:     obs-vst.so
+23:02:10.423:     obs-transitions.so
+23:02:10.423:     obs-qsv11.so
+23:02:10.423:     obs-outputs.so
+23:02:10.423:     obs-libfdk.so
+23:02:10.423:     obs-filters.so
+23:02:10.423:     obs-ffmpeg.so
+23:02:10.423:     obs-browser.so
+23:02:10.423:     linux-v4l2.so
+23:02:10.423:     linux-pulseaudio.so
+23:02:10.423:     linux-pipewire.so
+23:02:10.423:     linux-jack.so
+23:02:10.423:     linux-capture.so
+23:02:10.423:     linux-alsa.so
+23:02:10.423:     image-source.so
+23:02:10.423:     frontend-tools.so
+23:02:10.423:     decklink-output-ui.so
+23:02:10.423:     decklink-captions.so
+23:02:10.423: ---------------------------------
+23:02:10.424: QWidget::setTabOrder: 'first' and 'second' must be in the same window
+23:02:10.424: ==== Startup complete ===============================================
+23:02:10.471: All scene data cleared
+23:02:10.471: ------------------------------------------------
+23:02:10.485: [Lua: countdown.lua] Error opening file: (null)
+23:02:10.489: pulse-input: Server name: 'PulseAudio (on PipeWire 1.0.1) 15.0.0'
+23:02:10.489: pulse-input: Audio format: s16le, 48000 Hz, 2 channels
+23:02:10.489: pulse-input: Started recording from 'alsa_output.usb-MV-SILICON_Maonocaster_E2_20190808-00.analog-stereo.monitor' (default)
+23:02:10.489: [Loaded global audio device]: 'Desktop Audio'
+23:02:10.490: pulse-input: Server name: 'PulseAudio (on PipeWire 1.0.1) 15.0.0'
+23:02:10.490: pulse-input: Audio format: s16le, 48000 Hz, 2 channels
+23:02:10.490: pulse-input: Started recording from 'alsa_input.usb-MV-SILICON_Maonocaster_E2_20190808-00.analog-stereo' (default)
+23:02:11.064: adding 21 milliseconds of audio buffering, total audio buffering is now 21 milliseconds (source: Mic/Aux)
+23:02:11.064: 
+23:02:15.404: [Loaded global audio device]: 'Mic/Aux'
+23:02:15.404:     - filter: 'Noise Suppression' (noise_suppress_filter_v2)
+23:02:15.404:     - filter: 'Gain' (gain_filter)
+23:02:15.404:     - filter: 'Compressor' (compressor_filter)
+23:02:15.404: v4l2-input: Start capture from /dev/video1
+23:02:15.406: v4l2-input: Input: 0
+23:02:15.406: v4l2-input: Resolution: 1920x1080
+23:02:15.406: v4l2-input: Pixelformat: BGR3
+23:02:15.406: v4l2-input: Linesize: 5760 Bytes
+23:02:15.407: v4l2-input: Framerate: 60.00 fps
+23:02:15.409: v4l2-input: /dev/video1: select timeout set to 83333 (5x frame periods)
+23:02:15.409: PipeWire initialized
+23:02:15.412: Switched to scene 'Camera'
+23:02:15.412: ------------------------------------------------
+23:02:15.412: Loaded scenes:
+23:02:15.412: - scene 'Camera':
+23:02:15.412:     - source: 'Desktop' (scene)
+23:02:15.412:     - source: 'Sony A6000' (v4l2_input)
+23:02:15.412:     - source: 'Timer' (text_ft2_source_v2)
+23:02:15.412: - scene 'Desktop':
+23:02:15.412:     - source: 'Main Desktop' (pipewire-desktop-capture-source)
+23:02:15.412: ------------------------------------------------
+23:02:15.430: [Media Source 'Stinger (Stinger)']: settings:
+23:02:15.430: 	input:                   /home/zaney/.config/zaney-stinger.mov
+23:02:15.430: 	input_format:            (null)
+23:02:15.430: 	speed:                   100
+23:02:15.430: 	is_looping:              no
+23:02:15.430: 	is_linear_alpha:         no
+23:02:15.430: 	is_hw_decoding:          yes
+23:02:15.430: 	is_clear_on_media_end:   yes
+23:02:15.430: 	restart_on_activate:     yes
+23:02:15.430: 	close_when_inactive:     no
+23:02:15.430: 	full_decode:             no
+23:02:15.430: 	ffmpeg_options:          
+23:02:15.456: [pipewire] Screencast session created
+23:02:15.493: v4l2-input: /dev/video1: select timed out
+23:02:15.493: v4l2-input: /dev/video1: failed to log status
+23:02:18.236: [pipewire] Asking for desktop
+23:02:18.238: [pipewire] desktop selected, setting up screencast
+23:02:18.244: [pipewire] Server version: 1.0.1
+23:02:18.244: [pipewire] Library version: 1.0.1
+23:02:18.244: [pipewire] Header version: 1.0.1
+23:02:18.244: [pipewire] Created stream 0x3f97350
+23:02:18.244: [pipewire] Stream 0x3f97350 state: "connecting" (error: none)
+23:02:18.245: [pipewire] Playing stream 0x3f97350
+23:02:18.245: [pipewire] Stream 0x3f97350 state: "paused" (error: none)
+23:02:18.247: [pipewire] Negotiated format:
+23:02:18.247: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+23:02:18.247: [pipewire]     Modifier: 0x0
+23:02:18.247: [pipewire]     Size: 1920x1080
+23:02:18.247: [pipewire]     Framerate: 0/1
+23:02:18.248: [pipewire] Negotiated format:
+23:02:18.248: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+23:02:18.248: [pipewire]     Modifier: 0x20000001876bb03
+23:02:18.248: [pipewire]     Size: 1920x1080
+23:02:18.248: [pipewire]     Framerate: 0/1
+23:02:18.249: [pipewire] Stream 0x3f97350 state: "streaming" (error: none)
+23:02:18.257: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+23:02:18.257: [pipewire] Renegotiating stream
+23:02:18.257: [pipewire] Negotiated format:
+23:02:18.257: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+23:02:18.257: [pipewire]     Modifier: 0x20000001876bb03
+23:02:18.257: [pipewire]     Size: 1920x1080
+23:02:18.257: [pipewire]     Framerate: 0/1
+23:02:18.258: [pipewire] Negotiated format:
+23:02:18.258: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+23:02:18.258: [pipewire]     Modifier: 0x200000018767b03
+23:02:18.258: [pipewire]     Size: 1920x1080
+23:02:18.258: [pipewire]     Framerate: 0/1
+23:02:18.384: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+23:02:18.384: [pipewire] Renegotiating stream
+23:02:18.385: [pipewire] Stream 0x3f97350 state: "paused" (error: none)
+23:02:18.385: [pipewire] Negotiated format:
+23:02:18.385: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+23:02:18.385: [pipewire]     Modifier: 0x200000018767b03
+23:02:18.385: [pipewire]     Size: 1920x1080
+23:02:18.385: [pipewire]     Framerate: 0/1
+23:02:18.385: [pipewire] Negotiated format:
+23:02:18.385: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+23:02:18.385: [pipewire]     Modifier: 0x200000018737b03
+23:02:18.385: [pipewire]     Size: 1920x1080
+23:02:18.385: [pipewire]     Framerate: 0/1
+23:02:18.386: [pipewire] Stream 0x3f97350 state: "streaming" (error: none)
+23:02:18.390: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+23:02:18.390: [pipewire] Renegotiating stream
+23:02:18.391: [pipewire] Negotiated format:
+23:02:18.391: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+23:02:18.391: [pipewire]     Modifier: 0x200000018737b03
+23:02:18.391: [pipewire]     Size: 1920x1080
+23:02:18.391: [pipewire]     Framerate: 0/1
+23:02:18.391: [pipewire] Negotiated format:
+23:02:18.391: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+23:02:18.391: [pipewire]     Modifier: 0x200000018601b03
+23:02:18.391: [pipewire]     Size: 1920x1080
+23:02:18.391: [pipewire]     Framerate: 0/1
+23:04:34.966: Virtual camera started
+23:04:34.967: ==== Virtual Camera Start ==========================================
+23:04:34.968: Starting Virtual Camera output to Program
+23:06:19.844: Output 'virtualcam_output': stopping
+23:06:19.844: Output 'virtualcam_output': Total frames output: 6291
+23:06:19.844: Output 'virtualcam_output': Total drawn frames: 6293
+23:06:19.844: ==== Virtual Camera Stop ===========================================
+23:06:19.845: Virtual camera stopped
+23:37:43.288: adding 42 milliseconds of audio buffering, total audio buffering is now 64 milliseconds (source: Mic/Aux)
+23:37:43.288: 
+00:09:55.047: User added scene 'Cam-Mask'
+00:09:55.048: User switched to scene 'Cam-Mask'
+00:09:57.540: [pipewire] Stream 0x3f97350 state: "paused" (error: none)
+00:10:01.450: User added source 'Camera' (scene) to scene 'Cam-Mask'
+00:10:01.456: [pipewire] Stream 0x3f97350 state: "streaming" (error: none)
+00:10:13.259: Creating a popup with a parent, QWidgetWindow(0x2d94070, name="OBSBasicWindow") which does not match the current topmost grabbing popup, QWidgetWindow(0x3eff070, name="QMenuClassWindow") With some shell surface protocols, this is not allowed. The wayland QPA plugin is currently handling it by setting the parent to the topmost grabbing popup. Note, however, that this may cause positioning errors and popups closing unxpectedly. Please fix the transient parent of the popup.
+00:10:22.531: User added filter 'Color Correction' (color_filter_v2) to source 'Cam-Mask'
+00:11:30.830: User removed filter 'Color Correction' (color_filter_v2) from source 'Cam-Mask'
+00:11:41.944: User added filter 'Image Mask/Blend' (mask_filter_v2) to source 'Cam-Mask'
+00:12:30.869: User added source 'Camera Outline' (image_source) to scene 'Cam-Mask'
+00:13:39.297: User added scene 'CamBordered'
+00:13:39.299: User switched to scene 'CamBordered'
+00:13:40.024: adding 21 milliseconds of audio buffering, total audio buffering is now 85 milliseconds (source: Mic/Aux)
+00:13:40.024: 
+00:13:41.790: [pipewire] Stream 0x3f97350 state: "paused" (error: none)
+00:13:53.031: User added source 'Cam-Mask' (scene) to scene 'CamBordered'
+00:13:53.040: [pipewire] Stream 0x3f97350 state: "streaming" (error: none)
+00:13:55.049: User switched to scene 'Cam-Mask'
+00:13:56.933: User switched to scene 'CamBordered'
+00:14:05.082: User added source 'Camera Outline' (image_source) to scene 'CamBordered'
+00:14:10.239: User switched to scene 'Cam-Mask'
+00:14:14.118: User Removed source 'Camera Outline' (image_source) from scene 'Cam-Mask'
+00:14:15.562: User switched to scene 'CamBordered'
+00:14:30.915: User switched to scene 'Desktop'
+00:14:49.111: User added scene 'CamTop'
+00:14:49.112: User switched to scene 'CamTop'
+00:14:51.607: [pipewire] Stream 0x3f97350 state: "paused" (error: none)
+00:14:57.413: User added source 'Desktop' (scene) to scene 'CamTop'
+00:14:57.424: [pipewire] Stream 0x3f97350 state: "streaming" (error: none)
+00:15:04.739: User added source 'CamBordered' (scene) to scene 'CamTop'
+00:16:05.632: User switched to scene 'Desktop'
+00:16:12.736: User switched to scene 'Camera'
+00:16:36.736: User switched to scene 'CamTop'
+00:17:04.196: User switched to scene 'Desktop'
+00:17:09.986: User switched to scene 'Camera'
+00:17:15.374: User switched to scene 'CamTop'
+00:17:19.698: User switched to scene 'Camera'
+00:17:22.840: User switched to scene 'CamTop'
+00:17:48.634: Out of space trying to render glyphs
+00:17:48.647: Out of space trying to render glyphs
+00:17:48.649: [Media Source 'clone (Stinger)']: settings:
+00:17:48.649: 	input:                   /home/zaney/.config/zaney-stinger.mov
+00:17:48.649: 	input_format:            (null)
+00:17:48.649: 	speed:                   100
+00:17:48.649: 	is_looping:              no
+00:17:48.649: 	is_linear_alpha:         no
+00:17:48.649: 	is_hw_decoding:          yes
+00:17:48.649: 	is_clear_on_media_end:   yes
+00:17:48.649: 	restart_on_activate:     yes
+00:17:48.649: 	close_when_inactive:     no
+00:17:48.649: 	full_decode:             no
+00:17:48.649: 	ffmpeg_options:          
+00:18:37.798: User switched to scene 'Camera'
+00:55:53.644: ---------------------------------
+00:55:53.645: [x264 encoder: 'simple_video_recording'] preset: veryfast
+00:55:53.645: [x264 encoder: 'simple_video_recording'] profile: high
+00:55:53.645: [x264 encoder: 'simple_video_recording'] settings:
+00:55:53.645: 	rate_control: CRF
+00:55:53.645: 	bitrate:      0
+00:55:53.645: 	buffer size:  0
+00:55:53.645: 	crf:          16
+00:55:53.645: 	fps_num:      60
+00:55:53.645: 	fps_den:      1
+00:55:53.645: 	width:        1920
+00:55:53.645: 	height:       1080
+00:55:53.645: 	keyint:       250
+00:55:53.645: 
+00:55:53.664: libfdk_aac encoder created
+00:55:53.664: libfdk_aac bitrate: 192, channels: 2
+00:55:53.666: ==== Recording Start ===============================================
+00:55:53.666: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/zaney/2024-02-11 00-55-53.mkv'...
+00:56:00.854: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/zaney/2024-02-11 00-55-53.mkv' stopped
+00:56:00.854: Output 'simple_file_output': stopping
+00:56:00.854: Output 'simple_file_output': Total frames output: 383
+00:56:00.854: Output 'simple_file_output': Total drawn frames: 431
+00:56:00.854: ==== Recording Stop ================================================
+00:56:00.905: libfdk_aac encoder destroyed
+00:56:46.712: Creating a popup with a parent, QWidgetWindow(0x4603ca0, name="OBSBasicFiltersWindow") which does not match the current topmost grabbing popup, QWidgetWindow(0x42b5070, name="QMenuClassWindow") With some shell surface protocols, this is not allowed. The wayland QPA plugin is currently handling it by setting the parent to the topmost grabbing popup. Note, however, that this may cause positioning errors and popups closing unxpectedly. Please fix the transient parent of the popup.
+00:56:49.012: User removed filter 'Compressor' (compressor_filter) from source 'Mic/Aux'
+00:57:08.980: pulse-input: Stopped recording from 'default'
+00:57:08.980: pulse-input: Got 275950 packets with 331140000 frames
+00:57:08.981: pulse-input: Server name: 'PulseAudio (on PipeWire 1.0.1) 15.0.0'
+00:57:08.981: pulse-input: Audio format: s16le, 48000 Hz, 2 channels
+00:57:08.981: pulse-input: Started recording from 'alsa_input.usb-MV-SILICON_Maonocaster_E2_20190808-00.analog-stereo' (default)
+00:57:09.538: adding 490 milliseconds of audio buffering, total audio buffering is now 576 milliseconds (source: Mic/Aux)
+00:57:09.538: 
+00:57:18.944: ---------------------------------
+00:57:18.944: [x264 encoder: 'simple_video_recording'] preset: veryfast
+00:57:18.944: [x264 encoder: 'simple_video_recording'] profile: high
+00:57:18.944: [x264 encoder: 'simple_video_recording'] settings:
+00:57:18.944: 	rate_control: CRF
+00:57:18.944: 	bitrate:      0
+00:57:18.944: 	buffer size:  0
+00:57:18.944: 	crf:          16
+00:57:18.944: 	fps_num:      60
+00:57:18.944: 	fps_den:      1
+00:57:18.944: 	width:        1920
+00:57:18.944: 	height:       1080
+00:57:18.944: 	keyint:       250
+00:57:18.944: 
+00:57:18.955: libfdk_aac encoder created
+00:57:18.955: libfdk_aac bitrate: 192, channels: 2
+00:57:18.957: ==== Recording Start ===============================================
+00:57:18.957: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/zaney/2024-02-11 00-57-18.mkv'...
+00:57:33.628: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/zaney/2024-02-11 00-57-18.mkv' stopped
+00:57:33.628: Output 'simple_file_output': stopping
+00:57:33.628: Output 'simple_file_output': Total frames output: 832
+00:57:33.629: Output 'simple_file_output': Total drawn frames: 880
+00:57:33.629: ==== Recording Stop ================================================
+00:57:33.690: libfdk_aac encoder destroyed
+00:58:42.314: pulse-input: Stopped recording from 'default'
+00:58:42.315: pulse-input: Got 3733 packets with 4479600 frames
+00:58:42.315: pulse-input: Server name: 'PulseAudio (on PipeWire 1.0.1) 15.0.0'
+00:58:42.315: pulse-input: Audio format: s16le, 48000 Hz, 2 channels
+00:58:42.316: pulse-input: Started recording from 'alsa_input.usb-MV-SILICON_Maonocaster_E2_20190808-00.analog-stereo' (default)
+00:58:54.066: User removed filter 'Gain' (gain_filter) from source 'Mic/Aux'
