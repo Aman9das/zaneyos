@@ -5,27 +5,56 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "nvme" "usbhid" "uas" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/b3302d13-4461-425c-aecc-13296f8bc93b";
+    {
+      device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=25%" "mode=755" ];
+    };
+
+  fileSystems."/boot" =
+    {
+      device = "/dev/disk/by-uuid/CF00-A288";
+      fsType = "vfat";
+      options = [ "umask=0077" ];
+    };
+
+  fileSystems."/nix" =
+    {
+      device = "/dev/disk/by-uuid/86765b18-75f6-4900-809a-2931a8dac75e";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-bcd5941f-0fd9-4a5e-b8ff-b6bef60a1dd1".device = "/dev/disk/by-uuid/bcd5941f-0fd9-4a5e-b8ff-b6bef60a1dd1";
+  boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/1a35e8d0-f13c-43f3-8c12-3aaa5059c8a3";
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/67A4-1012";
-      fsType = "vfat";
+  fileSystems."/etc/nixos" =
+    {
+      device = "/nix/persist/etc/nixos";
+      fsType = "none";
+      options = [ "bind" ];
     };
 
-  swapDevices = [ ];
+  fileSystems."/var/log" =
+    {
+      device = "/nix/persist/var/log";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  swapDevices =
+    [{
+      device = "/dev/disk/by-partuuid/b77747cb-7eb5-4d78-bb6a-34ded8eb7c23";
+      randomEncryption.enable = true;
+    }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
