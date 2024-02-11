@@ -4,7 +4,7 @@
 
 let
   # YOU MUST CHANGE THIS 
-  userHome = "/home/zaney";
+  userHome = builtins.exec "eval echo ~$USER";
 in {
   # User Variables
   gitUsername = "Tyler Kelley";

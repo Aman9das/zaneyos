@@ -9,7 +9,7 @@
       "/etc/NetworkManager/system-connections"
     ];
     files = [
-      "/etc/machine-id"
+      # "/etc/machine-id"
     ];
     users.${username} = {
       directories = [
