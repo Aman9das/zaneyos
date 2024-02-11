@@ -14,15 +14,15 @@ in with lib; {
     xwayland.enable = true;
     systemd.enable = true;
     plugins = [
-      hyprplugins.hyprtrails
+      # hyprplugins.hyprtrails
     ];
     extraConfig = let
       modifier = "SUPER";
     in concatStrings [ ''
       monitor=,preferred,auto,1
       windowrule = float, ^(steam)$
-      windowrule = center, ^(steam)$
       windowrule = size 1080 900, ^(steam)$
+      windowrule = center, ^(steam)$
       general {
         gaps_in = 6
         gaps_out = 8
