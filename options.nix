@@ -5,9 +5,13 @@
 let
   username = "zaney";
   hostname = "hyprnix";
+  # This is for running NixOS
+  # On a tmpfs or root on RAM
+  # You Most Like Want This -> false
+  impermanence = true; 
   userHome = "/home/${username}";
-  flakeDir = #"${userHome}/zaneyos";
-	     "/nix/persist/etc/nixos/zaneyos";
+  flakeDir = if impermanence == false then "${userHome}/zaneyos"
+	     else "/nix/persist/etc/nixos/zaneyos";
 in {
   # User Variables
   username = "${username}";
@@ -16,9 +20,11 @@ in {
   gitEmail = "tylerzanekelley@gmail.com";
   theme = "gigavolt";
   slickbar = true;
+  simplebar = false; # DO NOT ENABLE!
   borderAnim = true;
   browser = "firefox";
-  wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
+  wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git"; # This will give you my wallpapers
+  # ^ (use as is or replace with your own repo - removing will break the wallsetter script) 
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
   screenshotDir = "${userHome}/Pictures/Screenshots";
   flakeDir = "${flakeDir}";
@@ -32,8 +38,9 @@ in {
   theLCVariables = "en_US.UTF-8";
   theTimezone = "America/Chicago";
   theShell = "bash"; # Possible options: bash, zsh
-  theKernel = "default"; # possible options: default, latest, lqx, xanmod, zen
-  impermanence = true;
+  theKernel = "default"; # Possible options: default, latest, lqx, xanmod, zen
+  impermanence = true; # This should be set to false unless you know what your doing!
+  sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
   cpuType = "intel";

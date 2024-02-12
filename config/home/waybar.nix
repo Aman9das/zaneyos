@@ -2,7 +2,7 @@
 
 let
   palette = config.colorScheme.palette;
-  inherit (import ../../options.nix) slickbar clock24h;
+  inherit (import ../../options.nix) slickbar simplebar clock24h;
 in with lib; {
   # Configure & Theme Waybar
   programs.waybar = {
@@ -12,11 +12,15 @@ in with lib; {
       layer = "top";
       position = "top";
 
-      modules-left = [ "custom/startmenu" "hyprland/window" ];
-      modules-center = [ "network" "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock" ];
-      modules-right = [ "idle_inhibitor" "custom/themeselector" "custom/notification" "battery" "tray" ];
+      modules-center = if simplebar == true then [ "hyprland/window" ] 
+      else [ "network" "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock" ];
+      modules-left = if simplebar == true then ["custom/startmenu" "hyprland/workspaces" "cpu" "memory" "network"  ]
+      else [ "custom/startmenu" "hyprland/window" ];
+      modules-right = if simplebar == true then [ "idle_inhibitor" "custom/themeselector" "custom/notification" "pulseaudio" "clock"  "tray" ]
+      else [ "idle_inhibitor" "custom/themeselector" "custom/notification" "battery" "tray" ];
+
       "hyprland/workspaces" = {
-      	format = "{icon}";
+      	format = if simplebar == true then "{name}" else "{icon}";
       	format-icons = {
           default = " ";
           active = " ";
@@ -216,12 +220,12 @@ in with lib; {
 	  border-radius: 15px;
 	  color: #${palette.base00};
 	  background: linear-gradient(45deg, #${palette.base0D}, #${palette.base0E});
-	  opacity: 1.0;
+	  opacity: 0.8;
 	'' else ''
 	  border-radius: 10px;
 	  color: #${palette.base00};
 	  background: linear-gradient(45deg, #${palette.base06}, #${palette.base0E});
-	  opacity: 1.0;
+	  opacity: 0.8;
 	''}
       }
       tooltip {

@@ -25,20 +25,14 @@ nix = {
 };
 ```
 
-This file should be located at /etc/nixos/configuration.nix
-
-- Ensure you have Git listed in your pkgs in the /etc/nixos/configuration.nix file.
-- Change the hostname in the /etc/nixos/configuration.nix file.
-- Rebuild your system.
+- Run this command to ensure Git is installed.
 
 ```
-sudo nixos-rebuild switch
+nix-shell -p git
 ```
 
-- Reboot your system.
 - Clone this repo.
 - Then go into repo folder (stay in this folder).
-- Change username and hostname in flake.nix file.
 - Change all options in options.nix as needed.
 - Generate your hardware.nix like so:
 
@@ -46,11 +40,14 @@ sudo nixos-rebuild switch
 nixos-generate-config --show-hardware-config > hardware.nix
 ```
 
-- Run this command:
+- Run this to enable flakes and install the flake:
 
 ```
-sudo nixos-rebuild switch --flake .
+NIX_CONFIG="experimental-features = nix-command flakes" \
+  sudo nixos-rebuild switch --flake .#zaney
 ```
+
+- Run this command:
 
 Now when you want to rebuild the configuration you have access to an alias called flake-rebuild that will rebuild the flake based of the flakeDir variable you set in options.nix!
 
