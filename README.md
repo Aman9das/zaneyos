@@ -35,9 +35,12 @@ nixos-generate-config --show-hardware-config > hardware.nix
 
 ```
 NIX_CONFIG="experimental-features = nix-command flakes" 
-
 sudo nixos-rebuild switch --flake .#thehostnameyousetinoptions.nix
 ```
+
+### You Are Done!
+
+This Flake's user will have the password be set for them as *password*.
 
 Now when you want to rebuild the configuration you have access to an alias called flake-rebuild that will rebuild the flake based of the flakeDir variable you set in options.nix!
 
