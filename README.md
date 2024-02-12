@@ -13,7 +13,7 @@ If you want to learn more about my system, [this project has a Wiki](https://git
 - Run this command to ensure Git is installed:
 
 ```
-nix-shell -p git
+nix-shell -p git vim 
 ```
 
 - Clone this repo & enter it:
@@ -34,8 +34,9 @@ nixos-generate-config --show-hardware-config > hardware.nix
 - Run this to enable flakes and install the flake:
 
 ```
-NIX_CONFIG="experimental-features = nix-command flakes" \
-  sudo nixos-rebuild switch --flake .#thehostnameyousetinoptions.nix
+NIX_CONFIG="experimental-features = nix-command flakes" 
+
+sudo nixos-rebuild switch --flake .#thehostnameyousetinoptions.nix
 ```
 
 Now when you want to rebuild the configuration you have access to an alias called flake-rebuild that will rebuild the flake based of the flakeDir variable you set in options.nix!
