@@ -10,21 +10,6 @@ If you want to learn more about my system, [this project has a Wiki](https://git
 
 # Install / Steps To Reproduce My System
 
-- Enable flakes, and the Hyprland cache so you don't have to build it, in your default configuration.nix by adding this:
-
-```
-# Enable Flakes and the new command-line tool
-nix = {
-  settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = [
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-    ];
-  };
-};
-```
-
 - Run this command to ensure Git is installed.
 
 ```
