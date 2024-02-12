@@ -28,7 +28,6 @@ in with lib; {
       "clock" = {
 	format = if clock24h == true then ''{: %H:%M}'' 
 	else ''{: %I:%M %p}'';
-	max-length = 25;
       	tooltip = false;
       };
       "hyprland/window" = {
