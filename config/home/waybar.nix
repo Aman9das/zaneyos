@@ -2,7 +2,7 @@
 
 let
   palette = config.colorScheme.palette;
-  inherit (import ../../options.nix) slickbar;
+  inherit (import ../../options.nix) slickbar clock24h;
 in with lib; {
   # Configure & Theme Waybar
   programs.waybar = {
@@ -26,9 +26,10 @@ in with lib; {
       	on-scroll-down = "hyprctl dispatch workspace e-1";
       };
       "clock" = {
-        format = "{: %I:%M %p}";
-	tooltip-format = "<big>{:%A, %d.%B %Y }</big><tt><small>{calendar}</small></tt>";
+	format = if clock24h == true then ''{: %H:%M}'' 
+	else ''{: %I:%M %p}'';
       	tooltip = true;
+	tooltip-format = "<big>{:%A, %d.%B %Y }</big><tt><small>{calendar}</small></tt>";
       };
       "hyprland/window" = {
       	max-length = 25;
