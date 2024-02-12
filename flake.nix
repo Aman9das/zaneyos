@@ -21,8 +21,7 @@
   outputs = inputs@{ nixpkgs, home-manager, impermanence, ... }:
   let
     system = "x86_64-linux";
-    username = builtins.exec "echo $USER";
-    hostname = builtins.exec "hostname";
+    inherit (import ./options.nix) username hostname;
 
     pkgs = import nixpkgs {
       inherit system;

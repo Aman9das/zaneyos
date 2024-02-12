@@ -19,6 +19,9 @@
 	"Pictures"
 	"Videos"
 	".local/share/sddm"
+	".mozilla"
+	".cache"
+	".ssh"
       ];
       files = [
       ];

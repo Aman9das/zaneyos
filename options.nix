@@ -3,10 +3,15 @@
 # https://gitlab.com/Zaney/zaneyos/-/wikis/Setting-Options
 
 let
-  # YOU MUST CHANGE THIS 
-  userHome = builtins.exec "eval echo ~$USER";
+  username = "zaney";
+  hostname = "hyprnix";
+  userHome = "/home/${username}";
+  flakeDir = #"${userHome}/zaneyos";
+	     "/nix/persist/etc/nixos/zaneyos";
 in {
   # User Variables
+  username = "${username}";
+  hostname = "${hostname}";
   gitUsername = "Tyler Kelley";
   gitEmail = "tylerzanekelley@gmail.com";
   theme = "gigavolt";
@@ -15,8 +20,8 @@ in {
   browser = "firefox";
   wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git";
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
-  flakeDir = "${userHome}/zaneyos";
   screenshotDir = "${userHome}/Pictures/Screenshots";
+  flakeDir = "${flakeDir}";
   terminal = "alacritty";
 
   # System Settings
