@@ -34,7 +34,8 @@ in {
   clock24h = false;
   theLocale = "en_US.UTF-8";
   theKBDLayout = "us";
-  theSecondKBDLayout = "pl";
+  theSecondKBDLayout = "de";
+  theKBDVariant = "";
   theLCVariables = "en_US.UTF-8";
   theTimezone = "America/Chicago";
   theShell = "bash"; # Possible options: bash, zsh

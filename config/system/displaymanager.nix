@@ -1,12 +1,13 @@
 { pkgs, config, ... }:
 
-let inherit (import ../../options.nix) theKBDLayout; in
+let inherit (import ../../options.nix) theKBDVariant
+theKBDLayout theSecondKBDLayout; in
 {
   services.xserver = {
     enable = true;
     xkb = {
-      variant = "";
-      layout = "${theKBDLayout}";
+      variant = "${theKBDVariant}";
+      layout = "${theKBDLayout}, ${theSecondKBDLayout}";
     };
     libinput.enable = true;
     displayManager.sddm = {
