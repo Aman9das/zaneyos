@@ -10,15 +10,21 @@ If you want to learn more about my system, [this project has a Wiki](https://git
 
 # Install / Steps To Reproduce My System
 
-- Run this command to ensure Git is installed.
+- Run this command to ensure Git is installed:
 
 ```
 nix-shell -p git
 ```
 
-- Clone this repo.
-- Then go into repo folder (stay in this folder).
-- Change all options in options.nix as needed.
+- Clone this repo & enter it:
+
+```
+git clone https://gitlab.com/zaney/zaneyos.git
+cd zaneyos
+```
+
+- *You should stay in this folder for the rest of the install*
+- Change any options in options.nix as needed.
 - Generate your hardware.nix like so:
 
 ```
@@ -31,8 +37,6 @@ nixos-generate-config --show-hardware-config > hardware.nix
 NIX_CONFIG="experimental-features = nix-command flakes" \
   sudo nixos-rebuild switch --flake .#zaney
 ```
-
-- Run this command:
 
 Now when you want to rebuild the configuration you have access to an alias called flake-rebuild that will rebuild the flake based of the flakeDir variable you set in options.nix!
 
