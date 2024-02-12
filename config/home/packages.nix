@@ -27,5 +27,4 @@ in {
   ];
 
   programs.gh.enable = true;
-  programs.fuse.userAllowOther = true;
 }
