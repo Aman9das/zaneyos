@@ -27,7 +27,8 @@ in with lib; {
       };
       "clock" = {
         format = "{: %I:%M %p}";
-      	tooltip = false;
+	tooltip-format = "<big>{:%A, %d.%B %Y }</big><tt><small>{calendar}</small></tt>";
+      	tooltip = true;
       };
       "hyprland/window" = {
       	max-length = 25;

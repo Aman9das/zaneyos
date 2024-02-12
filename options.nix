@@ -32,6 +32,7 @@ in {
   theTimezone = "America/Chicago";
   theShell = "bash"; # Possible options: bash, zsh
   theKernel = "default"; # possible options: default, latest, lqx, xanmod, zen
+  impermanence = true;
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
   cpuType = "intel";
