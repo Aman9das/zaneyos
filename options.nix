@@ -25,6 +25,7 @@ in {
   terminal = "alacritty";
 
   # System Settings
+  clock24h = false;
   theLocale = "en_US.UTF-8";
   theKBDLayout = "us";
   theSecondKBDLayout = "pl";
