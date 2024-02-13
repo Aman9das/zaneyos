@@ -8,10 +8,8 @@ let
   # This is for running NixOS
   # On a tmpfs or root on RAM
   # You Most Like Want This -> false
-  impermanence = true; 
   userHome = "/home/${username}";
-  flakeDir = if impermanence == false then "${userHome}/zaneyos"
-	     else "/nix/persist/etc/nixos/zaneyos";
+  flakeDir = "${userHome}/zaneyos";
 in {
   # User Variables
   username = "${username}";
