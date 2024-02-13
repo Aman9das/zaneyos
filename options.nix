@@ -5,11 +5,9 @@
 let
   username = "zaney";
   hostname = "hyprnix";
-  # This is for running NixOS
-  # On a tmpfs or root on RAM
-  # You Most Like Want This -> false
   userHome = "/home/${username}";
   flakeDir = "${userHome}/zaneyos";
+  waybarStyle = "default"; # simplebar, slickbar, or default
 in {
   # User Variables
   username = "${username}";
@@ -17,8 +15,8 @@ in {
   gitUsername = "Tyler Kelley";
   gitEmail = "tylerzanekelley@gmail.com";
   theme = "gigavolt";
-  slickbar = true;
-  simplebar = false; # DO NOT ENABLE!
+  slickbar = if waybarStyle == "slickbar" then true else false;
+  simplebar = if waybarStyle == "simplebar" then true else false;
   borderAnim = true;
   browser = "firefox";
   wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git"; # This will give you my wallpapers
@@ -38,6 +36,9 @@ in {
   theTimezone = "America/Chicago";
   theShell = "bash"; # Possible options: bash, zsh
   theKernel = "default"; # Possible options: default, latest, lqx, xanmod, zen
+  # This is for running NixOS
+  # On a tmpfs or root on RAM
+  # You Most Like Want This -> false
   impermanence = true; # This should be set to false unless you know what your doing!
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia

@@ -145,6 +145,11 @@ in with lib; {
 	  border-bottom: 1px solid rgba(26,27,38,0);
 	  border-radius: 0px;
 	  color: #${palette.base0F};
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+	  background-color: #${palette.base00};
+	  border-radius: 0px;
+	  border-bottom: 1px solid rgba(26,27,38,0);
 	'' else ''
 	  background-color: #${palette.base00};
 	  border-bottom: 1px solid #${palette.base00};
@@ -161,6 +166,12 @@ in with lib; {
 	  border: 0px;
 	  font-style: normal;
 	  color: #${palette.base00};
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  border-radius: 0px;
+	  border: 0px;
+	  font-style: normal;
 	'' else ''
 	  background: linear-gradient(45deg, #${palette.base01}, #${palette.base01});
 	  margin: 4px;
@@ -180,6 +191,12 @@ in with lib; {
 	  color: #${palette.base00};
 	  background: linear-gradient(45deg, #${palette.base0D}, #${palette.base0E});
 	  opacity: 0.5;
+	  transition: all 0.3s ease-in-out;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  opacity: 0.3;
+	  border: 0px;
 	  transition: all 0.3s ease-in-out;
 	'' else ''
 	  padding: 0px 5px;
@@ -203,6 +220,12 @@ in with lib; {
 	  opacity: 1.0;
 	  min-width: 40px;
 	  transition: all 0.3s ease-in-out;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  opacity: 1.0;
+	  border: 0px;
+	  transition: all 0.3s ease-in-out;
 	'' else ''
 	  padding: 0px 5px;
 	  margin: 4px 3px;
@@ -221,6 +244,12 @@ in with lib; {
 	  color: #${palette.base00};
 	  background: linear-gradient(45deg, #${palette.base0D}, #${palette.base0E});
 	  opacity: 0.8;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  opacity: 0.8;
+	  border: 0px;
+	  transition: all 0.3s ease-in-out;
 	'' else ''
 	  border-radius: 10px;
 	  color: #${palette.base00};
@@ -243,6 +272,10 @@ in with lib; {
 	  border-radius: 50px 15px 50px 15px;
 	  margin: 5px;
 	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
 	'' else ''
 	  margin: 4px;
 	  padding: 2px 10px;
@@ -258,6 +291,10 @@ in with lib; {
 	  border-radius: 15px 50px 15px 50px;
 	  margin: 5px;
 	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
 	'' else ''
 	  background: #${palette.base01};
 	  margin: 4px;
@@ -272,6 +309,10 @@ in with lib; {
 	  border-radius: 15px 50px 15px 50px;
 	  margin: 5px;
 	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
 	'' else ''
 	  background: #${palette.base01};
 	  margin: 4px;
@@ -286,6 +327,10 @@ in with lib; {
 	  border-radius: 50px 15px 50px 15px;
 	  margin: 5px;
 	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
 	'' else ''
 	  background: #${palette.base01};
 	  margin: 4px;
@@ -300,6 +345,10 @@ in with lib; {
 	  border-radius: 50px 15px 50px 15px;
 	  margin: 5px;
 	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
 	'' else ''
 	  background: #${palette.base01};
 	  margin: 4px;
@@ -314,6 +363,10 @@ in with lib; {
 	  border-radius: 15px 50px 15px 50px;
 	  margin: 5px;
 	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
 	'' else ''
 	  background: #${palette.base01};
 	  margin: 4px;
@@ -328,6 +381,10 @@ in with lib; {
 	  border-radius: 15px 50px 15px 50px;
 	  margin: 5px;
 	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
 	'' else ''
 	  background: #${palette.base01};
 	  margin: 4px;
@@ -342,6 +399,10 @@ in with lib; {
 	  border-radius: 50px 15px 50px 15px;
 	  margin: 5px;
 	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
 	'' else ''
 	  background: #${palette.base01};
 	  margin: 4px;
@@ -356,6 +417,10 @@ in with lib; {
 	  border-radius: 15px 0px 0px 50px;
 	  margin: 5px 0px 5px 5px;
 	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
 	'' else ''
 	  background: #${palette.base01};
 	  margin: 4px;
@@ -370,6 +435,10 @@ in with lib; {
 	  border-radius: 50px 15px 50px 15px;
 	  margin: 5px;
 	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
 	'' else ''
 	  background: #${palette.base01};
 	  margin: 4px;
@@ -384,6 +453,10 @@ in with lib; {
 	  border-radius: 15px 50px 15px 50px;
 	  margin: 5px;
 	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
 	'' else ''
 	  background: #${palette.base01};
 	  margin: 4px;
@@ -398,6 +471,10 @@ in with lib; {
 	  border-radius: 15px 50px 15px 50px;
 	  margin: 5px;
 	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
 	'' else ''
 	  background: #${palette.base01};
 	  margin: 4px;
@@ -412,6 +489,10 @@ in with lib; {
 	  border-radius: 0px 15px 50px 0px;
 	  margin: 5px 5px 5px 0px;
 	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
 	'' else ''
 	  background: #${palette.base01};
 	  margin: 4px;
@@ -426,6 +507,10 @@ in with lib; {
 	  border-radius: 15px 50px 15px 50px;
 	  margin: 5px;
 	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
 	'' else ''
 	  background: #${palette.base01};
 	  margin: 4px;
