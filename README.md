@@ -47,7 +47,13 @@ sudo nixos-rebuild switch --flake .#thehostnameyousetinoptions.nix
 
 ### You Are Done!
 
-This Flake's user will have the password be set for them as *password*.
+This Flake's user will have the password be set for them as *password*. If you want to change it run a command replacing password with whatever you want to be your password. You then need to copy the output that it gives you like below into your hashedPassword in the system.nix file.
+
+```
+  mkpasswd -m sha-512 password
+
+$6$YdPBODxytqUWXCYL$AHW1U9C6Qqkf6PZJI54jxFcPVm2sm/XWq3Z1qa94PFYz0FF.za9gl5WZL/z/g4nFLQ94SSEzMg5GMzMjJ6Vd7.
+```
 
 Now when you want to rebuild the configuration you have access to an alias called flake-rebuild that will rebuild the flake based of the flakeDir variable you set in options.nix!
 
