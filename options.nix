@@ -24,7 +24,7 @@ in {
   wallpaperDir = "${userHome}/Pictures/Wallpapers";
   screenshotDir = "${userHome}/Pictures/Screenshots";
   flakeDir = "${flakeDir}";
-  terminal = "alacritty";
+  terminal = "alacritty"; # Options include alacritty, kitty, and wezterm
 
   # System Settings
   clock24h = false;
