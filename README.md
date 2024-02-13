@@ -24,6 +24,13 @@ cd zaneyos
 ```
 
 - *You should stay in this folder for the rest of the install*
+
+**If you want to run a stable release you will need to run a command like this:**
+
+```
+git switch stable-1.0
+```
+
 - Change any options in options.nix as needed.
 - Generate your hardware.nix like so:
 
