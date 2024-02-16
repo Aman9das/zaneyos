@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let inherit (import ../../options.nix) flakeDir theShell; in
+let inherit (import ../../options.nix) flakeDir flakePrev flakeBackup theShell; in
 lib.mkIf (theShell == "bash") {
   # Configure Bash
   programs.bash = {
@@ -18,7 +18,10 @@ lib.mkIf (theShell == "bash") {
       fi
     '';
     sessionVariables = {
-    
+      FLAKEDIR = "${flakeDir}";
+      ZANEYOS = true;
+      FLAKEBACKUP = "${flakeBackup}";
+      FLAKEPREV = "${flakePrev}";
     };
     shellAliases = {
       sv="sudo nvim";

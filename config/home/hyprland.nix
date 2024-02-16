@@ -53,8 +53,6 @@ in with lib; {
       env = GDK_BACKEND, wayland
       env = CLUTTER_BACKEND, wayland
       env = SDL_VIDEODRIVER, ${sdl-videodriver}
-      env = XCURSOR_SIZE, 24
-      env = XCURSOR_THEME, Bibata-Modern-Ice
       env = QT_QPA_PLATFORM, wayland
       env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
       env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
@@ -113,7 +111,6 @@ in with lib; {
       exec-once = $POLKIT_BIN
       exec-once = dbus-update-activation-environment --systemd --all
       exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-      exec-once = hyprctl setcursor Bibata-Modern-Ice 24
       exec-once = swww init
       exec-once = waybar
       exec-once = swaync
