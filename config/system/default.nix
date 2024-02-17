@@ -19,7 +19,6 @@
     ./ntp.nix
     ./nvidia.nix
     ./packages.nix
-    ./persistence.nix
     ./polkit.nix
     ./python.nix
     ./printer.nix
