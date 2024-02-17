@@ -5,7 +5,7 @@ let
   inherit (import ./options.nix) 
     theLocale theTimezone gitUsername
     theShell wallpaperDir wallpaperGit
-    theLCVariables theKBDLayout;
+    theLCVariables theKBDLayout flakeDir;
 in {
   imports =
     [
@@ -53,6 +53,8 @@ in {
   };
 
   environment.variables = {
+    ZOSVER = "unstable";
+    FLAKE = "${flakeDir}";
     POLKIT_BIN = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
   };
 

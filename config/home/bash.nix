@@ -18,15 +18,14 @@ lib.mkIf (theShell == "bash") {
       fi
     '';
     sessionVariables = {
-      FLAKEDIR = "${flakeDir}";
       ZANEYOS = true;
       FLAKEBACKUP = "${flakeBackup}";
       FLAKEPREV = "${flakePrev}";
     };
     shellAliases = {
       sv="sudo nvim";
-      flake-rebuild="sudo nixos-rebuild switch --flake ${flakeDir}";
-      flake-update="sudo nix flake update ${flakeDir}";
+      flake-rebuild="nh os switch --nom --hostname ${flakeDir}";
+      flake-update="nh os switch --nom --hostname ${flakeDir} --update";
       gcCleanup="nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       v="nvim";
       ls="lsd";
