@@ -1,8 +1,6 @@
 { config, pkgs, lib, username, ... }:
 
-let
-  inherit (import ../../options.nix) impermanence;
-in lib.mkIf (impermanence == true) {
+{
   environment.persistence."/nix/persist" = {
     hideMounts = true;
     directories = [

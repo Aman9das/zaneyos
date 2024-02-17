@@ -1,13 +1,14 @@
 # PLEASE READ THE WIKI FOR DETERMINING
-# VALUES FOR THIS PAGE. 
+# WHAT TO PUT HERE AS OPTIONS. 
 # https://gitlab.com/Zaney/zaneyos/-/wikis/Setting-Options
 
 let
+  # THINGS YOU NEED TO CHANGE
   username = "zaney";
   hostname = "hyprnix";
   userHome = "/home/${username}";
   flakeDir = "${userHome}/zaneyos";
-  waybarStyle = "default"; # simplebar, slickbar, or default
+  waybarStyle = "slickbar"; # simplebar, slickbar, or default
 in {
   # User Variables
   username = "${username}";
@@ -38,10 +39,6 @@ in {
   theTimezone = "America/Chicago";
   theShell = "bash"; # Possible options: bash, zsh
   theKernel = "default"; # Possible options: default, latest, lqx, xanmod, zen
-  # This is for running NixOS
-  # On a tmpfs or root on RAM
-  # You Most Like Want This -> false
-  impermanence = true; # This should be set to false unless you know what your doing!
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
