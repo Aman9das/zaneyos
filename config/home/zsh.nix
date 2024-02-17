@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 
-let inherit (import ../../options.nix) flakeDir theShell; in
+let inherit (import ../../options.nix) flakeDir theShell hostname; in
 lib.mkIf (theShell == "zsh") {
   programs.zsh = {
     enable = true;
@@ -45,8 +45,8 @@ lib.mkIf (theShell == "zsh") {
     };
     shellAliases = {
       sv="sudo vim";
-      flake-rebuild="sudo nixos-rebuild switch --flake ${flakeDir}";
-      flake-update="sudo nix flake update ${flakeDir}";
+      flake-rebuild="nh os switch --nom --hostname ${hostname}";
+      flake-update="nh os switch --nom --hostname ${hostname} --update";
       gcCleanup="nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
       v="nvim";
       ls="lsd";
