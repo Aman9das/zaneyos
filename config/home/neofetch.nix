@@ -21,6 +21,5 @@
         cpu_temp="C"
         separator=" $(color 4)>"
         stdout="off"
-	image_source=${./files/face.jpg}
     '';
 }
