@@ -7,7 +7,7 @@ pkgs.writeShellScriptBin "zcc" ''
   if [ "$#" -eq 0 ]; then
     echo "The ZaneyOS Control Center requires an option like 'zcc [OPTION]'."
   elif [ "$#" -eq 1 ]; then
-    if [ "$ZANEYOS" = true ]; then
+    if [ "$ZANEYOS" != /dev/null ]; then
       choice="$1"
       if [[ "$choice" = "update" ]]; then
 	# Add your update logic here
@@ -78,7 +78,7 @@ pkgs.writeShellScriptBin "zcc" ''
 	  # Prompt for updating flake.nix
 	  echo "---"
 	  read -p "Do you want to update flake? [Y/n]: " update_flake
-	  update_flake=${update_flake:-Y}  # Set Y as default option
+	  update_flake=''${update_flake:-Y}  # Set Y as default option
 	  if [[ $update_flake == [Yy] ]]; then
 	    # Run flake-update
 	    echo "---"
@@ -87,7 +87,7 @@ pkgs.writeShellScriptBin "zcc" ''
 	    # Prompt for system rebuild
 	    echo "---"
 	    read -p "Do you want to rebuild the system? [Y/n]: " rebuild_system
-	    rebuild_system=${rebuild_system:-Y}  # Set Y as default option
+	    rebuild_system=''${rebuild_system:-Y}  # Set Y as default option
 	    if [[ $rebuild_system == [Yy] ]]; then
 	      # Run flake-rebuild
 	      echo "---"

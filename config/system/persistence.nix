@@ -25,6 +25,7 @@
 	".cache"
 	".ssh"
 	".config/discord"
+	".config/obs-studio"
       ];
       files = [
       ];

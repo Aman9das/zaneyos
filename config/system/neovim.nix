@@ -85,6 +85,7 @@ in {
       set noshowmode
       set showtabline=2
       colorscheme base16-${theme}
+      inoremap jj <ESC>
     '';
 
     keymaps = [

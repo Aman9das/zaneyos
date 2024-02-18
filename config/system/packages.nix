@@ -17,6 +17,7 @@
 
   programs.steam.gamescopeSession.enable = true;
   programs.dconf.enable = true;
+  programs.seahorse.enable=true;
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
