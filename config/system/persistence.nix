@@ -13,7 +13,7 @@
     files = [
       # "/etc/machine-id"
     ];
-    users.${username} = {
+    users.zaney = {
       directories = [
 	"Downloads"
 	"Music"
@@ -24,6 +24,7 @@
 	".mozilla"
 	".cache"
 	".ssh"
+	".config/discord"
       ];
       files = [
       ];

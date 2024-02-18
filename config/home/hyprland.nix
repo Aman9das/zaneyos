@@ -127,7 +127,7 @@ in with lib; {
       bind = ${modifier},Return,exec,${terminal}
       bind = ${modifier}SHIFT,Return,exec,rofi-launcher
       bind = ${modifier}SHIFT,W,exec,web-search
-      bind = ${modifier}SHIFT,S,exec,swaync-client -rs
+      bind = ${modifier}SHIFT,N,exec,swaync-client -rs
       ${if browser == "google-chrome" then ''
 	bind = ${modifier},W,exec,google-chrome-stable
       '' else ''
@@ -173,6 +173,8 @@ in with lib; {
       bind = ${modifier},8,workspace,8
       bind = ${modifier},9,workspace,9
       bind = ${modifier},0,workspace,10
+      bind = ${modifier},SPACE,movetoworkspace,special
+      bind = ${modifier}SHIFT,SPACE,togglespecialworkspace
       bind = ${modifier}SHIFT,1,movetoworkspace,1
       bind = ${modifier}SHIFT,2,movetoworkspace,2
       bind = ${modifier}SHIFT,3,movetoworkspace,3
