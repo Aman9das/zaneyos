@@ -34,6 +34,7 @@ lib.mkIf (theShell == "bash") {
       la="lsd -a";
       lal="lsd -al";
       ".."="cd ..";
+      neofetch="neofetch --ascii ~/.config/ascii-neofetch";
     };
   };
 }
