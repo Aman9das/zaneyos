@@ -70,7 +70,8 @@ sed -i "/^\s*theKBDLayout[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kbdLayout\"
 echo "-----"
 
 read -p "Enter Your Timezone, Example> America/New_York : " timezone
-sed -i "/^\s*theTimezone[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$timezone\"/" ./options.nix
+escaped_timezone=$(echo "$timezone" | sed 's/\//\\\//g')
+sed -i "/^\s*theTimezone[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_timezone\"#" ./options.nix
 
 echo "-----"
 

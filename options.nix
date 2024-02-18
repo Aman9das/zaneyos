@@ -8,7 +8,7 @@ let
   hostname = "hyprnix";
   userHome = "/home/${username}";
   flakeDir = "${userHome}/zaneyos";
-  waybarStyle = "slickbar"; # simplebar, slickbar, or default
+  waybarStyle = "slickbar-num"; # simplebar, slickbar, slickbar-num, or default
 in {
   # User Variables
   username = "${username}";
@@ -17,6 +17,7 @@ in {
   gitEmail = "tylerzanekelley@gmail.com";
   theme = "atelier-cave";
   slickbar = if waybarStyle == "slickbar" then true else false;
+  slickbar-num = if waybarStyle == "slickbar-num" then true else false;
   simplebar = if waybarStyle == "simplebar" then true else false;
   borderAnim = true;
   browser = "firefox";
