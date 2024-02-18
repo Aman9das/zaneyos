@@ -6,6 +6,8 @@ ZaneyOS is a way of reproducing my configuration on any NixOS system. This inclu
 
 ![](./config/home/files/media/demo.jpg)
 
+</div>
+
 ## READ THE WIKI
 
 If you want to learn more about my system, [this project has a Wiki](https://gitlab.com/Zaney/zaneyos/-/wikis/home) that explains a ton. It even explains what NixOS is why you may want to choose it and so much more.
