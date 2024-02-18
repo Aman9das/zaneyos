@@ -12,6 +12,11 @@ ZaneyOS is a way of reproducing my configuration on any NixOS system. This inclu
 
 If you want to learn more about my system, [this project has a Wiki](https://gitlab.com/Zaney/zaneyos/-/wikis/home) that explains a ton. It even explains what NixOS is why you may want to choose it and so much more.
 
+<figure class="video_container">
+  <iframe src="./config/home/files/media/demo.mp4" frameborder="0" allowfullscreen="true"> 
+</iframe>
+</figure>
+
 Please do yourself a favor and [read the wiki](https://gitlab.com/Zaney/zaneyos/-/wikis/home).
 
 # Install / Steps To Reproduce My System

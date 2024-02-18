@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let 
-  inherit (import ../../options.nix) flakeDir;
+  inherit (import ../../options.nix) flakeDir hostname;
 in
 pkgs.writeShellScriptBin "themechange" ''
   if [[ ! $@ ]];then
