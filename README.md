@@ -1,8 +1,5 @@
 <div align="center">
 
-# MAINTENANCE MODE: ACTIVE
-*The repo is currently under active edits and may contain undocumented changes as well as possibly broken configurations. This is temporary and will change after the repository is stable!*
-
 ## ZaneyOS 🟰 Best ❄️ NixOS Configs
 
 ZaneyOS is a way of reproducing my configuration on any NixOS system. This includes the wallpaper, scripts, applications, config files, and more. *Please remember to change username and hostname in flake.nix.*
@@ -36,7 +33,7 @@ Please do yourself a favor and [read the wiki](https://gitlab.com/Zaney/zaneyos/
 </div>
 
 #### 📦 How To Install Packages?
-- You can search the Nix Packages & Options pages for what a package may be named or if it has options available that take care of configuration hurdles you may face.
+- You can search the [Nix Packages](https://search.nixos.org/packages?) & [Options](https://search.nixos.org/options?) pages for what a package may be named or if it has options available that take care of configuration hurdles you may face.
 - To add a package there are the packages.nix files located in config/system and config/home folders. One is for programs available system wide and the other for your users environment only.
 
 #### 🙋 Having Issues / Questions?
