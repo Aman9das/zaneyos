@@ -14,14 +14,6 @@ in {
 	enable = true;
 	powerlineFonts = true;
 	theme = "tomorrow";
-	symbols = {
-	  branch = "";
-	  colnr = " ";
-	  readonly = "";
-	  linenr = " ";
-	  maxlinenr = "☰ ";
-	  dirty= "⚡";
-	};
       };
       startup = { 
 	enable = true;
