@@ -9,7 +9,7 @@ in {
     ignore-empty-password
     indicator-thickness=15
     indicator-radius=150
-    image=~/Pictures/Wallpapers/Gangsta-Hoodie.jpeg
+    image=~/.config/swaylock-bg.jpg
     ring-color=${palette.base0D}
     key-hl-color=${palette.base0F}
     line-color=00000000

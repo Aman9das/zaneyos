@@ -1,5 +1,8 @@
 { config, pkgs, lib, username, ... }:
 
+let 
+  inherit ( ../../options.nix ) username;
+in
 {
   environment.persistence."/nix/persist" = {
     hideMounts = true;
@@ -13,7 +16,7 @@
     files = [
       # "/etc/machine-id"
     ];
-    users.zaney = {
+    users.${username} = {
       directories = [
 	"Downloads"
 	"Music"
