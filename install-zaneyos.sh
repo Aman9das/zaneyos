@@ -24,22 +24,7 @@ echo "Cloning & Entering ZaneyOS Repository"
 git clone https://gitlab.com/zaney/zaneyos.git
 cd zaneyos
 
-read -p "Use ZaneyOS Stable Branch? (yYyes) [yes]: " stableBranch
-stableBranch=${stableBranch:-yes}  # Set default value to "yes" if user_input is empty
-
-# Check user's response
-if [ "$stableBranch" == "yes" ]; then
-    echo "Switching To Stable Branch"
-    git switch stable-1.0
-elif [ "$stableBranch" == "y" ]; then
-    echo "Switching To Stable Branch"
-    git switch stable-1.0
-elif [ "$stableBranch" == "Y" ]; then
-    echo "Switching To Stable Branch"
-    git switch stable-1.0
-else
-    echo "Staying On Main, The Unstable Branch"
-fi
+echo "-----"
 
 read -p "Enter Your New Username: " userName
 sed -i "/^\s*username[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./options.nix
@@ -90,7 +75,11 @@ echo "Valid options include amd, intel, nvidia, vm, intel-nvidia"
 read -p "Enter Your GPU Type : " gpuType
 sed -i "/^\s*gpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gpuType\"/" ./options.nix
 
+echo "Generating The Hardware Configuration"
 nixos-generate-config --show-hardware-config > hardware.nix
 
+echo "-----"
+
+echo "Now Going To Build ZaneyOS, 🤞"
 NIX_CONFIG="experimental-features = nix-command flakes" 
 sudo nixos-rebuild switch --flake .#$hostName
