@@ -9,8 +9,13 @@ else
     exit
 fi
 
-echo "Installing Git & Vim"
-nix-shell -p git vim
+if command -v git &> /dev/null; then
+    echo "Git is installed, continuing with installation."
+else
+    echo "Git is not installed. Please install Git and try again."
+    echo "Example: nix-shell -p git"
+    exit 1
+fi
 
 echo "-----"
 
