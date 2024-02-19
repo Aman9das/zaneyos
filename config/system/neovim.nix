@@ -86,6 +86,8 @@ in {
       set showtabline=2
       colorscheme base16-${theme}
       inoremap jj <ESC>
+      let s:guifontsize = 16
+      let s:guifont = "JetBrainsMono\\ Nerd\\ Font"
     '';
 
     keymaps = [
