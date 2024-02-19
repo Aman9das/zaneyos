@@ -14,6 +14,14 @@ in {
 	enable = true;
 	powerlineFonts = true;
 	theme = "tomorrow";
+	symbols = {
+	  branch = "";
+	  colnr = " ";
+	  readonly = "";
+	  linenr = " ";
+	  maxlinenr = "☰ ";
+	  dirty= "⚡";
+	};
       };
       startup = { 
 	enable = true;
@@ -83,7 +91,6 @@ in {
 
     extraConfigVim = ''
       set noshowmode
-      set showtabline=2
       colorscheme base16-${theme}
       inoremap jj <ESC>
       let s:guifontsize = 16
