@@ -29,7 +29,7 @@ echo "-----"
 read -p "Enter Your New Username: " userName
 sed -i "/^\s*username[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./options.nix
 
-echo "The password for the new user, $userName, is password"
+echo "The password for a new user is password"
 sleep 2
 
 echo "-----"

@@ -53,16 +53,11 @@ Please do yourself a favor and [read the wiki](https://gitlab.com/Zaney/zaneyos/
 
 This is the easiest and recommended way of starting out. The script is not meant to allow you to change every option that you can in the flake or help you install extra packages. It is simply here so you can get my configuration installed with as little chances of breakages and then fiddle to your hearts content!
 
-Simply make sure you have git installed already or install it with:
+Simply copy this and run it:
 
 ```
-nix-shell -p git
-```
-
-then run:
-
-```
-Coming Soon
+nix-shell -p git curl
+sh <(curl -L https://gitlab.com/Zaney/zaneyos/-/raw/main/install-zaneyos.sh)
 ```
 
 #### 🦽 Manual:
