@@ -71,12 +71,12 @@ in {
                         "command": "systemctl reboot"
                     },
                     {
-                        "label": "",
-                        "command": "thunar"
+                        "label": "🚪",
+                        "command": "hyprctl dispatch exit"
                     },
                     {
-                        "label": "",
-                        "command": "pavucontrol"
+                        "label": "",
+                        "command": "thunar"
                     },
                     {
                         "label": "",
