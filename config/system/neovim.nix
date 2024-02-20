@@ -68,7 +68,6 @@ in {
     };
 
     extraPlugins = [
-      plugins.vim-airline-themes
       plugins.nvim-base16
     ];
 
