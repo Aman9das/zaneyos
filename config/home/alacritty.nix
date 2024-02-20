@@ -13,7 +13,7 @@ in lib.mkIf (alacritty == true) {
 	decorations = "none";
 	startup_mode = "Windowed";
 	dynamic_title = true;
-	opacity = 0.85;
+	opacity = 0.6;
       };
       cursor = {
 	style = {
@@ -23,10 +23,10 @@ in lib.mkIf (alacritty == true) {
       };
       live_config_reload = true;
       font = {
-	normal.family = "JetBrainsMono Nerd Font";
-	bold.family = "JetBrainsMono Nerd Font";
-	italic.family = "JetBrainsMono Nerd Font";
-	bold_italic.family = "JetBrainsMono Nerd Font";
+	normal.family = "JetBrainsMono NFM";
+	bold.family = "JetBrainsMono NFM";
+	italic.family = "JetBrainsMono NFM";
+	bold_italic.family = "JetBrainsMono NFM";
 	size = 14;
       };
       colors = {
