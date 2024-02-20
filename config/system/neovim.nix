@@ -30,6 +30,7 @@ in {
 	servers = {
 	  tsserver.enable = true;
 	  lua-ls.enable = true;
+	  bashls.enable = true;
 	  rust-analyzer = {
 	    enable = true;
 	    installRustc = true;
@@ -79,6 +80,7 @@ in {
       vim.keymap.set('n', '<leader>s', function()
         builtin.grep_string({ search = vim.fn.input("Grep > ") })
       end)
+      vim.api.nvim_set_option("clipboard","unnamed")
     '';
 
     extraConfigVim = ''
@@ -87,6 +89,17 @@ in {
       inoremap jj <ESC>
       let s:guifontsize = 16
       let s:guifont = "JetBrainsMono\\ Nerd\\ Font"
+      " " Copy to clipboard
+      vnoremap  <leader>y  "+y
+      nnoremap  <leader>Y  "+yg_
+      nnoremap  <leader>y  "+y
+      nnoremap  <leader>yy  "+yy
+
+      " " Paste from clipboard
+      nnoremap <leader>p "+p
+      nnoremap <leader>P "+P
+      vnoremap <leader>p "+p
+      vnoremap <leader>P "+P
     '';
 
     keymaps = [

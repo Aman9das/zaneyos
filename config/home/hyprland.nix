@@ -173,8 +173,8 @@ in with lib; {
       bind = ${modifier},8,workspace,8
       bind = ${modifier},9,workspace,9
       bind = ${modifier},0,workspace,10
-      bind = ${modifier},SPACE,movetoworkspace,special
-      bind = ${modifier}SHIFT,SPACE,togglespecialworkspace
+      bind = ${modifier}SHIFT,SPACE,movetoworkspace,special
+      bind = ${modifier},SPACE,togglespecialworkspace
       bind = ${modifier}SHIFT,1,movetoworkspace,1
       bind = ${modifier}SHIFT,2,movetoworkspace,2
       bind = ${modifier}SHIFT,3,movetoworkspace,3
