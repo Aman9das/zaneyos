@@ -10,8 +10,6 @@ let
 in {
   imports =
     [
-      inputs.nixvim.nixosModules.nixvim
-      inputs.nix-colors.homeManagerModules.default
       ./hardware.nix
       ./config/system
     ];
@@ -19,8 +17,6 @@ in {
   # Enable networking
   networking.hostName = "${hostname}"; # Define your hostname
   networking.networkmanager.enable = true;
-
-  colorScheme = inputs.nix-colors.colorSchemes."${theme}";
 
   # Set your time zone
   time.timeZone = "${theTimezone}";

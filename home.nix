@@ -17,6 +17,7 @@ in {
   # Import Program Configurations
   imports = [
     inputs.nix-colors.homeManagerModules.default
+    inputs.nixvim.homeManagerModules.nixvim
     inputs.hyprland.homeManagerModules.default
     ./config/home
   ];
