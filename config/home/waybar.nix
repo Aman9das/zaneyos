@@ -13,8 +13,8 @@ in with lib; {
       position = "top";
 
       modules-center = if simplebar == true then [ "hyprland/window" ] 
-      else [ "network" "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock" ];
-      modules-left = if simplebar == true then ["custom/startmenu" "hyprland/workspaces" "cpu" "memory" "network"  ]
+      else [ "custom/hyprbindings" "pulseaudio" "cpu" "hyprland/workspaces" "memory" "disk" "clock" ];
+      modules-left = if simplebar == true then ["custom/startmenu" "hyprland/workspaces" "cpu" "memory" "custom/hyprbindings"  ]
       else [ "custom/startmenu" "hyprland/window" ];
       modules-right = if simplebar == true then [ "idle_inhibitor" "custom/themeselector" "custom/notification" "pulseaudio" "clock"  "tray" ]
       else [ "idle_inhibitor" "custom/themeselector" "custom/notification" "battery" "tray" ];
@@ -80,7 +80,7 @@ in with lib; {
           car = "";
           default = ["" "" ""];
         };
-        on-click = "pavucontrol";
+        on-click = "sleep 0.1 && pavucontrol";
       };
       "custom/themeselector" = {
         tooltip = false;
@@ -92,7 +92,12 @@ in with lib; {
         tooltip = false;
         format = " ";
         # exec = "rofi -show drun";
-        on-click = "rofi-launcher";
+        on-click = "sleep 0.1 && rofi-launcher";
+      };
+      "custom/hyprbindings" = {
+        tooltip = false;
+        format = " Bindings";
+        on-click = "sleep 0.1 && list-hypr-bindings";
       };
       "idle_inhibitor" = {
         format = "{icon}";
@@ -118,7 +123,7 @@ in with lib; {
         return-type = "json";
         exec-if = "which swaync-client";
         exec = "swaync-client -swb";
-        on-click = "task-waybar";
+        on-click = "sleep 0.1 && task-waybar";
         escape = true;
       };
       "battery" = {
@@ -395,6 +400,24 @@ in with lib; {
       }
       #network {
     	color: #${palette.base09};
+	${if slickbar == true || slickbar-num == true then ''
+	  background: #${palette.base00};
+	  border-radius: 50px 15px 50px 15px;
+	  margin: 5px;
+	  padding: 2px 20px;
+	'' else if simplebar == true then ''
+	  color: #${config.colorScheme.colors.base05};
+          background: transparent;   
+	  margin: 4px;
+	'' else ''
+	  background: #${palette.base01};
+	  margin: 4px;
+	  padding: 2px 10px;
+	  border-radius: 10px;
+	''}
+      }
+      #custom-hyprbindings {
+    	color: #${palette.base0E};
 	${if slickbar == true || slickbar-num == true then ''
 	  background: #${palette.base00};
 	  border-radius: 50px 15px 50px 15px;
