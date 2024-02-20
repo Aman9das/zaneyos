@@ -7,6 +7,7 @@
     ./autorun.nix
     ./boot.nix
     ./displaymanager.nix
+    ./distrobox.nix
     ./flatpak.nix
     ./hwclock.nix
     ./intel-amd.nix
