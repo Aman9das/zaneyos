@@ -49,7 +49,6 @@ in {
     plugins = {
       barbecue.enable = true;
       gitsigns.enable = true;
-      toggleterm.enable = true;
       telescope = {
 	enable = true;
 	keymaps = {
@@ -198,8 +197,6 @@ in {
     extraConfigVim = ''
       set noshowmode
       inoremap jj <ESC>
-      nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-      inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
     '';
 
     keymaps = [
