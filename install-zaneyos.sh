@@ -76,7 +76,7 @@ read -p "Enter Your GPU Type : " gpuType
 sed -i "/^\s*gpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gpuType\"/" ./options.nix
 
 echo "Generating The Hardware Configuration"
-nixos-generate-config --show-hardware-config > hardware.nix
+sudo nixos-generate-config --show-hardware-config > hardware.nix
 
 echo "-----"
 
