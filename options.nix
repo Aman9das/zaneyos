@@ -82,5 +82,8 @@ in {
 
   # Enable Python & PyCharm
   python = false;
+  
+  # Enable SyncThing
+  syncthing = true;
 
 }
