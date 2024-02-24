@@ -89,6 +89,20 @@ in lib.mkIf (wezterm == true) {
       quick_select_match_fg = { Color = '#ffffff' },
     }
 
+    wezterm.font_with_fallback({
+      -- /.local/share/fonts/JetBrainsMono.ttf, FontConfig
+      "JetBrains Mono",
+
+      -- /.local/share/fonts/Symbols-Regular.ttf, FontConfig
+      "Symbols Nerd Font Mono",
+
+      -- /.local/share/fonts/NotoColorEmoji.ttf, FontConfig
+      -- Assumed to have Emoji Presentation
+      -- Pixel sizes: [128]
+      "Noto Color Emoji",
+
+    })
+
     -- and finally, return the configuration to wezterm
     return config
   '';
