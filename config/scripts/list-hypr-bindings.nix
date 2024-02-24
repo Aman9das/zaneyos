@@ -56,5 +56,6 @@ pkgs.writeShellScriptBin "list-hypr-bindings" ''
   " + SHIFT + 1-0" "Move Focused Window To Workspace 1 - 10" "movetoworkspace,X" \
   " + MOUSE_LEFT" "Move/Drag Window" "movewindow" \
   " + MOUSE_RIGHT" "Resize Window" "resizewindow" \
-  "ALT + TAB" "Cycle Window Focus + Bring To Front" "cyclenext & bringactivetotop"
+  "ALT + TAB" "Cycle Window Focus + Bring To Front" "cyclenext & bringactivetotop" \
+  ""
 ''
