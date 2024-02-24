@@ -20,7 +20,7 @@ in {
       }
       {
         "label" = "logout";
-        "action" = "logout-sys";
+        "action" = "sleep 1; hyprctl dispatch exit";
         "text" = "Exit";
         "keybind" = "e";
       }

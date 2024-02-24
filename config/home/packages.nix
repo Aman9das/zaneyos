@@ -24,7 +24,6 @@ in {
     (import ./../scripts/rofi-launcher.nix { inherit pkgs; })
     (import ./../scripts/screenshootin.nix { inherit pkgs; })
     (import ./../scripts/list-hypr-bindings.nix { inherit pkgs; })
-    (import ./../scripts/logout-sys.nix { inherit pkgs; })
   ];
 
   programs.gh.enable = true;
