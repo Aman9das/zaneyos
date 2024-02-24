@@ -8,14 +8,14 @@ let
   hostname = "hyprnix";
   userHome = "/home/${username}";
   flakeDir = "${userHome}/zaneyos";
-  waybarStyle = "slickbar-num"; # simplebar, slickbar, slickbar-num, or default
+  waybarStyle = "default"; # simplebar, slickbar, slickbar-num, or default
 in {
   # User Variables
   username = "${username}";
   hostname = "${hostname}";
   gitUsername = "Tyler Kelley";
   gitEmail = "tylerzanekelley@gmail.com";
-  theme = "catppuccin-mocha";
+  theme = "gigavolt";
   slickbar = if waybarStyle == "slickbar" then true else false;
   slickbar-num = if waybarStyle == "slickbar-num" then true else false;
   simplebar = if waybarStyle == "simplebar" then true else false;
@@ -28,7 +28,7 @@ in {
   flakeDir = "${flakeDir}";
   flakePrev = "${userHome}/.zaneyos-previous";
   flakeBackup = "${userHome}/.zaneyos-backup";
-  terminal = "alacritty"; # This sets the terminal that is used by the hyprland terminal keybinding
+  terminal = "wezterm"; # This sets the terminal that is used by the hyprland terminal keybinding
 
   # System Settings
   clock24h = false;
@@ -38,8 +38,8 @@ in {
   theKBDVariant = "";
   theLCVariables = "en_US.UTF-8";
   theTimezone = "America/Chicago";
-  theShell = "bash"; # Possible options: bash, zsh
-  theKernel = "default"; # Possible options: default, latest, lqx, xanmod, zen
+  theShell = "zsh"; # Possible options: bash, zsh
+  theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
@@ -76,8 +76,8 @@ in {
 
   # Enable Terminals
   # If You Disable All You Get Kitty
-  wezterm = false;
-  alacritty = true;
+  wezterm = true;
+  alacritty = false;
   kitty = false;
 
   # Enable Python & PyCharm

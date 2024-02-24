@@ -53,6 +53,7 @@ in {
 	enable = true;
 	keymaps = {
 	  "<leader>ff" = "find_files";
+	  "<leader>lg" = "live_grep";
 	};
       };
       neo-tree.enable = true;
@@ -67,22 +68,6 @@ in {
       startup = { 
 	enable = true;
 	theme = "dashboard";
-      };
-      lint = {
-        enable = true;
-        lintersByFt = {
-          text = ["vale"];
-          json = ["jsonlint"];
-          markdown = ["vale"];
-          rst = ["vale"];
-          ruby = ["ruby"];
-          janet = ["janet"];
-          inko = ["inko"];
-          clojure = ["clj-kondo"];
-          dockerfile = ["hadolint"];
-          terraform = ["tflint"];
-          typscriptreact = ["prettier_eslint"];
-        };
       };
       lsp = {
 	enable = true;
