@@ -17,7 +17,7 @@ in with lib; {
       modules-left = if simplebar == true then ["custom/startmenu" "hyprland/workspaces" "cpu" "memory" "custom/hyprbindings"  ]
       else [ "custom/startmenu" "hyprland/window" ];
       modules-right = if simplebar == true then [ "idle_inhibitor" "custom/themeselector" "custom/notification" "pulseaudio" "clock"  "tray" ]
-      else [ "idle_inhibitor" "custom/themeselector" "custom/notification" "battery" "tray" ];
+      else [ "custom/exit" "idle_inhibitor" "custom/themeselector" "custom/notification" "battery" "tray" ];
 
       "hyprland/workspaces" = {
       	format = if simplebar == true ||
