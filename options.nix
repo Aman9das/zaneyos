@@ -8,7 +8,7 @@ let
   hostname = "hyprnix";
   userHome = "/home/${username}";
   flakeDir = "${userHome}/zaneyos";
-  waybarStyle = "default"; # simplebar, slickbar, slickbar-num, or default
+  waybarStyle = "default"; # simplebar, slickbar, or default
 in {
   # User Variables
   username = "${username}";
@@ -17,8 +17,8 @@ in {
   gitEmail = "tylerzanekelley@gmail.com";
   theme = "gigavolt";
   slickbar = if waybarStyle == "slickbar" then true else false;
-  slickbar-num = if waybarStyle == "slickbar-num" then true else false;
   simplebar = if waybarStyle == "simplebar" then true else false;
+  bar-number = false; # Enable / Disable Workspace Numbers In Waybar
   borderAnim = true;
   browser = "firefox";
   wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git"; # This will give you my wallpapers
@@ -28,7 +28,7 @@ in {
   flakeDir = "${flakeDir}";
   flakePrev = "${userHome}/.zaneyos-previous";
   flakeBackup = "${userHome}/.zaneyos-backup";
-  terminal = "wezterm"; # This sets the terminal that is used by the hyprland terminal keybinding
+  terminal = "kitty"; # This sets the terminal that is used by the hyprland terminal keybinding
 
   # System Settings
   clock24h = false;
@@ -38,7 +38,7 @@ in {
   theKBDVariant = "";
   theLCVariables = "en_US.UTF-8";
   theTimezone = "America/Chicago";
-  theShell = "zsh"; # Possible options: bash, zsh
+  theShell = "bash"; # Possible options: bash, zsh
   theKernel = "zen"; # Possible options: default, latest, lqx, xanmod, zen
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia
@@ -78,7 +78,7 @@ in {
   # If You Disable All You Get Kitty
   wezterm = true;
   alacritty = false;
-  kitty = false;
+  kitty = true;
 
   # Enable Python & PyCharm
   python = false;

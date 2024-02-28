@@ -56,7 +56,6 @@ in {
 	  "<leader>lg" = "live_grep";
 	};
       };
-      neo-tree.enable = true;
       indent-blankline.enable = true;
       nvim-colorizer.enable = true;
       nvim-autopairs.enable = true;
@@ -114,6 +113,8 @@ in {
 	};
       };
     };
+
+    extraPlugins = [ plugins.telescope-file-browser-nvim ];
 
     # FOR NEOVIDE
     extraConfigLua = '' 
@@ -187,9 +188,9 @@ in {
     keymaps = [
       {
         mode = "n";
-        key = "<leader>fb";
-        action = "<cmd>Neotree reveal right<CR>";
-        options.silent = false;
+        key = "<space>fb";
+        action = ":Telescope file_browser<CR>";
+        options.noremap = true;
       }
       {
         key = "<Tab>";
