@@ -30,6 +30,18 @@ in {
         "text" = "Suspend";
         "keybind" = "u";
       }
+      {
+        "label" = "lock";
+        "action" = "sleep 1; hyprlock";
+        "text" = "Lock";
+        "keybind" = "l";
+      }
+      {
+        "label" = "hibernate";
+        "action" = "sleep 1; systemctl hibernate";
+        "text" = "Hibernate";
+        "keybind" = "h";
+  }
     ];
     style = ''
       * {
@@ -77,6 +89,16 @@ in {
 	margin: 10px;
 	border-radius: 20px;
 	background-image: image(url("icons/reboot.png"));
+      }
+      #lock {
+	margin: 10px;
+	border-radius: 20px;
+	background-image: image(url("icons/lock.png"));
+      }
+      #hibernate {
+	margin: 10px;
+	border-radius: 20px;
+	background-image: image(url("icons/hibernate.png"));
       }
     '';
   };

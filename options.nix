@@ -8,7 +8,7 @@ let
   hostname = "hyprnix";
   userHome = "/home/${username}";
   flakeDir = "${userHome}/zaneyos";
-  waybarStyle = "default"; # simplebar, slickbar, or default
+  waybarStyle = "simplebar"; # simplebar, slickbar, or default
 in {
   # User Variables
   username = "${username}";
@@ -18,7 +18,7 @@ in {
   theme = "gigavolt";
   slickbar = if waybarStyle == "slickbar" then true else false;
   simplebar = if waybarStyle == "simplebar" then true else false;
-  bar-number = false; # Enable / Disable Workspace Numbers In Waybar
+  bar-number = true; # Enable / Disable Workspace Numbers In Waybar
   borderAnim = true;
   browser = "firefox";
   wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git"; # This will give you my wallpapers
