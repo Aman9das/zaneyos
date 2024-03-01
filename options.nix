@@ -76,7 +76,7 @@ in {
 
   # Enable Terminals
   # If You Disable All You Get Kitty
-  wezterm = true;
+  wezterm = false;
   alacritty = false;
   kitty = true;
 
@@ -84,6 +84,6 @@ in {
   python = false;
   
   # Enable SyncThing
-  syncthing = true;
+  syncthing = false;
 
 }

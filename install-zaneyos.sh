@@ -27,13 +27,15 @@ backupname=$(date "+%Y-%m-%d-%H-%M-%S")
 if [ -d "zaneyos" ]; then
     echo "ZaneyOS exists, backing up to .config/zaneyos-backups folder."
     if [ -d ".config/zaneyos-backups" ]; then
-      mv zaneyos .config/zaneyos-backups/$backupname
-      echo "Moved current version of ZaneyOS to backups folder."
+      echo "Moving current version of ZaneyOS to backups folder."
+      sudo umount $HOME/zaneyos
+      sudo mv $HOME/zaneyos .config/zaneyos-backups/$backupname
       sleep 1
     else
+      echo "Creating the backups folder & moving ZaneyOS to it."
       mkdir .config/zaneyos-backups
-      mv zaneyos .config/zaneyos-backups/$backupname
-      echo "Created the backups folder and moved current version of ZaneyOS to it."
+      sudo umount $HOME/zaneyos
+      sudo mv $HOME/zaneyos .config/zaneyos-backups/$backupname
       sleep 1
     fi
 else
