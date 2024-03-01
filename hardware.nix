@@ -44,13 +44,6 @@
       options = [ "bind" ];
     };
 
-  fileSystems."/home/${username}/zaneyos" =
-    {
-      device = "/nix/persist/etc/nixos/zaneyos";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
   fileSystems."/var/log" =
     {
       device = "/nix/persist/var/log";
