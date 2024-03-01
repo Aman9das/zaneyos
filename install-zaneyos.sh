@@ -32,7 +32,7 @@ if [ -d "zaneyos" ]; then
       sleep 1
     else
       echo "Creating the backups folder & moving ZaneyOS to it."
-      mkdir .config/zaneyos-backups
+      mkdir -p .config/zaneyos-backups
       mv $HOME/zaneyos .config/zaneyos-backups/$backupname
       sleep 1
     fi
