@@ -8,8 +8,8 @@ ZaneyOS is a simple way of reproducing my configuration on any NixOS system. Thi
 
 </div>
 
-> **This project has a [Wiki](https://gitlab.com/Zaney/zaneyos/-/wikis/home). Please read it to find out information on subjects that you may need to learn more about!**
-> **I have put a lot of effort into the documentation so it should be accurate. However, please if you notice that something is wrong with it create an issue or reach out to me on Discord.**
+> **This project has a [Wiki](https://zaney.org/zaneyos/). Please read it to find out information on subjects that you may need to learn more about!**
+> **I have put a lot of effort into the [documentation](https://zaney.org/zaneyos/) so it should be accurate. However, please if you notice that something is wrong with it create an issue or reach out to me on Discord.**
 
 #### 🍖 Requirements
 - You must be running on NixOS.
@@ -28,7 +28,7 @@ ZaneyOS is a simple way of reproducing my configuration on any NixOS system. Thi
 
 ![](./config/home/files/media/demo.mp4)
 
-Please do yourself a favor and [read the wiki](https://gitlab.com/Zaney/zaneyos/-/wikis/home).
+Please do yourself a favor and [read the wiki](https://zaney.org/zaneyos/).
 
 </div>
 
@@ -42,6 +42,7 @@ Please do yourself a favor and [read the wiki](https://gitlab.com/Zaney/zaneyos/
 
 #### ⚠️ Important Changes!
 - **The stable branch is gone, this means this project changes as my system changes. This will help with managing documentation. From now on before updating the repository please ensure the flake is not in maintenance mode. If an announcement has not been made on top of this page and Discord then its safe to pull and use the repository.**
+- The [Wiki](https://zaney.org/zaneyos/) has moved to [my website](https://zaney.org). This will make it so the documentation looks better and is more easily searched. You can click the search icon in the menu, on desktop, to search through any page in the entire website.
 - **Impermanence/persistence has been moved to only being sourced inside the hardware.nix file. If you want to use this feature then please read the Wiki page about how to implement it.**
 
 ### ⬇️ Install
