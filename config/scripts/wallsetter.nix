@@ -12,15 +12,16 @@ pkgs.writeShellScriptBin "wallsetter" ''
   if [ -d ${wallpaperDir} ]; then
     num_files=$(ls -1 ${wallpaperDir} | wc -l)
 
-    if [ "$num_files" -eq 0 ]; then
-      notify-send "The wallpaper folder is empty. Exiting Wallsetter."
-      exit
-    elif [ "$num_files" -eq 1 ]; then
-      notify-send "The wallpaper folder has only one file. Exiting Wallsetter."
+    if [ "$num_files" -lt 1 ]; then
+      notify-send -t 900 "The wallpaper folder is empty. Exiting Wallsetter."
       exit
     else
       cd ${wallpaperDir}
-      git pull
+      if [ -d ".git" ]; then
+        git pull
+      else
+      notify-send -t 900 "The wallpaper directory is expected to be a Git repository. Exiting Wallsetter."
+      exit
     fi
   else
     ${pkgs.git}/bin/git clone ${wallpaperGit} ${wallpaperDir}
