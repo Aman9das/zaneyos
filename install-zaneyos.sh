@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 if [ -n "$(cat /etc/os-release | grep -i nixos)" ]; then
-    echo "This is NixOS."
-    echo "Continuing with the ZaneyOS installation."
+    echo "Verified this is NixOS."
     echo "-----"
 else
     echo "This is not NixOS or the distribution information is not available."
@@ -19,7 +18,31 @@ fi
 
 echo "-----"
 
+echo "Ensure In Home Directory"
 cd
+
+echo "-----"
+
+backupname=$(date "+%Y-%m-%d-%H-%M-%S")
+if [ -d "zaneyos" ]; then
+    echo "ZaneyOS exists, backing up to .config/zaneyos-backups folder."
+    if [ -d ".config/zaneyos-backups" ]; then
+      mv zaneyos .config/zaneyos-backups/$backupname
+      echo "Moved current version of ZaneyOS to backups folder."
+      sleep 1
+    else
+      mkdir .config/zaneyos-backups
+      mv zaneyos .config/zaneyos-backups/$backupname
+      echo "Created the backups folder and moved current version of ZaneyOS to it."
+      sleep 1
+    fi
+else
+    echo "Thank you for choosing ZaneyOS."
+    echo "I hope you find your time here enjoyable!"
+fi
+
+echo "-----"
+
 echo "Cloning & Entering ZaneyOS Repository"
 git clone https://gitlab.com/zaney/zaneyos.git
 cd zaneyos
@@ -62,6 +85,31 @@ echo "-----"
 read -p "Enter Your Timezone, Example> America/New_York : " timezone
 escaped_timezone=$(echo "$timezone" | sed 's/\//\\\//g')
 sed -i "/^\s*theTimezone[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_timezone\"#" ./options.nix
+
+echo "-----"
+
+read -p "Enter Your Desired Browser, Example> firefox : " browser
+sed -i "/^\s*browser[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$browser\"/" ./options.nix
+
+echo "-----"
+
+read -p "Enable Animated Borders, ONLY true OR false : " animBorder
+sed -i "/^\s*borderAnim[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$animBorder\"/" ./options.nix
+
+echo "-----"
+
+read -p "Install Kdenlive, ONLY true OR false : " kdenlive
+sed -i "/^\s*kdenlive[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kdenlive\"/" ./options.nix
+
+echo "-----"
+
+read -p "Enable Printer Support, ONLY true OR false : " printers
+sed -i "/^\s*printer[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$printers\"/" ./options.nix
+
+echo "-----"
+
+read -p "Enable Flatpak Support, ONLY true OR false : " flatpaks
+sed -i "/^\s*flatpak[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$flatpaks\"/" ./options.nix
 
 echo "-----"
 
