@@ -11,8 +11,8 @@ let
   waybarStyle = "simplebar"; # simplebar, slickbar, or default
 in {
   # User Variables
-  username = "${username}";
-  hostname = "${hostname}";
+  username = "zaney";
+  hostname = "hyprnix";
   gitUsername = "Tyler Kelley";
   gitEmail = "tylerzanekelley@gmail.com";
   theme = "3024";

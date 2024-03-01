@@ -21,9 +21,6 @@ in with lib; {
       modifier = "SUPER";
     in concatStrings [ ''
       monitor=,preferred,auto,1
-      windowrule = float, ^(steam)$
-      windowrule = size 1080 900, ^(steam)$
-      windowrule = center, ^(steam)$
       windowrule = fullscreen, ^(wlogout)$
       windowrule = animation fade,^(wlogout)$
       general {

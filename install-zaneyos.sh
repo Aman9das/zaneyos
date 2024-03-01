@@ -43,21 +43,39 @@ fi
 
 echo "-----"
 
+echo "Default options are in brackets []"
+echo "Just press enter to select the default"
+sleep 2
+
+echo "-----"
+
 echo "Cloning & Entering ZaneyOS Repository"
 git clone https://gitlab.com/zaney/zaneyos.git
 cd zaneyos
 
 echo "-----"
 
-read -p "Enter Your New Username: " userName
+installusername=$(echo $USER)
+read -p "Enter Your Username [ $installusername ]: " userName
+if [ -z "$userName" ]; then
+  userName=$(echo $USER)
+else
+  echo "The username you choose is new to the system."
+  echo "This requires setting a new password."
+  read -p "Enter New User Password: " newPass
+  echo "Set password."
+  userPassword=$(mkpasswd -m sha-512 $newPass)
+  escaped_userPassword=$(echo "$userPassword" | sed 's/\//\\\//g')
+  sed -i "/^\s*hashedPassword[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_userPassword\"#" ./system.nix
+fi
 sed -i "/^\s*username[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./options.nix
-
-echo "The password for a new user is password"
-sleep 2
 
 echo "-----"
 
-read -p "Enter Your New Hostname: " hostName
+read -p "Enter Your New Hostname: [ hyprnix ]" hostName
+if [ -z "$hostName" ]; then
+  hostName="hyprnix"
+fi
 sed -i "/^\s*hostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./options.nix
 
 echo "-----"
@@ -72,55 +90,140 @@ sed -i "/^\s*gitEmail[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitEmail\"/" ./
 
 echo "-----"
 
-read -p "Enter Your Locale, Example> en_US.UTF-8 : " locale
+read -p "Enter Your Locale: [ en_US.UTF-8 ] " locale
+if [ -z "$locale" ]; then
+  locale="en_US.UTF-8"
+fi
 sed -i "/^\s*theLocale[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$locale\"/" ./options.nix
 
 echo "-----"
 
-read -p "Enter Your Keyboard Layout, Example> us : " kbdLayout
+read -p "Enter Your Keyboard Layout: [ us ] " kbdLayout
+if [ -z "$kbdLayout" ]; then
+  kbdLayout="us"
+fi
 sed -i "/^\s*theKBDLayout[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kbdLayout\"/" ./options.nix
 
 echo "-----"
 
-read -p "Enter Your Timezone, Example> America/New_York : " timezone
+read -p "Enter Your Timezone: [ America/New_York ] " timezone
+if [ -z "$timezone" ]; then
+  timezone="America/New_York"
+fi
 escaped_timezone=$(echo "$timezone" | sed 's/\//\\\//g')
 sed -i "/^\s*theTimezone[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_timezone\"#" ./options.nix
 
 echo "-----"
 
-read -p "Enter Your Desired Browser, Example> firefox : " browser
+read -p "Enter Your Desired Browser: [ firefox ] " browser
+if [ -z "$browser" ]; then
+  browser="firefox"
+fi
 sed -i "/^\s*browser[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$browser\"/" ./options.nix
 
 echo "-----"
 
-read -p "Enable Animated Borders, ONLY true OR false : " animBorder
+read -p "Enable Animated Borders: [ false ] " animBorder
+user_input_lower=$(echo "$animBorder" | tr '[:upper:]' '[:lower:]')
+case $user_input_lower in
+  y|yes|true|t|enable)
+    animBorder="true"
+    ;;
+  *)
+    animBorder="false"
+    ;;
+esac
 sed -i "/^\s*borderAnim[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$animBorder\"/" ./options.nix
 
 echo "-----"
 
-read -p "Install Kdenlive, ONLY true OR false : " kdenlive
+read -p "Install Kdenlive [ false ] : " kdenlive
+user_input_lower=$(echo "$kdenlive" | tr '[:upper:]' '[:lower:]')
+case $user_input_lower in
+  y|yes|true|t|enable)
+    kdenlive="true"
+    ;;
+  *)
+    kdenlive="false"
+    ;;
+esac
 sed -i "/^\s*kdenlive[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kdenlive\"/" ./options.nix
 
 echo "-----"
 
-read -p "Enable Printer Support, ONLY true OR false : " printers
+read -p "Enable Printer Support: [ false ] " printers
+user_input_lower=$(echo "$printers" | tr '[:upper:]' '[:lower:]')
+case $user_input_lower in
+  y|yes|true|t|enable)
+    printers="true"
+    ;;
+  *)
+    printers="false"
+    ;;
+esac
 sed -i "/^\s*printer[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$printers\"/" ./options.nix
 
 echo "-----"
 
-read -p "Enable Flatpak Support, ONLY true OR false : " flatpaks
+read -p "Enable Flatpak Support: [ false ] " flatpaks
+user_input_lower=$(echo "$printers" | tr '[:upper:]' '[:lower:]')
+case $user_input_lower in
+  y|yes|true|t|enable)
+    printers="true"
+    ;;
+  *)
+    printers="false"
+    ;;
+esac
 sed -i "/^\s*flatpak[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$flatpaks\"/" ./options.nix
 
 echo "-----"
 
 echo "Valid options include amd, intel, and vm"
-read -p "Enter Your CPU Type : " cpuType
+read -p "Enter Your CPU Type: [ intel ] " cpuType
+user_input_lower=$(echo "$cpuType" | tr '[:upper:]' '[:lower:]')
+case $user_input_lower in
+  amd)
+    cpuType="amd"
+    ;;
+  intel)
+    cpuType="intel"
+    ;;
+  vm)
+    cpuType="vm"
+    ;;
+  *)
+    echo "Option Entered Not Available, Falling Back To [ intel ] Option."
+    sleep 1
+    cpuType="intel"
+    ;;
+esac
 sed -i "/^\s*cpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$cpuType\"/" ./options.nix
 
 echo "-----"
 
 echo "Valid options include amd, intel, nvidia, vm, intel-nvidia"
 read -p "Enter Your GPU Type : " gpuType
+user_input_lower=$(echo "$gpuType" | tr '[:upper:]' '[:lower:]')
+case $user_input_lower in
+  amd)
+    gpuType="amd"
+    ;;
+  intel)
+    gpuType="intel"
+    ;;
+  vm)
+    gpuType="vm"
+    ;;
+  intel-nvidia)
+    gpuType="intel-nvidia"
+    ;;
+  *)
+    echo "Option Entered Not Available, Falling Back To [ intel ] Option."
+    sleep 1
+    gpuType="intel"
+    ;;
+esac
 sed -i "/^\s*gpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gpuType\"/" ./options.nix
 
 echo "Generating The Hardware Configuration"
