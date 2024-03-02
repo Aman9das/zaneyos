@@ -259,3 +259,8 @@ if [ $userName != $installusername ]; then
   sudo chown -R $userName:users /home/$userName/zaneyos
   echo "Ensuring ZaneyOS repository is in your users HOME directory."
 fi
+
+echo "-----"
+
+echo "ZaneyOS Has Been Installed!"
+echo "Please use responsibly."
