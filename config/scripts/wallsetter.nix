@@ -12,10 +12,10 @@ pkgs.writeShellScriptBin "wallsetter" ''
   if [ -d ${wallpaperDir} ]; then
     num_files=$(ls -1 ${wallpaperDir} | wc -l)
 
-    if [ "$num_files" -eq 0 ]; then
+    if [ $num_files -eq 0 ]; then
       notify-send "The wallpaper folder is empty. Exiting Wallsetter."
       exit
-    elif [ "$num_files" -eq 1 ]; then
+    elif [ $num_files -eq 1 ]; then
       notify-send "The wallpaper folder has only one file. Exiting Wallsetter."
       exit
     else
@@ -28,8 +28,7 @@ pkgs.writeShellScriptBin "wallsetter" ''
   fi
   while true;
   do
-    if [ "$WALLPAPER" == "$PREVIOUS" ]
-    then
+    if [ "$WALLPAPER" == "$PREVIOUS" ]; then
       WALLPAPER=$(find ${wallpaperDir} -name '*' | awk '!/.git/' | tail -n +2 | shuf -n 1)
     else
       PREVIOUS=$WALLPAPER

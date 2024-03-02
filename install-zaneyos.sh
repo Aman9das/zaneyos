@@ -23,8 +23,12 @@ cd
 
 echo "-----"
 
-backupname=$(date "+%Y-%m-%d-%H-%M-%S")
-if [ -d "zaneyos" ]; then
+# Check For Persistence. Backing up current flake files
+# with it enabled is not yet implemented.
+persistState=$(cat zaneyos/hardware.nix | grep persistence | wc -l)
+if [ $persistState -eq 0 ]; then
+  backupname=$(date "+%Y-%m-%d-%H-%M-%S")
+  if [ -d "zaneyos" ]; then
     echo "ZaneyOS exists, backing up to .config/zaneyos-backups folder."
     if [ -d ".config/zaneyos-backups" ]; then
       echo "Moving current version of ZaneyOS to backups folder."
@@ -36,9 +40,10 @@ if [ -d "zaneyos" ]; then
       mv $HOME/zaneyos .config/zaneyos-backups/$backupname
       sleep 1
     fi
-else
+  else
     echo "Thank you for choosing ZaneyOS."
     echo "I hope you find your time here enjoyable!"
+  fi
 fi
 
 echo "-----"
@@ -60,13 +65,20 @@ read -p "Enter Your Username [ $installusername ]: " userName
 if [ -z "$userName" ]; then
   userName=$(echo $USER)
 else
-  echo "The username you choose is new to the system."
-  echo "This requires setting a new password."
-  read -p "Enter New User Password: " newPass
-  echo "Set password."
-  userPassword=$(mkpasswd -m sha-512 $newPass)
-  escaped_userPassword=$(echo "$userPassword" | sed 's/\//\\\//g')
-  sed -i "/^\s*hashedPassword[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_userPassword\"#" ./system.nix
+  if [ $installusername != $userName ]; then
+    echo "This will create a hashedPassword for the new user in the options file."
+    while true; do
+      read -p "Enter New User Password: " newPass
+      read -p "Enter New User Password Again: " newPass2
+      if [ $newPass == $newPass2 ]; then
+	echo "Passwords Match. Setting password."
+	userPassword=$(mkpasswd -m sha-512 $newPass)
+	escaped_userPassword=$(echo "$userPassword" | sed 's/\//\\\//g')
+	sed -i "/^\s*hashedPassword[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_userPassword\"#" ./system.nix
+	break
+      fi
+    done
+  fi
 fi
 sed -i "/^\s*username[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./options.nix
 
@@ -80,12 +92,18 @@ sed -i "/^\s*hostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./
 
 echo "-----"
 
-read -p "Enter Your New Git Username [Can Be Full Name]: " gitUserName
+read -p "Enter Your New Git Username: [ John Smith ] " gitUserName
+if [ -z "$gitUserName" ]; then
+  gitUserName="John Smith"
+fi
 sed -i "/^\s*gitUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitUserName\"/" ./options.nix
 
 echo "-----"
 
-read -p "Enter Your New Git Email: " gitEmail
+read -p "Enter Your New Git Email: [ johnsmith@gmail.com ] " gitEmail
+if [ -z "$gitEmail" ]; then
+  gitEmail="johnsmith@gmail.com"
+fi
 sed -i "/^\s*gitEmail[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitEmail\"/" ./options.nix
 
 echo "-----"
@@ -234,3 +252,10 @@ echo "-----"
 echo "Now Going To Build ZaneyOS, 🤞"
 NIX_CONFIG="experimental-features = nix-command flakes" 
 sudo nixos-rebuild switch --flake .#$hostName
+
+if [ $userName != $installusername ]; then
+  cd
+  cp -r zaneyos /home/$userName/
+  sudo chown -R $userName:users /home/$userName/zaneyos
+  echo "Ensuring ZaneyOS repository is in your users HOME directory."
+fi
