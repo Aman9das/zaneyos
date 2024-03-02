@@ -68,8 +68,8 @@ else
   if [ $installusername != $userName ]; then
     echo "This will create a hashedPassword for the new user in the options file."
     while true; do
-      read -p "Enter New User Password: " newPass
-      read -p "Enter New User Password Again: " newPass2
+      read -s -p "Enter New User Password: " newPass
+      read -s -p "Enter New User Password Again: " newPass2
       if [ $newPass == $newPass2 ]; then
 	echo "Passwords Match. Setting password."
 	userPassword=$(mkpasswd -m sha-512 $newPass)
