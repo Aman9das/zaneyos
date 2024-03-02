@@ -36,7 +36,7 @@ if [ $persistState -eq 0 ]; then
       sleep 1
     else
       echo "Creating the backups folder & moving ZaneyOS to it."
-      mkdir .config/zaneyos-backups
+      mkdir -p .config/zaneyos-backups
       mv $HOME/zaneyos .config/zaneyos-backups/$backupname
       sleep 1
     fi
@@ -61,7 +61,7 @@ cd zaneyos
 echo "-----"
 
 installusername=$(echo $USER)
-read -p "Enter Your Username [ $installusername ]: " userName
+read -p "Enter Your Username: [ $installusername ] " userName
 if [ -z "$userName" ]; then
   userName=$(echo $USER)
 else
@@ -84,7 +84,7 @@ sed -i "/^\s*username[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./
 
 echo "-----"
 
-read -p "Enter Your New Hostname: [ hyprnix ]" hostName
+read -p "Enter Your New Hostname: [ hyprnix ] " hostName
 if [ -z "$hostName" ]; then
   hostName="hyprnix"
 fi

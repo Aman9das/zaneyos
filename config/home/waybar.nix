@@ -15,7 +15,7 @@ in with lib; {
 
       modules-center = [ "hyprland/workspaces" ] ;
       modules-left = [ "custom/startmenu" "hyprland/window" "pulseaudio" "cpu" "memory"];
-      modules-right = [ "custom/hyprbindings" "custom/exit" "idle_inhibitor" "custom/themeselector" "custom/notification" "clock"  "tray" ];
+      modules-right = [ "custom/hyprbindings" "custom/exit" "idle_inhibitor" "custom/themeselector" "custom/notification" "battery" "clock"  "tray" ];
 
       "hyprland/workspaces" = {
       	format = if bar-number == true then "{name}" else "{icon}";
@@ -196,7 +196,7 @@ in with lib; {
 	  opacity: 0.5;
 	  transition: ${betterTransition};
 	'' else if simplebar == true then ''
-	  color: #${config.colorScheme.colors.base03};
+	  color: #${palette.base03};
           background: #${palette.base00};   
 	  margin: 4px 3px;
 	  opacity: 1;
@@ -260,7 +260,7 @@ in with lib; {
 	  opacity: 0.8;
 	  transition: ${betterTransition};
 	'' else if simplebar == true then ''
-	  color: #${config.colorScheme.colors.base05};
+	  color: #${palette.base05};
 	  border: 0px;
 	  border-radius: 15px;
 	  transition: ${betterTransition};
