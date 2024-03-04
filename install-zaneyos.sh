@@ -337,7 +337,8 @@ while true; do
 	    sed -i "/$oldPackage/a $packageName" $systempath
 	  fi
 	  ;;
-	esac
+      esac
+      ;;
   *)
     break
     ;;
