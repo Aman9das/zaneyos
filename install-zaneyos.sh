@@ -133,11 +133,17 @@ sed -i "/^\s*theTimezone[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_time
 
 echo "-----"
 
-read -p "Enter Your Desired Browser: [ firefox ] " browser
-if [ -z "$browser" ]; then
-  browser="firefox"
-fi
-sed -i "/^\s*browser[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$browser\"/" ./options.nix
+read -p "Set 24 Hour Clock: [ false ] " clockFormat
+user_input_lower=$(echo "$clockFormat" | tr '[:upper:]' '[:lower:]')
+case $user_input_lower in
+  y|yes|true|t|enable)
+    clockFormat="true"
+    ;;
+  *)
+    clockFormat="false"
+    ;;
+esac
+sed -i "/^\s*clock24h[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$clockFormat\"/" ./options.nix
 
 echo "-----"
 
@@ -155,7 +161,21 @@ sed -i "/^\s*borderAnim[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$animBorder\"/
 
 echo "-----"
 
-read -p "Install Kdenlive [ false ] : " kdenlive
+read -p "Extra Logitech Device Support: [ false ] " logitechSupport
+user_input_lower=$(echo "$logitechSupport" | tr '[:upper:]' '[:lower:]')
+case $user_input_lower in
+  y|yes|true|t|enable)
+    logitechSupport="true"
+    ;;
+  *)
+    logitechSupport="false"
+    ;;
+esac
+sed -i "/^\s*logitech[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$logitechSupport\"/" ./options.nix
+
+echo "-----"
+
+read -p "Install Kdenlive: [ false ] " kdenlive
 user_input_lower=$(echo "$kdenlive" | tr '[:upper:]' '[:lower:]')
 case $user_input_lower in
   y|yes|true|t|enable)
@@ -166,6 +186,20 @@ case $user_input_lower in
     ;;
 esac
 sed -i "/^\s*kdenlive[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kdenlive\"/" ./options.nix
+
+echo "-----"
+
+read -p "Install Syncthing: [ false ] " enableSyncthing
+user_input_lower=$(echo "$enableSyncthing" | tr '[:upper:]' '[:lower:]')
+case $user_input_lower in
+  y|yes|true|t|enable)
+    enableSyncthing="true"
+    ;;
+  *)
+    enableSyncthing="false"
+    ;;
+esac
+sed -i "/^\s*syncthing[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$enableSyncthing\"/" ./options.nix
 
 echo "-----"
 
@@ -194,6 +228,20 @@ case $user_input_lower in
     ;;
 esac
 sed -i "/^\s*flatpak[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$flatpaks\"/" ./options.nix
+
+echo "-----"
+
+read -p "Enable Python & Pycharm Support: [ false ] " pythonEnable
+user_input_lower=$(echo "$pythonEnable" | tr '[:upper:]' '[:lower:]')
+case $user_input_lower in
+  y|yes|true|t|enable)
+    pythonEnable="true"
+    ;;
+  *)
+    pythonEnable="false"
+    ;;
+esac
+sed -i "/^\s*python[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$pythonEnable\"/" ./options.nix
 
 echo "-----"
 
@@ -233,6 +281,9 @@ case $user_input_lower in
   vm)
     gpuType="vm"
     ;;
+  nvidia)
+    gpuType="nvidia"
+    ;;
   intel-nvidia)
     gpuType="intel-nvidia"
     ;;
@@ -248,6 +299,50 @@ echo "Generating The Hardware Configuration"
 sudo nixos-generate-config --show-hardware-config > hardware.nix
 
 echo "-----"
+
+# Ask if the user wants to install extra packages then if
+# it's for user or system. 
+userpath="/home/$userName/zaneyos/config/home/packages.nix"
+systempath="/home/$userName/zaneyos/config/system/packages.nix"
+insertedUserProgram=false
+insertedSystemProgram=false
+while true; do
+  read -p "Install An Extra Package? [ false ] " addProgram
+  user_input_lower=$(echo "$addProgram" | tr '[:upper:]' '[:lower:]')
+  case $user_input_lower in
+    y|yes|true|t|enable|i|install)
+      read -p "Install For Just User? [ false ] " userOrSystem
+      user_input_lower=$(echo "$userOrSystem" | tr '[:upper:]' '[:lower:]')
+      case $user_input_lower in
+	y|yes|true|t|enable|i|install)
+	  if [ $insertedUserProgram == false ]; then
+	    read -p "Enter Name Of Package: " packageName
+	    sed -i "/home.packages/a $packageName" $userpath
+	    insertedUserProgram=true
+	  else
+	    oldPackage=$packageName
+	    read -p "Enter Name Of Package: " packageName
+	    sed -i "/$oldPackage/a $packageName" $userpath
+	  fi
+	  ;;
+	*)
+	  if [ $insertedSystemProgram == false ]; then
+	    read -p "Enter Name Of Package: " packageName
+	    sed -i "/environment.systemPackages/a $packageName" $systempath
+	    insertedSystemProgram=true
+	  else
+	    oldPackage=$packageName
+	    read -p "Enter Name Of Package: " packageName
+	    # Use sed to insert terminal1 after the specified line
+	    sed -i "/$oldPackage/a $packageName" $systempath
+	  fi
+	  ;;
+	esac
+  *)
+    break
+    ;;
+  esac
+done
 
 echo "Now Going To Build ZaneyOS, 🤞"
 NIX_CONFIG="experimental-features = nix-command flakes" 
