@@ -8,6 +8,9 @@ lib.mkIf ("${gpuType}" == "intel-nvidia") {
       enableHybridCodec = true;
     };
   };
+  environment.systemPackages = with pkgs; [
+    nvtop
+  ];
   # OpenGL
   hardware.opengl = {
     extraPackages = with pkgs; [

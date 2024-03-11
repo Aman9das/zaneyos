@@ -2,6 +2,9 @@
 
 let inherit (import ../../options.nix) gpuType; in
 lib.mkIf ("${gpuType}" == "nvidia") { 
+  environment.systemPackages = with pkgs; [
+    nvtop
+  ];
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     # Modesetting is required.
