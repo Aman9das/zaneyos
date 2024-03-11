@@ -189,6 +189,20 @@ sed -i "/^\s*kdenlive[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kdenlive\"/" ./
 
 echo "-----"
 
+read -p "Install Zero AD Game: [ false ] " enableZeroAD
+user_input_lower=$(echo "$enableZeroAD" | tr '[:upper:]' '[:lower:]')
+case $user_input_lower in
+  y|yes|true|t|enable)
+    zeroad="true"
+    ;;
+  *)
+    zeroad="false"
+    ;;
+esac
+sed -i "/^\s*enableZeroAD[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$zeroad\"/" ./options.nix
+
+echo "-----"
+
 read -p "Install Syncthing: [ false ] " enableSyncthing
 user_input_lower=$(echo "$enableSyncthing" | tr '[:upper:]' '[:lower:]')
 case $user_input_lower in
@@ -299,51 +313,6 @@ echo "Generating The Hardware Configuration"
 sudo nixos-generate-config --show-hardware-config > hardware.nix
 
 echo "-----"
-
-# Ask if the user wants to install extra packages then if
-# it's for user or system. 
-userpath="/home/$userName/zaneyos/config/home/packages.nix"
-systempath="/home/$userName/zaneyos/config/system/packages.nix"
-insertedUserProgram=false
-insertedSystemProgram=false
-while true; do
-  read -p "Install An Extra Package? [ false ] " addProgram
-  user_input_lower=$(echo "$addProgram" | tr '[:upper:]' '[:lower:]')
-  case $user_input_lower in
-    y|yes|true|t|enable|i|install)
-      read -p "Install For Just User? [ false ] " userOrSystem
-      user_input_lower=$(echo "$userOrSystem" | tr '[:upper:]' '[:lower:]')
-      case $user_input_lower in
-	y|yes|true|t|enable|i|install)
-	  if [ $insertedUserProgram == false ]; then
-	    read -p "Enter Name Of Package: " packageName
-	    sed -i "/home.packages/a $packageName" $userpath
-	    insertedUserProgram=true
-	  else
-	    oldPackage=$packageName
-	    read -p "Enter Name Of Package: " packageName
-	    sed -i "/$oldPackage/a $packageName" $userpath
-	  fi
-	  ;;
-	*)
-	  if [ $insertedSystemProgram == false ]; then
-	    read -p "Enter Name Of Package: " packageName
-	    sed -i "/environment.systemPackages/a $packageName" $systempath
-	    insertedSystemProgram=true
-	  else
-	    oldPackage=$packageName
-	    read -p "Enter Name Of Package: " packageName
-	    # Use sed to insert terminal1 after the specified line
-	    sed -i "/$oldPackage/a $packageName" $systempath
-	  fi
-	  ;;
-      esac
-      ;;
-  *)
-    break
-    ;;
-  esac
-done
 
 echo "Now Going To Build ZaneyOS, 🤞"
 NIX_CONFIG="experimental-features = nix-command flakes" 
