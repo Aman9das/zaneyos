@@ -5,14 +5,14 @@
 let
   # THINGS YOU NEED TO CHANGE
   username = "zaney";
-  hostname = "hyprbook";
+  hostname = "hyprnix";
   userHome = "/home/${username}";
   flakeDir = "${userHome}/zaneyos";
   waybarStyle = "simplebar"; # simplebar, slickbar, or default
 in {
   # User Variables
   username = "zaney";
-  hostname = "hyprbook";
+  hostname = "hyprnix";
   gitUsername = "Tyler Kelley";
   gitEmail = "tylerzanekelley@gmail.com";
   theme = "atelier-cave";
@@ -44,7 +44,7 @@ in {
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
   cpuType = "intel";
-  gpuType = "intel-nvidia";
+  gpuType = "amd";
 
   # Nvidia Hybrid Devices
   # ONLY NEEDED FOR HYBRID
