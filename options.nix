@@ -67,9 +67,9 @@ in {
   # Enable Flatpak & Larger Programs
   distrobox = false;
   flatpak = false;
-  kdenlive = true;
-  blender = true;
-  enableZeroAD = true;
+  kdenlive = false;
+  blender = false;
+  enableZeroAD = false;
 
   # Enable Support For
   # Logitech Devices

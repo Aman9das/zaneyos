@@ -21,6 +21,8 @@ in with lib; {
       modifier = "SUPER";
     in concatStrings [ ''
       monitor=,preferred,auto,1
+      monitor=DP-1,2560x1440@165,0x0,1
+      monitor=HDMI-A-1,preferred,auto,1,transform,3
       windowrule = fullscreen, ^(wlogout)$
       windowrule = animation fade,^(wlogout)$
       general {

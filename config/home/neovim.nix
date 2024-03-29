@@ -60,7 +60,7 @@ in {
       nvim-colorizer.enable = true;
       nvim-autopairs.enable = true;
       nix.enable = true;
-      comment-nvim.enable = true;
+      comment.enable = true;
       lualine = {
         enable = true;
       };
@@ -96,7 +96,7 @@ in {
 	enable = true;
 	nixGrammars = true;
       };
-      nvim-cmp = {
+      cmp.settings = {
 	enable = true;
 	autoEnableSources = true;
 	sources = [
