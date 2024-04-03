@@ -18,6 +18,16 @@
       fsType = "ext4";
     };
 
+  fileSystems."/home/zaney/Documents" =
+    { device = "/dev/disk/by-uuid/35f6d96f-0837-4868-8ce5-8e1df5e3b2f3";
+      fsType = "ext4";
+    };
+
+  fileSystems."/home/zaney/Videos" =
+    { device = "/dev/disk/by-uuid/cbe1beaf-6c7f-4251-ad5c-2897aecc367d";
+      fsType = "ext4";
+    };
+
   boot.initrd.luks.devices."luks-cdf913d6-7149-4a8f-9461-61c394b2f5af".device = "/dev/disk/by-uuid/cdf913d6-7149-4a8f-9461-61c394b2f5af";
 
   fileSystems."/boot" =
@@ -26,7 +36,7 @@
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/b87d97d1-d06c-46da-9e3f-343715c29286"; }
+    [ { device = "/dev/disk/by-uuid/8160cef0-c5eb-4caa-9ef5-56a5b4eb51b8"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

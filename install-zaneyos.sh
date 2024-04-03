@@ -80,7 +80,7 @@ else
     done
   fi
 fi
-sed -i "/^\s*username[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./options.nix
+sed -i "/^\s*setUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./options.nix
 
 echo "-----"
 
@@ -88,7 +88,7 @@ read -p "Enter Your New Hostname: [ hyprnix ] " hostName
 if [ -z "$hostName" ]; then
   hostName="hyprnix"
 fi
-sed -i "/^\s*hostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./options.nix
+sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./options.nix
 
 echo "-----"
 

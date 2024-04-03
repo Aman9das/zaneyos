@@ -1,5 +1,8 @@
 <div align="center">
 
+# MAINTENANCE MODE!
+### ZaneyOS is currently being updated and fixed. This is a volatile time to install or update. If you have problems reach out on Discord.
+
 ## ZaneyOS 🟰 Best ❄️ NixOS Configs
 
 ZaneyOS is a simple way of reproducing my configuration on any NixOS system. This includes the wallpaper, scripts, applications, config files, and more.
