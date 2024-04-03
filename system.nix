@@ -1,5 +1,5 @@
 { inputs, config, pkgs,
-  username, hostname, ... }:
+  username, hostname, host, ... }:
 
 let 
   inherit (import ./options.nix) 
@@ -10,7 +10,7 @@ let
 in {
   imports =
     [
-      ./hardware.nix
+      ./${host}/hardware.nix
       ./config/system
     ];
 

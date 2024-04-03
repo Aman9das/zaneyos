@@ -21,7 +21,8 @@
   outputs = inputs@{ nixpkgs, home-manager, impermanence, ... }:
   let
     system = "x86_64-linux";
-    inherit (import ./options.nix) username hostname;
+    host = "hyprnix";
+    inherit (import ./${host}/options.nix) username hostname;
 
     pkgs = import nixpkgs {
       inherit system;
@@ -31,17 +32,19 @@
     };
   in {
     nixosConfigurations = {
-      "${hostname}" = nixpkgs.lib.nixosSystem {
+      "${host}" = nixpkgs.lib.nixosSystem {
 	specialArgs = { 
           inherit system; inherit inputs; 
           inherit username; inherit hostname;
+          inherit host;
         };
 	modules = [ 
 	  ./system.nix
 	  impermanence.nixosModules.impermanence
           home-manager.nixosModules.home-manager {
 	    home-manager.extraSpecialArgs = {
-	      inherit username; inherit inputs;
+              inherit username; inherit inputs;
+              inherit host;
               inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
             };
 	    home-manager.useGlobalPkgs = true;

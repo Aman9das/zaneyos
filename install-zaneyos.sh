@@ -134,6 +134,9 @@ sed -i "/^\s*theTimezone[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_time
 echo "-----"
 
 read -p "Set 24 Hour Clock: [ false ] " clockFormat
+if [ -z "$clockFormat" ]; then
+  clockFormat="false"
+fi
 user_input_lower=$(echo "$clockFormat" | tr '[:upper:]' '[:lower:]')
 case $user_input_lower in
   y|yes|true|t|enable)
@@ -148,6 +151,9 @@ sed -i "/^\s*clock24h[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$clockFormat\"/"
 echo "-----"
 
 read -p "Enable Animated Borders: [ false ] " animBorder
+if [ -z "$animBorder" ]; then
+  animBorder="false"
+fi
 user_input_lower=$(echo "$animBorder" | tr '[:upper:]' '[:lower:]')
 case $user_input_lower in
   y|yes|true|t|enable)
@@ -162,6 +168,9 @@ sed -i "/^\s*borderAnim[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$animBorder\"/
 echo "-----"
 
 read -p "Extra Logitech Device Support: [ false ] " logitechSupport
+if [ -z "$logitechSupport" ]; then
+  logitechSupport="false"
+fi
 user_input_lower=$(echo "$logitechSupport" | tr '[:upper:]' '[:lower:]')
 case $user_input_lower in
   y|yes|true|t|enable)
@@ -176,6 +185,9 @@ sed -i "/^\s*logitech[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$logitechSupport
 echo "-----"
 
 read -p "Install Kdenlive: [ false ] " kdenlive
+if [ -z "$kdenlive" ]; then
+  kdenlive="false"
+fi
 user_input_lower=$(echo "$kdenlive" | tr '[:upper:]' '[:lower:]')
 case $user_input_lower in
   y|yes|true|t|enable)
@@ -190,6 +202,9 @@ sed -i "/^\s*kdenlive[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kdenlive\"/" ./
 echo "-----"
 
 read -p "Install Zero AD Game: [ false ] " enableZeroAD
+if [ -z "$enableZeroAD" ]; then
+  enableZeroAD="false"
+fi
 user_input_lower=$(echo "$enableZeroAD" | tr '[:upper:]' '[:lower:]')
 case $user_input_lower in
   y|yes|true|t|enable)
@@ -204,6 +219,9 @@ sed -i "/^\s*enableZeroAD[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$zeroad\"/" 
 echo "-----"
 
 read -p "Install Syncthing: [ false ] " enableSyncthing
+if [ -z "$enableSyncthing" ]; then
+  enableSyncthing="false"
+fi
 user_input_lower=$(echo "$enableSyncthing" | tr '[:upper:]' '[:lower:]')
 case $user_input_lower in
   y|yes|true|t|enable)
@@ -218,6 +236,9 @@ sed -i "/^\s*syncthing[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$enableSyncthin
 echo "-----"
 
 read -p "Enable Printer Support: [ false ] " printers
+if [ -z "$printers" ]; then
+  printers="false"
+fi
 user_input_lower=$(echo "$printers" | tr '[:upper:]' '[:lower:]')
 case $user_input_lower in
   y|yes|true|t|enable)
@@ -232,6 +253,9 @@ sed -i "/^\s*printer[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$printers\"/" ./o
 echo "-----"
 
 read -p "Enable Flatpak Support: [ false ] " flatpaks
+if [ -z "$flatpaks" ]; then
+  flatpaks="false"
+fi
 user_input_lower=$(echo "$printers" | tr '[:upper:]' '[:lower:]')
 case $user_input_lower in
   y|yes|true|t|enable)
@@ -246,6 +270,9 @@ sed -i "/^\s*flatpak[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$flatpaks\"/" ./o
 echo "-----"
 
 read -p "Enable Python & Pycharm Support: [ false ] " pythonEnable
+if [ -z "$pythonEnable" ]; then
+  pythonEnable="false"
+fi
 user_input_lower=$(echo "$pythonEnable" | tr '[:upper:]' '[:lower:]')
 case $user_input_lower in
   y|yes|true|t|enable)
@@ -329,3 +356,9 @@ echo "-----"
 
 echo "ZaneyOS Has Been Installed!"
 echo "Please use responsibly."
+
+echo "-----"
+
+echo "System is now going to reboot"
+sleep 2
+systemctl reboot
