@@ -54,6 +54,7 @@ in {
 
   environment.variables = {
     FLAKE = "${flakeDir}";
+    ZANEYOS_VERSION="1.0";
     POLKIT_BIN = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
   };
 
