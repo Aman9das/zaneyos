@@ -28,7 +28,6 @@ read -p "Enter Your New Host: [ nixvasion ] " host
 if [ -z "$host" ]; then
   host="nixvasion"
 fi
-sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$host\"/" ./flake.nix
 
 echo "-----"
 
@@ -36,6 +35,7 @@ echo "Cloning & Entering ZaneyOS Repository"
 git clone https://gitlab.com/zaney/zaneyos.git
 cd zaneyos || exit
 mv hosts/default hosts/$host
+sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$host\"/" ./flake.nix
 
 echo "-----"
 
