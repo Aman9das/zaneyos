@@ -19,31 +19,42 @@ fi
 echo "-----"
 
 echo "Ensure In Home Directory"
-cd
+cd || exit
 
 echo "-----"
 
-# Check For Persistence. Backing up current flake files
-# with it enabled is not yet implemented.
-persistState=$(cat zaneyos/hardware.nix | grep persistence | wc -l)
-if [ $persistState -eq 0 ]; then
-  backupname=$(date "+%Y-%m-%d-%H-%M-%S")
-  if [ -d "zaneyos" ]; then
-    echo "ZaneyOS exists, backing up to .config/zaneyos-backups folder."
-    if [ -d ".config/zaneyos-backups" ]; then
-      echo "Moving current version of ZaneyOS to backups folder."
-      mv $HOME/zaneyos .config/zaneyos-backups/$backupname
-      sleep 1
-    else
-      echo "Creating the backups folder & moving ZaneyOS to it."
-      mkdir -p .config/zaneyos-backups
-      mv $HOME/zaneyos .config/zaneyos-backups/$backupname
-      sleep 1
-    fi
+echo "This is not your hostname, that comes soon"
+read -p "Enter Your New Host: [ nixvasion ] " host
+if [ -z "$host" ]; then
+  host="nixvasion"
+fi
+sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$host\"/" ./flake.nix
+
+echo "-----"
+
+echo "Cloning & Entering ZaneyOS Repository"
+git clone https://gitlab.com/zaney/zaneyos.git
+cd zaneyos || exit
+mv hosts/default hosts/$host
+
+echo "-----"
+
+backupname=$(date "+%Y-%m-%d-%H-%M-%S")
+if [ -d "zaneyos" ]; then
+  echo "ZaneyOS exists, backing up to .config/zaneyos-backups folder."
+  if [ -d ".config/zaneyos-backups" ]; then
+    echo "Moving current version of ZaneyOS to backups folder."
+    mv $HOME/zaneyos .config/zaneyos-backups/$backupname
+    sleep 1
   else
-    echo "Thank you for choosing ZaneyOS."
-    echo "I hope you find your time here enjoyable!"
+    echo "Creating the backups folder & moving ZaneyOS to it."
+    mkdir -p .config/zaneyos-backups
+    mv $HOME/zaneyos .config/zaneyos-backups/$backupname
+    sleep 1
   fi
+else
+  echo "Thank you for choosing ZaneyOS."
+  echo "I hope you find your time here enjoyable!"
 fi
 
 echo "-----"
@@ -51,12 +62,6 @@ echo "-----"
 echo "Default options are in brackets []"
 echo "Just press enter to select the default"
 sleep 2
-
-echo "-----"
-
-echo "Cloning & Entering ZaneyOS Repository"
-git clone https://gitlab.com/zaney/zaneyos.git
-cd zaneyos
 
 echo "-----"
 
@@ -80,7 +85,7 @@ else
     done
   fi
 fi
-sed -i "/^\s*setUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./options.nix
+sed -i "/^\s*setUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -88,7 +93,7 @@ read -p "Enter Your New Hostname: [ hyprnix ] " hostName
 if [ -z "$hostName" ]; then
   hostName="hyprnix"
 fi
-sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./options.nix
+sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -96,7 +101,7 @@ read -p "Enter Your New Git Username: [ John Smith ] " gitUserName
 if [ -z "$gitUserName" ]; then
   gitUserName="John Smith"
 fi
-sed -i "/^\s*gitUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitUserName\"/" ./options.nix
+sed -i "/^\s*gitUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitUserName\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -104,7 +109,7 @@ read -p "Enter Your New Git Email: [ johnsmith@gmail.com ] " gitEmail
 if [ -z "$gitEmail" ]; then
   gitEmail="johnsmith@gmail.com"
 fi
-sed -i "/^\s*gitEmail[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitEmail\"/" ./options.nix
+sed -i "/^\s*gitEmail[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitEmail\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -112,7 +117,7 @@ read -p "Enter Your Locale: [ en_US.UTF-8 ] " locale
 if [ -z "$locale" ]; then
   locale="en_US.UTF-8"
 fi
-sed -i "/^\s*theLocale[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$locale\"/" ./options.nix
+sed -i "/^\s*theLocale[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$locale\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -120,7 +125,7 @@ read -p "Enter Your Keyboard Layout: [ us ] " kbdLayout
 if [ -z "$kbdLayout" ]; then
   kbdLayout="us"
 fi
-sed -i "/^\s*theKBDLayout[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kbdLayout\"/" ./options.nix
+sed -i "/^\s*theKBDLayout[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kbdLayout\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -129,7 +134,7 @@ if [ -z "$timezone" ]; then
   timezone="America/New_York"
 fi
 escaped_timezone=$(echo "$timezone" | sed 's/\//\\\//g')
-sed -i "/^\s*theTimezone[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_timezone\"#" ./options.nix
+sed -i "/^\s*theTimezone[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_timezone\"#" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -146,7 +151,7 @@ case $user_input_lower in
     clockFormat="false"
     ;;
 esac
-sed -i "/^\s*clock24h[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$clockFormat\"/" ./options.nix
+sed -i "/^\s*clock24h[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$clockFormat\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -163,7 +168,7 @@ case $user_input_lower in
     animBorder="false"
     ;;
 esac
-sed -i "/^\s*borderAnim[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$animBorder\"/" ./options.nix
+sed -i "/^\s*borderAnim[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$animBorder\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -180,7 +185,7 @@ case $user_input_lower in
     logitechSupport="false"
     ;;
 esac
-sed -i "/^\s*logitech[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$logitechSupport\"/" ./options.nix
+sed -i "/^\s*logitech[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$logitechSupport\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -197,7 +202,7 @@ case $user_input_lower in
     kdenlive="false"
     ;;
 esac
-sed -i "/^\s*kdenlive[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kdenlive\"/" ./options.nix
+sed -i "/^\s*kdenlive[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kdenlive\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -214,7 +219,7 @@ case $user_input_lower in
     zeroad="false"
     ;;
 esac
-sed -i "/^\s*enableZeroAD[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$zeroad\"/" ./options.nix
+sed -i "/^\s*enableZeroAD[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$zeroad\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -231,7 +236,7 @@ case $user_input_lower in
     enableSyncthing="false"
     ;;
 esac
-sed -i "/^\s*syncthing[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$enableSyncthing\"/" ./options.nix
+sed -i "/^\s*syncthing[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$enableSyncthing\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -248,7 +253,7 @@ case $user_input_lower in
     printers="false"
     ;;
 esac
-sed -i "/^\s*printer[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$printers\"/" ./options.nix
+sed -i "/^\s*printer[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$printers\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -265,7 +270,7 @@ case $user_input_lower in
     printers="false"
     ;;
 esac
-sed -i "/^\s*flatpak[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$flatpaks\"/" ./options.nix
+sed -i "/^\s*flatpak[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$flatpaks\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -282,7 +287,7 @@ case $user_input_lower in
     pythonEnable="false"
     ;;
 esac
-sed -i "/^\s*python[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$pythonEnable\"/" ./options.nix
+sed -i "/^\s*python[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$pythonEnable\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -305,7 +310,7 @@ case $user_input_lower in
     cpuType="intel"
     ;;
 esac
-sed -i "/^\s*cpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$cpuType\"/" ./options.nix
+sed -i "/^\s*cpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$cpuType\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -334,16 +339,16 @@ case $user_input_lower in
     gpuType="intel"
     ;;
 esac
-sed -i "/^\s*gpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gpuType\"/" ./options.nix
+sed -i "/^\s*gpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gpuType\"/" ./hosts/$host/options.nix
 
 echo "Generating The Hardware Configuration"
-sudo nixos-generate-config --show-hardware-config > hardware.nix
+sudo nixos-generate-config --show-hardware-config > ./hosts/$host/hardware.nix
 
 echo "-----"
 
 echo "Now Going To Build ZaneyOS, 🤞"
 NIX_CONFIG="experimental-features = nix-command flakes" 
-sudo nixos-rebuild switch --flake .#$hostName
+sudo nixos-rebuild switch --flake .#$host
 
 if [ $userName != $installusername ]; then
   cd
