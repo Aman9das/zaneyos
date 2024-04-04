@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, host, ... }:
 
 let
-  inherit ( import ../../options.nix ) terminal browser;
+  inherit ( import ../../hosts/${host}/options.nix ) terminal browser;
 in
 pkgs.writeShellScriptBin "list-hypr-bindings" ''
   yad --width=800 --height=650 \

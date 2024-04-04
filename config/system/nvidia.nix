@@ -1,6 +1,6 @@
-{ pkgs, config, lib, gpuType, ... }:
+{ pkgs, config, lib, gpuType, host, ... }:
 
-let inherit (import ../../options.nix) gpuType; in
+let inherit (import ../../hosts/${host}/options.nix) gpuType; in
 lib.mkIf ("${gpuType}" == "nvidia") { 
   environment.systemPackages = with pkgs; [
     nvtop

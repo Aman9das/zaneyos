@@ -1,6 +1,6 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, host, ... }:
 
-let inherit (import ../../options.nix) flakeDir flakePrev 
+let inherit (import ../../hosts/${host}/options.nix) flakeDir flakePrev 
 	     hostname flakeBackup theShell; in
 lib.mkIf (theShell == "bash") {
   # Configure Bash

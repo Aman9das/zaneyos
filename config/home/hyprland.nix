@@ -1,9 +1,9 @@
-{ pkgs, config, lib, inputs, ... }:
+{ pkgs, config, lib, inputs, host, ... }:
 
 let
   theme = config.colorScheme.palette;
   hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
-  inherit (import ../../options.nix) 
+  inherit (import ../../hosts/${host}/options.nix) 
     browser cpuType gpuType
     wallpaperDir borderAnim
     theKBDLayout terminal

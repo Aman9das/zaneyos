@@ -1,9 +1,9 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, host, ... }:
 
 let
   palette = config.colorScheme.palette;
   betterTransition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
-  inherit (import ../../options.nix) bar-number clock24h waybarAnim;
+  inherit (import ../../hosts/${host}/options.nix) bar-number clock24h waybarAnim;
 in with lib; {
   # Configure & Theme Waybar
   programs.waybar = {

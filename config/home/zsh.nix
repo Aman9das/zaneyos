@@ -1,6 +1,6 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, host, ... }:
 
-let inherit (import ../../options.nix) flakeDir theShell hostname; in
+let inherit (import ../../hosts/${host}/options.nix) flakeDir theShell hostname; in
 lib.mkIf (theShell == "zsh") {
   programs.zsh = {
     enable = true;

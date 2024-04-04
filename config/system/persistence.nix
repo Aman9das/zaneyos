@@ -1,7 +1,7 @@
-{ config, pkgs, lib, username, ... }:
+{ config, pkgs, lib, username, host, ... }:
 
 let 
-  inherit ( import ../../options.nix ) username;
+  inherit ( import ../../hosts/${host}/options.nix ) username;
 in
 {
   environment.persistence."/nix/persist" = {

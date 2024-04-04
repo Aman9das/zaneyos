@@ -1,7 +1,7 @@
 { config, pkgs, inputs, username,
-  gtkThemeFromScheme, ... }:
+  host, gtkThemeFromScheme, ... }:
 let 
-  inherit (import ./options.nix)
+  inherit (import ./hosts/${host}/options.nix)
     gitUsername gitEmail theme browser 
     wallpaperDir wallpaperGit flakeDir 
     waybarStyle;

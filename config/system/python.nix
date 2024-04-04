@@ -1,7 +1,7 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, host, ... }:
 
 let
-  inherit (import ../../options.nix) python;
+  inherit (import ../../hosts/${host}/options.nix) python;
   my-python-packages = ps: with ps; [
     pandas
     requests

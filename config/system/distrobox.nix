@@ -1,6 +1,6 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, host, ... }:
 
-let inherit (import ../../options.nix) distrobox; in
+let inherit (import ../../hosts/${host}/options.nix) distrobox; in
 lib.mkIf (distrobox == true) {
   virtualisation.podman = {
     enable = true;

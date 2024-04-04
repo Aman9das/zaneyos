@@ -2,7 +2,7 @@
   username, hostname, host, ... }:
 
 let 
-  inherit (import ./options.nix) 
+  inherit (import ./hosts/${host}/options.nix) 
     theLocale theTimezone gitUsername
     theShell wallpaperDir wallpaperGit
     theLCVariables theKBDLayout flakeDir
@@ -10,7 +10,7 @@ let
 in {
   imports =
     [
-      ./${host}/hardware.nix
+      ./hosts/${host}/hardware.nix
       ./config/system
     ];
 

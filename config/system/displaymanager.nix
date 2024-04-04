@@ -1,6 +1,6 @@
-{ pkgs, config, ... }:
+{ pkgs, config, host, ... }:
 
-let inherit (import ../../options.nix) theKBDVariant
+let inherit (import ../../hosts/${host}/options.nix) theKBDVariant
 theKBDLayout theSecondKBDLayout; in
 {
   services.xserver = {
