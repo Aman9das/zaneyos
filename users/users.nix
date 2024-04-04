@@ -1,7 +1,7 @@
 { pkgs, config, username, host, ... }:
 
 let
-  inherit (import ./hosts/${host}/options.nix) gitUsername theShell;
+  inherit (import ./../hosts/${host}/options.nix) gitUsername theShell;
 in {
   users.users = {
     "${username}" = {
