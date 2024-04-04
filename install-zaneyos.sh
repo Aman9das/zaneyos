@@ -23,10 +23,9 @@ cd || exit
 
 echo "-----"
 
-echo "This is not your hostname, that comes soon"
-read -p "Enter Your New Host: [ nixvasion ] " host
-if [ -z "$host" ]; then
-  host="nixvasion"
+read -p "Enter Your New Hostname: [ hyprnix ] " hostName
+if [ -z "$hostName" ]; then
+  hostName="hyprnix"
 fi
 
 echo "-----"
@@ -34,8 +33,9 @@ echo "-----"
 echo "Cloning & Entering ZaneyOS Repository"
 git clone https://gitlab.com/zaney/zaneyos.git
 cd zaneyos || exit
-mv hosts/default hosts/$host
-sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$host\"/" ./flake.nix
+cp -r hosts/default hosts/$hostName
+sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./flake.nix
+sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -85,15 +85,10 @@ else
     done
   fi
 fi
-sed -i "/^\s*setUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./hosts/$host/options.nix
+sed -i "/^\s*setUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
-read -p "Enter Your New Hostname: [ hyprnix ] " hostName
-if [ -z "$hostName" ]; then
-  hostName="hyprnix"
-fi
-sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./hosts/$host/options.nix
 
 echo "-----"
 
@@ -101,7 +96,7 @@ read -p "Enter Your New Git Username: [ John Smith ] " gitUserName
 if [ -z "$gitUserName" ]; then
   gitUserName="John Smith"
 fi
-sed -i "/^\s*gitUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitUserName\"/" ./hosts/$host/options.nix
+sed -i "/^\s*gitUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitUserName\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -109,7 +104,7 @@ read -p "Enter Your New Git Email: [ johnsmith@gmail.com ] " gitEmail
 if [ -z "$gitEmail" ]; then
   gitEmail="johnsmith@gmail.com"
 fi
-sed -i "/^\s*gitEmail[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitEmail\"/" ./hosts/$host/options.nix
+sed -i "/^\s*gitEmail[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitEmail\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -117,7 +112,7 @@ read -p "Enter Your Locale: [ en_US.UTF-8 ] " locale
 if [ -z "$locale" ]; then
   locale="en_US.UTF-8"
 fi
-sed -i "/^\s*theLocale[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$locale\"/" ./hosts/$host/options.nix
+sed -i "/^\s*theLocale[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$locale\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -125,7 +120,7 @@ read -p "Enter Your Keyboard Layout: [ us ] " kbdLayout
 if [ -z "$kbdLayout" ]; then
   kbdLayout="us"
 fi
-sed -i "/^\s*theKBDLayout[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kbdLayout\"/" ./hosts/$host/options.nix
+sed -i "/^\s*theKBDLayout[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kbdLayout\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -134,7 +129,7 @@ if [ -z "$timezone" ]; then
   timezone="America/New_York"
 fi
 escaped_timezone=$(echo "$timezone" | sed 's/\//\\\//g')
-sed -i "/^\s*theTimezone[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_timezone\"#" ./hosts/$host/options.nix
+sed -i "/^\s*theTimezone[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_timezone\"#" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -151,7 +146,7 @@ case $user_input_lower in
     clockFormat="false"
     ;;
 esac
-sed -i "/^\s*clock24h[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$clockFormat\"/" ./hosts/$host/options.nix
+sed -i "/^\s*clock24h[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$clockFormat\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -168,7 +163,7 @@ case $user_input_lower in
     animBorder="false"
     ;;
 esac
-sed -i "/^\s*borderAnim[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$animBorder\"/" ./hosts/$host/options.nix
+sed -i "/^\s*borderAnim[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$animBorder\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -185,7 +180,7 @@ case $user_input_lower in
     logitechSupport="false"
     ;;
 esac
-sed -i "/^\s*logitech[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$logitechSupport\"/" ./hosts/$host/options.nix
+sed -i "/^\s*logitech[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$logitechSupport\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -202,7 +197,7 @@ case $user_input_lower in
     kdenlive="false"
     ;;
 esac
-sed -i "/^\s*kdenlive[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kdenlive\"/" ./hosts/$host/options.nix
+sed -i "/^\s*kdenlive[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kdenlive\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -219,7 +214,7 @@ case $user_input_lower in
     zeroad="false"
     ;;
 esac
-sed -i "/^\s*enableZeroAD[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$zeroad\"/" ./hosts/$host/options.nix
+sed -i "/^\s*enableZeroAD[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$zeroad\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -236,7 +231,7 @@ case $user_input_lower in
     enableSyncthing="false"
     ;;
 esac
-sed -i "/^\s*syncthing[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$enableSyncthing\"/" ./hosts/$host/options.nix
+sed -i "/^\s*syncthing[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$enableSyncthing\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -253,7 +248,7 @@ case $user_input_lower in
     printers="false"
     ;;
 esac
-sed -i "/^\s*printer[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$printers\"/" ./hosts/$host/options.nix
+sed -i "/^\s*printer[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$printers\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -270,7 +265,7 @@ case $user_input_lower in
     printers="false"
     ;;
 esac
-sed -i "/^\s*flatpak[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$flatpaks\"/" ./hosts/$host/options.nix
+sed -i "/^\s*flatpak[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$flatpaks\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -287,7 +282,7 @@ case $user_input_lower in
     pythonEnable="false"
     ;;
 esac
-sed -i "/^\s*python[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$pythonEnable\"/" ./hosts/$host/options.nix
+sed -i "/^\s*python[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$pythonEnable\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -310,7 +305,7 @@ case $user_input_lower in
     cpuType="intel"
     ;;
 esac
-sed -i "/^\s*cpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$cpuType\"/" ./hosts/$host/options.nix
+sed -i "/^\s*cpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$cpuType\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -339,16 +334,16 @@ case $user_input_lower in
     gpuType="intel"
     ;;
 esac
-sed -i "/^\s*gpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gpuType\"/" ./hosts/$host/options.nix
+sed -i "/^\s*gpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gpuType\"/" ./hosts/$hostName/options.nix
 
 echo "Generating The Hardware Configuration"
-sudo nixos-generate-config --show-hardware-config > ./hosts/$host/hardware.nix
+sudo nixos-generate-config --show-hardware-config > ./hosts/$hostName/hardware.nix
 
 echo "-----"
 
 echo "Now Going To Build ZaneyOS, 🤞"
 NIX_CONFIG="experimental-features = nix-command flakes" 
-sudo nixos-rebuild switch --flake .#$host
+sudo nixos-rebuild switch --flake .#$hostName
 
 if [ $userName != $installusername ]; then
   cd
