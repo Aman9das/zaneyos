@@ -22,7 +22,7 @@ in {
   gitEmail = "tylerzanekelley@gmail.com";
 
   # Base16 Theme
-  theme = "atelier-cave";
+  theme = "gruvbox-light-hard";
 
   # Hyprland Settings
   borderAnim = true; # Enable / Disable Hyprland Border Animation

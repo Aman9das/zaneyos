@@ -132,138 +132,82 @@ sed -i "/^\s*theTimezone[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_time
 
 echo "-----"
 
+echo "Must be true or false."
+echo "Please check spelling before pressing Enter!"
 read -p "Set 24 Hour Clock: [ false ] " clockFormat
 if [ -z "$clockFormat" ]; then
   clockFormat="false"
 fi
-user_input_lower=$(echo "$clockFormat" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    clockFormat="true"
-    ;;
-  *)
-    clockFormat="false"
-    ;;
-esac
 sed -i "/^\s*clock24h[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$clockFormat\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
+echo "Must be true or false."
+echo "Please check spelling before pressing Enter!"
 read -p "Enable Animated Borders: [ false ] " animBorder
 if [ -z "$animBorder" ]; then
   animBorder="false"
 fi
-user_input_lower=$(echo "$animBorder" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    animBorder="true"
-    ;;
-  *)
-    animBorder="false"
-    ;;
-esac
 sed -i "/^\s*borderAnim[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$animBorder\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
+echo "Must be true or false."
+echo "Please check spelling before pressing Enter!"
 read -p "Extra Logitech Device Support: [ false ] " logitechSupport
 if [ -z "$logitechSupport" ]; then
   logitechSupport="false"
 fi
-user_input_lower=$(echo "$logitechSupport" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    logitechSupport="true"
-    ;;
-  *)
-    logitechSupport="false"
-    ;;
-esac
 sed -i "/^\s*logitech[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$logitechSupport\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
+echo "Must be true or false."
+echo "Please check spelling before pressing Enter!"
 read -p "Install Kdenlive: [ false ] " kdenlive
 if [ -z "$kdenlive" ]; then
   kdenlive="false"
 fi
-user_input_lower=$(echo "$kdenlive" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    kdenlive="true"
-    ;;
-  *)
-    kdenlive="false"
-    ;;
-esac
 sed -i "/^\s*kdenlive[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kdenlive\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
+echo "Must be true or false."
+echo "Please check spelling before pressing Enter!"
 read -p "Install Zero AD Game: [ false ] " enableZeroAD
 if [ -z "$enableZeroAD" ]; then
   enableZeroAD="false"
 fi
-user_input_lower=$(echo "$enableZeroAD" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    zeroad="true"
-    ;;
-  *)
-    zeroad="false"
-    ;;
-esac
-sed -i "/^\s*enableZeroAD[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$zeroad\"/" ./hosts/$hostName/options.nix
+sed -i "/^\s*enableZeroAD[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$enableZeroAD\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
+echo "Must be true or false."
+echo "Please check spelling before pressing Enter!"
 read -p "Install Syncthing: [ false ] " enableSyncthing
 if [ -z "$enableSyncthing" ]; then
   enableSyncthing="false"
 fi
-user_input_lower=$(echo "$enableSyncthing" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    enableSyncthing="true"
-    ;;
-  *)
-    enableSyncthing="false"
-    ;;
-esac
 sed -i "/^\s*syncthing[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$enableSyncthing\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
+echo "Must be true or false."
+echo "Please check spelling before pressing Enter!"
 read -p "Enable Printer Support: [ false ] " printers
 if [ -z "$printers" ]; then
   printers="false"
 fi
-user_input_lower=$(echo "$printers" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    printers="true"
-    ;;
-  *)
-    printers="false"
-    ;;
-esac
 sed -i "/^\s*printer[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$printers\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
+echo "Must be true or false."
+echo "Please check spelling before pressing Enter!"
 read -p "Enable Flatpak Support: [ false ] " flatpaks
 if [ -z "$flatpaks" ]; then
   flatpaks="false"
 fi
-user_input_lower=$(echo "$printers" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    printers="true"
-    ;;
-  *)
-    printers="false"
-    ;;
-esac
 sed -i "/^\s*flatpak[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$flatpaks\"/" ./hosts/$hostName/options.nix
 
 echo "-----"

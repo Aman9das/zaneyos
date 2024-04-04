@@ -29,6 +29,8 @@ ZaneyOS is a simple way of reproducing my configuration on any NixOS system. Thi
 
 #### 🖥️ Multi Host & User Configuration
 - You can now define separate settings for different host machines and users!
+- Easily specify extra packages for your users in the users/users.nix file.
+- Easy to understand file structure where each host just has its generated hardware.nix file and option.nix file in a folder with the hostname as its title.
 
 <div align="center">
 
@@ -41,6 +43,7 @@ Please do yourself a favor and [read the wiki](https://zaney.org/zaneyos/).
 #### 📦 How To Install Packages?
 - You can search the [Nix Packages](https://search.nixos.org/packages?) & [Options](https://search.nixos.org/options?) pages for what a package may be named or if it has options available that take care of configuration hurdles you may face.
 - To add a package there are the packages.nix files located in config/system and config/home folders. One is for programs available system wide and the other for your users environment only.
+- You also have the option of easily adding packages to the option in the users/users.nix file for a specific user.
 
 #### 🙋 Having Issues / Questions?
 - Please feel free to raise an issue on the repo, please label a feature request with the title beginning with [feature request], thank you!
