@@ -27,6 +27,9 @@ ZaneyOS is a simple way of reproducing my configuration on any NixOS system. Thi
 - A tmpfs for the /tmp directory is created improving rebuild time and reducing strain on hdd/ssd.
 - No massive Neovim project here. This is my simple, easy to understand, yet incredible Neovim setup. You can grep recursively through entire folders and find specific files without ever leaving the text editor!
 
+#### 🖥️ Multi Host & User Configuration
+- You can now define separate settings for different host machines and users!
+
 <div align="center">
 
 ![](./config/home/files/media/demo.mp4)
