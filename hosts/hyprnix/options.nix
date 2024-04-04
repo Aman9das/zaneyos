@@ -73,12 +73,12 @@ in {
   distrobox = false;
   flatpak = false;
   kdenlive = true;
-  blender = false;
+  blender = true;
   enableZeroAD = true;
 
   # Enable Support For
   # Logitech Devices
-  logitech = true;
+  logitech = false;
 
   # Enable Terminals ( If You Disable All You Get Kitty )
   wezterm = false;
@@ -86,7 +86,7 @@ in {
   kitty = true;
 
   # Enable Python & PyCharm
-  python = false;
+  python = true;
   
   # Enable SyncThing
   syncthing = false;

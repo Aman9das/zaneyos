@@ -55,6 +55,7 @@ git clone https://gitlab.com/zaney/zaneyos.git
 cd zaneyos
 mkdir hosts/$hostName
 cp hosts/default/*.nix hosts/$hostName
+git add .
 sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./flake.nix
 sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./hosts/$hostName/options.nix
 
@@ -340,6 +341,7 @@ sudo nixos-generate-config --show-hardware-config > ./hosts/$hostName/hardware.n
 echo "-----"
 
 echo "Now Going To Build ZaneyOS, 🤞"
+git commit -am "Add new hosts folder and all the new settings"
 NIX_CONFIG="experimental-features = nix-command flakes" 
 sudo nixos-rebuild switch --flake .#$hostName
 

@@ -18,21 +18,21 @@
       fsType = "ext4";
     };
 
+  boot.initrd.luks.devices."luks-cdf913d6-7149-4a8f-9461-61c394b2f5af".device = "/dev/disk/by-uuid/cdf913d6-7149-4a8f-9461-61c394b2f5af";
+
   fileSystems."/home/zaney/Documents" =
     { device = "/dev/disk/by-uuid/35f6d96f-0837-4868-8ce5-8e1df5e3b2f3";
       fsType = "ext4";
     };
 
-  fileSystems."/home/zaney/Videos" =
-    { device = "/dev/disk/by-uuid/cbe1beaf-6c7f-4251-ad5c-2897aecc367d";
-      fsType = "ext4";
-    };
-
-  boot.initrd.luks.devices."luks-cdf913d6-7149-4a8f-9461-61c394b2f5af".device = "/dev/disk/by-uuid/cdf913d6-7149-4a8f-9461-61c394b2f5af";
-
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/C598-AF28";
       fsType = "vfat";
+    };
+
+  fileSystems."/home/zaney/Videos" =
+    { device = "/dev/disk/by-uuid/cbe1beaf-6c7f-4251-ad5c-2897aecc367d";
+      fsType = "ext4";
     };
 
   swapDevices =
@@ -45,6 +45,7 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp7s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp6s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
