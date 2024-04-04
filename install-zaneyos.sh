@@ -19,7 +19,7 @@ fi
 echo "-----"
 
 echo "Ensure In Home Directory"
-cd || exit
+cd
 
 echo "-----"
 
@@ -27,15 +27,6 @@ read -p "Enter Your New Hostname: [ hyprnix ] " hostName
 if [ -z "$hostName" ]; then
   hostName="hyprnix"
 fi
-
-echo "-----"
-
-echo "Cloning & Entering ZaneyOS Repository"
-git clone https://gitlab.com/zaney/zaneyos.git
-cd zaneyos || exit
-cp -r hosts/default hosts/$hostName
-sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./flake.nix
-sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -56,6 +47,16 @@ else
   echo "Thank you for choosing ZaneyOS."
   echo "I hope you find your time here enjoyable!"
 fi
+
+echo "-----"
+
+echo "Cloning & Entering ZaneyOS Repository"
+git clone https://gitlab.com/zaney/zaneyos.git
+cd zaneyos
+mkdir hosts/$hostName
+cp hosts/default/*.nix hosts/$hostName
+sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./flake.nix
+sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
 
@@ -86,9 +87,6 @@ else
   fi
 fi
 sed -i "/^\s*setUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
 
 echo "-----"
 
