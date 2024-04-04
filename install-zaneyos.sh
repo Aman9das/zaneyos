@@ -360,5 +360,5 @@ echo "Please use responsibly."
 echo "-----"
 
 echo "System is now going to reboot"
-sleep 2
-systemctl reboot
+# sleep 2
+# systemctl reboot
