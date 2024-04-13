@@ -21,7 +21,6 @@
   outputs = inputs@{ nixpkgs, home-manager, impermanence, ... }:
   let
     system = "x86_64-linux";
-    host = "hyprnix";
     inherit (import ./hosts/${host}/options.nix) username hostname;
 
     pkgs = import nixpkgs {
@@ -32,7 +31,7 @@
     };
   in {
     nixosConfigurations = {
-      "${host}" = nixpkgs.lib.nixosSystem {
+      "${hostname}" = nixpkgs.lib.nixosSystem {
 	specialArgs = { 
           inherit system; inherit inputs; 
           inherit username; inherit hostname;

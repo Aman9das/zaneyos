@@ -13,7 +13,7 @@ if command -v git &> /dev/null; then
 else
     echo "Git is not installed. Please install Git and try again."
     echo "Example: nix-shell -p git"
-    exit 1
+    exit
 fi
 
 echo "-----"
@@ -56,7 +56,6 @@ cd zaneyos
 mkdir hosts/$hostName
 cp hosts/default/*.nix hosts/$hostName
 git add .
-sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./flake.nix
 sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
