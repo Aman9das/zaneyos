@@ -91,196 +91,15 @@ sed -i "/^\s*setUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/"
 
 echo "-----"
 
-read -p "Enter Your New Git Username: [ John Smith ] " gitUserName
-if [ -z "$gitUserName" ]; then
-  gitUserName="John Smith"
-fi
-sed -i "/^\s*gitUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitUserName\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-read -p "Enter Your New Git Email: [ johnsmith@gmail.com ] " gitEmail
-if [ -z "$gitEmail" ]; then
-  gitEmail="johnsmith@gmail.com"
-fi
-sed -i "/^\s*gitEmail[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gitEmail\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-read -p "Enter Your Locale: [ en_US.UTF-8 ] " locale
-if [ -z "$locale" ]; then
-  locale="en_US.UTF-8"
-fi
-sed -i "/^\s*theLocale[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$locale\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-read -p "Enter Your Keyboard Layout: [ us ] " kbdLayout
-if [ -z "$kbdLayout" ]; then
-  kbdLayout="us"
-fi
-sed -i "/^\s*theKBDLayout[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kbdLayout\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-read -p "Enter Your Timezone: [ America/New_York ] " timezone
-if [ -z "$timezone" ]; then
-  timezone="America/New_York"
-fi
-escaped_timezone=$(echo "$timezone" | sed 's/\//\\\//g')
-sed -i "/^\s*theTimezone[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_timezone\"#" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-echo "Must be true or false."
-echo "Please check spelling before pressing Enter!"
-read -p "Set 24 Hour Clock: [ false ] " clockFormat
-if [ -z "$clockFormat" ]; then
-  clockFormat="false"
-fi
-sed -i "/^\s*clock24h[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$clockFormat\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-echo "Must be true or false."
-echo "Please check spelling before pressing Enter!"
-read -p "Enable Animated Borders: [ false ] " animBorder
-if [ -z "$animBorder" ]; then
-  animBorder="false"
-fi
-sed -i "/^\s*borderAnim[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$animBorder\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-echo "Must be true or false."
-echo "Please check spelling before pressing Enter!"
-read -p "Extra Logitech Device Support: [ false ] " logitechSupport
-if [ -z "$logitechSupport" ]; then
-  logitechSupport="false"
-fi
-sed -i "/^\s*logitech[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$logitechSupport\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-echo "Must be true or false."
-echo "Please check spelling before pressing Enter!"
-read -p "Install Kdenlive: [ false ] " kdenlive
-if [ -z "$kdenlive" ]; then
-  kdenlive="false"
-fi
-sed -i "/^\s*kdenlive[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$kdenlive\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-echo "Must be true or false."
-echo "Please check spelling before pressing Enter!"
-read -p "Install Zero AD Game: [ false ] " enableZeroAD
-if [ -z "$enableZeroAD" ]; then
-  enableZeroAD="false"
-fi
-sed -i "/^\s*enableZeroAD[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$enableZeroAD\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-echo "Must be true or false."
-echo "Please check spelling before pressing Enter!"
-read -p "Install Syncthing: [ false ] " enableSyncthing
-if [ -z "$enableSyncthing" ]; then
-  enableSyncthing="false"
-fi
-sed -i "/^\s*syncthing[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$enableSyncthing\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-echo "Must be true or false."
-echo "Please check spelling before pressing Enter!"
-read -p "Enable Printer Support: [ false ] " printers
-if [ -z "$printers" ]; then
-  printers="false"
-fi
-sed -i "/^\s*printer[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$printers\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-echo "Must be true or false."
-echo "Please check spelling before pressing Enter!"
-read -p "Enable Flatpak Support: [ false ] " flatpaks
-if [ -z "$flatpaks" ]; then
-  flatpaks="false"
-fi
-sed -i "/^\s*flatpak[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$flatpaks\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-echo "Must be true or false."
-echo "Please check spelling before pressing Enter!"
-read -p "Enable Python & Pycharm Support: [ false ] " pythonEnable
-if [ -z "$pythonEnable" ]; then
-  pythonEnable="false"
-fi
-sed -i "/^\s*python[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$pythonEnable\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-echo "Valid options include amd, intel, and vm"
-read -p "Enter Your CPU Type: [ intel ] " cpuType
-user_input_lower=$(echo "$cpuType" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  amd)
-    cpuType="amd"
-    ;;
-  intel)
-    cpuType="intel"
-    ;;
-  vm)
-    cpuType="vm"
-    ;;
-  *)
-    echo "Option Entered Not Available, Falling Back To [ intel ] Option."
-    sleep 1
-    cpuType="intel"
-    ;;
-esac
-sed -i "/^\s*cpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$cpuType\"/" ./hosts/$hostName/options.nix
-
-echo "-----"
-
-echo "Valid options include amd, intel, nvidia, vm, intel-nvidia"
-read -p "Enter Your GPU Type : " gpuType
-user_input_lower=$(echo "$gpuType" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  amd)
-    gpuType="amd"
-    ;;
-  intel)
-    gpuType="intel"
-    ;;
-  vm)
-    gpuType="vm"
-    ;;
-  nvidia)
-    gpuType="nvidia"
-    ;;
-  intel-nvidia)
-    gpuType="intel-nvidia"
-    ;;
-  *)
-    echo "Option Entered Not Available, Falling Back To [ intel ] Option."
-    sleep 1
-    gpuType="intel"
-    ;;
-esac
-sed -i "/^\s*gpuType[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$gpuType\"/" ./hosts/$hostName/options.nix
-
 echo "Generating The Hardware Configuration"
 sudo nixos-generate-config --show-hardware-config > ./hosts/$hostName/hardware.nix
 
 echo "-----"
 
-echo "Now Going To Build ZaneyOS, 🤞"
+echo "Setting Required Nix Settings & Committing Changes"
+git add .
 git commit -am "Add new hosts folder and all the new settings"
-NIX_CONFIG="experimental-features = nix-command flakes" 
-sudo nixos-rebuild switch --flake .#$hostName
+NIX_CONFIG="experimental-features = nix-command flakes"
 
 if [ $userName != $installusername ]; then
   cd
@@ -291,12 +110,6 @@ fi
 
 echo "-----"
 
-echo "ZaneyOS Has Been Installed!"
-echo "Please use responsibly."
-
-echo "-----"
-
-echo "System is now going to reboot"
-echo "Control + C to cancel..."
-sleep 2
-systemctl reboot
+echo "ZaneyOS Has Been Setup"
+echo "Make Sure To Change Your Options In hosts/<yourhostname>"
+echo "To Install Run: sudo nixos-rebuild switch --flake .#<yourhostname>"
