@@ -57,6 +57,7 @@ mkdir hosts/$hostName
 cp hosts/default/*.nix hosts/$hostName
 git add .
 sed -i "/^\s*setHostname[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./hosts/$hostName/options.nix
+sed -i "/^\s*host[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$hostName\"/" ./flake.nix
 
 echo "-----"
 
@@ -211,19 +212,12 @@ sed -i "/^\s*flatpak[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$flatpaks\"/" ./h
 
 echo "-----"
 
+echo "Must be true or false."
+echo "Please check spelling before pressing Enter!"
 read -p "Enable Python & Pycharm Support: [ false ] " pythonEnable
 if [ -z "$pythonEnable" ]; then
   pythonEnable="false"
 fi
-user_input_lower=$(echo "$pythonEnable" | tr '[:upper:]' '[:lower:]')
-case $user_input_lower in
-  y|yes|true|t|enable)
-    pythonEnable="true"
-    ;;
-  *)
-    pythonEnable="false"
-    ;;
-esac
 sed -i "/^\s*python[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$pythonEnable\"/" ./hosts/$hostName/options.nix
 
 echo "-----"
@@ -303,5 +297,6 @@ echo "Please use responsibly."
 echo "-----"
 
 echo "System is now going to reboot"
-# sleep 2
-# systemctl reboot
+echo "Control + C to cancel..."
+sleep 2
+systemctl reboot
