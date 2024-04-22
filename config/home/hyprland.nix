@@ -124,6 +124,7 @@ in with lib; {
       master {
         new_is_master = true
       }
+      bind = ${modifier},SUPER_L,exec,rofi-launcher
       bind = ${modifier},Return,exec,${terminal}
       bind = ${modifier}SHIFT,Return,exec,rofi-launcher
       bind = ${modifier}SHIFT,W,exec,web-search

@@ -36,7 +36,7 @@ in with lib; {
       "hyprland/window" = {
       	max-length = 25;
         separate-outputs = false;
-        rewrite = { "" = " 🙈 No Windows? "; };
+        rewrite = { "" = " No Windows? "; };
       };
       "memory" = {
       	interval = 5;

@@ -30,7 +30,7 @@ in {
 
   # Waybar Settings
   waybarAnim = false; # Enable / Disable Waybar Animation CSS
-  bar-number = false; # Enable / Disable Workspace Numbers In Waybar
+  bar-number = true; # Enable / Disable Workspace Numbers In Waybar
 
   # System Settings
   clock24h = false;

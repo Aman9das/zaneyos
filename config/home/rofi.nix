@@ -21,6 +21,9 @@ in {
       display-drun:	    "   Apps ";
       display-run:	    "   Run ";
       display-filebrowser:  "   File ";
+      kb-mode-next:         "Shift+Right,Control+Tab,Tab";
+      kb-mode-previous:     "Shift+Left,Shift+Control+Tab,Shift+Tab";
+      kb-element-next:      "";
     }
 
     window { 
