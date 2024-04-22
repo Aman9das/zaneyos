@@ -63,43 +63,43 @@ in {
             "buttons-grid": {
                 "actions": [
                     {
-                        "label": "⏹️",
+                        "label": "󰐥",
                         "command": "systemctl poweroff"
                     },
                     {
-                        "label": "🔄",
+                        "label": "󰜉",
                         "command": "systemctl reboot"
                     },
                     {
-                        "label": "🚪",
+                        "label": "󰿅",
                         "command": "hyprctl dispatch exit"
                     },
                     {
-                        "label": "🗃️",
+                        "label": "󰉋",
                         "command": "thunar"
                     },
                     {
-                        "label": "📸",
+                        "label": "",
                         "command": "gimp"
                     },
                     {
-                        "label": "📣",
+                        "label": "󰖁",
                         "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
                     },
                     {
-                        "label": "🎙️",
+                        "label": "󰍭",
                         "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
                     },
                     {
-                        "label": "🎮",
+                        "label": "󰓓",
                         "command": "steam"
                     },
                     {
-                        "label": "🌏",
-                        "command": "firefox"
+                        "label": "󰖟",
+                        "command": "vivaldi"
                     },
                     {
-                        "label": "📹",
+                        "label": "󰻂",
                         "command": "obs"
                     }
                 ]
@@ -324,13 +324,13 @@ in {
     }
 
     .widget-dnd>switch slider {
-        background: #${palette.base00};
-        border-radius: 5px
+        background: #${palette.base0B};
+        border-radius: 10px
     }
 
     .widget-dnd>switch:checked slider {
-        background: #${palette.base00};
-        border-radius: 5px
+        background: #${palette.base08};
+        border-radius: 10px
     }
 
     .widget-label {

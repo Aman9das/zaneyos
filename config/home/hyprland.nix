@@ -68,6 +68,7 @@ in with lib; {
       gestures {
         workspace_swipe = true
         workspace_swipe_fingers = 3
+        workspace_swipe_forever	= true
       }
       misc {
         mouse_move_enables_dpms = true
@@ -113,7 +114,7 @@ in with lib; {
       exec-once = swww init
       exec-once = waybar
       exec-once = swaync
-      exec-once = wallsetter
+      # exec-once = wallsetter
       exec-once = nm-applet --indicator
       exec-once = swayidle -w timeout 720 'swaylock -f' timeout 800 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f -c 000000'
       dwindle {
