@@ -92,13 +92,13 @@ in with lib; {
       };
       "custom/startmenu" = {
         tooltip = false;
-        format = " ";
+        format = " ";
         # exec = "rofi -show drun";
         on-click = "sleep 0.1 && rofi-launcher";
       };
       "custom/hyprbindings" = {
         tooltip = false;
-        format = " Bindings";
+        format = " ?";
         on-click = "sleep 0.1 && list-hypr-bindings";
       };
       "idle_inhibitor" = {
@@ -168,7 +168,7 @@ in with lib; {
 	  border-radius: 10px;
 	  border: 0px;
 	  color: #${palette.base00};
-          background: linear-gradient(45deg, #${palette.base0E}, #${palette.base0F}, #${palette.base0D}, #${palette.base09});
+          background: #${palette.base0F};
           background-size: 300% 300%;
           ${if waybarAnim == true then ''
             animation: gradient_horizontal 15s ease infinite;
@@ -183,7 +183,7 @@ in with lib; {
 	  border-radius: 10px;
 	  border: 0px;
 	  color: #${palette.base00};
-          background: linear-gradient(45deg, #${palette.base0E}, #${palette.base0F}, #${palette.base0D}, #${palette.base09});
+          background: #${palette.base09};
           background-size: 300% 300%;
           ${if waybarAnim == true then ''
             animation: gradient_horizontal 15s ease infinite;
@@ -196,7 +196,7 @@ in with lib; {
       #workspaces button:hover {
 	  border-radius: 10px;
 	  color: #${palette.base00};
-          background: linear-gradient(45deg, #${palette.base0E}, #${palette.base0F}, #${palette.base0D}, #${palette.base09});
+          background: #${palette.base09};
           background-size: 300% 300%;
           ${if waybarAnim == true then ''
             animation: gradient_horizontal 15s ease infinite;
@@ -248,7 +248,7 @@ in with lib; {
       }
       #clock {
     	color: #${palette.base01};
-        background: linear-gradient(45deg, #${palette.base0C}, #${palette.base0F}, #${palette.base0B}, #${palette.base08});
+        background: #${palette.base0B};
         background-size: 300% 300%;
         ${if waybarAnim == true then ''
           animation: gradient_horizontal 15s ease infinite;
@@ -323,7 +323,7 @@ in with lib; {
       }
       #custom-startmenu {
     	color: #${palette.base00};
-        background: linear-gradient(45deg, #${palette.base09}, #${palette.base03}, #${palette.base0C}, #${palette.base07});
+        background: #${palette.base0D};
         background-size: 300% 300%;
         ${if waybarAnim == true then ''
           animation: gradient_horizontal 15s ease infinite;

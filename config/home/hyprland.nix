@@ -27,8 +27,8 @@ in with lib; {
         gaps_in = 6
         gaps_out = 8
         border_size = 2
-        col.active_border = rgba(${theme.base0C}ff) rgba(${theme.base0D}ff) rgba(${theme.base0B}ff) rgba(${theme.base0E}ff) 45deg
-        col.inactive_border = rgba(${theme.base00}cc) rgba(${theme.base01}cc) 45deg
+        col.active_border = rgba(${theme.base0C}ff)
+        col.inactive_border = rgba(${theme.base00}cc)
         layout = dwindle
         resize_on_border = true
       }
@@ -39,7 +39,7 @@ in with lib; {
         kb_options=caps:super
         follow_mouse = 1
         touchpad {
-          natural_scroll = false
+          natural_scroll = true
         }
         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
         accel_profile = flat
