@@ -13,6 +13,8 @@
     noto-fonts-color-emoji material-icons brightnessctl
     toybox virt-viewer swappy ripgrep appimage-run 
     networkmanagerapplet yad playerctl nh
+
+    xournalpp
   ];
 
   programs = {
@@ -34,4 +36,6 @@
   };
 
   virtualisation.libvirtd.enable = true;
+
+  hardware.opentabletdriver.enable = true;
 }

@@ -26,5 +26,8 @@
     ./steam.nix
     ./syncthing.nix
     ./vm.nix
+
+    ./vivaldi.nix
+    ./r.nix
   ];
 }
