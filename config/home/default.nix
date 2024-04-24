@@ -25,5 +25,8 @@
 
     # Place Home Files Like Pictures
     ./files.nix
+
+    ./r.nix
+    ./vivaldi.nix
   ];
 }

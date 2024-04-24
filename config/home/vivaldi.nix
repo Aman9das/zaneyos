@@ -1,7 +1,7 @@
 
 { pkgs, config, lib, ... }:
 {
-  environment.systemPackages = with pkgs; [
+  home.packages = with pkgs; [
     (vivaldi.override {
       proprietaryCodecs = true;
       enableWidevine = true;
