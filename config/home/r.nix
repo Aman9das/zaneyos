@@ -8,19 +8,18 @@ let
     quarto
     ISLR2
     GGally
+    languageserversetup
+    languageserver
   ];
   r-set = rWrapper.override { packages = rpkgs; };
   rstudio-set = rstudioWrapper.override{ packages = rpkgs; };
   radian-set = radianWrapper.override{ packages = rpkgs; };
+  quarto-set = quarto.override{ extraRPackages = rpkgs; };
  in
 {
   # R
   home.packages = with pkgs; [
     r-set rstudio-set radian-set
-    quarto
+    quarto-set
   ];
-
-  home.sessionVariables = rec {
-      QUARTO_R = "${r-set}/bin/R";
-  };
 }

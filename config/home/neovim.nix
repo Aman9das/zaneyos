@@ -1,209 +1,136 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-let
-  plugins = pkgs.vimPlugins;
-  theme = config.colorScheme.palette;
-in {
-  programs.nixvim = {
+{
+  programs.neovim = {
     enable = true;
 
-    globals.mapleader = " "; # Sets the leader key to space
-    
-    opts = {
-      clipboard="unnamedplus";
-      number = true;         # Show line numbers
-      relativenumber = true; # Show relative line numbers
-      shiftwidth = 2;        # Tab width should be 2
-      softtabstop = 2;
-      smartindent = true;
-      wrap = false;
-      swapfile = false;
-      backup = false;
-      hlsearch = false;
-      incsearch = true;
-      termguicolors = true;
-      scrolloff = 8;
-      updatetime = 50;
-    };
+    extraPackages = with pkgs; [
+      # LazyVim
+      lua-language-server
+      stylua
+      # Telescope
+      ripgrep
+      fd
 
-    colorschemes.base16.enable = true;
-    colorschemes.base16.colorscheme = {
-      base00 = "#${theme.base00}";
-      base01 = "#${theme.base01}";
-      base02 = "#${theme.base02}";
-      base03 = "#${theme.base03}";
-      base04 = "#${theme.base04}";
-      base05 = "#${theme.base05}";
-      base06 = "#${theme.base06}";
-      base07 = "#${theme.base07}";
-      base08 = "#${theme.base08}";
-      base09 = "#${theme.base09}";
-      base0A = "#${theme.base0A}";
-      base0B = "#${theme.base0B}";
-      base0C = "#${theme.base0C}";
-      base0D = "#${theme.base0D}";
-      base0E = "#${theme.base0E}";
-      base0F = "#${theme.base0F}";
-    };
-    
-    plugins = {
-      barbecue.enable = true;
-      gitsigns.enable = true;
-      telescope = {
-	enable = true;
-	keymaps = {
-	  "<leader>ff" = "find_files";
-	  "<leader>lg" = "live_grep";
-	};
-      };
-      indent-blankline.enable = true;
-      nvim-colorizer.enable = true;
-      nvim-autopairs.enable = true;
-      nix.enable = true;
-      comment.enable = true;
-      lualine = {
-        enable = true;
-      };
-      startup = { 
-	enable = true;
-	theme = "dashboard";
-      };
-      lsp = {
-	enable = true;
-	servers = {
-	  tsserver.enable = true;
-	  lua-ls.enable = true;
-	  bashls.enable = true;
-	  rust-analyzer = {
-	    enable = true;
-	    installRustc = true;
-	    installCargo = true;
-	  };
-	  nixd.enable = true;
-	  html.enable = true;
-	  ccls.enable = true;
-	  cmake.enable = true;
-	  csharp-ls.enable = true;
-	  cssls.enable = true;
-	  gopls.enable = true;
-	  jsonls.enable = true;
-	  pyright.enable = true;
-	  tailwindcss.enable = true;
-	};
-      };
-      lsp-lines.enable = true;
-      treesitter = {
-	enable = true;
-	nixGrammars = true;
-      };
-      cmp.settings = {
-	enable = true;
-	autoEnableSources = true;
-	sources = [
-	  { name = "nvim_lsp"; }
-	  { name = "path"; }
-	  { name = "buffer"; }
-	];
-	mapping = {
-	  "<CR>" = "cmp.mapping.confirm({ select = true })";
-	  "<Tab>" = {
-	    action = ''cmp.mapping.select_next_item()'';
-	    modes = [ "i" "s" ];
-	  };
-	};
-      };
-    };
+      # Clipboard
+      wl-clipboard-x11
 
-    extraPlugins = [ plugins.telescope-file-browser-nvim ];
+      # Treesitter
+      tree-sitter
 
-    # FOR NEOVIDE
-    extraConfigLua = '' 
-      vim.opt.guifont = "JetBrainsMono\\ NFM,Noto_Color_Emoji:h14"
-      vim.g.neovide_cursor_animation_length = 0.05
+      # other language servers
+      rPackages.languageserver
+      rPackages.languageserversetup
 
-      local colors = {
-        blue   = '#${theme.base0D}',
-        cyan   = '#${theme.base0C}',
-        black  = '#${theme.base00}',
-        white  = '#${theme.base05}',
-        red    = '#${theme.base08}',
-        violet = '#${theme.base0E}',
-        grey   = '#${theme.base02}',
-      }
-
-      local bubbles_theme = {
-        normal = {
-          a = { fg = colors.black, bg = colors.violet },
-          b = { fg = colors.white, bg = colors.grey },
-          c = { fg = colors.black, bg = colors.black },
-        },
-
-        insert = { a = { fg = colors.black, bg = colors.blue } },
-        visual = { a = { fg = colors.black, bg = colors.cyan } },
-        replace = { a = { fg = colors.black, bg = colors.red } },
-
-        inactive = {
-          a = { fg = colors.white, bg = colors.black },
-          b = { fg = colors.white, bg = colors.black },
-          c = { fg = colors.black, bg = colors.black },
-        },
-      }
-
-      require('lualine').setup {
-        options = {
-          theme = bubbles_theme,
-          component_separators = '|',
-          section_separators = { left = '', right = '' },
-        },
-        sections = {
-          lualine_a = {
-            { 'mode', separator = { left = '' }, right_padding = 2 },
-          },
-          lualine_b = { 'filename', 'branch' },
-          lualine_c = { 'fileformat' },
-          lualine_x = {},
-          lualine_y = { 'filetype', 'progress' },
-          lualine_z = {
-            { 'location', separator = { right = '' }, left_padding = 2 },
-          },
-        },
-        inactive_sections = {
-          lualine_a = { 'filename' },
-          lualine_b = {},
-          lualine_c = {},
-          lualine_x = {},
-          lualine_y = {},
-          lualine_z = { 'location' },
-        },
-        tabline = {},
-        extensions = {},
-      }
-    '';
-
-    extraConfigVim = ''
-      set noshowmode
-      inoremap jj <ESC>
-    '';
-
-    keymaps = [
-      {
-        mode = "n";
-        key = "<space>fb";
-        action = ":Telescope file_browser<CR>";
-        options.noremap = true;
-      }
-      {
-        key = "<Tab>";
-        action = ":bnext<CR>";
-        options.silent = false;
-      }
-      {
-        key = "<S-Tab>";
-        action = ":bprev<CR>";
-        options.silent = false;
-      }
+      black
     ];
 
+    plugins = with pkgs.vimPlugins; [
+      lazy-nvim
+    ];
 
+    extraLuaConfig =
+      let
+        plugins = with pkgs.vimPlugins; [
+          # LazyVim
+          LazyVim
+          bufferline-nvim
+          cmp-buffer
+          cmp-nvim-lsp
+          cmp-path
+          cmp_luasnip
+          conform-nvim
+          dashboard-nvim
+          dressing-nvim
+          flash-nvim
+          friendly-snippets
+          gitsigns-nvim
+          indent-blankline-nvim
+          lualine-nvim
+          neo-tree-nvim
+          neoconf-nvim
+          neodev-nvim
+          noice-nvim
+          nui-nvim
+          nvim-cmp
+          nvim-lint
+          nvim-lspconfig
+          nvim-notify
+          nvim-spectre
+          nvim-treesitter
+          nvim-treesitter-context
+          nvim-treesitter-textobjects
+          nvim-ts-autotag
+          nvim-ts-context-commentstring
+          nvim-web-devicons
+          persistence-nvim
+          plenary-nvim
+          telescope-fzf-native-nvim
+          telescope-nvim
+          todo-comments-nvim
+          tokyonight-nvim
+          trouble-nvim
+          vim-illuminate
+          vim-startuptime
+          which-key-nvim
+          { name = "LuaSnip"; path = luasnip; }
+          { name = "catppuccin"; path = catppuccin-nvim; }
+          { name = "mini.ai"; path = mini-nvim; }
+          { name = "mini.bufremove"; path = mini-nvim; }
+          { name = "mini.comment"; path = mini-nvim; }
+          { name = "mini.indentscope"; path = mini-nvim; }
+          { name = "mini.pairs"; path = mini-nvim; }
+          { name = "mini.surround"; path = mini-nvim; }
+        ];
+        mkEntryFromDrv = drv:
+          if lib.isDerivation drv then
+            { name = "${lib.getName drv}"; path = drv; }
+          else
+            drv;
+        lazyPath = pkgs.linkFarm "lazy-plugins" (builtins.map mkEntryFromDrv plugins);
+      in
+      ''
+        require("lazy").setup({
+          defaults = {
+            lazy = true,
+          },
+          dev = {
+            -- reuse files from pkgs.vimPlugins.*
+            path = "${lazyPath}",
+            patterns = { "." },
+            -- fallback to download
+            fallback = true,
+          },
+          spec = {
+            { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+            -- The following configs are needed for fixing lazyvim on nix
+            -- force enable telescope-fzf-native.nvim
+            { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
+            -- disable mason.nvim, use programs.neovim.extraPackages
+            { "williamboman/mason-lspconfig.nvim", enabled = false },
+            { "williamboman/mason.nvim", enabled = false },
+            -- import/override with your plugins
+            { import = "plugins" },
+            -- treesitter handled by xdg.configFile."nvim/parser", put this line at the end of spec to clear ensure_installed
+            { "nvim-treesitter/nvim-treesitter", opts = { ensure_installed = {} } },
+          },
+        })
+      '';
   };
- } 
+
+  # https://github.com/nvim-treesitter/nvim-treesitter#i-get-query-error-invalid-node-type-at-position
+  # xdg.configFile."nvim/parser".source =
+  #   let
+  #     parsers = pkgs.symlinkJoin {
+  #       name = "treesitter-parsers";
+  #       paths = (pkgs.vimPlugins.nvim-treesitter.withPlugins (plugins: with plugins; [
+  #         c
+  #         lua
+  #       ])).dependencies;
+  #     };
+  #   in
+  #   "${parsers}/parser";
+
+  # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
+  xdg.configFile."nvim".source = ./files/nvim;
+}

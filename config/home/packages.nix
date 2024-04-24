@@ -1,15 +1,16 @@
 { pkgs, config, username, host, ... }:
 
-let 
-  inherit (import ../../hosts/${host}/options.nix) 
+let
+  inherit (import ../../hosts/${host}/options.nix)
     browser wallpaperDir wallpaperGit flakeDir;
 in {
   # Install Packages For The User
   home.packages = with pkgs; [
-    discord libvirt swww grim slurp gnome.file-roller
+    libvirt swww grim slurp gnome.file-roller
     swaynotificationcenter rofi-wayland imv transmission-gtk mpv
     gimp obs-studio rustup audacity pavucontrol tree protonup-qt
-    font-awesome spotify swayidle neovide swaylock
+    font-awesome swayidle swaylock
+    xournalpp
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })
