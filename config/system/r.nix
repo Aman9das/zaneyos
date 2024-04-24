@@ -1,16 +1,25 @@
 { pkgs, config, lib, ... }:
 with pkgs;
 let
-  R-with-my-packages = rWrapper.override{ packages = with rPackages; [
-    ggplot2 dplyr tidyverse
-    ISLR2
+ rpkgs = rWrapper.override {
+   packages = with rPackages; [
+    tidyverse
+    quarto
     MASS
-  ]; };
-in
+    quarto
+    ISLR2
+    GGally
+   ];
+ };
+ in
 {
   # R
   environment.systemPackages = with pkgs; [
-    R-with-my-packages
+    rpkgs
     quarto
   ];
+
+  environment.variables = rec {
+      QUARTO_R = "${rpkgs}/bin/R";
+  };
 }
