@@ -1,5 +1,5 @@
 # PLEASE READ THE WIKI FOR DETERMINING
-# WHAT TO PUT HERE AS OPTIONS. 
+# WHAT TO PUT HERE AS OPTIONS.
 # https://gitlab.com/Zaney/zaneyos/-/wikis/Setting-Options
 
 let
@@ -11,7 +11,7 @@ in {
   hostname = "${setHostname}";
   userHome = "/home/${setUsername}";
   flakeDir = "/home/${setUsername}/zaneyos";
-  wallpaperGit = "https://gitlab.com/Zaney/my-wallpapers.git"; # Can be changed IF you know what your doing
+  wallpaperGit = "https://github.com/Aman9das/my-walls.git"; # Can be changed IF you know what your doing
   wallpaperDir = "/home/${setUsername}/Pictures/Wallpapers";
   screenshotDir = "/home/${setUsername}/Pictures/Screenshots";
   flakePrev = "/home/${setUsername}/.zaneyos-previous";
@@ -48,7 +48,7 @@ in {
   cpuType = "amd";
   gpuType = "amd";
 
-  # Nvidia Hybrid Devices ONLY NEEDED FOR HYBRID SYSTEMS! 
+  # Nvidia Hybrid Devices ONLY NEEDED FOR HYBRID SYSTEMS!
   intel-bus-id = "PCI:1:0:0";
   nvidia-bus-id = "PCI:0:2:0";
 
@@ -84,7 +84,7 @@ in {
 
   # Enable Python & PyCharm
   python = false;
-  
+
   # Enable SyncThing
   syncthing = false;
 
