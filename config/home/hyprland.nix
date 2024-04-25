@@ -116,6 +116,8 @@ in with lib; {
       exec-once = swaync
       exec-once = nm-applet --indicator
       exec-once = swayidle -w timeout 720 'swaylock -f' timeout 800 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f -c 000000'
+      exec-once = wl-paste --type text --watch cliphist store #Stores only text data
+      exec-once = wl-paste --type image --watch cliphist store #Stores only image data
       dwindle {
         pseudotile = true
         preserve_split = true
@@ -124,6 +126,7 @@ in with lib; {
         new_is_master = true
       }
       bind = ${modifier},SUPER_L,exec,rofi-launcher
+      bind = ${modifier}, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
       bind = ${modifier},Return,exec,${terminal}
       bind = ${modifier}SHIFT,Return,exec,rofi-launcher
       bind = ${modifier}SHIFT,W,exec,web-search

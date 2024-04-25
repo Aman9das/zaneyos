@@ -9,7 +9,7 @@ in {
     libvirt swww grim slurp gnome.file-roller
     swaynotificationcenter rofi-wayland imv transmission-gtk mpv
     gimp obs-studio rustup audacity pavucontrol tree protonup-qt
-    font-awesome swayidle swaylock
+    font-awesome swayidle swaylock cliphist
 
     xournalpp thunderbird calibre
 

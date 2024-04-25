@@ -28,13 +28,13 @@ in with lib; {
       	on-scroll-down = "hyprctl dispatch workspace e-1";
       };
       "clock" = {
-	format = if clock24h == true then '' {:L%H:%M}'' 
+	format = if clock24h == true then '' {:L%H:%M}''
 	else '' {:L%I:%M %p}'';
       	tooltip = true;
 	tooltip-format = "<big>{:%A, %d.%B %Y }</big><tt><small>{calendar}</small></tt>";
       };
       "hyprland/window" = {
-      	max-length = 25;
+      	max-length = 32;
         separate-outputs = false;
         rewrite = { "" = " No Windows? "; };
       };
@@ -70,13 +70,13 @@ in with lib; {
         format-source = " {volume}%";
         format-source-muted = "";
         format-icons = {
-          headphone = "";
-          hands-free = "";
-          headset = "";
-          phone = "";
-          portable = "";
-          car = "";
-          default = ["" "" ""];
+          headphone = " ";
+          hands-free = " ";
+          headset = " ";
+          phone = " ";
+          portable = " ";
+          car = " ";
+          default = [" " " " " "];
         };
         on-click = "sleep 0.1 && pavucontrol";
       };
@@ -143,7 +143,7 @@ in with lib; {
     }];
     style = concatStrings [''
       * {
-	font-size: 16px;
+	font-size: 14px;
 	font-family: JetBrainsMono Nerd Font, Font Awesome, sans-serif;
     	font-weight: bold;
       }
@@ -172,7 +172,7 @@ in with lib; {
           background-size: 300% 300%;
           ${if waybarAnim == true then ''
             animation: gradient_horizontal 15s ease infinite;
-          '' else '' 
+          '' else ''
           ''}
 	  opacity: 0.5;
           transition: ${betterTransition};
@@ -187,7 +187,7 @@ in with lib; {
           background-size: 300% 300%;
           ${if waybarAnim == true then ''
             animation: gradient_horizontal 15s ease infinite;
-          '' else '' 
+          '' else ''
           ''}
           transition: ${betterTransition};
 	  opacity: 1.0;
@@ -200,7 +200,7 @@ in with lib; {
           background-size: 300% 300%;
           ${if waybarAnim == true then ''
             animation: gradient_horizontal 15s ease infinite;
-          '' else '' 
+          '' else ''
           ''}
 	  opacity: 0.8;
           transition: ${betterTransition};
@@ -252,7 +252,7 @@ in with lib; {
         background-size: 300% 300%;
         ${if waybarAnim == true then ''
           animation: gradient_horizontal 15s ease infinite;
-        '' else '' 
+        '' else ''
         ''}
 	margin: 4px;
 	padding: 2px 10px;
@@ -327,7 +327,7 @@ in with lib; {
         background-size: 300% 300%;
         ${if waybarAnim == true then ''
           animation: gradient_horizontal 15s ease infinite;
-        '' else '' 
+        '' else ''
         ''}
 	margin: 4px;
 	padding: 2px 10px;
