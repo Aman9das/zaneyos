@@ -10,6 +10,7 @@ let
     GGally
     languageserversetup
     languageserver
+    readODS
   ];
   r-set = rWrapper.override { packages = rpkgs; };
   rstudio-set = rstudioWrapper.override{ packages = rpkgs; };

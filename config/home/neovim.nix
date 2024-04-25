@@ -75,6 +75,8 @@
           vim-illuminate
           vim-startuptime
           which-key-nvim
+          codeium-nvim
+          quarto-nvim
           { name = "LuaSnip"; path = luasnip; }
           { name = "catppuccin"; path = catppuccin-nvim; }
           { name = "mini.ai"; path = mini-nvim; }

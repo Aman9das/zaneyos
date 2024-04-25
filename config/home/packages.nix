@@ -11,7 +11,8 @@ in {
     gimp obs-studio rustup audacity pavucontrol tree protonup-qt
     font-awesome swayidle swaylock cliphist
 
-    xournalpp thunderbird calibre
+    xournalpp thunderbird calibre sioyek
+    libreoffice-fresh
 
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts

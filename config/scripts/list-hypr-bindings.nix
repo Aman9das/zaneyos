@@ -15,7 +15,7 @@ pkgs.writeShellScriptBin "list-hypr-bindings" ''
   --column=Command: \
   --timeout=90 \
   --timeout-indicator=right \
-  " = Windows/Super/CAPS LOCK" "Modifier Key, used for keybindings" "Doesn't really execute anything by itself." \
+  " = Windows/Super" "Modifier Key, used for keybindings" "rofi -show drun" \
   " + ENTER" "Terminal" "${terminal}" \
   " + SHIFT + ENTER" "Rofi App Launcher" "rofi -show drun" \
   " + Q" "Kill Focused Window" "killactive" \
@@ -24,11 +24,9 @@ pkgs.writeShellScriptBin "list-hypr-bindings" ''
   " + W" "Launch Web Browser" "${browser}" \
   " + E" "Launch Emoji Selector" "emopicker9000" \
   " + S" "Take Screenshot" "screenshootin" \
-  " + D" "Launch Discord" "discord" \
   " + O" "Launch OBS" "obs" \
   " + G" "Launch GIMP" "gimp" \
   " + T" "Launch New File Browser Window" "thunar" \
-  " + M" "Launch Spotify" "spotify" \
   " + P" "Pseudo Tiling" "pseudo" \
   " + SHIFT + I" "Toggle Split Direction" "togglesplit" \
   " + F" "Toggle Focused Fullscreen" "fullscreen" \
