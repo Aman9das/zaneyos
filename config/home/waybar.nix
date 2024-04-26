@@ -153,6 +153,9 @@ in with lib; {
 	border-radius: 0px;
 	color: #${palette.base0F};
       }
+      window#waybar.empty {
+	background: rgba(12, 12, 12, 0.0);
+      }
       #workspaces {
 	background: #${palette.base01};
 	margin: 2px;

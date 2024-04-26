@@ -12,7 +12,7 @@ in {
     font-awesome swayidle swaylock cliphist
 
     xournalpp thunderbird calibre sioyek
-    libreoffice-fresh
+    libreoffice-fresh image-roll telegram-desktop
 
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Import Scripts

@@ -25,7 +25,6 @@ return {
     priority = 1000,
     opts = {
       terminal_colors = true,
-      transparent = true,
     },
   },
 

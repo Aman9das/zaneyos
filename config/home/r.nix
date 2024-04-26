@@ -4,13 +4,11 @@ let
   rpkgs = with rPackages; [
     tidyverse
     quarto
-    MASS
-    quarto
+    MASS zoo slider
+    GGally readODS
     ISLR2
-    GGally
     languageserversetup
     languageserver
-    readODS
   ];
   r-set = rWrapper.override { packages = rpkgs; };
   rstudio-set = rstudioWrapper.override{ packages = rpkgs; };
