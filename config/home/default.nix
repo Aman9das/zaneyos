@@ -22,6 +22,7 @@
     ./wezterm.nix
     ./zeroad.nix
     ./zsh.nix
+    ./hyprpaper.nix
 
     # Place Home Files Like Pictures
     ./files.nix

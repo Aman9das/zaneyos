@@ -16,7 +16,7 @@ theKBDLayout theSecondKBDLayout; in
       enable = true;
       autoNumlock = true;
       wayland.enable = true;
-      theme = "sugar-dark";
+      theme = "${import ../pkgs/where-is-my-sddm-theme.nix { inherit pkgs; }}";
     };
 
 

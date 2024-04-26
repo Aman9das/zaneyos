@@ -3,6 +3,7 @@
 let
   theme = config.colorScheme.palette;
   hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
+  wallpaper = "${pkgs.hyprpaper}/bin/hyprpaper";
   inherit (import ../../hosts/${host}/options.nix)
     browser cpuType gpuType
     wallpaperDir borderAnim
@@ -73,6 +74,8 @@ in with lib; {
       misc {
         mouse_move_enables_dpms = true
         key_press_enables_dpms = false
+        disable_hyprland_logo = true
+        disable_splash_rendering = true
       }
       animations {
         enabled = yes
@@ -111,7 +114,7 @@ in with lib; {
       exec-once = $POLKIT_BIN
       exec-once = dbus-update-activation-environment --systemd --all
       exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-      exec-once = swww init && swww img ~/Pictures/Wallpapers/wall.png -t none
+      exec-once = ${wallpaper}
       exec-once = waybar
       exec-once = swaync
       exec-once = nm-applet --indicator
