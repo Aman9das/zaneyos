@@ -3,12 +3,11 @@ with pkgs;
 let
   rpkgs = with rPackages; [
     tidyverse
-    quarto
+    quarto tinytex
     MASS zoo slider
     GGally readODS
     ISLR2
-    languageserversetup
-    languageserver
+    languageserversetup languageserver
   ];
   r-set = rWrapper.override { packages = rpkgs; };
   rstudio-set = rstudioWrapper.override{ packages = rpkgs; };
@@ -20,5 +19,6 @@ let
   home.packages = with pkgs; [
     r-set rstudio-set radian-set
     quarto-set
+    texliveFull
   ];
 }

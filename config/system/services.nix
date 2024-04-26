@@ -40,6 +40,9 @@
     };
   };
   hardware.pulseaudio.enable = false;
+  powerManagement.enable = true;
+  services.tlp.enable = true;
+
   sound.enable = true;
   security.rtkit.enable = true;
   programs.thunar.enable = true;
