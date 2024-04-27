@@ -23,6 +23,7 @@
     ./zeroad.nix
     ./zsh.nix
     ./hyprpaper.nix
+    ./hyprcursor.nix
 
     # Place Home Files Like Pictures
     ./files.nix
