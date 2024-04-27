@@ -50,7 +50,7 @@ in {
 	transition: 20ms;
       }
       window {
-	background-color: rgba(12, 12, 12, 0.1);
+	background-color: rgba(12, 12, 12, 0.6);
       }
       button {
 	color: #${palette.base05};

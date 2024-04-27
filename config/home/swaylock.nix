@@ -19,6 +19,6 @@ in {
     text-color=${palette.base05}
     text-clear-color=${palette.base05}
     ring-clear-color=${palette.base0D}
-    font=Ubuntu
+    font=JetBrainsMono NF
   '';
 }
