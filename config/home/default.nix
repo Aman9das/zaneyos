@@ -29,5 +29,6 @@
 
     ./r.nix
     ./vivaldi.nix
+    ./rust.nix
   ];
 }

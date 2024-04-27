@@ -25,6 +25,7 @@
       rPackages.languageserversetup
 
       black
+      nil
     ];
 
     plugins = with pkgs.vimPlugins; [

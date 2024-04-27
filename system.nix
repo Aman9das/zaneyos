@@ -1,8 +1,8 @@
 { inputs, config, pkgs,
   username, hostname, host, ... }:
 
-let 
-  inherit (import ./hosts/${host}/options.nix) 
+let
+  inherit (import ./hosts/${host}/options.nix)
     theLocale theTimezone gitUsername
     theShell wallpaperDir wallpaperGit
     theLCVariables theKBDLayout flakeDir
@@ -47,6 +47,9 @@ in {
     FLAKE = "${flakeDir}";
     ZANEYOS_VERSION="1.0";
     POLKIT_BIN = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+
+    NIX_LD = "/run/current-system/sw/share/nix-ld/lib/ld.so";
+    NIX_LD_LIBRARY_PATH = "/run/current-system/sw/share/nix-ld/lib";
   };
 
   # Optimization settings and garbage collection automation

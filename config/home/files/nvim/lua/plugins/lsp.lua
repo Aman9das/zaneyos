@@ -13,6 +13,7 @@ return {
         "typos",
         "prettierd",
         "black",
+        "nil",
         -- "cbfmt",
         -- "codespell"
       },
@@ -64,6 +65,8 @@ return {
         tsserver = {
           filetypes = { "js", "javascript", "typescript", "ojs" },
         },
+
+        nil_ls = {},
       },
     },
   },
@@ -97,6 +100,7 @@ return {
         "luap",
         "regex",
         "tsx",
+        "nix",
       },
     },
   },
