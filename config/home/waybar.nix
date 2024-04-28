@@ -29,14 +29,14 @@ in with lib; {
       };
       "clock" = {
 	format = if clock24h == true then '' {:L%H:%M}''
-	else '' {:L%I:%M %p}'';
+	else ''{:L%I:%M %p}'';
       	tooltip = true;
 	tooltip-format = "<big>{:%A, %d.%B %Y }</big><tt><small>{calendar}</small></tt>";
       };
       "hyprland/window" = {
       	max-length = 32;
         separate-outputs = false;
-        rewrite = { "" = " No Windows? "; };
+        rewrite = { "" = " Desktop "; };
       };
       "memory" = {
       	interval = 5;
@@ -65,8 +65,8 @@ in with lib; {
       "pulseaudio" = {
         format = "{icon} {volume}% {format_source}";
         format-bluetooth = "{volume}% {icon} {format_source}";
-        format-bluetooth-muted = " {icon} {format_source}";
-        format-muted = " {format_source}";
+        format-bluetooth-muted = "  {icon} {format_source}";
+        format-muted = "  {format_source}";
         format-source = " {volume}%";
         format-source-muted = "";
         format-icons = {

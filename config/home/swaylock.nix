@@ -19,6 +19,10 @@ in {
     text-color=${palette.base05}
     text-clear-color=${palette.base05}
     ring-clear-color=${palette.base0D}
+    inside-ver-color=00000088
+    text-ver-color=${palette.base05}
+    ring-ver-color=${palette.base0D}
+    line-ver-color=00000000
     font=JetBrainsMono NF
   '';
 }

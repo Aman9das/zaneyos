@@ -53,8 +53,9 @@ in lib.mkIf (wezterm == false && alacritty == false
       active_border_color #${palette.base04}
       inactive_border_color #${palette.base00}
       bell_border_color #${palette.base03}
-      tab_bar_style fade
-      tab_fade 1
+      tab_bar_style separator
+      tab_separator ""
+      tab_title_template " {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{sup.index}{title} "
       active_tab_foreground   #${palette.base04}
       active_tab_background   #${palette.base00}
       active_tab_font_style   bold
@@ -63,5 +64,8 @@ in lib.mkIf (wezterm == false && alacritty == false
       inactive_tab_font_style bold
       tab_bar_background #${palette.base00}
     '';
+  };
+  home.sessionVariables = {
+    TERMINAL = "kitty";
   };
 }

@@ -88,6 +88,7 @@ in with lib; {
         animation = windowsOut, 1, 5, winOut, slide
         animation = windowsMove, 1, 5, wind, slide
         animation = border, 1, 1, liner
+        animation = layers, 1, 2, default, fade
         ${if borderAnim == true then ''
           animation = borderangle, 1, 30, liner, loop
         '' else ''
@@ -124,6 +125,7 @@ in with lib; {
       dwindle {
         pseudotile = true
         preserve_split = true
+        no_gaps_when_only = 2
       }
       master {
         new_is_master = true

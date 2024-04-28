@@ -6,4 +6,7 @@
       enableWidevine = true;
     })
   ];
+  home.sessionVariables = {
+    BROWSER = "vivaldi";
+  };
 }
