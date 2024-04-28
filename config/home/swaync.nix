@@ -76,7 +76,7 @@ in {
                     },
                     {
                         "label": "󰉋",
-                        "command": "thunar"
+                        "command": "thunar $HOME"
                     },
                     {
                         "label": "",
@@ -110,7 +110,7 @@ in {
 
   home.file.".config/swaync/style.css".text = ''
     * {
-        font-family: Ubuntu;
+        font-family: JetBrainsMono Nerd Font;
         font-weight: bolder;
     }
 
