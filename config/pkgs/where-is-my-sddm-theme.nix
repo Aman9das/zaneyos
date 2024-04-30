@@ -76,7 +76,7 @@ pkgs.stdenv.mkDerivation {
     background=Background.jpg
     # Or use just one color
     backgroundFill=
-    backgroundFillMode=aspect
+    backgroundFillMode=
 
     # Default text color for all labels
     basicTextColor=#ffffff

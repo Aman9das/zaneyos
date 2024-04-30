@@ -13,6 +13,7 @@
     noto-fonts-color-emoji material-icons brightnessctl
     virt-viewer swappy ripgrep appimage-run
     networkmanagerapplet yad playerctl nh
+    xdg-terminal-exec
   ];
 
   programs = {
@@ -36,4 +37,6 @@
   virtualisation.libvirtd.enable = true;
 
   hardware.opentabletdriver.enable = true;
+
+  services.xserver.excludePackages = with  pkgs; [ xterm ];
 }

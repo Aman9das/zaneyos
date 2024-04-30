@@ -137,7 +137,12 @@
   #   "${parsers}/parser";
 
   # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
-  xdg.configFile."nvim".source = ./files/nvim;
+  xdg.configFile."nvim".source = pkgs.fetchFromGitHub {
+     owner = "Aman9das";
+     repo = "lazy-nvim-dotfiles";
+     rev = "6bd42e4e9ca4caa72c09be41e4e86af81750c969";
+     sha256 = "tBsFr0FB4h6+WYdl/x7N/tkzUDNDKuvvw2IxVXVvS14=";
+  };
   
   home.sessionVariables = {
     EDITOR = "nvim";

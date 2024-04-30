@@ -17,6 +17,7 @@ in lib.mkIf (wezterm == false && alacritty == false
       window_padding_width = 4;
       confirm_os_window_close = 0;
       background_opacity = "0.85";
+      term = "kitty";
     };
     extraConfig = ''
       foreground #${palette.base05}
@@ -67,5 +68,6 @@ in lib.mkIf (wezterm == false && alacritty == false
   };
   home.sessionVariables = {
     TERMINAL = "kitty";
+    TERM = "kitty";
   };
 }

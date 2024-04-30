@@ -56,6 +56,7 @@ in with lib; {
       env = QT_QPA_PLATFORM, wayland
       env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
       env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
+      env = WLR_NO_HARDWARE_CURSORS,1
       env = MOZ_ENABLE_WAYLAND, 1
       ${if cpuType == "vm" then ''
         env = WLR_NO_HARDWARE_CURSORS,1
