@@ -49,7 +49,6 @@
 
   sound.enable = true;
   security.rtkit.enable = true;
-  programs.thunar.enable = true;
   services.gvfs.enable = true;
   services.tumbler.enable = true;
   services.gnome.gnome-keyring.enable=true;

@@ -26,7 +26,7 @@ pkgs.writeShellScriptBin "list-hypr-bindings" ''
   " + S" "Take Screenshot" "screenshootin" \
   " + O" "Launch OBS" "obs" \
   " + G" "Launch GIMP" "gimp" \
-  " + T" "Launch New File Browser Window" "thunar" \
+  " + T" "Launch New File Browser Window" "nautilus" \
   " + P" "Pseudo Tiling" "pseudo" \
   " + SHIFT + I" "Toggle Split Direction" "togglesplit" \
   " + F" "Toggle Focused Fullscreen" "fullscreen" \

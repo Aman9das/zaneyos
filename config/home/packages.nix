@@ -9,12 +9,14 @@ in {
     libvirt swww grim slurp gnome.file-roller
     swaynotificationcenter rofi-wayland imv transmission-gtk mpv
     gimp obs-studio audacity pavucontrol tree protonup-qt
-    font-awesome swayidle swaylock cliphist
+    font-awesome swayidle swaylock cliphist nix-prefetch-github
 
-    xournalpp thunderbird calibre sioyek
+    xournalpp thunderbird calibre
     libreoffice-fresh image-roll telegram-desktop
 
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    inter
+
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })
     (import ./../scripts/task-waybar.nix { inherit pkgs; })

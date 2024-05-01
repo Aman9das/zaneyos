@@ -13,7 +13,7 @@
     noto-fonts-color-emoji material-icons brightnessctl
     virt-viewer swappy ripgrep appimage-run
     networkmanagerapplet yad playerctl nh
-    xdg-terminal-exec
+    xdg-terminal-exec rsync gnome.nautilus
   ];
 
   programs = {
@@ -31,6 +31,10 @@
       enable = true;
       enableSSHSupport = true;
     };
+    nautilus-open-any-terminal = {
+        enable = true;
+        terminal = "kitty";
+      };
     virt-manager.enable = true;
   };
 

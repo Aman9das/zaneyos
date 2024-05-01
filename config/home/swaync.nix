@@ -76,7 +76,7 @@ in {
                     },
                     {
                         "label": "󰉋",
-                        "command": "thunar $HOME"
+                        "command": "nautilus $HOME"
                     },
                     {
                         "label": "",
