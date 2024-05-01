@@ -28,7 +28,7 @@ let
   image = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
 
 in
-pkgs.stdenv.mkDerivation {
+pkgs.stdenvNoCC.mkDerivation {
   name = "where-is-my-sddm-theme";
   src = pkgs.fetchFromGitHub {
     owner = "stepanzubkov";
@@ -76,13 +76,13 @@ pkgs.stdenv.mkDerivation {
     background=Background.jpg
     # Or use just one color
     backgroundFill=
-    backgroundFillMode=
+    backgroundFillMode=fill
 
     # Default text color for all labels
     basicTextColor=#ffffff
 
     # Radius of background blur
-    blurRadius=
+    blurRadius=10
     EOT
    '';
 }
