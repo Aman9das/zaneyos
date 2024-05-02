@@ -16,8 +16,8 @@
     package = pkgs.adw-gtk3;
   };
   font = {
-    name = "JetBrainsMono Nerd Font";
-    package = nerdfonts;
+    name = "Inter";
+    package = pkgs.inter;
   };
   cursorTheme = {
     name = "Simp1e-Adw-Dark";

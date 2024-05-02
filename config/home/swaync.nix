@@ -117,7 +117,7 @@ in {
     .control-center .notification-row:focus,
     .control-center .notification-row:hover {
         opacity: 0.9;
-        background: #${palette.base00}
+        background: #1e1e1e;
     }
 
     .notification-row {
@@ -133,7 +133,7 @@ in {
     }
 
     .notification-content {
-        background: #${palette.base00};
+        background: #1e1e1e;
         padding: 10px;
         border-radius: 5px;
         border: 2px solid #${palette.base0D};
@@ -148,7 +148,7 @@ in {
 
     .close-button {
         background: #${palette.base08};
-        color: #${palette.base00};
+        color: #1e1e1e;
         text-shadow: none;
         padding: 0;
         border-radius: 5px;
@@ -189,12 +189,12 @@ in {
 
     .notification-action:first-child {
         border-bottom-left-radius: 10px;
-        background: #${palette.base00}
+        background: #1e1e1e
     }
 
     .notification-action:last-child {
         border-bottom-right-radius: 10px;
-        background: #${palette.base00}
+        background: #1e1e1e
     }
 
     .inline-reply {
@@ -202,7 +202,7 @@ in {
     }
 
     .inline-reply-entry {
-        background: #${palette.base00};
+        background: #1e1e1e;
         color: #${palette.base05};
         caret-color: #${palette.base05};
         border: 1px solid #${palette.base09};
@@ -211,7 +211,7 @@ in {
 
     .inline-reply-button {
         margin-left: 4px;
-        background: #${palette.base00};
+        background: #1e1e1e;
         border: 1px solid #${palette.base09};
         border-radius: 5px;
         color: #${palette.base05}
@@ -224,7 +224,7 @@ in {
     }
 
     .inline-reply-button:hover {
-        background: #${palette.base00}
+        background: #1e1e1e
     }
 
     .body-image {
@@ -259,9 +259,9 @@ in {
     }
 
     .control-center {
-        background: #${palette.base00};
+        background: #1e1e1e;
         border: 2px solid #${palette.base0C};
-        border-radius: 5px;
+        border-radius: 12px;
     }
 
     .control-center-list {
@@ -282,7 +282,7 @@ in {
 
     .widget-title {
         color: #${palette.base0B};
-        background: #${palette.base00};
+        background: #1e1e1e;
         padding: 5px 10px;
         margin: 10px 10px 5px 10px;
         font-size: 1.5rem;
@@ -293,18 +293,18 @@ in {
         font-size: 1rem;
         color: #${palette.base05};
         text-shadow: none;
-        background: #${palette.base00};
+        background: #1e1e1e;
         box-shadow: none;
         border-radius: 5px;
     }
 
     .widget-title>button:hover {
         background: #${palette.base08};
-        color: #${palette.base00};
+        color: #1e1e1e;
     }
 
     .widget-dnd {
-        background: #${palette.base00};
+        background: #1e1e1e;
         padding: 5px 10px;
         margin: 10px 10px 5px 10px;
         border-radius: 5px;
@@ -344,7 +344,7 @@ in {
 
     .widget-mpris {
         color: #${palette.base05};
-        background: #${palette.base00};
+        background: #1e1e1e;
         padding: 5px 10px;
         margin: 10px 10px 5px 10px;
         border-radius: 5px;
@@ -378,14 +378,14 @@ in {
 
     .widget-buttons-grid>flowbox>flowboxchild>button {
         margin: 3px;
-        background: #${palette.base00};
+        background: #1e1e1e;
         border-radius: 5px;
         color: #${palette.base05};
     }
 
     .widget-buttons-grid>flowbox>flowboxchild>button:hover {
         background: rgba(122, 162, 247, 1);
-        color: #${palette.base00};
+        color: #1e1e1e;
     }
 
     .widget-menubar>box>.menu-button-bar>button {
@@ -413,7 +413,7 @@ in {
     }
 
     .per-app-volume {
-        background-color: #${palette.base00};
+        background-color: #1e1e1e;
         padding: 4px 8px 8px;
         margin: 0 8px 8px;
         border-radius: 5px;
