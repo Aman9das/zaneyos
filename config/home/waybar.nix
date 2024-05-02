@@ -14,8 +14,8 @@ in with lib; {
       position = "top";
 
       modules-center = [ "hyprland/workspaces" ] ;
-      modules-left = [ "clock" "hyprland/window" "pulseaudio" "cpu" ];
-      modules-right = [ "custom/exit" "idle_inhibitor" "custom/notification" "tray" "battery" ];
+      modules-left = [ "clock" "hyprland/window" "cpu" ];
+      modules-right = [ "pulseaudio" "custom/exit" "idle_inhibitor" "custom/notification" "tray" "battery" ];
 
       "hyprland/workspaces" = {
       	format = if bar-number == true then "{name}" else "{icon}";

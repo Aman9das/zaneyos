@@ -14,6 +14,7 @@
     virt-viewer swappy ripgrep appimage-run
     networkmanagerapplet yad playerctl nh
     xdg-terminal-exec rsync gnome.nautilus
+    pulseaudio
   ];
 
   programs = {
