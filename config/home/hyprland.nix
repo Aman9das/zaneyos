@@ -77,6 +77,10 @@ in with lib; {
         disable_hyprland_logo = true
         disable_splash_rendering = true
       }
+      rules {
+        layerrule = blur, rofi
+        layerrule = animation popin 80%, rofi$
+        }
       animations {
         enabled = yes
         bezier = wind, 0.05, 0.9, 0.1, 1.05
@@ -88,7 +92,7 @@ in with lib; {
         animation = windowsOut, 1, 5, winOut, slide
         animation = windowsMove, 1, 5, wind, slide
         animation = border, 1, 1, liner
-        animation = layers, 1, 2, default, fade
+        animation = layers, 1, 1, default, fade
         ${if borderAnim == true then ''
           animation = borderangle, 1, 30, liner, loop
         '' else ''
