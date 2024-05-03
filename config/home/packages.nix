@@ -14,6 +14,11 @@ in {
     xournalpp thunderbird calibre
     libreoffice-fresh image-roll telegram-desktop
 
+
+    qt5ct qt6ct libsForQt5.qtstyleplugin-kvantum
+    libsForQt5.qt5.qtwayland
+    libsForQt5.dolphin
+
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     inter
 

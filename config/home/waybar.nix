@@ -178,8 +178,7 @@ background-color: transparent;
 
 #window, #memory, #clock, #cpu, #disk, #battery, #network, #custom-hyprbindings,
 #tray, #custom-notification, #pulseaudio, #workspaces, #custom-startmenu,
-#custom-exit, #custom-themeselector, #idle_inhibitor,
-#workspaces {
+#custom-exit, #custom-themeselector, #idle_inhibitor {
     margin: 4px;
     margin-bottom: 4px;
     background-color: #1e1e1e; /* Base */
@@ -191,6 +190,7 @@ background-color: transparent;
     margin: 0px;
     padding: 0px 0px;
     margin-bottom: 2px;
+    border: 1px solid #383838;
 }
 
 #custom-startmenu {

@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, lib, ...}: let
   nerdfonts = pkgs.nerdfonts.override {
     fonts = [
       "JetBrainsMono"
@@ -28,6 +28,7 @@
     name = "Papirus-Dark";
     package = pkgs.papirus-icon-theme;
   };
+  kvlibadwaita = pkgs.callPackage ../pkgs/kvantum-libadwaita.nix {};
 in {
   home = {
     packages = with pkgs; [
@@ -86,6 +87,40 @@ in {
   # Theme QT -> GTK
   qt = {
     enable = true;
-    platformTheme.name = "kde";
+    platformTheme.name = "qt5ct";
+    style = {
+        name = "kvantum";
+    };
   };
+
+  xdg = {
+      configFile = {
+        "qt5ct/qt5ct.conf".text = ''
+          [Appearance]
+          icon_theme=${iconTheme.name}
+          style=kvantum
+
+          [Fonts]
+          fixed="JetBrainsMono NF"
+          general="Inter"
+        '';
+
+          "qt6ct/qt6ct.conf".text = ''
+          [Appearance]
+          icon_theme=${iconTheme.name}
+          style=kvantum
+
+          [Fonts]
+          fixed="JetBrainsMono NF"
+          general="Inter"
+        '';
+
+
+        "Kvantum/kvantum.kvconfig".text = ''
+          theme=KvLibadwaitaDark
+        '';
+
+        "Kvantum/KvLibadwaita".source = "${kvlibadwaita}/share/Kvantum/KvLibadwaita";
+      };
+    };
 }
