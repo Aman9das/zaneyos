@@ -89,7 +89,7 @@ in with lib; {
       "custom/exit" = {
         tooltip = false;
         format = "";
-        on-click = "wlogout";
+        on-click = "rofi-exit";
       };
       "custom/startmenu" = {
         tooltip = false;
