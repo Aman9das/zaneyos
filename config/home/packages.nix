@@ -11,7 +11,7 @@ in {
     gimp obs-studio audacity pavucontrol tree protonup-qt
     font-awesome swayidle swaylock cliphist nix-prefetch-github
 
-    xournalpp thunderbird calibre
+    xournalpp calibre
     libreoffice-fresh image-roll telegram-desktop
 
 

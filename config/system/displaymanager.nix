@@ -9,15 +9,16 @@ theKBDLayout theSecondKBDLayout; in
       variant = "${theKBDVariant}";
       layout = "${theKBDLayout}, ${theSecondKBDLayout}";
     };
-    libinput.enable = true;
   };
 
-    services.displayManager.sddm = {
+  services.libinput.enable = true;
+
+  services.displayManager.sddm = {
       enable = true;
       autoNumlock = true;
       wayland.enable = true;
       theme = "${import ../pkgs/where-is-my-sddm-theme.nix { inherit pkgs; }}";
-    };
+  };
 
 
   environment.systemPackages =

@@ -20,7 +20,7 @@
     ./swaylock.nix
     ./swaync.nix
     ./wezterm.nix
-    ./zeroad.nix
+    # ./zeroad.nix
     ./zsh.nix
     ./hyprpaper.nix
     # ./hyprcursor.nix
@@ -29,7 +29,9 @@
     ./files.nix
 
     ./r.nix
-    ./vivaldi.nix
+    # ./vivaldi.nix
     ./rust.nix
+
+    ./apps
   ];
 }
