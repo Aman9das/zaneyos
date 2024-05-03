@@ -2,7 +2,6 @@
 
 let
   theme = config.colorScheme.palette;
-  hyprplugins = inputs.hyprland-plugins.packages.${pkgs.system};
   wallpaper = "${pkgs.hyprpaper}/bin/hyprpaper";
   inherit (import ../../hosts/${host}/options.nix)
     browser cpuType gpuType
