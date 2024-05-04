@@ -6,23 +6,23 @@
     ./alacritty.nix
     ./bash.nix
     ./gtk-qt.nix
-    ./hyprland.nix
-    ./kdenlive.nix
+    # ./hyprland.nix
+    # ./kdenlive.nix
     ./kitty.nix
     ./neofetch.nix
     ./neovim.nix
     ./packages.nix
     ./rofi.nix
     ./starship.nix
-    ./waybar.nix
+    # ./waybar.nix
     ./wlogout.nix
-    ./swappy.nix
+    # ./swappy.nix
     ./swaylock.nix
-    ./swaync.nix
+    # ./swaync.nix
     ./wezterm.nix
     # ./zeroad.nix
     ./zsh.nix
-    ./hyprpaper.nix
+    # ./hyprpaper.nix
     # ./hyprcursor.nix
 
     # Place Home Files Like Pictures

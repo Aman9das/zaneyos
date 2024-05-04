@@ -76,7 +76,7 @@ in {
                     },
                     {
                         "label": "󰉋",
-                        "command": "nautilus"
+                        "command": "nemo"
                     },
                     {
                         "label": "",

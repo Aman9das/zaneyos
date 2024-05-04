@@ -3,7 +3,7 @@
 let
   theme = config.colorScheme.palette;
   wallpaper = "${pkgs.hyprpaper}/bin/hyprpaper";
-  inherit (import ../../hosts/${host}/options.nix)
+  inherit (import ../../../hosts/${host}/options.nix)
     browser cpuType gpuType
     wallpaperDir borderAnim
     theKBDLayout terminal
@@ -151,7 +151,7 @@ in with lib; {
       bind = ${modifier},O,exec,obs
       bind = ${modifier},G,exec,gimp
       bind = ${modifier}SHIFT,G,exec,godot4
-      bind = ${modifier},T,exec,nautilus
+      bind = ${modifier},T,exec,nemo
       bind = ${modifier},M,exec,spotify
       bind = ${modifier},Q,killactive,
       bind = ${modifier},P,pseudo,
