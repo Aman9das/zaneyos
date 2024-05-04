@@ -33,5 +33,6 @@
     ./rust.nix
 
     ./apps
+    ./hypr
   ];
 }
