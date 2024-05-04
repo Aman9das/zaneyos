@@ -123,7 +123,7 @@ in with lib; {
       exec-once = waybar
       exec-once = swaync
       exec-once = nm-applet --indicator
-      exec-once = swayidle -w timeout 720 'swaylock -f' timeout 800 'hyprctl dispatch dpms off' resume 'hyprctl dispatch dpms on' before-sleep 'swaylock -f -c 000000'
+      exec-once = hypridle
       exec-once = wl-paste --type text --watch cliphist store #Stores only text data
       exec-once = wl-paste --type image --watch cliphist store #Stores only image data
       dwindle {
@@ -138,8 +138,9 @@ in with lib; {
       bind = ${modifier}, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
       bind = ${modifier},Return,exec,${terminal}
       bind = ${modifier}SHIFT,Return,exec,rofi-launcher
+      bind = ${modifier},L,exec,rofi-exit
       bind = ${modifier}SHIFT,W,exec,web-search
-      bind = ${modifier}SHIFT,N,exec,swaync-client -rs
+      bind = ${modifier},N,exec,swaync-client -t
       ${if browser == "google-chrome" then ''
 	bind = ${modifier},W,exec,google-chrome-stable
       '' else ''
@@ -205,9 +206,12 @@ in with lib; {
       bindm = ${modifier},mouse:273,resizewindow
       bind = ALT,Tab,cyclenext
       bind = ALT,Tab,bringactivetotop
+      bind = ${modifier},Tab,cyclenext
+      bind = ${modifier},Tab,bringactivetotop
       bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
       bind = ,XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
       binde = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      binde = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
       bind = ,XF86AudioPlay, exec, playerctl play-pause
       bind = ,XF86AudioPause, exec, playerctl play-pause
       bind = ,XF86AudioNext, exec, playerctl next

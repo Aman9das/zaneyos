@@ -33,12 +33,13 @@ pkgs.stdenvNoCC.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "stepanzubkov";
     repo = "where-is-my-sddm-theme";
-    rev = "1457631fa87dd4139d45bd9ef38359c13bf0b269";
-    sha256 = "sha256-ONF+Gpg+PK+LFrDRulcKbdf9A51RuAYStrLAHev7pHI=";
+    rev = "4e55b6a549b559e1d7d21b84e301e427d5b8d005";
+    sha256 = "sha256-lxdtlNdMxBwCRL7c1Uw/TY6Yv9ycSdQz4BE1w19tzog=";
   };
   installPhase = ''
     mkdir -p $out
-    cp -R ./where_is_my_sddm_theme/* $out/
+    ls . -a
+    cp -R ./where_is_my_sddm_theme_qt5/* $out/
     cd $out/
     #rm Background.jpg
     cp -r ${image} $out/Background.jpg
@@ -46,11 +47,11 @@ pkgs.stdenvNoCC.mkDerivation {
     cat <<EOT > theme.conf
     [General]
     # Password mask character
-    passwordCharacter=*
+    passwordCharacter=●
     # Mask password characters or not ("true" or "false")
     passwordMask=true
     # value "1" is all display width, "0.5" is a half of display width etc.
-    passwordInputWidth=0.5
+    passwordInputWidth=0.9
     # Background color of password input
     passwordInputBackground=
     # Radius of password input corners
@@ -58,17 +59,17 @@ pkgs.stdenvNoCC.mkDerivation {
     # "true" for visible cursor, "false"
     passwordInputCursorVisible=false
     # Font size of password (in points)
-    passwordFontSize=96
+    passwordFontSize=72
     passwordCursorColor=random
     passwordTextColor=
 
     # Show or not sessions choose label
-    showSessionsByDefault=false
+    showSessionsByDefault=true
     # Font size of sessions choose label (in points).
     sessionsFontSize=24
 
     # Show or not users choose label
-    showUsersByDefault=false
+    showUsersByDefault=true
     # Font size of users choose label (in points)
     usersFontSize=48
 
@@ -76,10 +77,10 @@ pkgs.stdenvNoCC.mkDerivation {
     background=Background.jpg
     # Or use just one color
     backgroundFill=
-    backgroundFillMode=fill
+    backgroundFillMode=aspect
 
     # Default text color for all labels
-    basicTextColor=#ffffff
+    basicTextColor=#fafafa
 
     # Radius of background blur
     blurRadius=10

@@ -45,15 +45,15 @@ run_cmd() {
 	selected="$(confirm_exit)"
 	if [[ "$selected" == "$yes" ]]; then
 		if [[ $1 == '--shutdown' ]]; then
-			systemctl poweroff
+			sleep 0.1 && systemctl poweroff
 		elif [[ $1 == '--reboot' ]]; then
-			systemctl reboot
+			sleep 0.1 && systemctl reboot
 		elif [[ $1 == '--hibernate' ]]; then
-			systemctl hibernate
+			sleep 0.1 && systemctl hibernate
 		elif [[ $1 == '--suspend' ]]; then
-			systemctl suspend
+			sleep 0.1 && systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
-			hyprctl dispatch exit
+			sleep 0.1 && hyprctl dispatch exit
 		fi
 	else
 		exit 0
@@ -70,7 +70,7 @@ $reboot)
 	run_cmd --reboot
 	;;
 $lock)
-	swaylock
+  sleep 0.1 && hyprlock
 	;;
 $hibernate)
 	run_cmd --hibernate
