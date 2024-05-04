@@ -77,13 +77,13 @@ pkgs.stdenvNoCC.mkDerivation {
     background=Background.jpg
     # Or use just one color
     backgroundFill=
-    backgroundFillMode=aspect
+    backgroundMode=aspect
 
     # Default text color for all labels
     basicTextColor=#fafafa
 
     # Radius of background blur
-    blurRadius=10
+    blurRadius=16
     EOT
    '';
 }

@@ -13,6 +13,10 @@
 background {
     monitor =
     path = $HOME/Pictures/Wallpapers/nix-wallpaper-nineish-dark-gray.png   # only png supported for now
+
+    blur_size = 2
+    blur_passes = 1
+    noise = 0
 }
 
 input-field {

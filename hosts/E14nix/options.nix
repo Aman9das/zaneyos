@@ -88,4 +88,5 @@ in {
   # Enable SyncThing
   syncthing = true;
 
+  hwmon-cpu = "/sys/class/hwmon/hwmon5/temp1_input";
 }

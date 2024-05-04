@@ -45,6 +45,7 @@
 
   powerManagement.enable = true;
   services.tlp.enable = true;
+  services.thermald.enable = true;
 
   programs.nix-ld.enable = true;
 

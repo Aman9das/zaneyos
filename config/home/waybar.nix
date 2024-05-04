@@ -3,7 +3,7 @@
 let
   palette = config.colorScheme.palette;
   betterTransition = "all 0.3s cubic-bezier(.55,-0.68,.48,1.682)";
-  inherit (import ../../hosts/${host}/options.nix) bar-number clock24h waybarAnim;
+  inherit (import ../../hosts/${host}/options.nix) bar-number clock24h hwmon-cpu;
 in with lib; {
   # Configure & Theme Waybar
   programs.waybar = {
@@ -14,7 +14,7 @@ in with lib; {
       position = "top";
 
       modules-center = [ "hyprland/workspaces" ] ;
-      modules-left = [ "clock" "hyprland/window" "cpu" ];
+      modules-left = [ "clock" "hyprland/window" "cpu" "temperature" ];
       modules-right = [ "pulseaudio" "custom/exit" "idle_inhibitor" "custom/notification" "tray" "battery" ];
 
       "hyprland/workspaces" = {
@@ -67,13 +67,17 @@ in with lib; {
       };
       "cpu" = {
       	interval = 5;
-      	format = "{usage:2}%";
+      	format = " {usage}%";
         tooltip = true;
       };
       "disk" = {
         format = "{free}";
         tooltip = true;
       };
+      "temperature" = {
+          hwmon-path = hwmon-cpu;
+          format = " {temperatureC}°C";
+        };
       "network" = {
         format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
         format-ethernet = " {bandwidthDownOctets}";
@@ -200,7 +204,7 @@ background-color: transparent;
 
 #window, #memory, #clock, #cpu, #disk, #battery, #network, #custom-hyprbindings,
 #tray, #custom-notification, #pulseaudio, #workspaces, #custom-startmenu,
-#custom-exit, #custom-themeselector, #idle_inhibitor {
+#custom-exit, #custom-themeselector, #idle_inhibitor, #temperature {
     margin: 4px;
     margin-bottom: 4px;
     background-color: #1e1e1e; /* Base */
