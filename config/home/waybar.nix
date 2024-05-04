@@ -175,21 +175,26 @@ font-family: JetBrainsMono Nerd Font Propo, Font Awesome, sans-serif;
 font-weight: bold;
 }
 
-button {
+#workspaces button {
     border: none;
     border-radius: 10px;
-    transition: background-color 250ms ease;
     color: #fafafa; /* Text */
     font-weight: 400;
 }
 
-button:hover {
+#workspaces button:not(:last-child) {
+    margin-right: 2px;
+}
+
+#workspaces button:hover {
     background-color: #78aeed; /* Surface0 */
 }
 
-button.active {
+#workspaces button.active {
     background-color: #3584e4; /* Muave */
     color: #fafafa; /* Base */
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 window#waybar {
@@ -198,8 +203,8 @@ window#waybar {
 }
 
 window#waybar.empty {
-background: transparent;
-background-color: transparent;
+    background: transparent;
+    background-color: transparent;
 }
 
 #window, #memory, #clock, #cpu, #disk, #battery, #network, #custom-hyprbindings,
@@ -217,6 +222,7 @@ background-color: transparent;
     padding: 0px 0px;
     margin-bottom: 2px;
     border: 1px solid #383838;
+    transition: all 150ms ease-in-out;
 }
 
 #custom-startmenu {

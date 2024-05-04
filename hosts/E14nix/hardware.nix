@@ -12,6 +12,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/be27ed0e-b902-4597-89db-28aabc196a8d";
