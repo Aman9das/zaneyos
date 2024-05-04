@@ -78,7 +78,6 @@ in with lib; {
         disable_splash_rendering = true
       }
       rules {
-        layerrule = blur, rofi
         layerrule = animation popin 80%, rofi$
         }
       animations {

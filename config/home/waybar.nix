@@ -31,13 +31,34 @@ in with lib; {
 	format = if clock24h == true then ''{:L%H:%M}''
 	else ''{:L%I:%M %p}'';
       	tooltip = true;
-	tooltip-format = "<big>{:%A, %d.%B %Y }</big><tt><small>{calendar}</small></tt>";
-  on-click = "rofi-launcher";
+        tooltip-format = "<tt><small>{calendar}</small></tt>";
+        calendar = {
+          mode          = "year";
+          mode-mon-col  = 3;
+          weeks-pos     = "right";
+          on-scroll     = 1;
+          format= {
+                    months=     "<span color='#fafafa'><b>{}</b></span>";
+                    days=       "<span color='#fafafa'><b>{}</b></span>";
+                    weeks=      "<span color='#8ff0a4'><b>W{}</b></span>";
+                    weekdays=   "<span color='#78aeed'><b>{}</b></span>";
+                    today=      "<span color='#f8e45c'><b><u>{}</u></b></span>";
+                    };
+        };
       };
       "hyprland/window" = {
-      	max-length = 32;
+      	max-length = 36;
+        icons = true;
+        icon-size = 16;
         separate-outputs = false;
-        rewrite = { "" = " Desktop "; };
+        rewrite = {
+          "" = " Desktop ";
+          "v" = "nvim";
+          "vi" = "nvim";
+          "vim" = "nvim";
+        };
+        format = "{title}";
+        on-click = "rofi-launcher";
       };
       "memory" = {
       	interval = 5;
@@ -139,7 +160,8 @@ in with lib; {
         format-plugged = "󱘖 {capacity}%";
         format-icons = ["󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
         on-click = "";
-        tooltip = false;
+        tooltip = true;
+        tooltip-format = "󱐋 {power}W";
       };
     }];
     style = concatStrings [''
@@ -195,6 +217,13 @@ background-color: transparent;
 
 #custom-startmenu {
     padding: 0px 0px;
+}
+
+#battery.warning {
+  background-color: #cd9309;
+}
+#battery.critical {
+  background-color: #c01c28;
 }
 
 tooltip {
