@@ -20,50 +20,32 @@ in lib.mkIf (wezterm == false && alacritty == false
       term = "kitty";
     };
     extraConfig = ''
-      foreground #${palette.base05}
-      background #${palette.base00}
-      color0  #${palette.base03}
-      color1  #${palette.base08}
-      color2  #${palette.base0B}
-      color3  #${palette.base09}
-      color4  #${palette.base0D}
-      color5  #${palette.base0E}
-      color6  #${palette.base0C}
-      color7  #${palette.base06}
-      color8  #${palette.base04}
-      color9  #${palette.base08}
-      color10 #${palette.base0B}
-      color11 #${palette.base0A}
-      color12 #${palette.base0C}
-      color13 #${palette.base0E}
-      color14 #${palette.base0C}
-      color15 #${palette.base07}
-      color16 #${palette.base00}
-      color17 #${palette.base0F}
-      color18 #${palette.base0B}
-      color19 #${palette.base09}
-      color20 #${palette.base0D}
-      color21 #${palette.base0E}
-      color22 #${palette.base0C}
-      color23 #${palette.base06}
-      cursor  #${palette.base07}
-      cursor_text_color #${palette.base00}
-      selection_foreground #${palette.base01}
-      selection_background #${palette.base0D}
-      url_color #${palette.base0C}
-      active_border_color #${palette.base04}
-      inactive_border_color #${palette.base00}
-      bell_border_color #${palette.base03}
+      background            #161718
+      foreground            #b7bcb9
+      cursor                #b7bcb9
+      selection_background  #1e1f22
+      color0                #2a2e33
+      color8                #1d1e21
+      color1                #b74d50
+      color9                #8c2d32
+      color2                #b3be5a
+      color10               #788331
+      color3                #e3b55e
+      color11               #e5894f
+      color4                #6d90b0
+      color12               #4b6b88
+      color5                #a07eab
+      color13               #6e4f79
+      color6                #7fbeb3
+      color14               #4d7b73
+      color7                #b5b8b6
+      color15               #5a6169
+      selection_foreground  #161718
+      inactive_tab_font_style bold
+      active_tab_font_style   bold
       tab_bar_style separator
       tab_separator ""
       tab_title_template " {index}: {title} "
-      active_tab_foreground   #${palette.base00}
-      active_tab_background   #${palette.base0C}
-      active_tab_font_style   bold
-      inactive_tab_foreground #${palette.base04}
-      inactive_tab_background #${palette.base00}
-      inactive_tab_font_style bold
-      tab_bar_background #${palette.base00}
     '';
   };
   home.sessionVariables = {

@@ -18,6 +18,8 @@ in {
     qt5ct qt6ct libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5.qtwayland
 
+    vscode-fhs
+
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     inter
 

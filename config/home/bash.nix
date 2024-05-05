@@ -2,7 +2,7 @@
 
 let inherit (import ../../hosts/${host}/options.nix) flakeDir flakePrev 
 	     hostname flakeBackup theShell; in
-lib.mkIf (theShell == "bash") {
+{
   # Configure Bash
   programs.bash = {
     enable = true;

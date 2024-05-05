@@ -26,7 +26,7 @@
   };
   iconTheme = {
     name = "Papirus-Dark";
-    package = pkgs.papirus-icon-theme;
+    package = pkgs.papirus-icon-theme.override {color = "adwaita";};
   };
   kvlibadwaita = pkgs.callPackage ../pkgs/kvantum-libadwaita.nix {};
 in {
@@ -39,7 +39,6 @@ in {
       cursorTheme.package
       iconTheme.package
       gnome.adwaita-icon-theme
-      papirus-icon-theme
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;

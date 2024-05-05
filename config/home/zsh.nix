@@ -1,7 +1,7 @@
 { config, lib, pkgs, host, ... }:
 
 let inherit (import ../../hosts/${host}/options.nix) flakeDir theShell hostname; in
-lib.mkIf (theShell == "zsh") {
+{
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;

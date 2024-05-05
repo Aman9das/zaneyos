@@ -22,6 +22,7 @@
     ./wezterm.nix
     # ./zeroad.nix
     ./zsh.nix
+    ./nushell.nix
     # ./hyprpaper.nix
     # ./hyprcursor.nix
 
