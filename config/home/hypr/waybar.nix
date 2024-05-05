@@ -18,18 +18,37 @@ in with lib; {
       modules-right = [ "pulseaudio" "custom/exit" "idle_inhibitor" "custom/notification" "tray" "battery" ];
 
       "hyprland/workspaces" = {
-      	format = if bar-number == true then "{name}" else "{icon}";
       	format-icons = {
-          default = " ";
-          active = " ";
-          urgent = " ";
+          default = ": ";
+          empty = "";
       	};
-      	on-scroll-up = "hyprctl dispatch workspace e+1";
-      	on-scroll-down = "hyprctl dispatch workspace e-1";
+        format = "{name}{icon}{windows}";
+        format-window-separator = " ";
+        window-rewrite-default = "󰙵";
+        window-rewrite = {
+          "class<kitty>" = "";
+          "class<firefox>" = "󰈹";
+          "class<vivaldi.*>" = "";
+          "class<vivaldi.*> title<.*github.*>" = "";
+          "class<vivaldi.*> title<.*youtube.*>" = "";
+          "class<vivaldi.*> title<meet.*>" = "";
+          "class<thunderbird>" = "";
+          "class<sioyek>" = "";
+          "class<nemo>" = "";
+          "class<rstudio>" = "";
+          "class<steam>" = "";
+          "class<libreoffice-.*>" = "";
+          "class<calibre-gui>" = "󰮩";
+          "class<.*xournalpp.*>" = "";
+          "class<org.telegram.desktop>" = "";
+          "class<kitty> title<.*vim.*>" = "";
+          "class<kitty> title<v .*>" = "";
+          "class<kitty> title<v>" = "";
+        };
       };
       "clock" = {
-	format = if clock24h == true then ''{:L%H:%M}''
-	else ''{:L%I:%M %p}'';
+        format = if clock24h == true then ''{:L%H:%M}''
+        else ''{:L%I:%M %p}'';
       	tooltip = true;
         tooltip-format = "<tt><small>{calendar}</small></tt>";
         calendar = {
@@ -181,10 +200,14 @@ font-weight: bold;
     color: #fafafa; /* Text */
     font-weight: 400;
     transition: all 150ms ease;
+    padding-top: 0;
+    padding-bottom: 0;
+
 }
 
 #workspaces button:not(:last-child) {
     margin-right: 2px;
+    transition: all 150ms ease;
 }
 
 #workspaces button:hover {

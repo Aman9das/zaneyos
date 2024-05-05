@@ -56,12 +56,12 @@ in lib.mkIf (wezterm == false && alacritty == false
       bell_border_color #${palette.base03}
       tab_bar_style separator
       tab_separator ""
-      tab_title_template " {fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{sup.index}{title} "
-      active_tab_foreground   #${palette.base04}
-      active_tab_background   #${palette.base00}
+      tab_title_template " {index}: {title} "
+      active_tab_foreground   #${palette.base00}
+      active_tab_background   #${palette.base0C}
       active_tab_font_style   bold
-      inactive_tab_foreground #${palette.base07}
-      inactive_tab_background #${palette.base08}
+      inactive_tab_foreground #${palette.base04}
+      inactive_tab_background #${palette.base00}
       inactive_tab_font_style bold
       tab_bar_background #${palette.base00}
     '';
