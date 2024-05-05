@@ -137,7 +137,7 @@ in with lib; {
       bind = ${modifier}, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
       bind = ${modifier},Return,exec,${terminal}
       bind = ${modifier}SHIFT,Return,exec,rofi-launcher
-      bind = ${modifier},L,exec,rofi-exit
+      bind = ${modifier}SHIFT,Q,exec,rofi-exit
       bind = ${modifier}SHIFT,W,exec,web-search
       bind = ${modifier},N,exec,swaync-client -t
       ${if browser == "google-chrome" then ''

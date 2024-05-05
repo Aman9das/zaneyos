@@ -13,7 +13,7 @@
     noto-fonts-color-emoji material-icons brightnessctl
     virt-viewer swappy ripgrep appimage-run
     networkmanagerapplet yad playerctl nh
-    xdg-terminal-exec rsync cinnamon.nemo-with-extensions
+    xdg-terminal-exec rsync
     pulseaudio
   ];
 

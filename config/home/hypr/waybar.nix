@@ -180,6 +180,7 @@ font-weight: bold;
     border-radius: 10px;
     color: #fafafa; /* Text */
     font-weight: 400;
+    transition: all 150ms ease;
 }
 
 #workspaces button:not(:last-child) {
@@ -188,6 +189,7 @@ font-weight: bold;
 
 #workspaces button:hover {
     background-color: #78aeed; /* Surface0 */
+    transition: all 150ms ease;
 }
 
 #workspaces button.active {
@@ -195,6 +197,7 @@ font-weight: bold;
     color: #fafafa; /* Base */
     padding-left: 16px;
     padding-right: 16px;
+    transition: all 150ms ease;
 }
 
 window#waybar {
@@ -222,7 +225,7 @@ window#waybar.empty {
     padding: 0px 0px;
     margin-bottom: 2px;
     border: 1px solid #383838;
-    transition: all 150ms ease-in-out;
+    transition: all 150ms ease;
 }
 
 #custom-startmenu {

@@ -6,6 +6,7 @@
     ./zeroad.nix
     ./blender.nix
     ./vivaldi.nix
+    ./nemo.nix
   ];
 }
 
