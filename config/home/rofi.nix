@@ -29,6 +29,8 @@ configuration {
   kb-element-prev:      "";
   terminal:             "kitty";
   matching:             "fuzzy";
+  sorting-method:       "fzf";
+  sort:                 true;
 }
 
 /*****----- Global Properties -----*****/

@@ -87,7 +87,7 @@ in {
             (map (name: completion name) names);
       in ''
         $env.config = ${conf};
-        ${completions ["cargo" "git" "nix" "npm"]}
+        ${completions ["cargo" "git" "nix" "npm" "curl" "gh" "man" "rg"]}
 
         def gcCleanup [] {
           nix-collect-garbage --delete-old

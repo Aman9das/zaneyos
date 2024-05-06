@@ -14,7 +14,7 @@ in with lib; {
       position = "top";
 
       modules-center = [ "hyprland/workspaces" ] ;
-      modules-left = [ "clock" "hyprland/window" "cpu" "temperature" ];
+      modules-left = [ "clock" "hyprland/window" "group/groupcpu" ];
       modules-right = [ "pulseaudio" "custom/exit" "idle_inhibitor" "custom/notification" "tray" "battery" ];
 
       "hyprland/workspaces" = {
@@ -34,16 +34,17 @@ in with lib; {
           "class<vivaldi.*> title<meet.*>" = "";
           "class<thunderbird>" = "";
           "class<sioyek>" = "";
-          "class<nemo>" = "";
+          "class<gimp.*>" = "";
+          "class<nemo>" = "";
           "class<rstudio>" = "";
           "class<steam>" = "";
           "class<libreoffice-.*>" = "";
           "class<calibre-gui>" = "󰮩";
           "class<.*xournalpp.*>" = "";
           "class<org.telegram.desktop>" = "";
-          "class<kitty> title<.*vim.*>" = "";
-          "class<kitty> title<v .*>" = "";
-          "class<kitty> title<v>" = "";
+          "class<kitty> title<.*> v.*>" = "";
+          "class<kitty> title<.*> nv.*>" = "";
+          "class<kitty> title<.*nvim.*>" = "";
         };
       };
       "clock" = {
@@ -79,6 +80,20 @@ in with lib; {
         format = "{title}";
         on-click = "rofi-launcher";
       };
+      "group/groupcpu" = {
+        orientation = "inherit";
+        modules = [
+          "cpu" # First element is the "group leader" and won't ever be hidden
+          "memory"
+          # "disk"
+          # "network"
+          "temperature"
+        ];
+        drawer = {
+          transition-duration = 250;
+          transition-left-to-right = true;
+        };
+      };
       "memory" = {
       	interval = 5;
       	format = " {}%";
@@ -88,14 +103,16 @@ in with lib; {
       	interval = 5;
       	format = " {usage}%";
         tooltip = true;
+        on-click = "kitty btop";
       };
       "disk" = {
-        format = "{free}";
+        format = "  {percentage_used}%";
         tooltip = true;
       };
       "temperature" = {
           hwmon-path = hwmon-cpu;
           format = " {temperatureC}°C";
+          tooltip = false;
         };
       "network" = {
         format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
@@ -235,7 +252,8 @@ window#waybar.empty {
 
 #window, #memory, #clock, #cpu, #disk, #battery, #network, #custom-hyprbindings,
 #tray, #custom-notification, #pulseaudio, #workspaces, #custom-startmenu,
-#custom-exit, #custom-themeselector, #idle_inhibitor, #temperature {
+#custom-exit, #custom-themeselector, #idle_inhibitor, #temperature,
+#group-groupcpu {
     margin: 4px;
     margin-bottom: 4px;
     background-color: #1e1e1e; /* Base */
