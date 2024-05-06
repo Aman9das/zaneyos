@@ -10,6 +10,7 @@
       # LazyVim
       lua-language-server
       stylua
+
       # Telescope
       ripgrep
       fd
@@ -25,7 +26,10 @@
       rPackages.languageserversetup
 
       black
+
+#nix
       nil
+      alejandra
     ];
 
   #   plugins = with pkgs.vimPlugins; [

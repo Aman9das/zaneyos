@@ -23,9 +23,9 @@ in lib.mkIf (wezterm == false && alacritty == false
       background            #161718
       foreground            #b7bcb9
       cursor                #b7bcb9
-      selection_background  #1e1f22
+      selection_background  #b5b8b6
       color0                #2a2e33
-      color8                #1d1e21
+      color8                #404040
       color1                #b74d50
       color9                #8c2d32
       color2                #b3be5a

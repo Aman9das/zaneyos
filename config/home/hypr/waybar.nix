@@ -28,8 +28,12 @@ in with lib; {
         window-rewrite = {
           "class<kitty>" = "";
           "class<firefox>" = "󰈹";
-          "class<vivaldi.*>" = "";
+          "class<vivaldi.*>" = "";
           "class<vivaldi.*> title<.*github.*>" = "";
+          "class<vivaldi.*> title<.*trello.*>" = "";
+          "class<vivaldi.*> title<.*whatsapp.*>" = "";
+          "class<vivaldi.*> title<.*discord.*>" = "";
+          "class<vivaldi.*> title<.*reddit.*>" = "";
           "class<vivaldi.*> title<.*youtube.*>" = "";
           "class<vivaldi.*> title<meet.*>" = "";
           "class<thunderbird>" = "";
@@ -42,6 +46,8 @@ in with lib; {
           "class<calibre-gui>" = "󰮩";
           "class<.*xournalpp.*>" = "";
           "class<org.telegram.desktop>" = "";
+          "class<com.github.weclaw1.ImageRoll>" = "";
+          "class<io.github.celluloid_player.Celluloid>" = "";
           "class<kitty> title<.*> v.*>" = "";
           "class<kitty> title<.*> nv.*>" = "";
           "class<kitty> title<.*nvim.*>" = "";
@@ -73,9 +79,6 @@ in with lib; {
         separate-outputs = false;
         rewrite = {
           "" = " Desktop ";
-          "v" = "nvim";
-          "vi" = "nvim";
-          "vim" = "nvim";
         };
         format = "{title}";
         on-click = "rofi-launcher";
@@ -85,7 +88,7 @@ in with lib; {
         modules = [
           "cpu" # First element is the "group leader" and won't ever be hidden
           "memory"
-          # "disk"
+          "disk"
           # "network"
           "temperature"
         ];
@@ -211,6 +214,17 @@ font-family: JetBrainsMono Nerd Font Propo, Font Awesome, sans-serif;
 font-weight: bold;
 }
 
+#window, #memory, #clock, #cpu, #disk, #battery, #network, #custom-hyprbindings,
+#tray, #custom-notification, #pulseaudio, #workspaces, #custom-startmenu,
+#custom-exit, #custom-themeselector, #idle_inhibitor, #temperature,
+#group-groupcpu {
+    margin: 4px;
+    margin-bottom: 4px;
+    background-color: #1e1e1e; /* Base */
+    border-radius: 10px;
+    padding: 2px 10px;
+}
+
 #workspaces button {
     border: none;
     border-radius: 10px;
@@ -248,17 +262,6 @@ window#waybar {
 window#waybar.empty {
     background: transparent;
     background-color: transparent;
-}
-
-#window, #memory, #clock, #cpu, #disk, #battery, #network, #custom-hyprbindings,
-#tray, #custom-notification, #pulseaudio, #workspaces, #custom-startmenu,
-#custom-exit, #custom-themeselector, #idle_inhibitor, #temperature,
-#group-groupcpu {
-    margin: 4px;
-    margin-bottom: 4px;
-    background-color: #1e1e1e; /* Base */
-    border-radius: 10px;
-    padding: 2px 10px;
 }
 
 #workspaces {

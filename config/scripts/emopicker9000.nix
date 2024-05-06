@@ -1,6 +1,12 @@
 { pkgs }:
 
 pkgs.writeShellScriptBin "emopicker9000" ''
+    if pgrep -x "rofi" > /dev/null; then
+      # Rofi is running, kill it
+      pkill -x rofi
+      exit 0
+    fi
+
     # Get user selection via wofi from emoji file.
     chosen=$(cat $HOME/.emoji | ${pkgs.rofi-wayland}/bin/rofi -dmenu | awk '{print $1}')
 

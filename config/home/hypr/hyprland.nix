@@ -27,8 +27,8 @@ in with lib; {
         gaps_in = 4
         gaps_out = 4
         border_size = 2
-        col.active_border = rgba(${theme.base0C}ff)
-        col.inactive_border = rgba(${theme.base00}cc)
+        col.active_border = rgba(3584e480)
+        col.inactive_border = rgba(30303080)
         layout = dwindle
         resize_on_border = true
       }
@@ -41,7 +41,7 @@ in with lib; {
         touchpad {
           natural_scroll = true
         }
-        sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+        sensitivity = 0.8 # -1.0 - 1.0, 0 means no modification.
         accel_profile = flat
       }
       env = NIXOS_OZONE_WL, 1
@@ -69,7 +69,7 @@ in with lib; {
       gestures {
         workspace_swipe = true
         workspace_swipe_fingers = 3
-        workspace_swipe_forever	= true
+        workspace_swipe_forever = true
       }
       misc {
         mouse_move_enables_dpms = true
@@ -79,6 +79,9 @@ in with lib; {
       }
       rules {
         layerrule = animation popin 80%, rofi$
+        }
+      binds {
+          allow_workspace_cycles = true
         }
       animations {
         enabled = yes
@@ -146,7 +149,7 @@ in with lib; {
 	bind = ${modifier},W,exec,${browser}
       ''}
       bind = ${modifier},E,exec,emopicker9000
-      bind = ${modifier},S,exec,screenshootin
+      bind = ${modifier},S,exec,rofi-shot
       bind = ${modifier},D,exec,discord
       bind = ${modifier},O,exec,obs
       bind = ${modifier},G,exec,gimp
@@ -203,10 +206,12 @@ in with lib; {
       bind = ${modifier},mouse_up,workspace, e-1
       bindm = ${modifier},mouse:272,movewindow
       bindm = ${modifier},mouse:273,resizewindow
+      bind = ${modifier},Tab,workspace,previous
+      bind = ${modifier},Prior,workspace,e-1
+      bind = ${modifier},Next,workspace,e+1
       bind = ALT,Tab,cyclenext
       bind = ALT,Tab,bringactivetotop
-      bind = ${modifier},Tab,cyclenext
-      bind = ${modifier},Tab,bringactivetotop
+      bind = ,Print,exec,rofi-shot
       bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
       bind = ,XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
       binde = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle

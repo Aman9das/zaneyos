@@ -1,6 +1,12 @@
 { pkgs }:
 
 pkgs.writeShellScriptBin "rofi-exit" ''
+if pgrep -x "rofi" > /dev/null; then
+  # Rofi is running, kill it
+  pkill -x rofi
+  exit 0
+fi
+
 # CMDs
 uptime="$(uptime | sed -E 's/.*up[[:space:]]*([^,[:space:]]+).*/\1/')"
 host=$(hostname)

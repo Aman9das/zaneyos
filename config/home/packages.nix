@@ -6,10 +6,11 @@ let
 in {
   # Install Packages For The User
   home.packages = with pkgs; [
-    libvirt swww grim slurp gnome.file-roller
-    swaynotificationcenter rofi-wayland imv transmission-gtk mpv
+    libvirt swww grim slurp gnome.file-roller celluloid
+    swaynotificationcenter rofi-wayland imv transmission-gtk
     gimp obs-studio audacity pavucontrol tree protonup-qt
     font-awesome swayidle swaylock cliphist nix-prefetch-github
+    grimblast
 
     xournalpp calibre
     libreoffice-fresh image-roll telegram-desktop
@@ -34,6 +35,7 @@ in {
     (import ./../scripts/nvidia-offload.nix { inherit pkgs; })
     (import ./../scripts/web-search.nix { inherit pkgs; })
     (import ./../scripts/rofi-exit.nix { inherit pkgs; })
+    (import ./../scripts/rofi-shot.nix { inherit pkgs; })
     (import ./../scripts/rofi-launcher.nix { inherit pkgs; })
     (import ./../scripts/screenshootin.nix { inherit pkgs; })
     (import ./../scripts/list-hypr-bindings.nix { inherit pkgs; inherit host; })

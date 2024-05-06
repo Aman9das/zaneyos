@@ -23,10 +23,6 @@ configuration {
     display-window:             " Windows";
 	drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
 	window-format:              "{w} · {c} · {t}";
-  kb-mode-next:         "Shift+Right,Control+Tab,Tab";
-  kb-mode-previous:     "Shift+Left,Control+Shift+Tab,Shift+Tab";
-  kb-element-next:      "";
-  kb-element-prev:      "";
   terminal:             "kitty";
   matching:             "fuzzy";
   sorting-method:       "fzf";

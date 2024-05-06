@@ -23,6 +23,11 @@
     "q" = "exit";
   };
 in {
+
+  home.packages = with pkgs; [
+  carapace
+  ];
+
   programs = {
     nushell = {
       inherit shellAliases;
@@ -89,11 +94,17 @@ in {
         $env.config = ${conf};
         ${completions ["cargo" "git" "nix" "npm" "curl" "gh" "man" "rg"]}
 
+        source ~/.cache/carapace/init.nu
         def gcCleanup [] {
           nix-collect-garbage --delete-old
           sudo nix-collect-garbage -d
           sudo /run/current-system/bin/switch-to-configuration boot
           }
+      '';
+      extraEnv = ''
+        $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+        mkdir ~/.cache/carapace
+        carapace _carapace nushell | save --force ~/.cache/carapace/init.nu
       '';
     };
   };
