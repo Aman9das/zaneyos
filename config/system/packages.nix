@@ -38,5 +38,12 @@
 
   hardware.opentabletdriver.enable = true;
 
-  services.xserver.excludePackages = with  pkgs; [ xterm ];
+  services.xserver = {
+    excludePackages = with  pkgs; [ xterm ];
+    desktopManager = {
+      cinnamon.enable = true;
+    };
+  };
+
+  services.cinnamon.apps.enable = false;
 }

@@ -9,11 +9,11 @@ in {
     libvirt swww grim slurp gnome.file-roller celluloid
     swaynotificationcenter rofi-wayland imv transmission-gtk
     gimp obs-studio audacity pavucontrol tree protonup-qt
-    font-awesome swayidle swaylock cliphist nix-prefetch-github
+    font-awesome swaylock cliphist nix-prefetch-github
     grimblast
 
     xournalpp calibre
-    libreoffice-fresh image-roll telegram-desktop
+    libreoffice-fresh loupe telegram-desktop
 
 
     qt5ct qt6ct libsForQt5.qtstyleplugin-kvantum

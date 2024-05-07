@@ -7,11 +7,11 @@
   xdg.portal = {
     enable = true;
     extraPortals = [ 
-      pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal
     ];
-    configPackages = [ pkgs.xdg-desktop-portal-gtk
+    configPackages = [
+      pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal
     ];
@@ -46,6 +46,7 @@
   powerManagement.enable = true;
   services.tlp.enable = true;
   services.thermald.enable = true;
+  services.upower.enable = true;
 
   programs.nix-ld.enable = true;
 
