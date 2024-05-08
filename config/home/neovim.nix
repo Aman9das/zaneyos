@@ -143,13 +143,20 @@
   #   "${parsers}/parser";
 
   # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
-  xdg.configFile."nvim".source = pkgs.fetchFromGitHub {
-     owner = "Aman9das";
-     repo = "lazy-nvim-dotfiles";
-     rev = "d6102e32add208f50e5399a14187f3e3b30bdc79";
-     hash = "sha256-mIpK+dkfBNjeZTqi09kXwO5c7C5lgDNdmIrPsRymo1o=";
-  };
-  
+  home.activation.setup-nvim = lib.hm.dag.entryAfter [ "installPackages" ] ''
+  	PATH="${config.home.path}/bin:$PATH"
+       if ! [ -d "${config.xdg.configHome}/nvim" ]; then
+        git clone --depth=1 --single-branch "https://github.com/Aman9das/lazy-nvim-dotfiles.git" "${config.xdg.configHome}/nvim"
+      fi
+    '';
+
+  # xdg.configFile."nvim".source = pkgs.fetchFromGitHub {
+  #    owner = "Aman9das";
+  #    repo = "lazy-nvim-dotfiles";
+  #    rev = "d6102e32add208f50e5399a14187f3e3b30bdc79";
+  #    hash = "sha256-mIpK+dkfBNjeZTqi09kXwO5c7C5lgDNdmIrPsRymo1o=";
+  # };
+
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
