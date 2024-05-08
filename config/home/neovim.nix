@@ -25,9 +25,11 @@
       rPackages.languageserver
       rPackages.languageserversetup
 
+      codeium
+
       black
 
-#nix
+      #nix
       nil
       alejandra
     ];
@@ -144,8 +146,8 @@
   xdg.configFile."nvim".source = pkgs.fetchFromGitHub {
      owner = "Aman9das";
      repo = "lazy-nvim-dotfiles";
-     rev = "6bd42e4e9ca4caa72c09be41e4e86af81750c969";
-     sha256 = "tBsFr0FB4h6+WYdl/x7N/tkzUDNDKuvvw2IxVXVvS14=";
+     rev = "d6102e32add208f50e5399a14187f3e3b30bdc79";
+     hash = "sha256-mIpK+dkfBNjeZTqi09kXwO5c7C5lgDNdmIrPsRymo1o=";
   };
   
   home.sessionVariables = {
