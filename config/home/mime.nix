@@ -1,6 +1,6 @@
 { pkgs, config, lib, ... }:
 {
-  xdg = {
+  home.xdg = {
     enable = true;
 
     mimeApps = {
@@ -14,6 +14,7 @@
         "x-scheme-handler/about" = ["vivaldi-stable.desktop"];
         "x-scheme-handler/unknown" = ["vivaldi-stable.desktop"];
         "x-scheme-handler/vivaldi" = [ "vivaldi-stable.desktop" ];
+        "inode/directory" = [ "nemo.desktop" ];
       };
     };
   };
