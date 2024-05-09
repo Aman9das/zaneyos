@@ -79,6 +79,8 @@ in with lib; {
       }
       rules {
         layerrule = animation popin 80%, rofi$
+        windowrulev2 = workspace special silent, title:^(.*is sharing (your screen|a window)\.)$
+        windowrulev2 = workspace special silent, title:^(Firefox — Sharing Indicator)$
         }
       binds {
           allow_workspace_cycles = true

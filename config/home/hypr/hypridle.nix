@@ -9,27 +9,28 @@
       enable = true;
 
       settings = {
-          beforeSleepCmd = "${pkgs.systemd}/bin/loginctl lock-session";
-          lockCmd = "pidof hyprlock || hyprlock";
-
+        general = {
+          before_sleep_cmd = "${pkgs.systemd}/bin/loginctl lock-session";
+          lock_cmd = "pidof hyprlock || hyprlock";
+          };
           listener = [
           {
               timeout = 150;
-              onTimeout = "brightnessctl -s set 1";
-              onResume = "brightnessctl -r";
+              on-timeout = "brightnessctl -s set 1";
+              on-resume = "brightnessctl -r";
             }
           {
               timeout = 300;
-              onTimeout = "${pkgs.systemd}/bin/loginctl lock-session";
+              on-timeout = "${pkgs.systemd}/bin/loginctl lock-session";
             }
           {
               timeout = 330;
-              onTimeout = "hyprctl dispatch dpms off";
-              onResume = "hyprctl dispatch dpms on";
+              on-timeout = "hyprctl dispatch dpms off";
+              on-resume = "hyprctl dispatch dpms on";
             }
           {
               timeout = 600;
-              onTimeout = "${pkgs.systemd}/bin/systemctl suspend";
+              on-timeout = "${pkgs.systemd}/bin/systemctl suspend";
             }
           ];
         };

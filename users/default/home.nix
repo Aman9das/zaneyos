@@ -1,9 +1,9 @@
 { config, pkgs, inputs, username,
   host, gtkThemeFromScheme, ... }:
-let 
+let
   inherit (import ./../../hosts/${host}/options.nix)
-    gitUsername gitEmail theme browser 
-    wallpaperDir wallpaperGit flakeDir 
+    gitUsername gitEmail theme browser
+    wallpaperDir wallpaperGit flakeDir
     waybarStyle;
 in {
   # Home Manager Settings

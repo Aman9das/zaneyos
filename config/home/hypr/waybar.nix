@@ -230,7 +230,7 @@ font-family: JetBrains Mono, font-logos, 'Font Awesome 6 Free', 'Font Awesome 6 
 }
 
 #idle_inhibitor {
-  font-size: 18;
+  font-size: 16;
 }
 
 #workspaces button {
