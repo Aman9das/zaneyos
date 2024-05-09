@@ -6,7 +6,7 @@ let
 in {
   # Install Packages For The User
   home.packages = with pkgs; [
-    libvirt swww grim slurp gnome.file-roller celluloid
+    libvirt hypridle grimblast gnome.file-roller celluloid
     swaynotificationcenter rofi-wayland imv transmission-gtk
     gimp obs-studio audacity pavucontrol tree protonup-qt
     font-awesome swaylock cliphist nix-prefetch-github

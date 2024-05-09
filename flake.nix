@@ -6,6 +6,10 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = "github:misterio77/nix-colors";
+
+    # hyprwm
+    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+
     impermanence.url = "github:nix-community/impermanence";
   };
 
@@ -37,7 +41,6 @@
               inherit username; inherit inputs;
               inherit host;
               inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
-              inherit pkgs-stable;
               inherit system;
             };
 	    home-manager.useGlobalPkgs = true;

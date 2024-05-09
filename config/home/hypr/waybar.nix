@@ -27,7 +27,7 @@ in with lib; {
         window-rewrite-default = "󰙵";
         window-rewrite = {
           "class<kitty>" = "";
-          "class<firefox>" = "󰈹";
+          "class<firefox>" = "";
           "class<vivaldi.*>" = "";
           "class<vivaldi.*> title<.*github.*>" = "";
           "class<vivaldi.*> title<.*trello.*>" = "";
@@ -40,11 +40,12 @@ in with lib; {
           "class<sioyek>" = "";
           "class<gimp.*>" = "";
           "class<nemo>" = "";
-          "class<rstudio>" = "";
-          "class<steam>" = "";
-          "class<libreoffice-.*>" = "";
+          "class<rstudio>" = "";
+          "class<steam>" = "";
+          "class<code.*>" = "󰨞";
+          "class<libreoffice-.*>" = "󰈙";
           "class<calibre-gui>" = "󰮩";
-          "class<.*xournalpp.*>" = "";
+          "class<.*xournalpp.*>" = "󱧃";
           "class<org.telegram.desktop>" = "";
           "class<com.github.weclaw1.ImageRoll>" = "";
           "class<io.github.celluloid_player.Celluloid>" = "";
@@ -99,7 +100,7 @@ in with lib; {
       };
       "memory" = {
       	interval = 5;
-      	format = " {}%";
+      	format = " {}%";
         tooltip = true;
       };
       "cpu" = {
@@ -109,12 +110,12 @@ in with lib; {
         on-click = "kitty btop";
       };
       "disk" = {
-        format = "  {percentage_used}%";
+        format = " {percentage_used}%";
         tooltip = true;
       };
       "temperature" = {
           hwmon-path = hwmon-cpu;
-          format = " {temperatureC}°C";
+          format = " {temperatureC}°C";
           tooltip = false;
         };
       "network" = {
@@ -169,8 +170,8 @@ in with lib; {
       "idle_inhibitor" = {
         format = "{icon}";
         format-icons = {
-            activated = "";
-            deactivated = "";
+            activated = "󰅶";
+            deactivated = "󰾪";
         };
         tooltip = "true";
       };
@@ -179,13 +180,13 @@ in with lib; {
         format = "{icon} {}";
         format-icons = {
           notification = "<span foreground='red'><sup></sup></span>";
-          none = "";
+          none = "";
           dnd-notification = "<span foreground='red'><sup></sup></span>";
-          dnd-none = "";
+          dnd-none = "";
           inhibited-notification = "<span foreground='red'><sup></sup></span>";
-          inhibited-none = "";
+          inhibited-none = "";
           dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
-          dnd-inhibited-none = "";
+          dnd-inhibited-none = "";
        	};
         return-type = "json";
         exec-if = "which swaync-client";
@@ -210,8 +211,7 @@ in with lib; {
     style = concatStrings [''
 * {
 font-size: 14px;
-font-family: JetBrainsMono Nerd Font Propo, Font Awesome, sans-serif;
-font-weight: bold;
+font-family: JetBrains Mono, font-logos, 'Font Awesome 6 Free', 'Font Awesome 6 Brands', Symbols Nerd Font, Material Icons, devicon, Symbols Nerd Font, SimpleIcons, sans-serif;
 }
 
 #window, #memory, #clock, #cpu, #disk, #battery, #network, #custom-hyprbindings,
@@ -223,6 +223,14 @@ font-weight: bold;
     background-color: #1e1e1e; /* Base */
     border-radius: 10px;
     padding: 2px 10px;
+}
+
+#clock, #window {
+  font-weight: bold;
+}
+
+#idle_inhibitor {
+  font-size: 18;
 }
 
 #workspaces button {

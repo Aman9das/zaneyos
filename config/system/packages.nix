@@ -10,11 +10,17 @@
     polkit_gnome lm_sensors unzip unrar libnotify eza
     v4l-utils ydotool wl-clipboard socat cowsay lsd lshw
     pkg-config meson hugo gnumake ninja go nodejs symbola
-    noto-fonts-color-emoji material-icons brightnessctl
+    brightnessctl
     virt-viewer swappy ripgrep appimage-run
     networkmanagerapplet yad playerctl nh
     xdg-terminal-exec rsync
     pulseaudio
+  ];
+
+  fonts.packages = with pkgs; [
+  jetbrains-mono
+  noto-fonts-color-emoji material-icons font-awesome
+  (nerdfonts.override { fonts = [ "JetBrainsMono" "NerdFontsSymbolsOnly" ]; })
   ];
 
   programs = {
