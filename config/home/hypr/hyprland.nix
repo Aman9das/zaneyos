@@ -70,12 +70,14 @@ in with lib; {
         workspace_swipe = true
         workspace_swipe_fingers = 3
         workspace_swipe_forever = true
+        workspace_swipe_direction_lock = false
       }
       misc {
         mouse_move_enables_dpms = true
         key_press_enables_dpms = false
         disable_hyprland_logo = true
         disable_splash_rendering = true
+        focus_on_activate = true
       }
       rules {
         layerrule = animation popin 80%, rofi$

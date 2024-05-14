@@ -16,8 +16,13 @@ let
 in
 {
   home.packages = [
-    (pkgs-april.vivaldi.override {
+    (pkgs.vivaldi.override {
         proprietaryCodecs = true;
+        enableWidevine = true;
+        commandLineArgs = [ "--enable-features=UseOzonePlatform"
+        "--ozone-platform=wayland"
+        "--ozone-platform-hint=auto"
+        "--enable-features=WaylandWindowDecorations" ];
       })
   ];
   home.sessionVariables = {

@@ -6,14 +6,15 @@ let
 in {
   # Install Packages For The User
   home.packages = with pkgs; [
-    libvirt hypridle grimblast gnome.file-roller celluloid
-    swaynotificationcenter rofi-wayland imv transmission-gtk
-    gimp obs-studio audacity pavucontrol tree protonup-qt
-    font-awesome swaylock cliphist nix-prefetch-github
-    grimblast
+    libvirt hypridle gnome.file-roller
+    swaynotificationcenter rofi-wayland imv
+    obs-studio pavucontrol tree
+    cliphist nix-prefetch-github
+    grimblast localsend
 
-    xournalpp calibre
-    libreoffice-fresh loupe telegram-desktop
+    xournalpp calibre celluloid transmission-gtk
+    libreoffice-fresh loupe telegram-desktop protonup-qt
+    gimp
 
 
     qt5ct qt6ct libsForQt5.qtstyleplugin-kvantum
@@ -22,7 +23,7 @@ in {
     vscode-fhs
 
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    inter
+    inter font-awesome
 
     # Import Scripts
     (import ./../scripts/emopicker9000.nix { inherit pkgs; })

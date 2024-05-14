@@ -28,24 +28,24 @@ in with lib; {
         window-rewrite = {
           "class<kitty>" = "";
           "class<firefox>" = "";
-          "class<vivaldi.*>" = "";
+          "class<vivaldi.*>" = "㽤";
           "class<vivaldi.*> title<.*github.*>" = "";
           "class<vivaldi.*> title<.*trello.*>" = "";
           "class<vivaldi.*> title<.*whatsapp.*>" = "";
           "class<vivaldi.*> title<.*discord.*>" = "";
           "class<vivaldi.*> title<.*reddit.*>" = "";
           "class<vivaldi.*> title<.*youtube.*>" = "";
-          "class<vivaldi.*> title<meet.*>" = "";
+          "class<vivaldi.*> title<meet.*>" = "㡘";
           "class<thunderbird>" = "";
           "class<sioyek>" = "";
-          "class<gimp.*>" = "";
+          "class<gimp.*>" = "㠀";
           "class<nemo>" = "";
-          "class<rstudio>" = "";
+          "class<rstudio>" = "㴛";
           "class<steam>" = "";
           "class<code.*>" = "󰨞";
-          "class<libreoffice-.*>" = "󰈙";
+          "class<libreoffice-.*>" = "";
           "class<calibre-gui>" = "󰮩";
-          "class<.*xournalpp.*>" = "󱧃";
+          "class<.*xournalpp.*>" = "";
           "class<org.telegram.desktop>" = "";
           "class<com.github.weclaw1.ImageRoll>" = "";
           "class<io.github.celluloid_player.Celluloid>" = "";
@@ -211,11 +211,10 @@ in with lib; {
     style = concatStrings [''
 * {
 font-size: 14px;
-font-family: JetBrains Mono, font-logos, 'Font Awesome 6 Free', 'Font Awesome 6 Brands', Symbols Nerd Font, Material Icons, devicon, Symbols Nerd Font, SimpleIcons, sans-serif;
 }
 
 #window, #memory, #clock, #cpu, #disk, #battery, #network, #custom-hyprbindings,
-#tray, #custom-notification, #pulseaudio, #workspaces, #custom-startmenu,
+#tray, #custom-notification, #pulseaudio, #custom-startmenu,
 #custom-exit, #custom-themeselector, #idle_inhibitor, #temperature,
 #group-groupcpu {
     margin: 4px;
@@ -223,6 +222,7 @@ font-family: JetBrains Mono, font-logos, 'Font Awesome 6 Free', 'Font Awesome 6 
     background-color: #1e1e1e; /* Base */
     border-radius: 10px;
     padding: 2px 10px;
+    font-family: JetBrains Mono, font-logos, 'Font Awesome 6 Brands', Symbols Nerd Font, Material Icons, devicon, 'Font Awesome 6 Free', sans-serif;
 }
 
 #clock, #window {
@@ -241,7 +241,6 @@ font-family: JetBrains Mono, font-logos, 'Font Awesome 6 Free', 'Font Awesome 6 
     transition: all 150ms ease;
     padding-top: 0;
     padding-bottom: 0;
-
 }
 
 #workspaces button:not(:last-child) {
@@ -273,11 +272,14 @@ window#waybar.empty {
 }
 
 #workspaces {
+    background-color: #1e1e1e; /* Base */
+    border-radius: 10px;
     margin: 0px;
     padding: 0px 0px;
     margin-bottom: 2px;
     border: 1px solid #383838;
     transition: all 150ms ease;
+    font-family: JetBrains Mono, Simple Icons, font-logos, 'Font Awesome 6 Brands', Symbols Nerd Font, Material Icons, devicon, 'Font Awesome 6 Free', sans-serif;
 }
 
 #custom-startmenu {
