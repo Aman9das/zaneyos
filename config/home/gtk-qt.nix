@@ -43,6 +43,7 @@ in {
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;
       XCURSOR_SIZE = "${toString cursorTheme.size}";
+      GTK_THEME = "adw-gtk3-dark";
     };
     pointerCursor =
       cursorTheme

@@ -12,6 +12,8 @@ in {
     cliphist nix-prefetch-github
     grimblast localsend
 
+    easyeffects
+
     xournalpp calibre celluloid transmission-gtk
     libreoffice-fresh loupe telegram-desktop protonup-qt
     gimp

@@ -27,28 +27,36 @@ in with lib; {
         window-rewrite-default = "󰙵";
         window-rewrite = {
           "class<kitty>" = "";
-          "class<firefox>" = "";
+          "class<firefox>" = "㞛";
           "class<vivaldi.*>" = "㽤";
-          "class<vivaldi.*> title<.*github.*>" = "";
-          "class<vivaldi.*> title<.*trello.*>" = "";
-          "class<vivaldi.*> title<.*whatsapp.*>" = "";
-          "class<vivaldi.*> title<.*discord.*>" = "";
+          "class<vivaldi.*> title<.*github.*>" = "㠉";
+          "class<vivaldi.*> title<.*trello.*>" = "㻛";
+          "class<vivaldi.*> title<.*whatsapp.*>" = "㾯";
+          "class<vivaldi.*> title<.*discord.*>" = "㛘";
           "class<vivaldi.*> title<.*reddit.*>" = "";
-          "class<vivaldi.*> title<.*youtube.*>" = "";
+          "class<vivaldi.*> title<.*youtube.*>" = "㿺";
           "class<vivaldi.*> title<meet.*>" = "㡘";
-          "class<thunderbird>" = "";
+          "class<thunderbird>" = "㺤";
           "class<sioyek>" = "";
           "class<gimp.*>" = "㠀";
-          "class<nemo>" = "";
           "class<rstudio>" = "㴛";
-          "class<steam>" = "";
-          "class<code.*>" = "󰨞";
-          "class<libreoffice-.*>" = "";
-          "class<calibre-gui>" = "󰮩";
-          "class<.*xournalpp.*>" = "";
-          "class<org.telegram.desktop>" = "";
+          "class<nemo>" = "";
+          "class<fontforge>" = "㞽";
+          "class<steam>" = "㸖";
+          "class<code.*>" = "㽟";
+          "class<libreoffice-base>" = "㧭";
+          "class<libreoffice-calc>" = "㧮";
+          "class<libreoffice-draw>" = "㧯";
+          "class<libreoffice-impress>" = "㧰";
+          "class<libreoffice-math>" = "㧱";
+          "class<libreoffice-writer>" = "㧲";
+          "class<libreoffice-.*>" = "㧬";
+          "class<calibre-gui>" = "㕼";
+          "class<.*xournalpp.*>" = "";
+          "class<org.telegram.desktop>" = "㹺";
           "class<com.github.weclaw1.ImageRoll>" = "";
-          "class<io.github.celluloid_player.Celluloid>" = "";
+          "class<com.github.wwmm.easyeffects>" = "󱛶";
+          "class<io.github.celluloid_player.Celluloid>" = "㫓";
           "class<kitty> title<.*> v.*>" = "";
           "class<kitty> title<.*> nv.*>" = "";
           "class<kitty> title<.*nvim.*>" = "";
@@ -229,10 +237,6 @@ font-size: 14px;
   font-weight: bold;
 }
 
-#idle_inhibitor {
-  font-size: 16;
-}
-
 #workspaces button {
     border: none;
     border-radius: 10px;
@@ -279,7 +283,7 @@ window#waybar.empty {
     margin-bottom: 2px;
     border: 1px solid #383838;
     transition: all 150ms ease;
-    font-family: JetBrains Mono, Simple Icons, font-logos, 'Font Awesome 6 Brands', Symbols Nerd Font, Material Icons, devicon, 'Font Awesome 6 Free', sans-serif;
+    font-family: JetBrains Mono, Simple Icons, font-logos, Symbols Nerd Font, 'Font Awesome 6 Brands', Material Icons, devicon, 'Font Awesome 6 Free', sans-serif;
 }
 
 #custom-startmenu {
