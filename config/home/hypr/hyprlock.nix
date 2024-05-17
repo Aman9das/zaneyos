@@ -12,7 +12,7 @@
   xdg.configFile."hypr/hyprlock.conf".text = ''
 background {
     monitor =
-    path = $HOME/Pictures/Wallpapers/nix-wallpaper-nineish-dark-gray.png   # only png supported for now
+    path = $HOME/pictures/Wallpapers/nix-wallpaper-nineish-dark-gray.png   # only png supported for now
 
     blur_size = 2
     blur_passes = 1

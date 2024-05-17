@@ -16,11 +16,10 @@ in {
 
     xournalpp calibre celluloid transmission-gtk
     libreoffice-fresh loupe telegram-desktop protonup-qt
-    gimp
+    gimp monophony ferdium gnome.gnome-disk-utility
+    (makeAutostartItem { name = "ferdium"; package = ferdium; })
+    libsForQt5.dolphin
 
-
-    qt5ct qt6ct libsForQt5.qtstyleplugin-kvantum
-    libsForQt5.qt5.qtwayland
 
     vscode-fhs
 

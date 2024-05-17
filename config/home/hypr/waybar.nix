@@ -25,42 +25,7 @@ in with lib; {
         format = "{name}{icon}{windows}";
         format-window-separator = " ";
         window-rewrite-default = "󰙵";
-        window-rewrite = {
-          "class<kitty>" = "";
-          "class<firefox>" = "㞛";
-          "class<vivaldi.*>" = "㽤";
-          "class<vivaldi.*> title<.*github.*>" = "㠉";
-          "class<vivaldi.*> title<.*trello.*>" = "㻛";
-          "class<vivaldi.*> title<.*whatsapp.*>" = "㾯";
-          "class<vivaldi.*> title<.*discord.*>" = "㛘";
-          "class<vivaldi.*> title<.*reddit.*>" = "";
-          "class<vivaldi.*> title<.*youtube.*>" = "㿺";
-          "class<vivaldi.*> title<meet.*>" = "㡘";
-          "class<thunderbird>" = "㺤";
-          "class<sioyek>" = "";
-          "class<gimp.*>" = "㠀";
-          "class<rstudio>" = "㴛";
-          "class<nemo>" = "";
-          "class<fontforge>" = "㞽";
-          "class<steam>" = "㸖";
-          "class<code.*>" = "㽟";
-          "class<libreoffice-base>" = "㧭";
-          "class<libreoffice-calc>" = "㧮";
-          "class<libreoffice-draw>" = "㧯";
-          "class<libreoffice-impress>" = "㧰";
-          "class<libreoffice-math>" = "㧱";
-          "class<libreoffice-writer>" = "㧲";
-          "class<libreoffice-.*>" = "㧬";
-          "class<calibre-gui>" = "㕼";
-          "class<.*xournalpp.*>" = "";
-          "class<org.telegram.desktop>" = "㹺";
-          "class<com.github.weclaw1.ImageRoll>" = "";
-          "class<com.github.wwmm.easyeffects>" = "󱛶";
-          "class<io.github.celluloid_player.Celluloid>" = "㫓";
-          "class<kitty> title<.*> v.*>" = "";
-          "class<kitty> title<.*> nv.*>" = "";
-          "class<kitty> title<.*nvim.*>" = "";
-        };
+        window-rewrite = (import ./waybar-app-icons.nix);
       };
       "clock" = {
         format = if clock24h == true then ''{:L%H:%M}''

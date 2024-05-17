@@ -37,6 +37,14 @@ in {
     userDirs = {
         enable = true;
         createDirectories = true;
+        desktop = "${config.home.homeDirectory}/system/desktop";
+        download = "${config.home.homeDirectory}/downloads";
+        documents = "${config.home.homeDirectory}/documents";
+        music = "${config.home.homeDirectory}/media/music";
+        pictures = "${config.home.homeDirectory}/pictures";
+        publicShare = "${config.home.homeDirectory}/system/public";
+        templates = "${config.home.homeDirectory}/system/templates";
+        videos = "${config.home.homeDirectory}/media/videos";
     };
   };
 

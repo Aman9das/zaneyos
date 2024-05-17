@@ -58,9 +58,9 @@ in
       homeDir = config.home.homeDirectory;
     in
     [
-      "file://${homeDir}/Downloads"
+      "file://${homeDir}/downloads"
       "file://${homeDir}/projects"
-      "file://${homeDir}/Pictures/Wallpapers"
+      "file://${homeDir}/pictures"
     ];
 
   dconf.settings = {

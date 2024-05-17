@@ -39,6 +39,10 @@ in {
       cursorTheme.package
       iconTheme.package
       gnome.adwaita-icon-theme
+
+      libsForQt5.breeze-qt5
+      qt5ct qt6ct libsForQt5.qtstyleplugin-kvantum
+      libsForQt5.qt5.qtwayland
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;
@@ -49,6 +53,7 @@ in {
       cursorTheme
       // {
         gtk.enable = true;
+        x11.enable = true;
       };
     file = {
       ".local/share/themes/${theme.name}" = {

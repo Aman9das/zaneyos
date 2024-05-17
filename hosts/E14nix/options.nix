@@ -12,8 +12,8 @@ in {
   userHome = "/home/${setUsername}";
   flakeDir = "/home/${setUsername}/zaneyos";
   wallpaperGit = "https://github.com/Aman9das/my-walls.git"; # Can be changed IF you know what your doing
-  wallpaperDir = "/home/${setUsername}/Pictures/Wallpapers";
-  screenshotDir = "/home/${setUsername}/Pictures/Screenshots";
+  wallpaperDir = "/home/${setUsername}/pictures/Wallpapers";
+  screenshotDir = "/home/${setUsername}/pictures/Screenshots";
   flakePrev = "/home/${setUsername}/.zaneyos-previous";
   flakeBackup = "/home/${setUsername}/.zaneyos-backup";
 

@@ -14,7 +14,10 @@ in with lib; {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    systemd.enable = true;
+    systemd = {
+      enable = true;
+      enableXdgAutostart = true;
+    };
     plugins = [
       # hyprplugins.hyprtrails
     ];
@@ -81,6 +84,7 @@ in with lib; {
       }
       rules {
         layerrule = animation popin 80%, rofi$
+        windowrule = tile, ^(Vivaldi-stable)$
         windowrulev2 = workspace special silent, title:^(.*is sharing (your screen|a window)\.)$
         windowrulev2 = workspace special silent, title:^(Firefox — Sharing Indicator)$
         }
