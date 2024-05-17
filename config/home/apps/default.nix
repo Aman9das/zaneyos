@@ -1,6 +1,8 @@
-{ pkgs, config, ... }:
-
 {
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ./mail.nix
     ./zeroad.nix
@@ -10,4 +12,3 @@
     ./nemo.nix
   ];
 }
-

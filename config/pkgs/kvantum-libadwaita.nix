@@ -1,5 +1,8 @@
-{ lib, stdenv, fetchFromGitHub }:
-
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+}:
 stdenv.mkDerivation rec {
   pname = "kvlibadwaita";
   version = "87c1ef9f44ec48855fd09ddab041007277e30e37";
@@ -9,7 +12,7 @@ stdenv.mkDerivation rec {
     repo = "KvLibadwaita";
     rev = version;
     hash = "sha256-xBl6zmpqTAH5MIT5iNAdW6kdOcB5MY0Dtrb95hdYpwA=";
-};
+  };
 
   installPhase = ''
     mkdir -p $out/share/Kvantum
@@ -20,7 +23,7 @@ stdenv.mkDerivation rec {
     description = "Libadwaita style theme for Kvantum. Based on Colloid-kde.";
     homepage = "https://github.com/GabePoel/KvLibadwaita";
     license = licenses.gpl3;
-    maintainers = [ ];
+    maintainers = [];
     platforms = platforms.all;
   };
 }

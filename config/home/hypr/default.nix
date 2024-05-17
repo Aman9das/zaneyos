@@ -1,6 +1,8 @@
-{ pkgs, config, ... }:
-
 {
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
     ./hyprland.nix
     ./hypridle.nix
@@ -11,4 +13,3 @@
     ./swaync.nix
   ];
 }
-

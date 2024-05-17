@@ -1,9 +1,13 @@
-{ config, pkgs, lib, username, host, ... }:
-
-let 
-  inherit ( import ../../hosts/${host}/options.nix ) username;
-in
 {
+  config,
+  pkgs,
+  lib,
+  username,
+  host,
+  ...
+}: let
+  inherit (import ../../hosts/${host}/options.nix) username;
+in {
   environment.persistence."/nix/persist" = {
     hideMounts = true;
     directories = [
@@ -18,19 +22,19 @@ in
     ];
     users.${username} = {
       directories = [
-	"Downloads"
-	"Music"
-	"Documents"
-	"Pictures"
+        "Downloads"
+        "Music"
+        "Documents"
+        "Pictures"
         "Videos"
         "zaneyos"
-	".local/share/sddm"
-	".mozilla"
-	".cache"
-	".ssh"
-	".config/discord"
-	".config/obs-studio"
-	".steam"
+        ".local/share/sddm"
+        ".mozilla"
+        ".cache"
+        ".ssh"
+        ".config/discord"
+        ".config/obs-studio"
+        ".steam"
       ];
       files = [
       ];

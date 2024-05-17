@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-let
+}: let
   # create a fake gnome-terminal shell script so xdg terminal applications open in the correct terminal
   # https://unix.stackexchange.com/a/642886
   fakeGnomeTerminal = pkgs.writeShellApplication {
@@ -14,11 +13,10 @@ let
   nemo-patched = pkgs.cinnamon.nemo-with-extensions.overrideAttrs (_: {
     postFixup = ''
       wrapProgram $out/bin/nemo \
-        --prefix PATH : "${lib.makeBinPath [ fakeGnomeTerminal ]}"
+        --prefix PATH : "${lib.makeBinPath [fakeGnomeTerminal]}"
     '';
   });
-in
-{
+in {
   home = {
     packages = [
       # pkgs.cinnamon.nemo-fileroller
@@ -28,23 +26,22 @@ in
 
   xdg = {
     # fix mimetype associations
-    mimeApps.defaultApplications =
-      {
-        "inode/directory" = "nemo.desktop";
-        # wtf zathura registers itself to open archives
-        "application/zip" = "org.gnome.FileRoller.desktop";
-        "application/vnd.rar" = "org.gnome.FileRoller.desktop";
-        "application/x-7z-compressed" = "org.gnome.FileRoller.desktop";
-      };
-      # // lib.optionalAttrs config.programs.zathura.enable {
-      #   "application/pdf" = "org.pwmt.zathura.desktop";
-      # }
-      # // (lib.optionalAttrs config.programs.pqiv.enable {
-      #   "image/jpeg" = "pqiv.desktop";
-      #   "image/gif" = "pqiv.desktop";
-      #   "image/webp" = "pqiv.desktop";
-      #   "image/png" = "pqiv.desktop";
-      # });
+    mimeApps.defaultApplications = {
+      "inode/directory" = "nemo.desktop";
+      # wtf zathura registers itself to open archives
+      "application/zip" = "org.gnome.FileRoller.desktop";
+      "application/vnd.rar" = "org.gnome.FileRoller.desktop";
+      "application/x-7z-compressed" = "org.gnome.FileRoller.desktop";
+    };
+    # // lib.optionalAttrs config.programs.zathura.enable {
+    #   "application/pdf" = "org.pwmt.zathura.desktop";
+    # }
+    # // (lib.optionalAttrs config.programs.pqiv.enable {
+    #   "image/jpeg" = "pqiv.desktop";
+    #   "image/gif" = "pqiv.desktop";
+    #   "image/webp" = "pqiv.desktop";
+    #   "image/png" = "pqiv.desktop";
+    # });
 
     # other OSes seem to override this file
     # configFile = {
@@ -53,15 +50,13 @@ in
     # };
   };
 
-  gtk.gtk3.bookmarks =
-    let
-      homeDir = config.home.homeDirectory;
-    in
-    [
-      "file://${homeDir}/downloads"
-      "file://${homeDir}/projects"
-      "file://${homeDir}/pictures"
-    ];
+  gtk.gtk3.bookmarks = let
+    homeDir = config.home.homeDirectory;
+  in [
+    "file://${homeDir}/downloads"
+    "file://${homeDir}/projects"
+    "file://${homeDir}/pictures"
+  ];
 
   dconf.settings = {
     # fix open in terminal
@@ -89,5 +84,4 @@ in
       selection-menu-move-to = true;
     };
   };
-
 }

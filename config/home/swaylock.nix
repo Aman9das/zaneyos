@@ -1,6 +1,8 @@
-{ pkgs, config, ... }:
-
-let
+{
+  pkgs,
+  config,
+  ...
+}: let
   palette = config.colorScheme.palette;
 in {
   home.file.".config/swaylock/config".text = ''

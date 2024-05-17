@@ -1,5 +1,9 @@
-{ pkgs, username, wallpaperDir, wallpaperGit }:
-
+{
+  pkgs,
+  username,
+  wallpaperDir,
+  wallpaperGit,
+}:
 pkgs.writeShellScriptBin "wallsetter" ''
   TIMEOUT=720
   TRANSITION1="--transition-type wave --transition-angle 120 --transition-step 30"

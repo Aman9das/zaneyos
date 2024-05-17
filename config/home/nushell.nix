@@ -6,16 +6,16 @@
 }: let
   inherit (import ../../hosts/${host}/options.nix) flakeDir theShell hostname;
   shellAliases = {
-    sv="sudo nvim";
-    flake-rebuild="nh os switch --hostname ${hostname}";
-    flake-update="nh os switch --hostname ${hostname} --update";
-    v="nvim";
-    ls="ls";
-    ll="ls -l";
-    la="ls -a";
-    lal="ls -al";
-    ".."="cd ..";
-    neofetch="neofetch --off";
+    sv = "sudo nvim";
+    flake-rebuild = "nh os switch --hostname ${hostname}";
+    flake-update = "nh os switch --hostname ${hostname} --update";
+    v = "nvim";
+    ls = "ls";
+    ll = "ls -l";
+    la = "ls -a";
+    lal = "ls -al";
+    ".." = "cd ..";
+    neofetch = "neofetch --off";
     "db" = "distrobox";
     "nv" = "nvim";
 
@@ -23,9 +23,8 @@
     "q" = "exit";
   };
 in {
-
   home.packages = with pkgs; [
-  carapace
+    carapace
   ];
 
   programs = {

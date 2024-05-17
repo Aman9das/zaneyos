@@ -1,5 +1,9 @@
-{ pkgs, config, lib, ... }:
 {
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   home.xdg = {
     enable = true;
 
@@ -13,8 +17,8 @@
         "x-scheme-handler/https" = ["vivaldi-stable.desktop"];
         "x-scheme-handler/about" = ["vivaldi-stable.desktop"];
         "x-scheme-handler/unknown" = ["vivaldi-stable.desktop"];
-        "x-scheme-handler/vivaldi" = [ "vivaldi-stable.desktop" ];
-        "inode/directory" = [ "nemo.desktop" ];
+        "x-scheme-handler/vivaldi" = ["vivaldi-stable.desktop"];
+        "inode/directory" = ["nemo.desktop"];
       };
     };
   };

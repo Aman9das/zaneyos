@@ -1,12 +1,16 @@
-{inputs, pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   home = {
     file."firefox-gnome-theme" = {
       target = ".mozilla/firefox/default/chrome/firefox-gnome-theme";
       source = pkgs.fetchFromGitHub {
-    "owner" = "rafaelmardojai";
-    "repo" = "thunderbird-gnome-theme";
-    "rev" = "c4eec329c464f3f89ab78a56a47eee6271ea9d19";
-    "hash" = "sha256-EACja6V2lNh67Xvmhr0eEM/VeqM7OlTTm/81LhRbsBE=";
+        "owner" = "rafaelmardojai";
+        "repo" = "thunderbird-gnome-theme";
+        "rev" = "c4eec329c464f3f89ab78a56a47eee6271ea9d19";
+        "hash" = "sha256-EACja6V2lNh67Xvmhr0eEM/VeqM7OlTTm/81LhRbsBE=";
       };
     };
   };

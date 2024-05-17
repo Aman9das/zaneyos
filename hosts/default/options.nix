@@ -1,7 +1,6 @@
 # PLEASE READ THE WIKI FOR DETERMINING
 # WHAT TO PUT HERE AS OPTIONS.
 # https://gitlab.com/Zaney/zaneyos/-/wikis/Setting-Options
-
 let
   setUsername = "defaultuser";
   setHostname = "nixos";
@@ -66,7 +65,7 @@ in {
 
   # Program Options
   browser = "firefox"; # Install & Set Default Browser
-  terminal = "kitty";  # Set Default System Terminal
+  terminal = "kitty"; # Set Default System Terminal
   distrobox = false;
   flatpak = false;
   kdenlive = false;
@@ -87,5 +86,4 @@ in {
 
   # Enable SyncThing
   syncthing = false;
-
 }

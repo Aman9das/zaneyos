@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   nerdfonts = pkgs.nerdfonts.override {
     fonts = [
       "JetBrainsMono"
@@ -41,7 +45,9 @@ in {
       gnome.adwaita-icon-theme
 
       libsForQt5.breeze-qt5
-      qt5ct qt6ct libsForQt5.qtstyleplugin-kvantum
+      qt5ct
+      qt6ct
+      libsForQt5.qtstyleplugin-kvantum
       libsForQt5.qt5.qtwayland
     ];
     sessionVariables = {
@@ -76,10 +82,10 @@ in {
     theme.name = theme.name;
     enable = true;
     gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme=1;
+      gtk-application-prefer-dark-theme = 1;
     };
     gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme=1;
+      gtk-application-prefer-dark-theme = 1;
     };
     gtk3.extraCss = ''
       headerbar, .titlebar,
@@ -94,40 +100,39 @@ in {
     enable = true;
     platformTheme.name = "qt5ct";
     style = {
-        name = "kvantum";
+      name = "kvantum";
     };
   };
 
   xdg = {
-      configFile = {
-        "qt5ct/qt5ct.conf".text = ''
-          [Appearance]
-          icon_theme=${iconTheme.name}
-          style=kvantum
+    configFile = {
+      "qt5ct/qt5ct.conf".text = ''
+        [Appearance]
+        icon_theme=${iconTheme.name}
+        style=kvantum
 
-          [Fonts]
-          fixed="JetBrainsMono NF"
-          general="Inter"
-        '';
+        [Fonts]
+        fixed="JetBrainsMono NF"
+        general="Inter"
+      '';
 
-          "qt6ct/qt6ct.conf".text = ''
-          [Appearance]
-          icon_theme=${iconTheme.name}
-          style=kvantum
+      "qt6ct/qt6ct.conf".text = ''
+        [Appearance]
+        icon_theme=${iconTheme.name}
+        style=kvantum
 
-          [Fonts]
-          fixed="JetBrainsMono NF"
-          general="Inter"
-        '';
+        [Fonts]
+        fixed="JetBrainsMono NF"
+        general="Inter"
+      '';
 
+      "Kvantum/kvantum.kvconfig".text = ''
+        theme=KvLibadwaitaDark
+      '';
 
-        "Kvantum/kvantum.kvconfig".text = ''
-          theme=KvLibadwaitaDark
-        '';
-
-        "Kvantum/KvLibadwaita".source = "${kvlibadwaita}/share/Kvantum/KvLibadwaita";
-      };
+      "Kvantum/KvLibadwaita".source = "${kvlibadwaita}/share/Kvantum/KvLibadwaita";
     };
+  };
 
   dconf = {
     enable = true;

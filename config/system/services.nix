@@ -1,12 +1,15 @@
-{ pkgs, config, lib, ... }:
-
 {
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   # List services that you want to enable:
   services.openssh.enable = true;
   services.fstrim.enable = true;
   xdg.portal = {
     enable = true;
-    extraPortals = [ 
+    extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal
     ];
@@ -55,7 +58,7 @@
   services.gvfs.enable = true;
   services.tumbler.enable = true;
   programs.dconf.enable = true;
-  services.gnome.gnome-keyring.enable=true;
+  services.gnome.gnome-keyring.enable = true;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;
@@ -65,7 +68,7 @@
     '';
   };
 
-   services.logind.extraConfig = ''
+  services.logind.extraConfig = ''
     # don’t shutdown when power button is short-pressed
     HandlePowerKey=suspend
   '';

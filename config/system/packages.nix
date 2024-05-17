@@ -1,32 +1,70 @@
-{ pkgs, config, inputs, ... }:
-
 {
+  pkgs,
+  config,
+  inputs,
+  ...
+}: {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List System Programs
   environment.systemPackages = with pkgs; [
-    wget curl git cmatrix lolcat neofetch htop btop libvirt
-    polkit_gnome lm_sensors unzip unrar libnotify eza
-    v4l-utils ydotool wl-clipboard socat cowsay lsd lshw
-    pkg-config meson hugo gnumake ninja go nodejs symbola
+    wget
+    curl
+    git
+    cmatrix
+    lolcat
+    neofetch
+    htop
+    btop
+    libvirt
+    polkit_gnome
+    lm_sensors
+    unzip
+    unrar
+    libnotify
+    eza
+    v4l-utils
+    ydotool
+    wl-clipboard
+    socat
+    cowsay
+    lsd
+    lshw
+    pkg-config
+    meson
+    hugo
+    gnumake
+    ninja
+    go
+    nodejs
+    symbola
     brightnessctl
-    virt-viewer swappy ripgrep appimage-run
-    networkmanagerapplet yad playerctl nh
-    xdg-terminal-exec rsync
+    virt-viewer
+    swappy
+    ripgrep
+    appimage-run
+    networkmanagerapplet
+    yad
+    playerctl
+    nh
+    xdg-terminal-exec
+    rsync
     pulseaudio
   ];
 
   fonts.packages = with pkgs; [
-  jetbrains-mono
-  noto-fonts-color-emoji material-icons font-awesome
-  (nerdfonts.override { fonts = [ "JetBrainsMono" "NerdFontsSymbolsOnly" ]; })
+    jetbrains-mono
+    noto-fonts-color-emoji
+    material-icons
+    font-awesome
+    (nerdfonts.override {fonts = ["JetBrainsMono" "NerdFontsSymbolsOnly"];})
   ];
 
   programs = {
     steam.gamescopeSession.enable = true;
     dconf.enable = true;
-    seahorse.enable=true;
+    seahorse.enable = true;
     hyprland = {
       enable = true;
       xwayland.enable = true;
@@ -45,7 +83,7 @@
   hardware.opentabletdriver.enable = true;
 
   services.xserver = {
-    excludePackages = with  pkgs; [ xterm ];
+    excludePackages = with pkgs; [xterm];
     desktopManager = {
       cinnamon.enable = true;
     };
