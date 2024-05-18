@@ -5,7 +5,7 @@
   host,
   ...
 }: let
-  palette = config.colorScheme.palette;
+  # palette = config.colorScheme.palette;
   inherit (import ../../hosts/${host}/options.nix) alacritty wezterm kitty;
 in
   lib.mkIf (wezterm

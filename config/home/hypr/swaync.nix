@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  palette = config.colorScheme.palette;
+  # palette = config.colorScheme.palette;
 in {
   home.file.".config/swaync/config.json".text = ''
         {
@@ -208,21 +208,21 @@ in {
         background: #1e1e1e;
         color: #fafafa;
         caret-color: #fafafa;
-        border: 1px solid #${palette.base09};
+        border: 1px solid #3584e4;
         border-radius: 5px
     }
 
     .inline-reply-button {
         margin-left: 4px;
         background: #1e1e1e;
-        border: 1px solid #${palette.base09};
+        border: 1px solid #3584e4;
         border-radius: 5px;
         color: #fafafa
     }
 
     .inline-reply-button:disabled {
         background: initial;
-        color: #${palette.base03};
+        color: #404040;
         border: 1px solid transparent
     }
 

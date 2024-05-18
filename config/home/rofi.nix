@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  palette = config.colorScheme.palette;
+  # palette = config.colorScheme.palette;
 in {
   home.file.".config/rofi/config.rasi".text = ''
     /**
@@ -110,9 +110,9 @@ in {
         border:                      2px solid;
         border-color:                @border-colour;
         cursor:                      "default";
-        /* Backgroud Colors */
+        /* Background Colors */
         background-color:            @background-colour;
-        /* Backgroud Image */
+        /* Background Image */
         //background-image:          url("/path/to/image.png", none);
         /* Simple Linear Gradient */
         //background-image:          linear-gradient(red, orange, pink, purple);

@@ -5,7 +5,7 @@
   host,
   ...
 }: let
-  palette = config.colorScheme.palette;
+  # palette = config.colorScheme.palette;
   inherit (import ../../hosts/${host}/options.nix) alacritty;
 in
   lib.mkIf (alacritty == true) {

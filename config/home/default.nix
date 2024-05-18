@@ -5,7 +5,7 @@
 }: {
   imports = [
     # Enable &/ Configure Programs
-    ./alacritty.nix
+    # ./alacritty.nix
     ./bash.nix
     ./gtk-qt.nix
     # ./hyprland.nix
@@ -17,11 +17,11 @@
     ./rofi.nix
     ./starship.nix
     # ./waybar.nix
-    ./wlogout.nix
+    # ./wlogout.nix
     # ./swappy.nix
-    ./swaylock.nix
+    # ./swaylock.nix
     # ./swaync.nix
-    ./wezterm.nix
+    # ./wezterm.nix
     # ./zeroad.nix
     ./zsh.nix
     ./nushell.nix

@@ -6,7 +6,7 @@
   host,
   ...
 }: let
-  theme = config.colorScheme.palette;
+  # theme = config.colorScheme.palette;
   wallpaper = "${pkgs.hyprpaper}/bin/hyprpaper";
   inherit
     (import ../../../hosts/${host}/options.nix)
@@ -149,9 +149,6 @@ in
               }
             }
             plugin {
-              hyprtrails {
-                color = rgba(${theme.base0A}ff)
-              }
             }
             exec-once = $POLKIT_BIN
             exec-once = dbus-update-activation-environment --systemd --all

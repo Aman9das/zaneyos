@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  palette = config.colorScheme.palette;
+  # palette = config.colorScheme.palette;
 in {
   programs.wlogout = {
     enable = true;
