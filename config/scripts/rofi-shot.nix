@@ -8,7 +8,7 @@ pkgs.writeShellScriptBin "rofi-shot" ''
   fi
 
   # Set screenshot directory
-  SCREENSHOT_DIR="$HOME/Pictures/Screenshots/"
+  SCREENSHOT_DIR="$HOME/pictures/Screenshots/"
   if [[ ! -d $SCREENSHOT_DIR ]]
   then
     mkdir -p "$SCREENSHOT_DIR"
