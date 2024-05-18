@@ -33,8 +33,8 @@ in {
     tokyo-night = pkgs.libsForQt5.callPackage ../pkgs/sddm-tokyo-night.nix {};
     where-is-my-sddm-theme = pkgs.libsForQt5.callPackage ../pkgs/where-is-my-sddm-theme.nix {};
   in [
-    sugar.sddm-sugar-dark # Name: sugar-dark
-    tokyo-night # Name: tokyo-night-sddm
+    # sugar.sddm-sugar-dark # Name: sugar-dark
+    # tokyo-night # Name: tokyo-night-sddm
     pkgs.libsForQt5.qt5.qtgraphicaleffects
 
     where-is-my-sddm-theme

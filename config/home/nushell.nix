@@ -53,7 +53,7 @@ in {
 
           table = {
             mode = "compact"; # compact thin rounded
-            index_mode = "always"; # alway never auto
+            index_mode = "always"; # always never auto
             header_on_separator = false;
           };
 
