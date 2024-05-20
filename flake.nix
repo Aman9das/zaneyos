@@ -5,18 +5,19 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+
     # nix-colors.url = "github:misterio77/nix-colors";
 
     # hyprwm
     # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
-    impermanence.url = "github:nix-community/impermanence";
+    # impermanence.url = "github:nix-community/impermanence";
   };
 
   outputs = inputs @ {
     nixpkgs,
     home-manager,
-    impermanence,
     ...
   }: let
     system = "x86_64-linux";
@@ -41,7 +42,7 @@
         };
         modules = [
           ./system.nix
-          impermanence.nixosModules.impermanence
+          # impermanence.nixosModules.impermanence
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = {

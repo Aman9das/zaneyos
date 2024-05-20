@@ -185,13 +185,8 @@ in
               ''
             }
             bind = ${modifier},E,exec,emopicker9000
-            bind = ${modifier},S,exec,rofi-shot
-            bind = ${modifier},D,exec,discord
             bind = ${modifier},O,exec,obs
-            bind = ${modifier},G,exec,gimp
-            bind = ${modifier}SHIFT,G,exec,godot4
             bind = ${modifier},T,exec,nemo
-            bind = ${modifier},M,exec,spotify
             bind = ${modifier},Q,killactive,
             bind = ${modifier},P,pseudo,
             bind = ${modifier}SHIFT,I,togglesplit,

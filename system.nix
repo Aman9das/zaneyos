@@ -62,6 +62,8 @@ in {
 
     NIX_LD = "/run/current-system/sw/share/nix-ld/lib/ld.so";
     NIX_LD_LIBRARY_PATH = "/run/current-system/sw/share/nix-ld/lib";
+
+    NIXOS_OZONE_WL = "1";
   };
 
   # Optimization settings and garbage collection automation
