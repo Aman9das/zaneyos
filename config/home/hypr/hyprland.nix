@@ -22,6 +22,8 @@
     sdl-videodriver
     extraMonitorSettings
     ;
+
+  hyprscroller = pkgs.callPackage ./hyprscroller.nix {};
 in
   with lib; {
     wayland.windowManager.hyprland = {
@@ -33,6 +35,7 @@ in
       };
       plugins = [
         # hyprplugins.hyprtrails
+        hyprscroller
       ];
       extraConfig = let
         modifier = "SUPER";
@@ -47,7 +50,7 @@ in
               border_size = 2
               col.active_border = rgba(3584e480)
               col.inactive_border = rgba(30303080)
-              layout = dwindle
+              layout = scroller
               resize_on_border = true
             }
 
@@ -93,10 +96,10 @@ in
               ''
             }
             gestures {
-              workspace_swipe = true
+             workspace_swipe = true
               workspace_swipe_fingers = 3
-              workspace_swipe_forever = true
-              workspace_swipe_direction_lock = false
+              # workspace_swipe_forever = true
+              # workspace_swipe_direction_lock = false
             }
             misc {
               mouse_move_enables_dpms = true
@@ -135,7 +138,7 @@ in
               ''
             }
               animation = fade, 1, 10, default
-              animation = workspaces, 1, 5, wind
+              animation = workspaces, 1, 5, wind, slidevert
             }
             decoration {
               rounding = 10
@@ -149,6 +152,10 @@ in
               }
             }
             plugin {
+              scroller {
+                column_default_width = twothirds
+                focus_wrap = true
+              }
             }
             exec-once = $POLKIT_BIN
             exec-once = dbus-update-activation-environment --systemd --all
@@ -185,30 +192,32 @@ in
               ''
             }
             bind = ${modifier},E,exec,emopicker9000
-            bind = ${modifier},O,exec,obs
             bind = ${modifier},T,exec,nemo
             bind = ${modifier},Q,killactive,
-            bind = ${modifier},P,pseudo,
-            bind = ${modifier}SHIFT,I,togglesplit,
+            # bind = ${modifier},P,pseudo,
             bind = ${modifier},F,fullscreen,
+            bind = ${modifier},M,fullscreen,1
             bind = ${modifier}SHIFT,F,togglefloating,
-            bind = ${modifier}SHIFT,C,exit,
-            bind = ${modifier}SHIFT,left,movewindow,l
-            bind = ${modifier}SHIFT,right,movewindow,r
-            bind = ${modifier}SHIFT,up,movewindow,u
-            bind = ${modifier}SHIFT,down,movewindow,d
-            bind = ${modifier}SHIFT,h,movewindow,l
-            bind = ${modifier}SHIFT,l,movewindow,r
-            bind = ${modifier}SHIFT,k,movewindow,u
-            bind = ${modifier}SHIFT,j,movewindow,d
-            bind = ${modifier},left,movefocus,l
-            bind = ${modifier},right,movefocus,r
-            bind = ${modifier},up,movefocus,u
-            bind = ${modifier},down,movefocus,d
-            bind = ${modifier},h,movefocus,l
-            bind = ${modifier},l,movefocus,r
-            bind = ${modifier},k,movefocus,u
-            bind = ${modifier},j,movefocus,d
+            bind = ${modifier}SHIFT,M,fullscreen,2
+            # bind = ${modifier}SHIFT,C,exit,
+            bind = ${modifier}SHIFT,I,scroller:admitwindow,
+            bind = ${modifier}SHIFT,O,scroller:expelwindow,
+            bind = ${modifier}SHIFT,left,scroller:movewindow,l
+            bind = ${modifier}SHIFT,right,scroller:movewindow,r
+            bind = ${modifier}SHIFT,up,scroller:movewindow,u
+            bind = ${modifier}SHIFT,down,scroller:movewindow,d
+            bind = ${modifier}SHIFT,h,scroller:movewindow,l
+            bind = ${modifier}SHIFT,l,scroller:movewindow,r
+            bind = ${modifier}SHIFT,k,scroller:movewindow,u
+            bind = ${modifier}SHIFT,j,scroller:movewindow,d
+            bind = ${modifier},left,scroller:movefocus,l
+            bind = ${modifier},right,scroller:movefocus,r
+            bind = ${modifier},up,scroller:movefocus,u
+            bind = ${modifier},down,scroller:movefocus,d
+            bind = ${modifier},h,scroller:movefocus,l
+            bind = ${modifier},l,scroller:movefocus,r
+            bind = ${modifier},k,scroller:movefocus,u
+            bind = ${modifier},j,scroller:movefocus,d
             bind = ${modifier},1,workspace,1
             bind = ${modifier},2,workspace,2
             bind = ${modifier},3,workspace,3

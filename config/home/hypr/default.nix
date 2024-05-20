@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./fusuma.nix
     ./hyprland.nix
     ./hypridle.nix
     ./hyprlock.nix
