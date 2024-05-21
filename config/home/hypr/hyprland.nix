@@ -23,11 +23,17 @@
     extraMonitorSettings
     ;
 
-  hyprscroller = pkgs.callPackage ./hyprscroller.nix {};
+  hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  plugins = inputs.hyprland-plugins.packages.${pkgs.system};
+  hyprscroller = pkgs.callPackage ./hyprscroller.nix {
+    inherit hyprland;
+    hyprlandPlugins = plugins;
+  };
 in
   with lib; {
     wayland.windowManager.hyprland = {
       enable = true;
+      package = hyprland;
       xwayland.enable = true;
       systemd = {
         enable = true;
@@ -36,6 +42,7 @@ in
       plugins = [
         # hyprplugins.hyprtrails
         hyprscroller
+        plugins.hyprexpo
       ];
       extraConfig = let
         modifier = "SUPER";
@@ -45,20 +52,20 @@ in
             monitor=,preferred,auto,1
             ${extraMonitorSettings}
             general {
-              gaps_in = 4
+              gaps_in = 2
               gaps_out = 4
               border_size = 2
               col.active_border = rgba(3584e480)
               col.inactive_border = rgba(30303080)
               layout = scroller
-              resize_on_border = true
+              resize_on_border = false
             }
 
             input {
               kb_layout = ${theKBDLayout}, ${theSecondKBDLayout}
              kb_options = grp:alt_shift_toggle
               kb_options=caps:swapescape
-              follow_mouse = 1
+             follow_mouse = 1
               touchpad {
                 natural_scroll = true
               }
@@ -143,18 +150,11 @@ in
             decoration {
               rounding = 10
               drop_shadow = false
-              blur {
-                  enabled = true
-                  size = 5
-                  passes = 3
-                  new_optimizations = on
-                  ignore_opacity = on
-              }
             }
             plugin {
               scroller {
                 column_default_width = twothirds
-                focus_wrap = true
+                focus_wrap = false
               }
             }
             exec-once = $POLKIT_BIN
@@ -163,6 +163,7 @@ in
             exec-once = ${wallpaper}
             exec-once = waybar
             exec-once = swaync
+            exec-once = fusuma
             exec-once = nm-applet --indicator
             exec-once = hypridle
             exec-once = wl-paste --type text --watch cliphist store #Stores only text data
@@ -195,10 +196,10 @@ in
             bind = ${modifier},T,exec,nemo
             bind = ${modifier},Q,killactive,
             # bind = ${modifier},P,pseudo,
-            bind = ${modifier},F,fullscreen,
+            bind = ${modifier},F,scroller:cyclesize,1
             bind = ${modifier},M,fullscreen,1
             bind = ${modifier}SHIFT,F,togglefloating,
-            bind = ${modifier}SHIFT,M,fullscreen,2
+            bind = ${modifier}SHIFT,M,fullscreen,0
             # bind = ${modifier}SHIFT,C,exit,
             bind = ${modifier}SHIFT,I,scroller:admitwindow,
             bind = ${modifier}SHIFT,O,scroller:expelwindow,

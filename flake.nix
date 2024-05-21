@@ -6,11 +6,17 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-
     # nix-colors.url = "github:misterio77/nix-colors";
 
     # hyprwm
-    # hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     # impermanence.url = "github:nix-community/impermanence";
   };
@@ -18,6 +24,7 @@
   outputs = inputs @ {
     nixpkgs,
     home-manager,
+    hyprland,
     ...
   }: let
     system = "x86_64-linux";

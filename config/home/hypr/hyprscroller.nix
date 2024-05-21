@@ -1,7 +1,7 @@
 {
   lib,
   hyprland,
-  # hyprlandPlugins,
+  hyprlandPlugins,
   pkgs,
   ...
 }:
@@ -12,8 +12,8 @@ pkgs.stdenv.mkDerivation {
   src = pkgs.fetchFromGitHub {
     owner = "dawsers";
     repo = "hyprscroller";
-    rev = "cdea7ef0065e310dd50cf0be461d99ebe4f1fc11";
-    sha256 = "sha256-e4kPx+7fIbyalULlFkAqAPVx9UsqcCX6bYuwYkis5Js=";
+    rev = "5c01aac850c21451a5697a6fd7959424b247fe6a";
+    sha256 = "sha256-gd0LyHbznXzX/Jgq8ra5oux7FuamCRyo8IzckTb70Eg=";
   };
 
   nativeBuildInputs = [
