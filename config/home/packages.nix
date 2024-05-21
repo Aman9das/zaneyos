@@ -58,7 +58,7 @@ in {
     # Import Scripts
     (import ./../scripts/emopicker9000.nix {inherit pkgs;})
     (import ./../scripts/task-waybar.nix {inherit pkgs;})
-    (import ./../scripts/squirtle.nix {inherit pkgs;})
+    # (import ./../scripts/squirtle.nix {inherit pkgs;})
     (import ./../scripts/wallsetter.nix {
       inherit pkgs;
       inherit wallpaperDir;
@@ -70,17 +70,18 @@ in {
       inherit flakeDir;
       inherit host;
     })
-    (import ./../scripts/theme-selector.nix {inherit pkgs;})
+    # (import ./../scripts/theme-selector.nix {inherit pkgs;})
     (import ./../scripts/nvidia-offload.nix {inherit pkgs;})
     (import ./../scripts/web-search.nix {inherit pkgs;})
     (import ./../scripts/rofi-exit.nix {inherit pkgs;})
     (import ./../scripts/rofi-shot.nix {inherit pkgs;})
     (import ./../scripts/rofi-launcher.nix {inherit pkgs;})
-    (import ./../scripts/screenshootin.nix {inherit pkgs;})
-    (import ./../scripts/list-hypr-bindings.nix {
-      inherit pkgs;
-      inherit host;
-    })
+    (import ./../scripts/scroller-center.nix {inherit pkgs;})
+    # (import ./../scripts/screenshootin.nix {inherit pkgs;})
+    # (import ./../scripts/list-hypr-bindings.nix {
+    #   inherit pkgs;
+    #   inherit host;
+    # })
   ];
 
   programs.gh.enable = true;

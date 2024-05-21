@@ -12,10 +12,10 @@
     extraPackages = with pkgs; [hyprland coreutils];
     settings = {
       threshold = {
-        swipe = 0.1;
+        swipe = 0.2;
       };
       interval = {
-        swipe = 0.7;
+        swipe = 1;
       };
       swipe = {
         "3" = {
@@ -24,6 +24,17 @@
           };
           right = {
             command = "hyprctl dispatch scroller:movefocus l";
+          };
+          down = {
+            command = "hyprctl dispatch workspace r-1";
+          };
+          up = {
+            command = "hyprctl dispatch workspace r+1";
+          };
+        };
+        "4" = {
+          up = {
+            command = "hyprctl dispatch hyprexpo:expo on";
           };
         };
       };

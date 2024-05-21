@@ -153,6 +153,26 @@
         "type": "github"
       }
     },
+    "hyprscroller": {
+      "inputs": {
+        "hyprland": [
+          "hyprland"
+        ]
+      },
+      "locked": {
+        "lastModified": 1715438148,
+        "narHash": "sha256-gd0LyHbznXzX/Jgq8ra5oux7FuamCRyo8IzckTb70Eg=",
+        "owner": "dawsers",
+        "repo": "hyprscroller",
+        "rev": "5c01aac850c21451a5697a6fd7959424b247fe6a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "dawsers",
+        "repo": "hyprscroller",
+        "type": "github"
+      }
+    },
     "hyprwayland-scanner": {
       "inputs": {
         "nixpkgs": [
@@ -199,6 +219,7 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
+        "hyprscroller": "hyprscroller",
         "nixpkgs": "nixpkgs"
       }
     },

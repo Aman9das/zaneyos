@@ -17,6 +17,10 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    hyprscroller = {
+      url = "github:dawsers/hyprscroller";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     # impermanence.url = "github:nix-community/impermanence";
   };

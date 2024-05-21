@@ -32,6 +32,9 @@ in
             format-window-separator = " ";
             window-rewrite-default = "󰙵";
             window-rewrite = import ./waybar-app-icons.nix;
+            persistent-workspaces = {
+              "*" = 9;
+            };
           };
           "clock" = {
             format =

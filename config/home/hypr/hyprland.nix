@@ -25,10 +25,7 @@
 
   hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
   plugins = inputs.hyprland-plugins.packages.${pkgs.system};
-  hyprscroller = pkgs.callPackage ./hyprscroller.nix {
-    inherit hyprland;
-    hyprlandPlugins = plugins;
-  };
+  hyprscroller = inputs.hyprscroller.packages.${pkgs.system}.default;
 in
   with lib; {
     wayland.windowManager.hyprland = {
@@ -65,7 +62,7 @@ in
               kb_layout = ${theKBDLayout}, ${theSecondKBDLayout}
              kb_options = grp:alt_shift_toggle
               kb_options=caps:swapescape
-             follow_mouse = 1
+             follow_mouse = 2
               touchpad {
                 natural_scroll = true
               }
@@ -83,7 +80,7 @@ in
             env = QT_QPA_PLATFORM, wayland
             env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
             env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
-            env = WLR_NO_HARDWARE_CURSORS,1
+            # env = WLR_NO_HARDWARE_CURSORS,1
             env = MOZ_ENABLE_WAYLAND, 1
             ${
               if cpuType == "vm"
@@ -103,8 +100,9 @@ in
               ''
             }
             gestures {
-             workspace_swipe = true
+              # workspace_swipe = true
               workspace_swipe_fingers = 3
+              workspace_swipe_cancel_ratio = 0.6
               # workspace_swipe_forever = true
               # workspace_swipe_direction_lock = false
             }
@@ -123,6 +121,11 @@ in
               }
             binds {
                 allow_workspace_cycles = true
+              }
+            cursor {
+                hotspot_padding = 4
+                inactive_timeout = 30
+                # no_warps = true
               }
             animations {
               enabled = yes
@@ -156,7 +159,14 @@ in
                 column_default_width = twothirds
                 focus_wrap = false
               }
+              hyprexpo {
+                bg_col = rgb(303030)
+                # enable_gesture = true
+                workspace_method = first 1
+                gesture_positive = false
+                }
             }
+
             exec-once = $POLKIT_BIN
             exec-once = dbus-update-activation-environment --systemd --all
             exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -164,6 +174,7 @@ in
             exec-once = waybar
             exec-once = swaync
             exec-once = fusuma
+            exec-once = scroller-center
             exec-once = nm-applet --indicator
             exec-once = hypridle
             exec-once = wl-paste --type text --watch cliphist store #Stores only text data
@@ -254,16 +265,16 @@ in
             bind = ALT,Tab,bringactivetotop
             bind = ,Print,exec,rofi-shot
             bind = SHIFT, Print, exec, sleep 0.5 && grimblast --freeze --notify copysave output $HOME/Pictures/Screenshots/$(date +%Y-%m-%d-T-%H-%M-%S).png
-            bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-            bind = ,XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-            binde = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-            binde = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
-            bind = ,XF86AudioPlay, exec, playerctl play-pause
-            bind = ,XF86AudioPause, exec, playerctl play-pause
-            bind = ,XF86AudioNext, exec, playerctl next
-            bind = ,XF86AudioPrev, exec, playerctl previous
-            bind = ,XF86MonBrightnessDown,exec,brightnessctl set 5%-
-            bind = ,XF86MonBrightnessUp,exec,brightnessctl set +5%
+            bindel = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+            bindel = ,XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+            bindl = ,XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+            bindl = ,XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+            bindl = ,XF86AudioPlay, exec, playerctl play-pause
+            bindl = ,XF86AudioPause, exec, playerctl play-pause
+            bindl = ,XF86AudioNext, exec, playerctl next
+            bindl = ,XF86AudioPrev, exec, playerctl previous
+            bindl = ,XF86MonBrightnessDown,exec,brightnessctl set 5%-
+            bindl = ,XF86MonBrightnessUp,exec,brightnessctl set +5%
           ''
         ];
     };
