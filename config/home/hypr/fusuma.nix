@@ -33,9 +33,9 @@
           };
         };
         "4" = {
-          up = {
-            command = "hyprctl dispatch hyprexpo:expo toggle";
-          };
+          # down = {
+          #   command = "hyprctl dispatch hyprexpo:expo off";
+          # };
         };
       };
     };

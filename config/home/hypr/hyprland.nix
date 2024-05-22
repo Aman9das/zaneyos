@@ -161,7 +161,7 @@ in
               }
               hyprexpo {
                 bg_col = rgb(303030)
-                enable_gesture = false
+                # enable_gesture = false
                 workspace_method = first 1
                 gesture_positive = false
                 }
@@ -190,7 +190,7 @@ in
             bind = ${modifier},SUPER_L,exec,rofi-launcher
             bind = ${modifier}, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
             bind = ${modifier},Return,exec,${terminal}
-            bind = ${modifier}SHIFT,Return,exec,rofi-launcher
+            bind = ${modifier}SHIFT, SUPER_L, hyprexpo:expo, toggle
             bind = ${modifier}SHIFT,Q,exec,rofi-exit
             bind = ${modifier}SHIFT,W,exec,web-search
             bind = ${modifier},N,exec,swaync-client -t
@@ -207,7 +207,7 @@ in
             bind = ${modifier},T,exec,nemo
             bind = ${modifier},Q,killactive,
             # bind = ${modifier},P,pseudo,
-            bind = ${modifier},F,scroller:cyclesize,1
+            bind = ${modifier},F,scroller:cyclesize,-1
             bind = ${modifier},M,fullscreen,1
             bind = ${modifier}SHIFT,F,togglefloating,
             bind = ${modifier}SHIFT,M,fullscreen,0
@@ -252,10 +252,10 @@ in
             bind = ${modifier}SHIFT,8,movetoworkspace,8
             bind = ${modifier}SHIFT,9,movetoworkspace,9
             bind = ${modifier}SHIFT,0,movetoworkspace,10
-            bind = ${modifier}CONTROL,right,workspace,e+1
-            bind = ${modifier}CONTROL,left,workspace,e-1
-            bind = ${modifier},mouse_down,workspace, e+1
-            bind = ${modifier},mouse_up,workspace, e-1
+            bind = ${modifier}CONTROL,down,workspace,r+1
+            bind = ${modifier}CONTROL,up,workspace,r-1
+            bind = ${modifier},mouse_down,workspace, r+1
+            bind = ${modifier},mouse_up,workspace, r-1
             bindm = ${modifier},mouse:272,movewindow
             bindm = ${modifier},mouse:273,resizewindow
             bind = ${modifier},Tab,workspace,previous
@@ -273,8 +273,8 @@ in
             bindl = ,XF86AudioPause, exec, playerctl play-pause
             bindl = ,XF86AudioNext, exec, playerctl next
             bindl = ,XF86AudioPrev, exec, playerctl previous
-            bindl = ,XF86MonBrightnessDown,exec,brightnessctl set 5%-
-            bindl = ,XF86MonBrightnessUp,exec,brightnessctl set +5%
+            bindel = ,XF86MonBrightnessDown,exec,brightnessctl set 5%-
+            bindel = ,XF86MonBrightnessUp,exec,brightnessctl set +5%
           ''
         ];
     };

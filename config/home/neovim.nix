@@ -7,6 +7,8 @@
   home.packages = with pkgs; [
     nil
     alejandra
+    marksman
+    icu
   ];
 
   programs.neovim = {
@@ -36,6 +38,9 @@
       codeium
 
       black
+      (pkgs.python3.withPackages (python-pkgs: [
+        python-pkgs.pip
+      ]))
 
       #nix
       nil

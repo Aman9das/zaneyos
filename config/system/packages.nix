@@ -33,6 +33,7 @@
     lshw
     pkg-config
     meson
+    libgccjit
     hugo
     gnumake
     ninja
