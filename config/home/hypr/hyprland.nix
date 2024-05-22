@@ -39,7 +39,7 @@ in
       plugins = [
         # hyprplugins.hyprtrails
         hyprscroller
-        plugins.hyprexpo
+        # plugins.hyprexpo
       ];
       extraConfig = let
         modifier = "SUPER";
@@ -161,7 +161,7 @@ in
               }
               hyprexpo {
                 bg_col = rgb(303030)
-                # enable_gesture = false
+                enable_gesture = false
                 workspace_method = first 1
                 gesture_positive = false
                 }
@@ -190,7 +190,7 @@ in
             bind = ${modifier},SUPER_L,exec,rofi-launcher
             bind = ${modifier}, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
             bind = ${modifier},Return,exec,${terminal}
-            bind = ${modifier}SHIFT, SUPER_L, hyprexpo:expo, toggle
+            # bind = ${modifier}SHIFT, SUPER_L, hyprexpo:expo, toggle
             bind = ${modifier}SHIFT,Q,exec,rofi-exit
             bind = ${modifier}SHIFT,W,exec,web-search
             bind = ${modifier},N,exec,swaync-client -t
@@ -239,9 +239,9 @@ in
             bind = ${modifier},7,workspace,7
             bind = ${modifier},8,workspace,8
             bind = ${modifier},9,workspace,9
-            bind = ${modifier},0,workspace,10
-            bind = ${modifier}SHIFT,SPACE,movetoworkspace,special
-            bind = ${modifier},SPACE,togglespecialworkspace
+            bind = ${modifier},0,togglespecialworkspace
+            # bind = ${modifier}SHIFT,SPACE,
+            bind = ${modifier},SPACE,scroller:toggleoverview
             bind = ${modifier}SHIFT,1,movetoworkspace,1
             bind = ${modifier}SHIFT,2,movetoworkspace,2
             bind = ${modifier}SHIFT,3,movetoworkspace,3
@@ -251,16 +251,17 @@ in
             bind = ${modifier}SHIFT,7,movetoworkspace,7
             bind = ${modifier}SHIFT,8,movetoworkspace,8
             bind = ${modifier}SHIFT,9,movetoworkspace,9
-            bind = ${modifier}SHIFT,0,movetoworkspace,10
             bind = ${modifier}CONTROL,down,workspace,r+1
             bind = ${modifier}CONTROL,up,workspace,r-1
             bind = ${modifier},mouse_down,workspace, r+1
             bind = ${modifier},mouse_up,workspace, r-1
+            bind = ${modifier}SHIFT,0,movetoworkspace,special
             bindm = ${modifier},mouse:272,movewindow
             bindm = ${modifier},mouse:273,resizewindow
+            bindm = ${modifier}SHIFT,mouse:272,resizewindow
             bind = ${modifier},Tab,workspace,previous
-            bind = ${modifier},Prior,workspace,e-1
-            bind = ${modifier},Next,workspace,e+1
+            bind = ${modifier},Prior,workspace,r-1
+            bind = ${modifier},Next,workspace,r+1
             bind = ALT,Tab,cyclenext
             bind = ALT,Tab,bringactivetotop
             bind = ,Print,exec,rofi-shot
