@@ -157,11 +157,11 @@ in
             plugin {
               scroller {
                 column_default_width = twothirds
-                focus_wrap = false
+                focus_wrap = true
               }
               hyprexpo {
                 bg_col = rgb(303030)
-                # enable_gesture = true
+                enable_gesture = false
                 workspace_method = first 1
                 gesture_positive = false
                 }

@@ -34,7 +34,7 @@
         };
         "4" = {
           up = {
-            command = "hyprctl dispatch hyprexpo:expo on";
+            command = "hyprctl dispatch hyprexpo:expo toggle";
           };
         };
       };
