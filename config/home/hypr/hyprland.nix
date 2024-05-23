@@ -28,13 +28,16 @@
   hyprscroller = inputs.hyprscroller.packages.${pkgs.system}.default;
 in
   with lib; {
+    home.packages = with pkgs; [
+      hyprnome
+    ];
     wayland.windowManager.hyprland = {
       enable = true;
       package = hyprland;
       xwayland.enable = true;
       systemd = {
         enable = true;
-        enableXdgAutostart = true;
+        enableXdgAutostart = false;
       };
       plugins = [
         # hyprplugins.hyprtrails
@@ -63,6 +66,7 @@ in
              kb_options = grp:alt_shift_toggle
               kb_options=caps:swapescape
              follow_mouse = 2
+             # mouse_refocus = false
               touchpad {
                 natural_scroll = true
               }
@@ -112,6 +116,7 @@ in
               disable_hyprland_logo = true
               disable_splash_rendering = true
               focus_on_activate = true
+              vfr = true
             }
             rules {
               layerrule = animation popin 80%, rofi$
@@ -120,7 +125,7 @@ in
               windowrulev2 = workspace special silent, title:^(Firefox — Sharing Indicator)$
               }
             binds {
-                allow_workspace_cycles = true
+                # allow_workspace_cycles = true
               }
             cursor {
                 hotspot_padding = 4
@@ -153,6 +158,7 @@ in
             decoration {
               rounding = 10
               drop_shadow = false
+              # blur = false
             }
             plugin {
               scroller {
@@ -166,19 +172,21 @@ in
                 gesture_positive = false
                 }
             }
+            exec-once = hyprctl dispatch workspace 5000000
 
-            exec-once = $POLKIT_BIN
-            exec-once = dbus-update-activation-environment --systemd --all
-            exec-once = systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-            exec-once = ${wallpaper}
-            exec-once = waybar
-            exec-once = swaync
-            exec-once = fusuma
-            exec-once = scroller-center
-            exec-once = nm-applet --indicator
-            exec-once = hypridle
-            exec-once = wl-paste --type text --watch cliphist store #Stores only text data
-            exec-once = wl-paste --type image --watch cliphist store #Stores only image data
+            exec-once = [workspace current silent] $POLKIT_BIN
+            exec-once = [workspace current silent] dbus-update-activation-environment --systemd --all
+            exec-once = [workspace current silent] systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+            exec-once = [workspace current silent] ${wallpaper}
+            exec-once = [pin] waybar
+            exec-once = [workspace current silent] swaync
+            exec-once = [workspace current silent] fusuma
+            exec-once = [workspace current silent] scroller-center
+            exec-once = [workspace current silent] nm-applet --indicator
+            exec-once = [workspace current silent] hypridle
+            exec-once = [workspace current silent] wl-paste --type text --watch cliphist store #Stores only text data
+            exec-once = [workspace current silent] wl-paste --type image --watch cliphist store #Stores only image data
+            exec-once = [workspace current silent] ferdium
             dwindle {
               pseudotile = true
               preserve_split = true
@@ -212,56 +220,45 @@ in
             bind = ${modifier}SHIFT,F,togglefloating,
             bind = ${modifier}SHIFT,M,fullscreen,0
             # bind = ${modifier}SHIFT,C,exit,
-            bind = ${modifier}SHIFT,I,scroller:admitwindow,
-            bind = ${modifier}SHIFT,O,scroller:expelwindow,
+            # bind = ${modifier}SHIFT,I,scroller:admitwindow,
+            # bind = ${modifier}SHIFT,O,scroller:expelwindow,
             bind = ${modifier}SHIFT,left,scroller:movewindow,l
             bind = ${modifier}SHIFT,right,scroller:movewindow,r
-            bind = ${modifier}SHIFT,up,scroller:movewindow,u
-            bind = ${modifier}SHIFT,down,scroller:movewindow,d
+            bind = ${modifier}SHIFT,up,exec, hyprnome --previous --move
+            bind = ${modifier}SHIFT,down,exec, hyprnome --move
             bind = ${modifier}SHIFT,h,scroller:movewindow,l
             bind = ${modifier}SHIFT,l,scroller:movewindow,r
-            bind = ${modifier}SHIFT,k,scroller:movewindow,u
-            bind = ${modifier}SHIFT,j,scroller:movewindow,d
+            bind = ${modifier}SHIFT,k,exec, hyprnome --previous --move
+            bind = ${modifier}SHIFT,j,exec, hyprnome --move
             bind = ${modifier},left,scroller:movefocus,l
             bind = ${modifier},right,scroller:movefocus,r
-            bind = ${modifier},up,scroller:movefocus,u
-            bind = ${modifier},down,scroller:movefocus,d
+            bind = ${modifier},up,exec, hyprnome --previous
+            bind = ${modifier},down,exec, hyprnome
             bind = ${modifier},h,scroller:movefocus,l
             bind = ${modifier},l,scroller:movefocus,r
-            bind = ${modifier},k,scroller:movefocus,u
-            bind = ${modifier},j,scroller:movefocus,d
-            bind = ${modifier},1,workspace,1
-            bind = ${modifier},2,workspace,2
-            bind = ${modifier},3,workspace,3
-            bind = ${modifier},4,workspace,4
-            bind = ${modifier},5,workspace,5
-            bind = ${modifier},6,workspace,6
-            bind = ${modifier},7,workspace,7
-            bind = ${modifier},8,workspace,8
-            bind = ${modifier},9,workspace,9
+            bind = ${modifier},k,exec, hyprnome --previous
+            bind = ${modifier},j,exec, hyprnome
+            bind = ${modifier}, 1, exec, hyprnome --previous
+            bind = ${modifier}, 2, exec, hyprnome
+            bind = ${modifier}SHIFT, 1, exec, hyprnome --previous --move
+            bind = ${modifier}SHIFT, 2, exec, hyprnome --move
             bind = ${modifier},0,togglespecialworkspace
             # bind = ${modifier}SHIFT,SPACE,
             bind = ${modifier},SPACE,scroller:toggleoverview
-            bind = ${modifier}SHIFT,1,movetoworkspace,1
-            bind = ${modifier}SHIFT,2,movetoworkspace,2
-            bind = ${modifier}SHIFT,3,movetoworkspace,3
-            bind = ${modifier}SHIFT,4,movetoworkspace,4
-            bind = ${modifier}SHIFT,5,movetoworkspace,5
-            bind = ${modifier}SHIFT,6,movetoworkspace,6
-            bind = ${modifier}SHIFT,7,movetoworkspace,7
-            bind = ${modifier}SHIFT,8,movetoworkspace,8
-            bind = ${modifier}SHIFT,9,movetoworkspace,9
-            bind = ${modifier}CONTROL,down,workspace,r+1
-            bind = ${modifier}CONTROL,up,workspace,r-1
-            bind = ${modifier},mouse_down,workspace, r+1
-            bind = ${modifier},mouse_up,workspace, r-1
+            bind = ${modifier}CONTROL,down,exec, hyprnome
+            bind = ${modifier}CONTROL,up,exec, hyprnome --previous
+            bind = ${modifier},mouse_down,exec, hyprnome
+            bind = ${modifier},mouse_up,exec, hyprnome --previous
             bind = ${modifier}SHIFT,0,movetoworkspace,special
             bindm = ${modifier},mouse:272,movewindow
             bindm = ${modifier},mouse:273,resizewindow
             bindm = ${modifier}SHIFT,mouse:272,resizewindow
-            bind = ${modifier},Tab,workspace,previous
-            bind = ${modifier},Prior,workspace,r-1
-            bind = ${modifier},Next,workspace,r+1
+            bind = ${modifier},Tab,exec, hyprnome --cycle
+            bind = ${modifier}SHIFT,Tab,exec, hyprnome --previous --cycle
+            bind = ${modifier},Prior,exec, hyprnome --previous
+            bind = ${modifier},Next,exec, hyprnome
+            bind = ${modifier}SHIFT,Prior,exec, hyprnome --previous --move
+            bind = ${modifier}SHIFT,Next,exec, hyprnome --move
             bind = ALT,Tab,cyclenext
             bind = ALT,Tab,bringactivetotop
             bind = ,Print,exec,rofi-shot
@@ -276,6 +273,9 @@ in
             bindl = ,XF86AudioPrev, exec, playerctl previous
             bindel = ,XF86MonBrightnessDown,exec,brightnessctl set 5%-
             bindel = ,XF86MonBrightnessUp,exec,brightnessctl set +5%
+
+            workspace = 5000000, default:true
+            workspace = 1, monitor:false
           ''
         ];
     };

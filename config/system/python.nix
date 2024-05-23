@@ -10,6 +10,7 @@
     with ps; [
       pandas
       requests
+      ipython
     ];
 in
   lib.mkIf (python == true) {

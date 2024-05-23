@@ -25,10 +25,10 @@ in
 
           "hyprland/workspaces" = {
             format-icons = {
-              default = ": ";
-              empty = "";
+              default = " ";
+              empty = " ";
             };
-            format = "{name}{icon}{windows}";
+            format = "{icon}{windows}{icon}";
             format-window-separator = " ";
             window-rewrite-default = "󰙵";
             window-rewrite = import ./waybar-app-icons.nix;
@@ -56,13 +56,14 @@ in
           };
           "hyprland/window" = {
             max-length = 36;
-            icons = true;
+            # icons = true;
             icon-size = 16;
             separate-outputs = false;
             rewrite = {
               "" = " Desktop ";
             };
             format = "{title}";
+            tooltip = true;
             on-click = "rofi-launcher";
           };
           "group/groupcpu" = {
@@ -88,7 +89,7 @@ in
             interval = 5;
             format = " {usage}%";
             tooltip = true;
-            on-click = "kitty btop";
+            on-click = "hyprctl dispatch exec [workspace current] xdg-terminal-exec btop";
           };
           "disk" = {
             format = " {percentage_used}%";
@@ -125,7 +126,7 @@ in
               car = "";
               default = ["" "" ""];
             };
-            on-click = "sleep 0.1 && pavucontrol";
+            on-click = "hyprctl dispatch exec [workspace current] pavucontrol";
           };
           "custom/themeselector" = {
             tooltip = false;
@@ -248,6 +249,10 @@ in
           window#waybar.empty, window#waybar.floating {
               background: transparent;
               background-color: transparent;
+          }
+
+          #idle_inhibitor {
+              font-size: 16px;
           }
 
           #workspaces {

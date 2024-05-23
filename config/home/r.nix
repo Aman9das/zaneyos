@@ -17,6 +17,8 @@ with pkgs; let
     ISLR2
     languageserversetup
     languageserver
+    learnr
+    shiny
   ];
   my-rstudio = pkgs.rstudio.overrideAttrs (
     finalAttrs: previousAttrs: {

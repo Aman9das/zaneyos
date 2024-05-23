@@ -28,16 +28,24 @@
             command = "hyprctl dispatch scroller:movefocus l";
           };
           down = {
-            command = "hyprctl dispatch workspace r-1";
+            command = "hyprnome --previous";
           };
           up = {
-            command = "hyprctl dispatch workspace r+1";
+            command = "hyprnome";
           };
         };
         "4" = {
-          up = {
-            # command = "hyprctl dispatch hyprexpo:expo on";
-            threshold = 1;
+          left = {
+            sendkey = "LEFTALT+LEFT"; # history back
+            # command = "xdotool key Alt_L+Left";
+            # threshold = 1;
+          };
+        };
+        "4" = {
+          right = {
+            sendkey = "LEFTALT+RIGHT"; # history forward
+            # command = "xdotool key Alt_L+Right";
+            # threshold = 1;
           };
         };
       };

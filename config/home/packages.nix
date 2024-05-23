@@ -43,10 +43,6 @@ in {
     monophony
     ferdium
     gnome.gnome-disk-utility
-    (makeAutostartItem {
-      name = "ferdium";
-      package = ferdium;
-    })
     libsForQt5.dolphin
 
     vscode-fhs
