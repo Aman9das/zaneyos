@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nur.url = "github:nix-community/NUR";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -29,6 +31,7 @@
     nixpkgs,
     home-manager,
     hyprland,
+    nur,
     ...
   }: let
     system = "x86_64-linux";
@@ -55,6 +58,9 @@
           ./system.nix
           # impermanence.nixosModules.impermanence
           home-manager.nixosModules.home-manager
+
+          nur.nixosModules.nur
+
           {
             home-manager.extraSpecialArgs = {
               inherit username;

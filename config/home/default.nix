@@ -31,6 +31,9 @@
     # Place Home Files Like Pictures
     ./files.nix
 
+    # community repo
+    ./nur.nix
+
     ./r.nix
     # ./vivaldi.nix
     ./rust.nix

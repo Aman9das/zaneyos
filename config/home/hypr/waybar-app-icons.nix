@@ -31,7 +31,7 @@
   "class<libreoffice-impress>" = "㧰";
   "class<libreoffice-math>" = "㧱";
   "class<libreoffice-writer>" = "㧲";
-  "class<libreoffice-.*>" = "㧬";
+  "class<libreoffice.*>" = "㧬";
   "class<.*xournalpp.*>" = "";
   "class<calibre-gui>" = "󰮩";
   "class<org.telegram.desktop>" = "㹺";

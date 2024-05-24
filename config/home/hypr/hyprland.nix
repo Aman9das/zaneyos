@@ -215,52 +215,60 @@ in
             bind = ${modifier},T,exec,nemo
             bind = ${modifier},Q,killactive,
             # bind = ${modifier},P,pseudo,
+
             bind = ${modifier},F,scroller:cyclesize,-1
             bind = ${modifier},M,fullscreen,1
             bind = ${modifier}SHIFT,F,togglefloating,
             bind = ${modifier}SHIFT,M,fullscreen,0
-            # bind = ${modifier}SHIFT,C,exit,
+            bind = ${modifier}SHIFT,C,exit,
+
             # bind = ${modifier}SHIFT,I,scroller:admitwindow,
             # bind = ${modifier}SHIFT,O,scroller:expelwindow,
+            bind = ${modifier},left,scroller:alignwindow,l
+            bind = ${modifier},right,scroller:alignwindow,r
+            bind = ${modifier},up, fullscreen,1
+            bind = ${modifier},down, togglefloating,
             bind = ${modifier}SHIFT,left,scroller:movewindow,l
             bind = ${modifier}SHIFT,right,scroller:movewindow,r
             bind = ${modifier}SHIFT,up,exec, hyprnome --previous --move
             bind = ${modifier}SHIFT,down,exec, hyprnome --move
-            bind = ${modifier}SHIFT,h,scroller:movewindow,l
-            bind = ${modifier}SHIFT,l,scroller:movewindow,r
-            bind = ${modifier}SHIFT,k,exec, hyprnome --previous --move
-            bind = ${modifier}SHIFT,j,exec, hyprnome --move
-            bind = ${modifier},left,scroller:movefocus,l
-            bind = ${modifier},right,scroller:movefocus,r
-            bind = ${modifier},up,exec, hyprnome --previous
-            bind = ${modifier},down,exec, hyprnome
             bind = ${modifier},h,scroller:movefocus,l
             bind = ${modifier},l,scroller:movefocus,r
             bind = ${modifier},k,exec, hyprnome --previous
             bind = ${modifier},j,exec, hyprnome
+            bind = ${modifier}CONTROL,up,exec, hyprnome --previous
+            bind = ${modifier}CONTROL,down,exec, hyprnome
+            bind = ${modifier}SHIFT,h,scroller:movewindow,l
+            bind = ${modifier}SHIFT,l,scroller:movewindow,r
+            bind = ${modifier}SHIFT,k,exec, hyprnome --previous --move
+            bind = ${modifier}SHIFT,j,exec, hyprnome --move
+
             bind = ${modifier}, 1, exec, hyprnome --previous
             bind = ${modifier}, 2, exec, hyprnome
             bind = ${modifier}SHIFT, 1, exec, hyprnome --previous --move
             bind = ${modifier}SHIFT, 2, exec, hyprnome --move
+
             bind = ${modifier},0,togglespecialworkspace
-            # bind = ${modifier}SHIFT,SPACE,
+            bind = ${modifier}SHIFT,0,movetoworkspace,special
             bind = ${modifier},SPACE,scroller:toggleoverview
-            bind = ${modifier}CONTROL,down,exec, hyprnome
-            bind = ${modifier}CONTROL,up,exec, hyprnome --previous
+            bind = ${modifier}SHIFT,SPACE,movetoworkspace,current
+
             bind = ${modifier},mouse_down,exec, hyprnome
             bind = ${modifier},mouse_up,exec, hyprnome --previous
-            bind = ${modifier}SHIFT,0,movetoworkspace,special
             bindm = ${modifier},mouse:272,movewindow
             bindm = ${modifier},mouse:273,resizewindow
             bindm = ${modifier}SHIFT,mouse:272,resizewindow
             bind = ${modifier},Tab,exec, hyprnome --cycle
             bind = ${modifier}SHIFT,Tab,exec, hyprnome --previous --cycle
+
             bind = ${modifier},Prior,exec, hyprnome --previous
             bind = ${modifier},Next,exec, hyprnome
             bind = ${modifier}SHIFT,Prior,exec, hyprnome --previous --move
             bind = ${modifier}SHIFT,Next,exec, hyprnome --move
+
             bind = ALT,Tab,cyclenext
             bind = ALT,Tab,bringactivetotop
+
             bind = ,Print,exec,rofi-shot
             bind = SHIFT, Print, exec, sleep 0.5 && grimblast --freeze --notify copysave output $HOME/Pictures/Screenshots/$(date +%Y-%m-%d-T-%H-%M-%S).png
             bindel = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
@@ -273,9 +281,6 @@ in
             bindl = ,XF86AudioPrev, exec, playerctl previous
             bindel = ,XF86MonBrightnessDown,exec,brightnessctl set 5%-
             bindel = ,XF86MonBrightnessUp,exec,brightnessctl set +5%
-
-            workspace = 5000000, default:true
-            workspace = 1, monitor:false
           ''
         ];
     };
