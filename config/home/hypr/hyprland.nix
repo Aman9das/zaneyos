@@ -119,6 +119,7 @@ in
               vfr = true
             }
             rules {
+              layerrule = blur, waybar
               layerrule = animation popin 80%, rofi$
               windowrule = tile, ^(Vivaldi-stable)$
               windowrulev2 = workspace special silent, title:^(.*is sharing (your screen|a window)\.)$

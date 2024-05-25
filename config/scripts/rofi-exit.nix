@@ -20,6 +20,12 @@ pkgs.writeShellScriptBin "rofi-exit" ''
   yes=' Yes'
   no=' No'
 
+  # Close Applications
+  exit_apps() {
+    HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
+    hyprctl --batch "$HYPRCMDS" 2>&1
+  }
+
   # Rofi CMD
   rofi_cmd() {
   	rofi -dmenu \
@@ -50,14 +56,17 @@ pkgs.writeShellScriptBin "rofi-exit" ''
   	selected="$(confirm_exit)"
   	if [[ "$selected" == "$yes" ]]; then
   		if [[ $1 == '--shutdown' ]]; then
+        exit_apps
   			sleep 0.1 && systemctl poweroff
   		elif [[ $1 == '--reboot' ]]; then
+        exit_apps
   			sleep 0.1 && systemctl reboot
   		elif [[ $1 == '--hibernate' ]]; then
   			sleep 0.1 && systemctl hibernate
   		elif [[ $1 == '--suspend' ]]; then
   			sleep 0.1 && systemctl suspend
   		elif [[ $1 == '--logout' ]]; then
+        exit_apps
   			sleep 0.1 && hyprctl dispatch exit
   		fi
   	else

@@ -201,8 +201,7 @@ in
           #tray, #custom-notification, #pulseaudio, #custom-startmenu,
           #custom-exit, #custom-themeselector, #idle_inhibitor, #temperature,
           #group-groupcpu {
-              margin: 4px;
-              margin-bottom: 4px;
+              margin: 0 2px 1px 2px;
               background-color: #1e1e1e; /* Base */
               border-radius: 10px;
               padding: 2px 10px;
@@ -242,7 +241,8 @@ in
           }
 
           window#waybar {
-              background-color: #000000;
+              background: transparent;
+              background-color: transparent;
               color: #fafafa; /* Text */
           }
 
@@ -258,10 +258,8 @@ in
           #workspaces {
               background-color: #1e1e1e; /* Base */
               border-radius: 10px;
-              margin: 0px;
+              margin: 0 2px 1px 2px;
               padding: 0px 0px;
-              margin-bottom: 2px;
-              border: 1px solid #383838;
               transition: all 150ms ease;
               font-family: JetBrains Mono, Simple Icons, font-logos, Symbols Nerd Font, 'Font Awesome 6 Brands', Material Icons, devicon, 'Font Awesome 6 Free', sans-serif;
           }
