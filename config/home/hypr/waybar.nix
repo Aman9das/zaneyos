@@ -64,6 +64,7 @@ in
             };
             format = "{title}";
             tooltip = true;
+            tooltip-format = "{title}";
             on-click = "rofi-launcher";
           };
           "group/groupcpu" = {
