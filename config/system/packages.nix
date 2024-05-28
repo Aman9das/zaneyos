@@ -46,12 +46,13 @@
     ripgrep
     appimage-run
     networkmanagerapplet
-    yad
+    # yad
     playerctl
     nh
     xdg-terminal-exec
     rsync
     pulseaudio
+    ydotool
   ];
 
   fonts.packages = with pkgs; [
@@ -77,6 +78,7 @@
       enableSSHSupport = true;
     };
     virt-manager.enable = true;
+    ydotool.enable = true;
   };
 
   virtualisation.libvirtd.enable = true;

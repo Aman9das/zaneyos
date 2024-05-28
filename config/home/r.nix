@@ -24,7 +24,7 @@ with pkgs; let
     languageserver
     learnr
     shiny
-    colorout
+    # colorout
   ];
   my-rstudio = pkgs.rstudio.overrideAttrs (
     finalAttrs: previousAttrs: {

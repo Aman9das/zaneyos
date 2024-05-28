@@ -10,5 +10,6 @@
     ./vivaldi.nix
     ./firefox.nix
     ./nemo.nix
+    ./qutebrowser.nix
   ];
 }
