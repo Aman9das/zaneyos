@@ -11,6 +11,11 @@ with pkgs; let
     tinytex
     MASS
     zoo
+    psych
+    srvyr
+    likert
+    ggthemes
+    kableExtra
     slider
     GGally
     readODS
@@ -19,6 +24,7 @@ with pkgs; let
     languageserver
     learnr
     shiny
+    colorout
   ];
   my-rstudio = pkgs.rstudio.overrideAttrs (
     finalAttrs: previousAttrs: {

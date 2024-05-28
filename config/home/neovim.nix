@@ -9,6 +9,8 @@
     alejandra
     marksman
     icu
+    gcc
+    zathura
   ];
 
   programs.neovim = {
@@ -30,12 +32,14 @@
 
       # Treesitter
       tree-sitter
+      gcc
 
       # other language servers
       rPackages.languageserver
       rPackages.languageserversetup
 
       codeium
+      marksman
 
       black
       (pkgs.python3.withPackages (python-pkgs: [

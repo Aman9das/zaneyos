@@ -20,12 +20,6 @@ pkgs.writeShellScriptBin "rofi-exit" ''
   yes=' Yes'
   no=' No'
 
-  # Close Applications
-  exit_apps() {
-    HYPRCMDS=$(hyprctl -j clients | jq -j '.[] | "dispatch closewindow address:\(.address); "')
-    hyprctl --batch "$HYPRCMDS" 2>&1
-  }
-
   # Rofi CMD
   rofi_cmd() {
   	rofi -dmenu \

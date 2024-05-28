@@ -20,8 +20,8 @@
       };
     };
 in {
-  home.packages = [
-    (pkgs.vivaldi.override {
+  home.packages = with pkgs; [
+    (vivaldi.override {
       proprietaryCodecs = true;
       enableWidevine = true;
       commandLineArgs = [
@@ -31,6 +31,9 @@ in {
         "--enable-features=WaylandWindowDecorations"
       ];
     })
+
+    uget
+    uget-integrator
   ];
   home.sessionVariables = {
     BROWSER = "vivaldi";

@@ -34,5 +34,5 @@ pkgs.writeShellScriptBin "rofi-shot" ''
   esac
 
   # sleep 0.5 && grimblast copysave $extra_args $FILENAME && notify-send "🖼️ Screenshot taken and saved"
-  sleep 0.5 && grimblast --freeze --notify copysave $extra_args $FILENAME
+  sleep 0.75 && grimblast --freeze --notify copysave $extra_args $FILENAME
 ''

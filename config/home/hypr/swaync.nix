@@ -66,23 +66,23 @@ in {
                     "actions": [
                         {
                             "label": "󰐥",
-                            "command": "systemctl poweroff"
+                            "command": "sh -c 'exit_apps && sleep 0.1 && systemctl poweroff'"
                         },
                         {
                             "label": "󰜉",
-                            "command": "systemctl reboot"
+                            "command": "sh -c 'exit_apps && sleep 0.1 && systemctl reboot'"
                         },
                         {
                             "label": "󰿅",
-                            "command": "hyprctl dispatch exit"
+                            "command": "sh -c 'exit_apps && sleep 0.1 && hyprctl dispatch exit'"
                         },
                         {
                             "label": "󰉋",
-                            "command": "nemo"
+                            "command": "hyprctl dispatch exec nemo"
                         },
                         {
                             "label": "",
-                            "command": "gimp"
+                            "command": "hyprctl dispatch exec gimp"
                         },
                         {
                             "label": "󰖁",
@@ -94,15 +94,15 @@ in {
                         },
                         {
                             "label": "󰓓",
-                            "command": "steam"
+                            "command": "hyprctl dispatch exec steam"
                         },
                         {
-                            "label": "󰖟",
-                            "command": "vivaldi"
+                            "label": "㽤",
+                            "command": "hyprctl dispatch exec vivaldi"
                         },
                         {
                             "label": "",
-                            "command": "obs"
+                            "command": "hyprctl dispatch exec obs"
                         }
                     ]
                 }
@@ -112,8 +112,7 @@ in {
 
   home.file.".config/swaync/style.css".text = ''
     * {
-        font-family: JetBrainsMono Nerd Font;
-        font-weight: bolder;
+        font-family: JetBrainsMono Nerd Font, Simple Icons, monospace;
     }
 
     .control-center .notification-row:focus,
@@ -372,8 +371,9 @@ in {
     }
 
     .widget-buttons-grid {
-        font-family: JetBrainsMono Nerd Font Propo;
+        font-family: JetBrainsMono Nerd Font Propo, Simple Icons;
         font-size: xx-large;
+        font-weight: normal;
         padding: 5px;
         margin: 10px 10px 5px 10px;
         border-radius: 5px;
@@ -381,6 +381,7 @@ in {
     }
 
     .widget-buttons-grid>flowbox>flowboxchild>button {
+        font-weight: normal;
         margin: 3px;
         background: #383838;
         border-radius: 5px;

@@ -38,7 +38,7 @@ in {
     transmission-gtk
     libreoffice-fresh
     loupe
-    telegram-desktop
+    _64gram
     protonup-qt
     gimp
     monophony
@@ -70,6 +70,7 @@ in {
     # (import ./../scripts/theme-selector.nix {inherit pkgs;})
     (import ./../scripts/nvidia-offload.nix {inherit pkgs;})
     (import ./../scripts/web-search.nix {inherit pkgs;})
+    (import ./../scripts/exit-apps.nix {inherit pkgs;})
     (import ./../scripts/rofi-exit.nix {inherit pkgs;})
     (import ./../scripts/rofi-shot.nix {inherit pkgs;})
     (import ./../scripts/rofi-launcher.nix {inherit pkgs;})
