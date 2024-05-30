@@ -1,6 +1,7 @@
 {
   "class<kitty>" = "";
   "class<firefox>" = "㞛";
+  "class<org.qutebrowser.qutebrowser>" = "";
   "class<vivaldi.*>" = "㽤";
   "class<vivaldi.*> title<.*github.*>" = "㠉";
   "class<vivaldi.*> title<.*trello.*>" = "㻛";
@@ -21,7 +22,7 @@
   "class<sioyek>" = "";
   "class<gimp.*>" = "㠀";
   "class<rstudio>" = "㴛";
-  "class<nemo>" = "";
+  "class<nemo>" = "";
   "class<fontforge>" = "㞽";
   "class<steam>" = "㸖";
   "class<code.*>" = "㽟";

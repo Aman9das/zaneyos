@@ -2,10 +2,43 @@
   pkgs,
   config,
   ...
-}: let
-  # palette = config.colorScheme.palette;
-in {
-  home.file.".config/rofi/config.rasi".text = ''
+}: {
+  home.packages = [
+    pkgs.rofi-rbw-wayland
+  ];
+  programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+
+    plugins = [
+      (pkgs.rofi-calc.override {
+        rofi-unwrapped = pkgs.rofi-wayland-unwrapped;
+      })
+      (pkgs.rofi-emoji.override {
+        rofi-unwrapped = pkgs.rofi-wayland-unwrapped;
+      })
+    ];
+    theme."@import" = "${config.xdg.configHome}/rofi/theme.rasi";
+
+    extraConfig = {
+      modi = "drun,run,filebrowser,window,";
+      combi-modes = "run,window,drun";
+      show-icons = true;
+      display-drun = "";
+      display-run = "";
+      display-filebrowser = "";
+      display-window = "";
+      display-calc = "";
+      display-emoji = "";
+      display-combi = "";
+      drun-display-format = "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+      window-format = "{w} · {c} · {t}";
+      terminal = "kitty";
+      sorting-method = "fzf";
+      sort = true;
+    };
+  };
+  home.file.".config/rofi/theme.rasi".text = ''
     /**
      *
      * Author : Aditya Shakya (adi1090x)
@@ -15,21 +48,6 @@ in {
      * Rofi Version: 1.7.3
      **/
 
-    /*****----- Configuration -----*****/
-    configuration {
-    	modi:                       "drun,run,filebrowser,window";
-        show-icons:                 true;
-        display-drun:               " Apps";
-        display-run:                " Run";
-        display-filebrowser:        " Files";
-        display-window:             " Windows";
-    	drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
-    	window-format:              "{w} · {c} · {t}";
-      terminal:             "kitty";
-      matching:             "fuzzy";
-      sorting-method:       "fzf";
-      sort:                 true;
-    }
 
     /*****----- Global Properties -----*****/
 
@@ -99,6 +117,7 @@ in {
         anchor:                      center;
         fullscreen:                  false;
         width:                       1080px;
+        height:                      75%;
         x-offset:                    0px;
         y-offset:                    0px;
         border-radius:               12px;
@@ -155,7 +174,7 @@ in {
         border-color:                @border-colour;
         background-color:            transparent;
         text-color:                  @foreground-colour;
-        children:                    [ "textbox-prompt-colon", "entry" ];
+        children:                    [ "prompt", "textbox-prompt-colon", "entry" ];
     }
 
     prompt {
@@ -319,7 +338,7 @@ in {
     }
     button {
         padding:                     @element-padding;
-        width:                       125px;
+        width:                       64px;
         border:                      0px solid;
         border-radius:               @element-radius;
         border-color:                @border-colour;

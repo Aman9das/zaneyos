@@ -10,9 +10,24 @@
     settings = {
       fonts = {
         default_family = "JetBrainsMonoNL NFP";
+        default_size = "14px";
         web = {
           family.sans_serif = "Inter";
         };
+      };
+      colors.webpage = {
+        # darkmode.enabled = true;
+        preferred_color_scheme = "dark";
+      };
+      tabs = {
+        position = "left";
+        show = "switching";
+      };
+      scrolling = {
+        smooth = true;
+      };
+      qt = {
+        highdpi = true;
       };
     };
     extraConfig = ''
@@ -22,10 +37,10 @@
       # Template author: theova
       # Commentary: Tinted Theming: (https://github.com/tinted-theming)
 
-      base00 = "#000000"
-      base01 = "#111111"
-      base02 = "#303030"
-      base03 = "#969896"
+      base00 = "#1a1a1a"
+      base01 = "#2a2a2a"
+      base02 = "#3a3a3a"
+      base03 = "#969696"
       base04 = "#b4b7b4"
       base05 = "#c5c8c6"
       base06 = "#e0e0e0"

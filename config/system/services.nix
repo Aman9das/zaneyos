@@ -62,6 +62,10 @@
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   services.blueman.enable = true;
+  services.dbus = {
+    enable = true;
+    packages = [pkgs.gcr];
+  };
 
   services.logind.extraConfig = ''
     # don’t shutdown when power button is short-pressed

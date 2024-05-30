@@ -212,7 +212,7 @@ in
                 bind = ${modifier},W,exec,${browser}
               ''
             }
-            bind = ${modifier},E,exec,emopicker9000
+
             bind = ${modifier},T,exec,nemo
             bind = ${modifier},Q,killactive,
             # bind = ${modifier},P,pseudo,
@@ -267,8 +267,10 @@ in
             bind = ${modifier}SHIFT,Prior,exec, hyprnome --previous --move
             bind = ${modifier}SHIFT,Next,exec, hyprnome --move
 
-            bind = ALT,Tab,cyclenext
-            bind = ALT,Tab,bringactivetotop
+            bind = ALT,Tab, exec, rofi -show window
+            bind = ${modifier},E,exec, rofi -show emoji
+            bind = ${modifier},equal,exec, rofi -show calc
+            bind = ${modifier},B,exec, bwm
 
             bind = ,Print,exec,rofi-shot
             bind = SHIFT, Print, exec, sleep 0.5 && grimblast --freeze --notify copysave output $HOME/Pictures/Screenshots/$(date +%Y-%m-%d-T-%H-%M-%S).png

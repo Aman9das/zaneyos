@@ -25,7 +25,6 @@
     libnotify
     eza
     v4l-utils
-    ydotool
     wl-clipboard
     socat
     cowsay
@@ -46,13 +45,12 @@
     ripgrep
     appimage-run
     networkmanagerapplet
-    # yad
+    wtype
     playerctl
     nh
     xdg-terminal-exec
     rsync
     pulseaudio
-    ydotool
   ];
 
   fonts.packages = with pkgs; [

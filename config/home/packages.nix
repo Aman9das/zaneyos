@@ -20,7 +20,6 @@ in {
     hypridle
     gnome.file-roller
     swaynotificationcenter
-    rofi-wayland
     imv
     obs-studio
     pavucontrol

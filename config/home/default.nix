@@ -12,9 +12,7 @@
     # ./kdenlive.nix
     ./kitty.nix
     ./neofetch.nix
-    ./neovim.nix
     ./packages.nix
-    ./rofi.nix
     ./starship.nix
     # ./waybar.nix
     # ./wlogout.nix
