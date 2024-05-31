@@ -49,7 +49,6 @@ in {
 
     (nerdfonts.override {fonts = ["JetBrainsMono"];})
     inter
-    font-awesome
 
     # Import Scripts
     (import ./../scripts/emopicker9000.nix {inherit pkgs;})

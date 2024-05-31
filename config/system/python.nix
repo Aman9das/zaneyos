@@ -11,6 +11,7 @@
       pandas
       requests
       ipython
+      pip
     ];
 in
   lib.mkIf (python == true) {
