@@ -6,6 +6,11 @@
       aw = "https://wiki.archlinux.org/?search={}";
       nw = "https://wiki.nixos.org/index.php?search={}";
       g = "https://www.google.com/search?hl=en&q={}";
+      rd = "https://www.reddit.com/r/{}";
+      gh = "https://github.com/search?q={}";
+      annas = "https://annas-archive.org/search?q={}";
+      pkgs = "https://search.nixos.org/packages?channel=unstable&query={}";
+      yt = "https://www.youtube.com/results?search_query={}";
     };
     settings = {
       fonts = {
@@ -17,6 +22,9 @@
       };
       colors.webpage = {
         # darkmode.enabled = true;
+        darkmode.policy.images = "smart-simple";
+        darkmode.threshold.background = 128;
+        darkmode.threshold.foreground = 128;
         preferred_color_scheme = "dark";
       };
       tabs = {
@@ -25,6 +33,7 @@
       };
       scrolling = {
         smooth = true;
+        bar = "when-searching";
       };
       qt = {
         highdpi = true;
@@ -206,16 +215,16 @@
       c.colors.statusbar.normal.bg = base00
 
       # Foreground color of the statusbar in insert mode.
-      c.colors.statusbar.insert.fg = base00
+      c.colors.statusbar.insert.fg = base0D
 
       # Background color of the statusbar in insert mode.
-      c.colors.statusbar.insert.bg = base0D
+      c.colors.statusbar.insert.bg = base00
 
       # Foreground color of the statusbar in passthrough mode.
-      c.colors.statusbar.passthrough.fg = base00
+      c.colors.statusbar.passthrough.fg = base0C
 
       # Background color of the statusbar in passthrough mode.
-      c.colors.statusbar.passthrough.bg = base0C
+      c.colors.statusbar.passthrough.bg = base00
 
       # Foreground color of the statusbar in private browsing mode.
       c.colors.statusbar.private.fg = base00
@@ -224,28 +233,28 @@
       c.colors.statusbar.private.bg = base01
 
       # Foreground color of the statusbar in command mode.
-      c.colors.statusbar.command.fg = base05
+      c.colors.statusbar.command.fg = base00
 
       # Background color of the statusbar in command mode.
-      c.colors.statusbar.command.bg = base00
+      c.colors.statusbar.command.bg = base05
 
       # Foreground color of the statusbar in private browsing + command mode.
-      c.colors.statusbar.command.private.fg = base05
+      c.colors.statusbar.command.private.fg = base00
 
       # Background color of the statusbar in private browsing + command mode.
-      c.colors.statusbar.command.private.bg = base00
+      c.colors.statusbar.command.private.bg = base05
 
       # Foreground color of the statusbar in caret mode.
-      c.colors.statusbar.caret.fg = base00
+      c.colors.statusbar.caret.fg = base0E
 
       # Background color of the statusbar in caret mode.
-      c.colors.statusbar.caret.bg = base0E
+      c.colors.statusbar.caret.bg = base00
 
       # Foreground color of the statusbar in caret mode with a selection.
-      c.colors.statusbar.caret.selection.fg = base00
+      c.colors.statusbar.caret.selection.fg = base0D
 
       # Background color of the statusbar in caret mode with a selection.
-      c.colors.statusbar.caret.selection.bg = base0D
+      c.colors.statusbar.caret.selection.bg = base00
 
       # Background color of the progress bar.
       c.colors.statusbar.progress.bg = base0D
@@ -332,7 +341,7 @@
 
       # Background color for webpages if unset (or empty to use the theme's
       # color).
-      # c.colors.webpage.bg = base00
+      c.colors.webpage.bg = base00
     '';
   };
 }

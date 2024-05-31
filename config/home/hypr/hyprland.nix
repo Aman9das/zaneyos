@@ -65,7 +65,7 @@ in
               kb_layout = ${theKBDLayout}, ${theSecondKBDLayout}
              kb_options = grp:alt_shift_toggle
               kb_options=caps:swapescape
-             follow_mouse = 2
+             follow_mouse = 0
              # mouse_refocus = false
               touchpad {
                 natural_scroll = true
@@ -122,6 +122,7 @@ in
               layerrule = blur, waybar
               layerrule = animation popin 80%, rofi$
               windowrule = tile, ^(Vivaldi-stable)$
+              windowrule = workspace current,title:MainPicker
               windowrulev2 = workspace special silent, title:^(.*is sharing (your screen|a window)\.)$
               windowrulev2 = workspace special silent, title:^(Firefox — Sharing Indicator)$
               }
@@ -203,15 +204,6 @@ in
             bind = ${modifier}SHIFT,Q,exec,rofi-exit
             bind = ${modifier}SHIFT,W,exec,web-search
             bind = ${modifier},N,exec,swaync-client -t
-            ${
-              if browser == "google-chrome"
-              then ''
-                bind = ${modifier},W,exec,google-chrome-stable
-              ''
-              else ''
-                bind = ${modifier},W,exec,${browser}
-              ''
-            }
 
             bind = ${modifier},T,exec,nemo
             bind = ${modifier},Q,killactive,
@@ -271,6 +263,8 @@ in
             bind = ${modifier},E,exec, rofi -show emoji
             bind = ${modifier},equal,exec, rofi -show calc
             bind = ${modifier},B,exec, bwm
+            bind = ${modifier},Y,exec, vivaldi
+            bind = ${modifier},W,exec, qutebrowser
 
             bind = ,Print,exec,rofi-shot
             bind = SHIFT, Print, exec, sleep 0.5 && grimblast --freeze --notify copysave output $HOME/Pictures/Screenshots/$(date +%Y-%m-%d-T-%H-%M-%S).png

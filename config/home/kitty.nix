@@ -53,6 +53,25 @@ in
         tab_bar_style separator
         tab_separator ""
         tab_title_template " {index}: {title} "
+
+        # Jump around neighboring window Vi key binding
+        map ctrl+shift+w>h neighboring_window left
+        map ctrl+shift+w>l neighboring_window right
+        map ctrl+shift+w>j neighboring_window down
+        map ctrl+shift+w>k neighboring_window up
+
+        map ctrl+shift+w>shift+h move_window left
+        map ctrl+shift+w>shift+l move_window right
+        map ctrl+shift+w>shift+j move_window down
+        map ctrl+shift+w>shift+k move_window up
+
+        # Create a new window splitting the space used by the existing one so that
+        # the two windows are placed one above the other
+        map ctrl+shift+w>s launch --location=hsplit
+
+        # Create a new window splitting the space used by the existing one so that
+        # the two windows are placed side by side
+        map ctrl+shift+w>v launch --location=vsplit
       '';
     };
     home.sessionVariables = {
