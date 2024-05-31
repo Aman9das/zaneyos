@@ -11,15 +11,21 @@
       enable = true;
 
       defaultApplications = {
-        "text/html" = ["vivaldi-stable.desktop"];
-        "text/htm" = ["vivaldi-stable.desktop"];
-        "x-scheme-handler/http" = ["vivaldi-stable.desktop"];
-        "x-scheme-handler/https" = ["vivaldi-stable.desktop"];
-        "x-scheme-handler/about" = ["vivaldi-stable.desktop"];
-        "x-scheme-handler/unknown" = ["vivaldi-stable.desktop"];
+        "text/html" = ["org.qutebrowser.qutebrowser.desktop"];
+        "text/htm" = ["org.qutebrowser.qutebrowser.desktop"];
+        "x-scheme-handler/http" = ["org.qutebrowser.qutebrowser.desktop"];
+        "x-scheme-handler/https" = ["org.qutebrowser.qutebrowser.desktop"];
+        "x-scheme-handler/about" = ["org.qutebrowser.qutebrowser.desktop"];
+        "x-scheme-handler/unknown" = ["org.qutebrowser.qutebrowser.desktop"];
+        "x-scheme-handler/qute" = ["org.qutebrowser.qutebrowser.desktop"];
         "x-scheme-handler/vivaldi" = ["vivaldi-stable.desktop"];
         "inode/directory" = ["nemo.desktop"];
       };
     };
+  };
+  home.sessionVariables = {
+    BROWSER = "qutebrowser";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 }

@@ -25,7 +25,4 @@ in {
     uget
     uget-integrator
   ];
-  home.sessionVariables = {
-    BROWSER = "vivaldi";
-  };
 }
