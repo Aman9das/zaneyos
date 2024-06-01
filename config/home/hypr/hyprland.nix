@@ -65,7 +65,7 @@ in
               kb_layout = ${theKBDLayout}, ${theSecondKBDLayout}
              kb_options = grp:alt_shift_toggle
               kb_options=caps:swapescape
-             follow_mouse = 0
+             follow_mouse = 2
              # mouse_refocus = false
               touchpad {
                 natural_scroll = true
@@ -198,15 +198,14 @@ in
             master {
               new_is_master = true
             }
-            bind = ${modifier},SUPER_L,exec,rofi-launcher
-            bind = ${modifier}, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
+            bindr = ${modifier},SUPER_L,exec,rofi-launcher
+            bind = ${modifier}, V, exec, cliphist list | rofi -dmenu -p Clipboard | cliphist decode | wl-copy
             bind = ${modifier},Return,exec,${terminal}
             # bind = ${modifier}SHIFT, SUPER_L, hyprexpo:expo, toggle
             bind = ${modifier}SHIFT,Q,exec,rofi-exit
             bind = ${modifier}SHIFT,W,exec,web-search
             bind = ${modifier},N,exec,swaync-client -t
 
-            bind = ${modifier},T,exec,nemo
             bind = ${modifier},Q,killactive,
             # bind = ${modifier},P,pseudo,
 
@@ -260,8 +259,13 @@ in
             bind = ${modifier}SHIFT,Prior,exec, hyprnome --previous --move
             bind = ${modifier}SHIFT,Next,exec, hyprnome --move
 
-            bind = ALT,Tab, exec, rofi -show window
-            bind = ${modifier},E,exec, rofi -show emoji
+            bind = ALT,Tab, cyclenext,
+            bind = ALT,Tab, bringactivetotop,
+            bind = ALT SHIFT,Tab, cyclenext, prev
+            bind = ALT SHIFT,Tab, bringactivetotop,
+
+            bind = ${modifier},E,exec, nemo
+            bind = ${modifier}SHIFT,E,exec, rofi -show emoji
             bind = ${modifier},equal,exec, rofi -show calc
             bind = ${modifier},B,exec, bwm
             bind = ${modifier},Y,exec, vivaldi
