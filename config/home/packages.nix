@@ -40,7 +40,7 @@ in {
     _64gram
     protonup-qt
     gimp
-    monophony
+    # monophony
     ferdium
     gnome.gnome-disk-utility
     libsForQt5.dolphin

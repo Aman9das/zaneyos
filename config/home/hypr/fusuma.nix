@@ -9,7 +9,7 @@
   ];
   services.fusuma = {
     enable = true;
-    extraPackages = with pkgs; [hyprland coreutils];
+    extraPackages = with pkgs; [hyprland hyprnome coreutils];
     settings = {
       threshold = {
         swipe = 0.25;
@@ -40,10 +40,13 @@
             # command = "xdotool key Alt_L+Left";
             # threshold = 1;
           };
-        };
-        "4" = {
           right = {
             sendkey = "LEFTALT+RIGHT"; # history forward
+            # command = "xdotool key Alt_L+Right";
+            # threshold = 1;
+          };
+          down = {
+            sendkey = "CTRL+TAB"; # change tab
             # command = "xdotool key Alt_L+Right";
             # threshold = 1;
           };

@@ -183,7 +183,6 @@ in
             exec-once = [workspace current silent] ${wallpaper}
             exec-once = [pin] waybar
             exec-once = [workspace current silent] swaync
-            exec-once = [workspace current silent] fusuma
             exec-once = [workspace current silent] scroller-center
             exec-once = [workspace current silent] nm-applet --indicator
             exec-once = [workspace current silent] hypridle

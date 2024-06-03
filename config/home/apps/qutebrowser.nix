@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   programs.qutebrowser = {
     enable = true;
+    loadAutoconfig = true;
     searchEngines = {
       DEFAULT = "https://duckduckgo.com/?q={}";
       w = "https://en.wikipedia.org/wiki/Special:Search?search={}&go=Go&ns0=1";
@@ -40,6 +41,7 @@
       tabs = {
         position = "left";
         show = "switching";
+        last_close = "default-page";
       };
       scrolling = {
         smooth = true;
@@ -47,6 +49,7 @@
       };
       qt = {
         highdpi = true;
+        force_platformtheme = "gtk3";
       };
     };
     extraConfig = ''
