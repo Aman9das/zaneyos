@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ./mail.nix
+    ./thunderbird.nix
     ./zeroad.nix
     ./blender.nix
     ./rofi.nix

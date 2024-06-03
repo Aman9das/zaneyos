@@ -4,7 +4,7 @@
   lib,
   ...
 }: {
-  home.xdg = {
+  xdg = {
     enable = true;
 
     mimeApps = {

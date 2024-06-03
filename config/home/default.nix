@@ -11,6 +11,7 @@
     # ./hyprland.nix
     # ./kdenlive.nix
     ./kitty.nix
+    ./mime.nix
     ./neofetch.nix
     ./packages.nix
     ./starship.nix
