@@ -198,15 +198,13 @@ in
             master {
               new_is_master = true
             }
+
             bindr = ${modifier},SUPER_L,exec,rofi-launcher
             bind = ${modifier}, V, exec, cliphist list | rofi -dmenu -p Clipboard | cliphist decode | wl-copy
-            bind = ${modifier},Return,exec,${terminal}
-            # bind = ${modifier}SHIFT, SUPER_L, hyprexpo:expo, toggle
             bind = ${modifier}SHIFT,Q,exec,rofi-exit
-            bind = ${modifier}SHIFT,W,exec,web-search
             bind = ${modifier},N,exec,swaync-client -t
-
             bind = ${modifier},Q,killactive,
+            # bind = ${modifier}SHIFT, SUPER_L, hyprexpo:expo, toggle
             # bind = ${modifier},P,pseudo,
 
             bind = ${modifier},F,scroller:cyclesize,-1
@@ -264,12 +262,14 @@ in
             bind = ALT SHIFT,Tab, cyclenext, prev
             bind = ALT SHIFT,Tab, bringactivetotop,
 
+            bind = ${modifier},Return,exec,${terminal}
             bind = ${modifier},E,exec, nemo
             bind = ${modifier}SHIFT,E,exec, rofi -show emoji
             bind = ${modifier},equal,exec, rofi -show calc
             bind = ${modifier},B,exec, bwm
             bind = ${modifier},Y,exec, vivaldi
             bind = ${modifier},W,exec, qutebrowser
+            bind = ${modifier}SHIFT,W,exec,web-search
 
             bind = ,Print,exec,rofi-shot
             bind = SHIFT, Print, exec, sleep 0.5 && grimblast --freeze --notify copysave output $HOME/Pictures/Screenshots/$(date +%Y-%m-%d-T-%H-%M-%S).png

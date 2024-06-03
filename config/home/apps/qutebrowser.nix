@@ -2,6 +2,7 @@
   programs.qutebrowser = {
     enable = true;
     searchEngines = {
+      DEFAULT = "https://duckduckgo.com/?q={}";
       w = "https://en.wikipedia.org/wiki/Special:Search?search={}&go=Go&ns0=1";
       aw = "https://wiki.archlinux.org/?search={}";
       nw = "https://wiki.nixos.org/index.php?search={}";
@@ -11,6 +12,15 @@
       annas = "https://annas-archive.org/search?q={}";
       pkgs = "https://search.nixos.org/packages?channel=unstable&query={}";
       yt = "https://www.youtube.com/results?search_query={}";
+      "!" = "https://duckduckgo.com/?q=!{}";
+    };
+    keyBindings = {
+      normal = {
+        "<Shift-!>" = "cmd-set-text :open ! ";
+      };
+    };
+    aliases = {
+      bypass = "open https://archive.ph/{url}";
     };
     settings = {
       fonts = {

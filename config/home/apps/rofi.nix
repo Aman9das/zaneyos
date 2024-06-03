@@ -5,6 +5,7 @@
 }: {
   home.packages = [
     pkgs.rofi-rbw-wayland
+    pkgs.rofi-power-menu
   ];
   programs.rofi = {
     enable = true;

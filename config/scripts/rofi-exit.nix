@@ -51,17 +51,17 @@ pkgs.writeShellScriptBin "rofi-exit" ''
   	if [[ "$selected" == "$yes" ]]; then
   		if [[ $1 == '--shutdown' ]]; then
         exit_apps
-  			sleep 0.1 && systemctl poweroff
+  			sleep 0.5 && systemctl poweroff
   		elif [[ $1 == '--reboot' ]]; then
         exit_apps
-  			sleep 0.1 && systemctl reboot
+  			sleep 0.5 && systemctl reboot
   		elif [[ $1 == '--hibernate' ]]; then
-  			sleep 0.1 && systemctl hibernate
+  			sleep 0.5 && systemctl hibernate
   		elif [[ $1 == '--suspend' ]]; then
-  			sleep 0.1 && systemctl suspend
+  			sleep 0.5 && systemctl suspend
   		elif [[ $1 == '--logout' ]]; then
         exit_apps
-  			sleep 0.1 && hyprctl dispatch exit
+  			sleep 0.5 && hyprctl dispatch exit
   		fi
   	else
   		exit 0
@@ -78,7 +78,7 @@ pkgs.writeShellScriptBin "rofi-exit" ''
   	run_cmd --reboot
   	;;
   $lock)
-    sleep 0.1 && hyprlock
+    sleep 0.5 && hyprlock
   	;;
   $hibernate)
   	run_cmd --hibernate

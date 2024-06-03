@@ -115,88 +115,35 @@ in {
         font-family: JetBrainsMono Nerd Font, Simple Icons, monospace;
     }
 
-    .control-center .notification-row:focus,
-    .control-center .notification-row:hover {
-        opacity: 0.9;
-        background: #1e1e1e;
-    }
-
-    .notification-row {
-        outline: none;
-        margin: 10px;
-        padding: 0;
-    }
-
     .notification {
         background: transparent;
         padding: 0;
         margin: 0px;
+        border-width: 2px;
+        border-color: #78aeed;
+    }
+
+    .notification * {
+        margin: 0;
+        border-width: 2px;
+        border-color: #78aeed;
     }
 
     .notification-content {
+        background: transparent;
+        margin: 5px;
+    }
+
+    .notification-action,
+    .notification-default-action {
         background: #1e1e1e;
-        padding: 10px;
-        border-radius: 5px;
-        border: 2px solid #78aeed;
         margin: 0;
+        padding: 2px;
     }
 
-    .notification-default-action {
-        margin: 0;
-        padding: 0;
-        border-radius: 5px;
-    }
-
-    .close-button {
-        background: #303030;
-        color: #fafafa;
-        text-shadow: none;
-        padding: 0;
-        border-radius: 12px;
-        margin-top: 5px;
-        margin-right: 5px;
-        margin-left: 5px;
-    }
-
-    .close-button:hover {
-        box-shadow: none;
-        background: #383838;
-        transition: all .15s ease-in-out;
-        border: none
-    }
-
-
-    .notification-action {
-        border: 2px solid #78aeed;
-        border-top: none;
-        border-radius: 5px;
-    }
-
-
-    .notification-default-action:hover,
-    .notification-action:hover {
+    .notification-action:hover,
+    .notification-default-action:hover * {
         color: #78aeed;
-        background: #78aeed
-    }
-
-    .notification-default-action {
-        border-radius: 5px;
-        margin: 0px;
-    }
-
-    .notification-default-action:not(:only-child) {
-        border-bottom-left-radius: 7px;
-        border-bottom-right-radius: 7px
-    }
-
-    .notification-action:first-child {
-        border-bottom-left-radius: 10px;
-        background: #1e1e1e
-    }
-
-    .notification-action:last-child {
-        border-bottom-right-radius: 10px;
-        background: #1e1e1e
     }
 
     .inline-reply {
@@ -226,7 +173,7 @@ in {
     }
 
     .inline-reply-button:hover {
-        background: #1e1e1e
+        background: #2a2a2a
     }
 
     .body-image {
@@ -249,7 +196,7 @@ in {
         background: transparent;
         color: #808080;
         text-shadow: none;
-        margin-right: 24px
+        margin-right: 26px
     }
 
     .body {
