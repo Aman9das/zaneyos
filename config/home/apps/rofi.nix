@@ -62,7 +62,7 @@
     }
 
     * {
-        font: "JetBrainsMono Nerd Font Propo 12";
+        font: "Rec Mono Linear 12";
     }
 
     * {

@@ -25,10 +25,10 @@
     };
     settings = {
       fonts = {
-        default_family = "JetBrainsMonoNL NFP";
+        default_family = "RecMonoDuotone Nerd Font";
         default_size = "14px";
         web = {
-          family.sans_serif = "Inter";
+          family.sans_serif = "Recursive Sans Linear Static";
         };
       };
       colors.webpage = {

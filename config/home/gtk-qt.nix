@@ -20,8 +20,8 @@
     package = pkgs.adw-gtk3;
   };
   font = {
-    name = "Inter";
-    package = pkgs.inter;
+    name = "Recursive Sans Linear Static";
+    package = pkgs.recursive;
   };
   cursorTheme = {
     name = "Simp1e-Adw-Dark";
@@ -37,7 +37,6 @@ in {
   home = {
     packages = with pkgs; [
       cantarell-fonts
-      font-awesome
       theme.package
       font.package
       cursorTheme.package
@@ -112,8 +111,8 @@ in {
         style=kvantum
 
         [Fonts]
-        fixed="JetBrainsMono NF"
-        general="Inter"
+        fixed="RecMonoLinear Nerd Font"
+        general="Recursive Sans Linear Static,10"
       '';
 
       "qt6ct/qt6ct.conf".text = ''
@@ -122,8 +121,8 @@ in {
         style=kvantum
 
         [Fonts]
-        fixed="JetBrainsMono NF"
-        general="Inter"
+        fixed="RecMonoLinear Nerd Font"
+        general="Recursive Sans Linear Static,10"
       '';
 
       "Kvantum/kvantum.kvconfig".text = ''

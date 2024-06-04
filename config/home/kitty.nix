@@ -16,8 +16,6 @@ in
     programs.kitty = {
       enable = true;
       package = pkgs.kitty;
-      font.name = "JetBrainsMono Nerd Font";
-      font.size = 10;
       settings = {
         scrollback_lines = 2000;
         wheel_scroll_min_lines = 1;
@@ -27,6 +25,14 @@ in
         term = "kitty";
       };
       extraConfig = ''
+        font_features RecMonoLinearNF +ss02
+        font_features RecMonoCasualNF +ss02
+        font_family           RecMonoLinearNF
+        bold_font             RecMonoLinearNF
+        italic_font           RecMonoCasualNF
+        bold_italic_font      RecMonoCasualNF
+        font_size             10
+
         background            #161718
         foreground            #b7bcb9
         cursor                #b7bcb9

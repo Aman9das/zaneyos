@@ -55,10 +55,6 @@
 
   fonts.packages = with pkgs; [
     jetbrains-mono
-    noto-fonts-color-emoji
-    material-icons
-    font-awesome
-    (nerdfonts.override {fonts = ["JetBrainsMono" "NerdFontsSymbolsOnly"];})
   ];
 
   programs = {

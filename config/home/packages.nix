@@ -47,8 +47,13 @@ in {
 
     vscode-fhs
 
-    (nerdfonts.override {fonts = ["JetBrainsMono"];})
-    recursive
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+        "NerdFontsSymbolsOnly"
+        "Recursive"
+      ];
+    })
     inter
 
     # Import Scripts

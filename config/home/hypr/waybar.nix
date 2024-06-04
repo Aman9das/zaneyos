@@ -206,7 +206,7 @@ in
               background-color: #1e1e1e; /* Base */
               border-radius: 10px;
               padding: 2px 10px;
-              font-family: JetBrains Mono, font-logos, 'Font Awesome 6 Brands', Symbols Nerd Font, Material Icons, devicon, 'Font Awesome 6 Free', sans-serif;
+              font-family: Rec Mono Linear, JetBrains Mono, font-logos, 'Font Awesome 6 Brands', Symbols Nerd Font, Material Icons, devicon, 'Font Awesome 6 Free', sans-serif;
           }
 
           #clock, #window {
@@ -262,7 +262,7 @@ in
               margin: 0 2px 1px 2px;
               padding: 0px 0px;
               transition: all 150ms ease;
-              font-family: JetBrains Mono, Simple Icons, font-logos, Symbols Nerd Font, 'Font Awesome 6 Brands', Material Icons, devicon, 'Font Awesome 6 Free', sans-serif;
+              font-family: Rec Mono Linear, JetBrains Mono, Simple Icons, font-logos, Symbols Nerd Font, 'Font Awesome 6 Brands', Material Icons, devicon, 'Font Awesome 6 Free', sans-serif;
           }
 
           #custom-startmenu {

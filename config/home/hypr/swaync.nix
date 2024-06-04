@@ -112,7 +112,7 @@ in {
 
   home.file.".config/swaync/style.css".text = ''
     * {
-        font-family: JetBrainsMono Nerd Font, Simple Icons, monospace;
+        font-family: Rec Mono Duotone, JetBrainsMono Nerd Font, Simple Icons, monospace;
     }
 
     .notification {
@@ -318,7 +318,6 @@ in {
     }
 
     .widget-buttons-grid {
-        font-family: JetBrainsMono Nerd Font Propo, Simple Icons;
         font-size: xx-large;
         font-weight: normal;
         padding: 5px;
