@@ -11,6 +11,8 @@
       enable = true;
 
       defaultApplications = {
+        "text/plain" = ["nvim.desktop"];
+        "text/css" = ["nvim.desktop"];
         "text/html" = ["org.qutebrowser.qutebrowser.desktop"];
         "text/htm" = ["org.qutebrowser.qutebrowser.desktop"];
         "x-scheme-handler/http" = ["org.qutebrowser.qutebrowser.desktop"];
