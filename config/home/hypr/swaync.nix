@@ -112,7 +112,7 @@ in {
 
   home.file.".config/swaync/style.css".text = ''
     * {
-        font-family: Rec Mono Duotone, JetBrainsMono Nerd Font, Simple Icons, monospace;
+        font-family: Recursive Sans Linear Static, JetBrainsMono Nerd Font, Simple Icons, monospace;
     }
 
     .notification {

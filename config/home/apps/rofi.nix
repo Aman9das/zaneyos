@@ -62,7 +62,7 @@
     }
 
     * {
-        font: "Rec Mono Linear 12";
+        font: "RecMonoLinear Nerd Font 12";
     }
 
     * {

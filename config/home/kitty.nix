@@ -25,10 +25,8 @@ in
         term = "kitty";
       };
       extraConfig = ''
-        font_features RecMonoLinearNF +ss02
-        font_features RecMonoCasualNF +ss02
         font_family           RecMonoLinearNF
-        bold_font             RecMonoLinearNF
+        bold_font             RecMonoLinearNF-Bold
         italic_font           RecMonoCasualNF
         bold_italic_font      RecMonoCasualNF
         font_size             10
