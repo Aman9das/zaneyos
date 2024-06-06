@@ -44,6 +44,7 @@ in {
     ferdium
     gnome.gnome-disk-utility
     libsForQt5.dolphin
+    yt-dlp
 
     vscode-fhs
 

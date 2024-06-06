@@ -4,20 +4,14 @@
     loadAutoconfig = true;
     searchEngines = {
       DEFAULT = "https://duckduckgo.com/?q={}";
-      w = "https://en.wikipedia.org/wiki/Special:Search?search={}&go=Go&ns0=1";
-      aw = "https://wiki.archlinux.org/?search={}";
-      nw = "https://wiki.nixos.org/index.php?search={}";
-      g = "https://www.google.com/search?hl=en&q={}";
-      rd = "https://www.reddit.com/r/{}";
-      gh = "https://github.com/search?q={}";
-      annas = "https://annas-archive.org/search?q={}";
-      pkgs = "https://search.nixos.org/packages?channel=unstable&query={}";
-      yt = "https://www.youtube.com/results?search_query={}";
+      "!annas" = "https://annas-archive.org/search?q={}";
       "!" = "https://duckduckgo.com/?q=!{}";
     };
     keyBindings = {
       normal = {
         "<Shift-!>" = "cmd-set-text :open ! ";
+        "\v" = "spawn -d mpv {url}";
+        "\V" = "hint links spawn -d mpv {hint-url}";
       };
     };
     aliases = {

@@ -10,6 +10,7 @@
     ./rofi.nix
     ./neovim.nix
     ./bw.nix
+    ./mpv.nix
     ./vivaldi.nix
     ./firefox.nix
     ./nemo.nix
