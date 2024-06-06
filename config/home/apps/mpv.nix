@@ -39,7 +39,7 @@
       ytdl-format = "bestvideo[height<=?1080]+bestaudio/best";
       script-opts = "ytdl_hook-ytdl_path=${pkgs.yt-dlp}/bin/yt-dlp,ytdl_hook-try_ytdl_first=yes,ytdl_hook-exclude=\"%.webm$|%.ts$|%.mp3$|%.m3u8$|%.m3u$|%.mkv$|%.mp4$|%.VOB$\"";
 
-      save-position-on-quit = true;
+      # save-position-on-quit = true;
       # resume-playback = "no";
 
       hwdec = "auto-safe";

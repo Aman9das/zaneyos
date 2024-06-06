@@ -22,10 +22,10 @@
       swipe = {
         "3" = {
           left = {
-            command = "hyprctl dispatch scroller:movefocus r";
+            command = "hyprctl dispatch scroller:movefocus l";
           };
           right = {
-            command = "hyprctl dispatch scroller:movefocus l";
+            command = "hyprctl dispatch scroller:movefocus r";
           };
           down = {
             command = "hyprnome --previous";
@@ -37,18 +37,12 @@
         "4" = {
           left = {
             sendkey = "LEFTALT+LEFT"; # history back
-            # command = "xdotool key Alt_L+Left";
-            # threshold = 1;
           };
           right = {
             sendkey = "LEFTALT+RIGHT"; # history forward
-            # command = "xdotool key Alt_L+Right";
-            # threshold = 1;
           };
           down = {
-            sendkey = "CTRL+TAB"; # change tab
-            # command = "xdotool key Alt_L+Right";
-            # threshold = 1;
+            sendkey = "LEFTCTRL+TAB"; # change tab
           };
         };
       };

@@ -79,7 +79,7 @@ in {
     (import ./../scripts/rofi-exit.nix {inherit pkgs;})
     (import ./../scripts/rofi-shot.nix {inherit pkgs;})
     (import ./../scripts/rofi-launcher.nix {inherit pkgs;})
-    (import ./../scripts/scroller-center.nix {inherit pkgs;})
+    (import ./../scripts/scroller-fit.nix {inherit pkgs;})
     # (import ./../scripts/screenshootin.nix {inherit pkgs;})
     # (import ./../scripts/list-hypr-bindings.nix {
     #   inherit pkgs;

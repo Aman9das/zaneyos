@@ -165,8 +165,8 @@ in
             }
             plugin {
               scroller {
-                column_default_width = twothirds
-                focus_wrap = true
+                column_default_width = floating
+                focus_wrap = false
               }
               hyprexpo {
                 bg_col = rgb(303030)
@@ -183,7 +183,7 @@ in
             exec-once = [workspace current silent] ${wallpaper}
             exec-once = [pin] waybar
             exec-once = [workspace current silent] swaync
-            # exec-once = [workspace current silent] scroller-center
+            exec-once = [workspace current silent] scroller-fitsize
             exec-once = [workspace current silent] nm-applet --indicator
             exec-once = [workspace current silent] hypridle
             exec-once = [workspace current silent] wl-paste --type text --watch cliphist store #Stores only text data
@@ -200,34 +200,41 @@ in
 
             bindr = ${modifier},SUPER_L,exec,rofi-launcher
             bind = ${modifier}, V, exec, cliphist list | rofi -dmenu -p Clipboard | cliphist decode | wl-copy
+            bind = ${modifier},Q,killactive,
             bind = ${modifier}SHIFT,Q,exec,rofi-exit
             bind = ${modifier},N,exec,swaync-client -t
-            bind = ${modifier},Q,killactive,
-            # bind = ${modifier}SHIFT, SUPER_L, hyprexpo:expo, toggle
             # bind = ${modifier},P,pseudo,
 
             bind = ${modifier},F,scroller:cyclesize,-1
-            bind = ${modifier},M,fullscreen,1
-            bind = ${modifier}SHIFT,F,togglefloating,
-            bind = ${modifier}SHIFT,M,fullscreen,0
+            bind = ${modifier}SHIFT,F,fullscreen,0
             bind = ${modifier}SHIFT,C,exit,
 
-            # bind = ${modifier}SHIFT,I,scroller:admitwindow,
-            # bind = ${modifier}SHIFT,O,scroller:expelwindow,
-            bind = ${modifier},left,scroller:alignwindow,l
-            bind = ${modifier},right,scroller:alignwindow,r
-            bind = ${modifier},up, fullscreen,1
-            bind = ${modifier},down, togglefloating,
+            bind = ${modifier},bracketleft,scroller:admitwindow,
+            bind = ${modifier},bracketleft,scroller:movefocus, u
+            bind = ${modifier},bracketleft,scroller:movefocus, d
+            bind = ${modifier},bracketright,scroller:expelwindow,
+            bind = ${modifier},bracketright,scroller:movefocus, l
+            bind = ${modifier},bracketright,scroller:setmode, col
+            bind = ${modifier},bracketright,scroller:fitsize, all
+            bind = ${modifier},bracketright,scroller:setmode, row
+            bind = ${modifier},bracketright,scroller:movefocus, r
+
+            bindr = ${modifier},left,scroller:alignwindow,l
+            bindr = ${modifier},right,scroller:alignwindow,r
+            bindr = ${modifier},up, scroller:alignwindow,u
+            bindr = ${modifier},down,scroller:alignwindow,d
+
             bind = ${modifier}SHIFT,left,scroller:movewindow,l
             bind = ${modifier}SHIFT,right,scroller:movewindow,r
             bind = ${modifier}SHIFT,up,exec, hyprnome --previous --move
             bind = ${modifier}SHIFT,down,exec, hyprnome --move
+            bind = ${modifier}CONTROL,up,fullscreen,1
+            bind = ${modifier}CONTROL,down,togglefloating
+
             bind = ${modifier},h,scroller:movefocus,l
             bind = ${modifier},l,scroller:movefocus,r
             bind = ${modifier},k,exec, hyprnome --previous
             bind = ${modifier},j,exec, hyprnome
-            bind = ${modifier}CONTROL,up,exec, hyprnome --previous
-            bind = ${modifier}CONTROL,down,exec, hyprnome
             bind = ${modifier}SHIFT,h,scroller:movewindow,l
             bind = ${modifier}SHIFT,l,scroller:movewindow,r
             bind = ${modifier}SHIFT,k,exec, hyprnome --previous --move
@@ -248,6 +255,7 @@ in
             bindm = ${modifier},mouse:272,movewindow
             bindm = ${modifier},mouse:273,resizewindow
             bindm = ${modifier}SHIFT,mouse:272,resizewindow
+
             bind = ${modifier},Tab,exec, hyprnome --cycle
             bind = ${modifier}SHIFT,Tab,exec, hyprnome --previous --cycle
 
