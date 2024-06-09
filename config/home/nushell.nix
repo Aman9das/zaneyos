@@ -34,6 +34,9 @@ in {
       environmentVariables = {
         PROMPT_INDICATOR_VI_INSERT = "\"  \"";
         PROMPT_INDICATOR_VI_NORMAL = "\"∙ \"";
+        PROMPT_COMMAND = ''""'';
+        PROMPT_COMMAND_RIGHT = ''""'';
+        TRANSIENT_PROMPT_COMMAND = ''"❯"'';
         NIXPKGS_ALLOW_UNFREE = "1";
         NIXPKGS_ALLOW_INSECURE = "1";
         SHELL = ''"${pkgs.nushell}/bin/nu"'';
@@ -52,6 +55,14 @@ in {
             mode = "compact"; # compact thin rounded
             index_mode = "always"; # always never auto
             header_on_separator = false;
+          };
+
+          shell_integration = {
+            osc2 = true;
+            osc7 = true;
+            osc8 = true;
+            osc133 = true;
+            reset_application_mode = true;
           };
 
           cursor_shape = {
