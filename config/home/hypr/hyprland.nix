@@ -209,15 +209,16 @@ in
             bind = ${modifier}SHIFT,F,fullscreen,0
             bind = ${modifier}SHIFT,C,exit,
 
+            bind = ${modifier},bracketleft,scroller:setmode, col
             bind = ${modifier},bracketleft,scroller:admitwindow,
-            bind = ${modifier},bracketleft,scroller:movefocus, u
-            bind = ${modifier},bracketleft,scroller:movefocus, d
+            bind = ${modifier},bracketleft,scroller:fitsize, all
+            bind = ${modifier},bracketleft,scroller:setmode, row
+            bind = ${modifier},bracketright,scroller:setmode, col
             bind = ${modifier},bracketright,scroller:expelwindow,
             bind = ${modifier},bracketright,scroller:movefocus, l
-            bind = ${modifier},bracketright,scroller:setmode, col
             bind = ${modifier},bracketright,scroller:fitsize, all
-            bind = ${modifier},bracketright,scroller:setmode, row
             bind = ${modifier},bracketright,scroller:movefocus, r
+            bind = ${modifier},bracketright,scroller:setmode, row
 
             bindr = ${modifier},left,scroller:alignwindow,l
             bindr = ${modifier},right,scroller:alignwindow,r
