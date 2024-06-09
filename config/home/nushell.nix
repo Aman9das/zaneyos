@@ -34,8 +34,6 @@ in {
       environmentVariables = {
         PROMPT_INDICATOR_VI_INSERT = "\"  \"";
         PROMPT_INDICATOR_VI_NORMAL = "\"∙ \"";
-        PROMPT_COMMAND = ''""'';
-        PROMPT_COMMAND_RIGHT = ''""'';
         NIXPKGS_ALLOW_UNFREE = "1";
         NIXPKGS_ALLOW_INSECURE = "1";
         SHELL = ''"${pkgs.nushell}/bin/nu"'';
@@ -46,7 +44,6 @@ in {
         conf = builtins.toJSON {
           show_banner = false;
           edit_mode = "vi";
-          shell_integration = true;
 
           ls.clickable_links = true;
           rm.always_trash = true;

@@ -24,8 +24,10 @@
       "$nodejs"
       "$lua"
       "$rust"
+      "$quarto"
       "$java"
       "$c"
+      "$rlang"
       "$golang"
       "$cmd_duration"
       "$status"
@@ -101,8 +103,10 @@
     deno = lang "󰛦" "blue";
     lua = lang "󰢱" "blue";
     rust = lang "" "red";
+    quarto = lang "⨁" "white";
     java = lang "" "red";
     c = lang "" "blue";
+    rlang = lang "" "bright-blue";
     golang = lang "" "blue";
     dart = lang "" "blue";
     elixir = lang "" "purple";

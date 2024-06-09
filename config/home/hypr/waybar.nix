@@ -119,9 +119,9 @@ in
             format-source = " {volume}%";
             format-source-muted = "";
             format-icons = {
-              headphone = "";
-              hands-free = "";
-              headset = "";
+              headphone = "";
+              hands-free = "";
+              headset = "";
               phone = "";
               portable = "";
               car = "";
@@ -131,7 +131,7 @@ in
           };
           "custom/themeselector" = {
             tooltip = false;
-            format = "";
+            format = "";
             on-click = "sleep 0.1 && theme-selector";
           };
           "custom/exit" = {
@@ -198,7 +198,7 @@ in
           font-size: 14px;
           }
 
-          #window, #memory, #clock, #cpu, #disk, #battery, #network, #custom-hyprbindings,
+          #winudow, #memory, #clock, #cpu, #disk, #battery, #network, #custom-hyprbindings,
           #tray, #custom-notification, #pulseaudio, #custom-startmenu,
           #custom-exit, #custom-themeselector, #idle_inhibitor, #temperature,
           #group-groupcpu {

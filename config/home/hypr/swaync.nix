@@ -66,23 +66,19 @@ in {
                     "actions": [
                         {
                             "label": "󰐥",
-                            "command": "sh -c 'exit_apps && sleep 0.1 && systemctl poweroff'"
+                            "command": "sh -c 'exit_apps && sleep 0.5 && systemctl poweroff'"
                         },
                         {
                             "label": "󰜉",
-                            "command": "sh -c 'exit_apps && sleep 0.1 && systemctl reboot'"
+                            "command": "sh -c 'exit_apps && sleep 0.5 && systemctl reboot'"
                         },
                         {
                             "label": "󰿅",
-                            "command": "sh -c 'exit_apps && sleep 0.1 && hyprctl dispatch exit'"
+                            "command": "sh -c 'exit_apps && sleep 0.5 && hyprctl dispatch exit'"
                         },
                         {
                             "label": "󰉋",
                             "command": "hyprctl dispatch exec nemo"
-                        },
-                        {
-                            "label": "",
-                            "command": "hyprctl dispatch exec gimp"
                         },
                         {
                             "label": "󰖁",
@@ -91,14 +87,6 @@ in {
                         {
                             "label": "󰍭",
                             "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-                        },
-                        {
-                            "label": "󰓓",
-                            "command": "hyprctl dispatch exec steam"
-                        },
-                        {
-                            "label": "㽤",
-                            "command": "hyprctl dispatch exec vivaldi"
                         },
                         {
                             "label": "",
@@ -176,6 +164,21 @@ in {
         background: #2a2a2a
     }
 
+    .close-button {
+        background: #303030;
+        color: #fafafa;
+        padding: 0;
+        margin-top: 5px;
+        margin-right: 5px;
+        margin-left: 0px;
+    }
+
+    .close-button:hover {
+        box-shadow: none;
+        background: #383838;
+        transition: all .15s ease-in-out;
+    }
+
     .body-image {
         margin-top: 6px;
         background-color: #fafafa;
@@ -183,28 +186,18 @@ in {
     }
 
     .summary {
-        font-size: 16px;
-        font-weight: 700;
-        background: transparent;
         color: #fafafa;
-        text-shadow: none
+        margin-left: 10px;
     }
 
     .time {
-        font-size: 16px;
-        font-weight: 700;
-        background: transparent;
         color: #808080;
-        text-shadow: none;
         margin-right: 26px
     }
 
     .body {
-        font-size: 15px;
-        font-weight: 400;
-        background: transparent;
         color: #fafafa;
-        text-shadow: none
+        margin-left: 10px;
     }
 
     .control-center {
