@@ -103,7 +103,7 @@
     deno = lang "󰛦" "blue";
     lua = lang "󰢱" "blue";
     rust = lang "" "red";
-    quarto = lang "⨁" "white";
+    quarto = lang "㲵" "bright-blue";
     java = lang "" "red";
     c = lang "" "blue";
     rlang = lang "" "bright-blue";

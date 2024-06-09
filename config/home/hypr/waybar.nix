@@ -198,7 +198,7 @@ in
           font-size: 14px;
           }
 
-          #winudow, #memory, #clock, #cpu, #disk, #battery, #network, #custom-hyprbindings,
+          #window, #memory, #clock, #cpu, #disk, #battery, #network, #custom-hyprbindings,
           #tray, #custom-notification, #pulseaudio, #custom-startmenu,
           #custom-exit, #custom-themeselector, #idle_inhibitor, #temperature,
           #group-groupcpu {

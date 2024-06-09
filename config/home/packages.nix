@@ -56,6 +56,7 @@ in {
       ];
     })
     inter
+    noto-fonts-color-emoji
 
     # Import Scripts
     # (import ./../scripts/emopicker9000.nix {inherit pkgs;})

@@ -28,13 +28,13 @@
   "class<libreoffice-writer>" = "㨋";
   "class<libreoffice.*>" = "㨅";
   "class<.*xournalpp.*>" = "";
-  "class<calibre-gui>" = "㖾";
-  "class<org.telegram.desktop>" = "㖾";
+  "class<calibre-gui>" = "";
+  "class<org.telegram.desktop>" = "㺤";
   "class<io.gitlab.zehkira.Monophony>" = "";
   "class<com.github.weclaw1.ImageRoll>" = "";
   "class<org.gnome.Loupe>" = "";
   "class<com.github.wwmm.easyeffects>" = "󱛶";
-  "class<io.github.celluloid_player.Celluloid>" = "㫓";
+  "class<io.github.celluloid_player.Celluloid>" = "";
   "class<mpv>" = "㫰";
   "class<kitty> title<.*> v.*>" = "";
   "class<kitty> title<.*> nv.*>" = "";
