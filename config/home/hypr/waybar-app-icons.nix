@@ -2,6 +2,7 @@
   "class<kitty>" = "";
   "class<firefox>" = "㞩";
   "class<org.qutebrowser.qutebrowser>" = "";
+  "class<qutebrowser>" = "";
   "class<vivaldi.*>" = "㾒";
   "class<vivaldi.*> title<meet.*>" = "㡩";
   "class<ferdium>" = "";
@@ -39,4 +40,5 @@
   "class<kitty> title<.*> v.*>" = "";
   "class<kitty> title<.*> nv.*>" = "";
   "class<kitty> title<.*nvim.*>" = "";
+  "class<pavucontrol>" = "";
 }

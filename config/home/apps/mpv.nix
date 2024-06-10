@@ -16,7 +16,7 @@
       mpvScripts.youtube-upnext
       mpvScripts.thumbfast
       # mpvScripts.webtorrent-mpv-hook
-      # mpvScripts.quality-menu
+      mpvScripts.quality-menu
     ];
     config = {
       volume = 100;

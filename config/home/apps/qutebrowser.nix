@@ -44,6 +44,10 @@
       qt = {
         highdpi = true;
         force_platformtheme = "gtk3";
+        force_platform = "wayland";
+      };
+      window = {
+        hide_decoration = true;
       };
     };
     extraConfig = ''

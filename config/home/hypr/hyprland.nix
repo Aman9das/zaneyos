@@ -58,7 +58,7 @@ in
               col.active_border = rgba(3584e480)
               col.inactive_border = rgba(30303080)
               layout = scroller
-              resize_on_border = false
+              resize_on_border = true
             }
 
             input {
@@ -165,7 +165,7 @@ in
             }
             plugin {
               scroller {
-                column_default_width = floating
+                # column_default_width = onehalf
                 focus_wrap = false
               }
               hyprexpo {
@@ -189,6 +189,7 @@ in
             exec-once = [workspace current silent] wl-paste --type text --watch cliphist store #Stores only text data
             exec-once = [workspace current silent] wl-paste --type image --watch cliphist store #Stores only image data
             exec-once = [workspace current silent] ferdium
+
             dwindle {
               pseudotile = true
               preserve_split = true

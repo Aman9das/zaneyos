@@ -114,13 +114,13 @@ in
           "pulseaudio" = {
             format = "{icon} {volume}% {format_source}";
             format-bluetooth = "{volume}% {icon} {format_source}";
-            format-bluetooth-muted = " {icon} {format_source}";
-            format-muted = " {format_source}";
+            format-bluetooth-muted = "  {icon} {format_source}";
+            format-muted = "  {format_source}";
             format-source = " {volume}%";
             format-source-muted = "";
             format-icons = {
               headphone = "";
-              hands-free = "";
+              hands-free = "";
               headset = "";
               phone = "";
               portable = "";
@@ -206,7 +206,7 @@ in
               background-color: #1e1e1e; /* Base */
               border-radius: 10px;
               padding: 2px 10px;
-              font-family: Rec Mono Linear, JetBrains Mono, font-logos, 'Font Awesome 6 Brands', Symbols Nerd Font, Material Icons, devicon, 'Font Awesome 6 Free', sans-serif;
+              font-family: Rec Mono Linear, Simple Icons, Symbols Nerd Font, JetBrains Mono, sans-serif;
           }
 
           #clock, #window {
@@ -262,7 +262,7 @@ in
               margin: 0 2px 1px 2px;
               padding: 0px 0px;
               transition: all 150ms ease;
-              font-family: Rec Mono Linear, JetBrains Mono, Simple Icons, font-logos, Symbols Nerd Font, 'Font Awesome 6 Brands', Material Icons, devicon, 'Font Awesome 6 Free', sans-serif;
+              font-family: Rec Mono Linear, Simple Icons, Symbols Nerd Font, JetBrains Mono, sans-serif;
           }
 
           #custom-startmenu {
