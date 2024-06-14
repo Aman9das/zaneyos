@@ -48,30 +48,27 @@ in
         color7                #b5b8b6
         color15               #5a6169
         selection_foreground  #161718
-        inactive_tab_font_style bold
+        active_border_color   #b5b8b6
+        inactive_border_color #506169
+        bell_border_color     #b74d50
+
         active_tab_font_style   bold
+        inactive_tab_font_style bold
         tab_bar_style separator
         tab_separator ""
         tab_title_template " {index}: {title} "
 
-        # Jump around neighboring window Vi key binding
-        map ctrl+shift+w>h neighboring_window left
-        map ctrl+shift+w>l neighboring_window right
-        map ctrl+shift+w>j neighboring_window down
-        map ctrl+shift+w>k neighboring_window up
+        # tall layout
+        enabled_layouts tall:bias=64;full_size=2
+        map ctrl+shift+w launch --location=split
+        map ctrl+] layout_action decrease_num_full_size_windows
+        map ctrl+[ layout_action increase_num_full_size_windows
 
-        map ctrl+shift+w>shift+h move_window left
-        map ctrl+shift+w>shift+l move_window right
-        map ctrl+shift+w>shift+j move_window down
-        map ctrl+shift+w>shift+k move_window up
-
-        # Create a new window splitting the space used by the existing one so that
-        # the two windows are placed one above the other
-        map ctrl+shift+w>s launch --location=hsplit
-
-        # Create a new window splitting the space used by the existing one so that
-        # the two windows are placed side by side
-        map ctrl+shift+w>v launch --location=vsplit
+        # Switch focus to the neighboring window in the indicated direction
+        map ctrl+left neighboring_window left
+        map ctrl+right neighboring_window right
+        map ctrl+up neighboring_window up
+        map ctrl+down neighboring_window down
       '';
     };
     home.sessionVariables = {

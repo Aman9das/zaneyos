@@ -59,6 +59,7 @@ in
               col.inactive_border = rgba(30303080)
               layout = scroller
               resize_on_border = true
+              resize_corner = 3
             }
 
             input {
@@ -168,12 +169,6 @@ in
                 # column_default_width = onehalf
                 focus_wrap = false
               }
-              hyprexpo {
-                bg_col = rgb(303030)
-                enable_gesture = false
-                workspace_method = first 1
-                gesture_positive = false
-                }
             }
             exec-once = hyprctl dispatch workspace 5000000
 
@@ -205,10 +200,15 @@ in
             bind = ${modifier}SHIFT,Q,exec,rofi-exit
             bind = ${modifier},N,exec,swaync-client -t
             # bind = ${modifier},P,pseudo,
+            bind = ${modifier}CONTROL,F,scroller:fitsize, all
 
-            bind = ${modifier},F,scroller:cyclesize,-1
+            bind = ${modifier},F,scroller:cyclesize,1
             bind = ${modifier}SHIFT,F,fullscreen,0
+            bind = ${modifier}CONTROL,F,scroller:fitsize, all
+            bind = ${modifier},Z,fullscreen,1
+            bind = ${modifier}SHIFT,Z,togglefloating
             bind = ${modifier}SHIFT,C,exit,
+            bind = ${modifier}SHIFT,F,scroller:fitsize, all
 
             bind = ${modifier},bracketleft,scroller:setmode, col
             bind = ${modifier},bracketleft,scroller:admitwindow,
@@ -221,15 +221,18 @@ in
             bind = ${modifier},bracketright,scroller:movefocus, r
             bind = ${modifier},bracketright,scroller:setmode, row
 
-            bindr = ${modifier},left,scroller:alignwindow,l
-            bindr = ${modifier},right,scroller:alignwindow,r
-            bindr = ${modifier},up, scroller:alignwindow,u
-            bindr = ${modifier},down,scroller:alignwindow,d
+            bindr = ${modifier},left,scroller:movefocus,l
+            bindr = ${modifier},right,scroller:movefocus,r
+            bindr = ${modifier},up, scroller:movefocus,u
+            bindr = ${modifier},down,scroller:movefocus,d
 
             bind = ${modifier}SHIFT,left,scroller:movewindow,l
             bind = ${modifier}SHIFT,right,scroller:movewindow,r
-            bind = ${modifier}SHIFT,up,exec, hyprnome --previous --move
-            bind = ${modifier}SHIFT,down,exec, hyprnome --move
+            bind = ${modifier}SHIFT,up,scroller:movewindow,u
+            bind = ${modifier}SHIFT,down,scroller:movewindow,d
+
+            bind = ${modifier}CONTROL,left,scroller:alignwindow,l
+            bind = ${modifier}CONTROL,right,scroller:alignwindow,r
             bind = ${modifier}CONTROL,up,fullscreen,1
             bind = ${modifier}CONTROL,down,togglefloating
 
@@ -272,13 +275,14 @@ in
             bind = ALT SHIFT,Tab, bringactivetotop,
 
             bind = ${modifier},Return,exec,${terminal}
+            bind = ${modifier},T,exec,${terminal}
+            bind = ${modifier},W,exec, qutebrowser
             bind = ${modifier},E,exec, nemo
             bind = ${modifier}SHIFT,E,exec, rofi -show emoji
             bind = ${modifier},equal,exec, rofi -show calc
             bind = ${modifier},B,exec, bwm
-            bind = ${modifier},Y,exec, vivaldi
-            bind = ${modifier},W,exec, qutebrowser
-            bind = ${modifier}SHIFT,W,exec,web-search
+            # bind = ${modifier},Y,exec, vivaldi
+            # bind = ${modifier}SHIFT,W,exec,web-search
 
             bind = ,Print,exec,rofi-shot
             bind = SHIFT, Print, exec, sleep 0.5 && grimblast --freeze --notify copysave output $HOME/Pictures/Screenshots/$(date +%Y-%m-%d-T-%H-%M-%S).png
