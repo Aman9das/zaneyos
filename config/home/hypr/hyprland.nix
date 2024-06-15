@@ -199,19 +199,18 @@ in
 
             bindr = ${modifier},SUPER_L,exec,rofi-launcher
             bind = ${modifier}, V, exec, cliphist list | rofi -dmenu -p Clipboard | cliphist decode | wl-copy
-            bind = ${modifier},Q,killactive,
             bind = ${modifier}SHIFT,Q,exec,rofi-exit
             bind = ${modifier},N,exec,swaync-client -t
             # bind = ${modifier},P,pseudo,
-            bind = ${modifier}CONTROL,F,scroller:fitsize, all
+            bind = ${modifier},Q,killactive,
 
-            bind = ${modifier},F,scroller:cyclesize,1
-            bind = ${modifier}SHIFT,F,fullscreen,0
+
+            bind = ${modifier},Z,scroller:cyclesize,1
+            bind = ${modifier}SHIFT,Z,fullscreen,0
             bind = ${modifier}CONTROL,F,scroller:fitsize, all
-            bind = ${modifier},Z,fullscreen,1
-            bind = ${modifier}SHIFT,Z,togglefloating
+            bind = ${modifier},F,fullscreen,1
+            bind = ${modifier}SHIFT,F,togglefloating
             bind = ${modifier}SHIFT,C,exit,
-            bind = ${modifier}SHIFT,F,scroller:fitsize, all
 
             bind = ${modifier},bracketleft,scroller:setmode, col
             bind = ${modifier},bracketleft,scroller:admitwindow,
@@ -234,10 +233,10 @@ in
             bind = ${modifier}SHIFT,up,scroller:movewindow,u
             bind = ${modifier}SHIFT,down,scroller:movewindow,d
 
-            bind = ${modifier}CONTROL,left,scroller:alignwindow,l
-            bind = ${modifier}CONTROL,right,scroller:alignwindow,r
-            bind = ${modifier}CONTROL,up,fullscreen,1
-            bind = ${modifier}CONTROL,down,togglefloating
+            binde = ${modifier}CONTROL,left, resizeactive, -10 0
+            binde = ${modifier}CONTROL,right, resizeactive, 10 0
+            binde = ${modifier}CONTROL,up, resizeactive, 0 -10
+            binde = ${modifier}CONTROL,down, resizeactive, 0 10
 
             bind = ${modifier},h,scroller:movefocus,l
             bind = ${modifier},l,scroller:movefocus,r
