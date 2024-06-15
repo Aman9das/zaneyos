@@ -8,7 +8,7 @@
     # ./alacritty.nix
     ./bash.nix
     ./gtk-qt.nix
-    ./fonts.nix
+    # ./fonts.nix
     ./kitty.nix
     ./mime.nix
     ./neofetch.nix

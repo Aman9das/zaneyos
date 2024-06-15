@@ -23,13 +23,16 @@
         default_size = "14px";
         web = {
           family.sans_serif = "Recursive Sans Linear Static";
+          family.serif = "Recursive Sans Casual Static";
+          family.cursive = "Recursive Sans Casual Static";
+          family.fantasy = "Recursive Sans Casual Static";
+          family.fixed = "RecMonoLinear Nerd Font";
+          family.standard = "Recursive Sans Linear Static";
         };
       };
       colors.webpage = {
         # darkmode.enabled = true;
         darkmode.policy.images = "smart-simple";
-        darkmode.threshold.background = 128;
-        darkmode.threshold.foreground = 128;
         preferred_color_scheme = "dark";
       };
       tabs = {
@@ -51,6 +54,15 @@
       };
     };
     extraConfig = ''
+      from qutebrowser.api import interceptor
+      def intercept(request: interceptor.Request):
+        url = request.request_url
+        host = url.host()
+        path = url.path()
+        if (path.endswith('.woff') or path.endswith('.woff2') or path.endswith('.ttf') or path.endswith('.otf')) and '/fa-' not in path and host not in ['allowed-domain.com']:
+            request.block()
+      interceptor.register(intercept)
+
       # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
       # Scheme name: Tomorrow Night
       # Scheme author: Chris Kempson (http://chriskempson.com)
@@ -238,7 +250,7 @@
       c.colors.statusbar.passthrough.bg = base00
 
       # Foreground color of the statusbar in private browsing mode.
-      c.colors.statusbar.private.fg = base00
+      c.colors.statusbar.private.fg = base05
 
       # Background color of the statusbar in private browsing mode.
       c.colors.statusbar.private.bg = base01
@@ -352,7 +364,7 @@
 
       # Background color for webpages if unset (or empty to use the theme's
       # color).
-      c.colors.webpage.bg = base00
+      c.colors.webpage.bg = base03
     '';
   };
 }

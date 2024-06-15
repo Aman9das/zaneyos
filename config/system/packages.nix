@@ -53,9 +53,56 @@
     pulseaudio
   ];
 
-  fonts.packages = with pkgs; [
-    jetbrains-mono
-  ];
+  fonts = {
+    enableDefaultPackages = false;
+    enableGhostscriptFonts = false;
+    packages = with pkgs; [
+      jetbrains-mono
+      (nerdfonts.override {
+        fonts = [
+          "JetBrainsMono"
+          "NerdFontsSymbolsOnly"
+          "Recursive"
+        ];
+      })
+      recursive
+      inter
+      noto-fonts-color-emoji
+    ];
+    fontconfig.defaultFonts = {
+      monospace = [
+        "RecMonoDuotone Nerd Font"
+        "RecMonoLinear Nerd Font"
+        "Symbols Nerd Font Mono"
+        "Simple Icons"
+        "Noto Color Emoji"
+        "Noto Emoji"
+        "DejaVu Sans Mono"
+      ];
+      emoji = [
+        "Noto Color Emoji"
+        "Noto Emoji"
+      ];
+      sansSerif = [
+        "Recursive Sans Linear"
+        "Recursive Sans Linear Static"
+        "Symbols Nerd Font Mono"
+        "Simple Icons"
+        "Noto Color Emoji"
+        "Noto Emoji"
+        "DejaVu Sans Mono"
+      ];
+      serif = [
+        "Recursive Sans Casual"
+        "Recursive Sans Casual Static"
+        "Symbols Nerd Font Mono"
+        "Simple Icons"
+        "Noto Color Emoji"
+        "Noto Emoji"
+        "DejaVu Sans Mono"
+      ];
+    };
+  };
 
   programs = {
     steam.gamescopeSession.enable = true;

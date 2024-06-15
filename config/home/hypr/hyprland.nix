@@ -123,8 +123,11 @@ in
               layerrule = blur, waybar
               layerrule = animation popin 80%, rofi$
               windowrule = tile, ^(Vivaldi-stable)$
+
               windowrule = workspace current,title:MainPicker
+              windowrule = workspace current,.blueman-manager-wrapped
               windowrule = workspace current,xdg-desktop-portal-gtk
+              windowrule = float, org.gnome.FileRoller
               windowrulev2 = workspace special silent, title:^(.*is sharing (your screen|a window)\.)$
               windowrulev2 = workspace special silent, title:^(Firefox — Sharing Indicator)$
               }

@@ -43,7 +43,6 @@ in
             calendar = {
               mode = "year";
               mode-mon-col = 3;
-              weeks-pos = "right";
               on-scroll = 1;
               format = {
                 months = "<span color='#fafafa'><b>{}</b></span>";
@@ -55,7 +54,7 @@ in
             };
           };
           "hyprland/window" = {
-            max-length = 36;
+            max-length = 48;
             # icons = true;
             icon-size = 16;
             separate-outputs = false;
