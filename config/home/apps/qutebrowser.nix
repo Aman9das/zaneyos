@@ -16,6 +16,8 @@
     };
     aliases = {
       bypass = "open https://archive.ph/{url}";
+      darkmode = "set -u {url:domain} colors.webpage.darkmode.enabled true";
+      lightmode = "set -u {url:domain} colors.webpage.darkmode.enabled false";
     };
     settings = {
       fonts = {
@@ -32,7 +34,6 @@
       };
       colors.webpage = {
         # darkmode.enabled = true;
-        darkmode.policy.images = "smart-simple";
         preferred_color_scheme = "dark";
       };
       tabs = {
@@ -55,12 +56,16 @@
     };
     extraConfig = ''
       from qutebrowser.api import interceptor
+
       def intercept(request: interceptor.Request):
-        url = request.request_url
-        host = url.host()
-        path = url.path()
-        if (path.endswith('.woff') or path.endswith('.woff2') or path.endswith('.ttf') or path.endswith('.otf')) and '/fa-' not in path and host not in ['allowed-domain.com']:
-            request.block()
+          url = request.request_url
+          host = url.host()
+          path = url.path()
+          if (path.endswith(('.woff', '.woff2', '.ttf', '.otf')) and
+              not any(substring in path for substring in ['/fa-', 'icon']) and
+              host not in ['allowed-domain.com']):
+              request.block()
+
       interceptor.register(intercept)
 
       # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)

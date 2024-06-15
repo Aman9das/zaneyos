@@ -5,10 +5,8 @@
 }: {
   imports = [
     # Enable &/ Configure Programs
-    # ./alacritty.nix
     ./bash.nix
     ./gtk-qt.nix
-    # ./fonts.nix
     ./kitty.nix
     ./mime.nix
     ./neofetch.nix
@@ -23,10 +21,12 @@
     # community repo
     ./nur.nix
 
+    # language support
     ./r.nix
     ./rust.nix
 
     ./apps
     ./hypr
+    ./vm
   ];
 }

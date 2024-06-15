@@ -13,7 +13,7 @@
   "class<ferdium.*> title<.*reddit.*>" = "";
   "class<ferdium.*> title<.*telegram.*>" = "㺤";
   "class<ferdium.*> title<.*gmail.*>" = "㠫";
-  "class<thunderbird>" = "㠫";
+  "class<thunderbird>" = "㻎";
   "class<sioyek>" = "";
   "class<gimp.*>" = "㠒";
   "class<rstudio>" = "㵀";

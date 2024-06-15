@@ -68,6 +68,8 @@
       recursive
       inter
       noto-fonts-color-emoji
+      material-icons
+      font-awesome
     ];
     fontconfig.defaultFonts = {
       monospace = [
