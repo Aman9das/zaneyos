@@ -19,16 +19,10 @@
       enable = true;
       profiles = {
         default = {
-          userChrome = ''
-            @import "thunderbird-gnome-theme/userChrome.css";
-          '';
-          userContent = ''
-            @import "thunderbird-gnome-theme/userContent.css";
-          '';
           isDefault = true;
           settings = {
             "toolkit.legacyUserProfileCustomizations.stylesheets" = true; # Enable customChrome.cs
-            "svg.context-properties.content.enabled" = true; # Enable SVG context-propertes
+            "svg.context-properties.content.enabled" = true; # Enable SVG context-properties
           };
         };
       };
