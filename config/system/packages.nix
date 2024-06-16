@@ -70,6 +70,7 @@
       noto-fonts-color-emoji
       material-icons
       font-awesome
+      noto-fonts-cjk-sans
     ];
     fontconfig.defaultFonts = {
       monospace = [
@@ -80,6 +81,11 @@
         "Symbols Nerd Font Mono"
         "Simple Icons"
         "DejaVu Sans Mono"
+        "Noto Sans Mono CJK JP"
+        "Noto Sans Mono CJK KR"
+        "Noto Sans Mono CJK HK"
+        "Noto Sans Mono CJK SC"
+        "Noto Sans Mono CJK TC"
       ];
       emoji = [
         "Noto Color Emoji"
@@ -92,7 +98,11 @@
         "Noto Emoji"
         "Symbols Nerd Font Mono"
         "Simple Icons"
-        "DejaVu Sans Mono"
+        "Noto Sans CJK JP"
+        "Noto Sans CJK KR"
+        "Noto Sans CJK HK"
+        "Noto Sans CJK SC"
+        "Noto Sans CJK TC"
       ];
       serif = [
         "Recursive Sans Casual"
@@ -101,7 +111,11 @@
         "Noto Emoji"
         "Symbols Nerd Font Mono"
         "Simple Icons"
-        "DejaVu Sans Mono"
+        "Noto Sans CJK JP"
+        "Noto Sans CJK KR"
+        "Noto Sans CJK HK"
+        "Noto Sans CJK SC"
+        "Noto Sans CJK TC"
       ];
     };
   };

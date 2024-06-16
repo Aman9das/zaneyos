@@ -21,15 +21,10 @@
     };
     settings = {
       fonts = {
-        default_family = "RecMonoDuotone Nerd Font";
         default_size = "14px";
         web = {
-          family.sans_serif = "Recursive Sans Linear Static";
-          family.serif = "Recursive Sans Casual Static";
           family.cursive = "Recursive Sans Casual Static";
           family.fantasy = "Recursive Sans Casual Static";
-          family.fixed = "RecMonoLinear Nerd Font";
-          family.standard = "Recursive Sans Linear Static";
         };
       };
       colors.webpage = {
@@ -63,7 +58,7 @@
           host = url.host()
           path = url.path()
           if (path.endswith(('.woff', '.woff2', '.ttf', '.otf')) and
-              not any(substring in path for substring in ['/fa-', 'icon', 'symbol']) and
+              not any(substring in path for substring in ['/fa-', 'icon', 'symbol', 'theme']) and
               host not in ['allowed-domain.com']):
               request.block()
 
