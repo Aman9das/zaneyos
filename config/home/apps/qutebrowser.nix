@@ -35,6 +35,7 @@
       colors.webpage = {
         # darkmode.enabled = true;
         preferred_color_scheme = "dark";
+        darkmode.policy.images = "never";
       };
       tabs = {
         position = "left";
@@ -47,7 +48,7 @@
       };
       qt = {
         highdpi = true;
-        force_platformtheme = "gtk3";
+        force_platformtheme = "kvantum";
         force_platform = "wayland";
       };
       window = {
@@ -62,7 +63,7 @@
           host = url.host()
           path = url.path()
           if (path.endswith(('.woff', '.woff2', '.ttf', '.otf')) and
-              not any(substring in path for substring in ['/fa-', 'icon']) and
+              not any(substring in path for substring in ['/fa-', 'icon', 'symbol']) and
               host not in ['allowed-domain.com']):
               request.block()
 

@@ -24,6 +24,7 @@ with pkgs; let
     languageserver
     learnr
     shiny
+    nycflights13
     # colorout
   ];
   my-rstudio = pkgs.rstudio.overrideAttrs (

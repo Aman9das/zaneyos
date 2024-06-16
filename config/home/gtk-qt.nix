@@ -109,6 +109,7 @@ in {
         [Appearance]
         icon_theme=${iconTheme.name}
         style=kvantum
+        standard_dialogs=gtk2
 
         [Fonts]
         fixed="RecMonoLinear Nerd Font"
@@ -119,6 +120,7 @@ in {
         [Appearance]
         icon_theme=${iconTheme.name}
         style=kvantum
+        standard_dialogs=gtk2
 
         [Fonts]
         fixed="RecMonoLinear Nerd Font"
