@@ -29,7 +29,7 @@
     fsType = "btrfs";
   };
 
-  fileSystems."/mnt/Home" = {
+  fileSystems."/home" = {
     device = "/dev/disk/by-uuid/3d8db8ca-6606-4199-9eb7-8324279405e9";
     fsType = "btrfs";
     options = ["subvol=home"];

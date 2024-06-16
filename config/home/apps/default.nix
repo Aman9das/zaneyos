@@ -11,6 +11,7 @@
     ./neovim.nix
     ./bw.nix
     ./mpv.nix
+    ./logseq.nix
     ./vivaldi.nix
     ./firefox.nix
     ./nemo.nix

@@ -66,7 +66,7 @@ in {
   # Program Options
   browser = "vivaldi"; # Install & Set Default Browser
   terminal = "kitty"; # Set Default System Terminal
-  distrobox = false;
+  distrobox = true;
   flatpak = true;
   kdenlive = false;
   blender = false;
