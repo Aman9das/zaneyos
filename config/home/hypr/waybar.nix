@@ -52,6 +52,8 @@ in
                 today = "<span color='#f66151'><b><u>{}</u></b></span>";
               };
             };
+            on-click = "thunderbird -calendar";
+            on-click-right = "thunderbird -mail";
           };
           "hyprland/window" = {
             max-length = 48;

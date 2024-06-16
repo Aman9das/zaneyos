@@ -52,8 +52,6 @@ in
         inactive_border_color #506169
         bell_border_color     #b74d50
 
-        active_tab_font_style   bold
-        inactive_tab_font_style bold
         tab_bar_style separator
         tab_separator ""
         tab_title_template " {index}: {title} "

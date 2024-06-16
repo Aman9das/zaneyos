@@ -127,7 +127,10 @@ in
               windowrule = workspace current,title:MainPicker
               windowrule = workspace current,.blueman-manager-wrapped
               windowrule = workspace current,xdg-desktop-portal-gtk
+              windowrule = workspace current,thunderbird
+
               windowrule = float, org.gnome.FileRoller
+
               windowrulev2 = workspace special silent, title:^(.*is sharing (your screen|a window)\.)$
               windowrulev2 = workspace special silent, title:^(Firefox — Sharing Indicator)$
               }

@@ -5,7 +5,14 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  mpv_scripts = pkgs.fetchFromGitHub {
+    owner = "Eisa01";
+    repo = "mpv-scripts";
+    rev = "ed615db8bc1dd7820d5ec9faa45426f64a69ec58";
+    hash = "sha256-fg0JJaEnkzFvvipi8p1h2Ik589Mgfrf1dJ2WCCWwu+U=";
+  };
+in {
   programs.mpv = {
     enable = true;
     scripts = with pkgs; [
@@ -53,4 +60,8 @@
       slang = "bn,Bengali,Bangla,en,eng,jp,jpn,ja,Japanese,japanese";
     };
   };
+
+  home.packages = with pkgs; [
+    ffmpeg
+  ];
 }

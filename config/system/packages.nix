@@ -75,10 +75,10 @@
       monospace = [
         "RecMonoDuotone Nerd Font"
         "RecMonoLinear Nerd Font"
-        "Symbols Nerd Font Mono"
-        "Simple Icons"
         "Noto Color Emoji"
         "Noto Emoji"
+        "Symbols Nerd Font Mono"
+        "Simple Icons"
         "DejaVu Sans Mono"
       ];
       emoji = [
@@ -88,19 +88,19 @@
       sansSerif = [
         "Recursive Sans Linear"
         "Recursive Sans Linear Static"
-        "Symbols Nerd Font Mono"
-        "Simple Icons"
         "Noto Color Emoji"
         "Noto Emoji"
+        "Symbols Nerd Font Mono"
+        "Simple Icons"
         "DejaVu Sans Mono"
       ];
       serif = [
         "Recursive Sans Casual"
         "Recursive Sans Casual Static"
-        "Symbols Nerd Font Mono"
-        "Simple Icons"
         "Noto Color Emoji"
         "Noto Emoji"
+        "Symbols Nerd Font Mono"
+        "Simple Icons"
         "DejaVu Sans Mono"
       ];
     };
