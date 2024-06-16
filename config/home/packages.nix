@@ -48,16 +48,6 @@ in {
 
     vscode-fhs
 
-    (nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-        "NerdFontsSymbolsOnly"
-        "Recursive"
-      ];
-    })
-    inter
-    noto-fonts-color-emoji
-
     # Import Scripts
     # (import ./../scripts/emopicker9000.nix {inherit pkgs;})
     (import ./../scripts/task-waybar.nix {inherit pkgs;})
