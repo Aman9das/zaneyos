@@ -41,4 +41,5 @@
   "class<kitty> title<.*> nv.*>" = "";
   "class<kitty> title<.*nvim.*>" = "";
   "class<pavucontrol>" = "";
+  "class<logseq>" = "㨴";
 }

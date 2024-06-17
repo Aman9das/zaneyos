@@ -33,6 +33,11 @@
         "application/x-extension-rss" = ["thunderbird.desktop"];
         "x-scheme-handler/webcal" = ["thunderbird.desktop"];
         "x-scheme-handler/webcals" = ["thunderbird.desktop"];
+        "image/png" = ["org.gnome.Loupe.desktop" "imv-dir.desktop" "imv.desktop"];
+        "image/jpeg" = ["org.gnome.Loupe.desktop" "imv-dir.desktop" "imv.desktop"];
+        "image/svg" = ["org.gnome.Loupe.desktop" "imv-dir.desktop" "imv.desktop"];
+        "text/markdown" = ["nvim.desktop"];
+        "application/pdf" = ["com.github.ahrm.sioyek.desktop" "zathura.desktop"];
       };
     };
   };

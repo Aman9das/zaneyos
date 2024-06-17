@@ -58,7 +58,10 @@
           host = url.host()
           path = url.path()
           if (path.endswith(('.woff', '.woff2', '.ttf', '.otf')) and
-              not any(substring in path for substring in ['/fa-', 'icon', 'symbol', 'theme']) and
+              not any(substring in path.lower() for substring in [
+                  '/fa-', 'icon', 'symbol', 'theme',
+                  'awesome', 'zillaslab', 'tinymce'
+              ]) and
               host not in ['allowed-domain.com']):
               request.block()
 
