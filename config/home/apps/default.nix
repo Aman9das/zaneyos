@@ -14,6 +14,7 @@
     ./logseq.nix
     ./vivaldi.nix
     ./firefox.nix
+    ./syncthing.nix
     ./nemo.nix
     ./qutebrowser.nix
   ];
