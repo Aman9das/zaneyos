@@ -128,8 +128,10 @@ in
               windowrule = workspace current,.blueman-manager-wrapped
               windowrule = workspace current,xdg-desktop-portal-gtk
               windowrule = workspace current,thunderbird
+              windowrule = maximize,thunderbird
               windowrule = workspace current,org.gnome.Loupe
               windowrule = workspace current,polkit-gnome-authentication-agent-1
+              windowrule = maximize,ferdium
 
               windowrule = float, org.gnome.FileRoller
 
