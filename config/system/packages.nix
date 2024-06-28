@@ -14,7 +14,7 @@
     git
     cmatrix
     lolcat
-    neofetch
+    fastfetch
     htop
     btop
     libvirt

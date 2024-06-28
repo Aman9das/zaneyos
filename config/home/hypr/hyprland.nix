@@ -56,7 +56,7 @@ in
               gaps_out = 4
               border_size = 2
               col.active_border = rgba(3584e480)
-              col.inactive_border = rgba(30303080)
+              col.inactive_border = rgba(b5b8b680)
               layout = scroller
               resize_on_border = true
               resize_corner = 3
@@ -64,10 +64,10 @@ in
 
             input {
               kb_layout = ${theKBDLayout}, ${theSecondKBDLayout}
-             kb_options = grp:alt_shift_toggle
+              kb_options = grp:alt_shift_toggle
               kb_options=caps:swapescape
-             follow_mouse = 2
-             # mouse_refocus = false
+              follow_mouse = 2
+              # mouse_refocus = false
               touchpad {
                 natural_scroll = true
               }
@@ -132,6 +132,7 @@ in
               windowrule = workspace current,org.gnome.Loupe
               windowrule = workspace current,polkit-gnome-authentication-agent-1
               windowrule = maximize,ferdium
+              windowrule = maximize,Logseq
 
               windowrule = float, org.gnome.FileRoller
 
@@ -142,7 +143,7 @@ in
                 # allow_workspace_cycles = true
               }
             cursor {
-                hotspot_padding = 4
+                # hotspot_padding = 4
                 inactive_timeout = 30
                 # no_warps = true
               }
@@ -243,7 +244,13 @@ in
             binde = ${modifier}CONTROL,left, resizeactive, -10 0
             binde = ${modifier}CONTROL,right, resizeactive, 10 0
             binde = ${modifier}CONTROL,up, resizeactive, 0 -10
+            bindr = ${modifier}CONTROL,up,scroller:setmode, col
+            bindr = ${modifier}CONTROL,up,scroller:fitsize, all
+            bindr = ${modifier}CONTROL,up,scroller:setmode, row
             binde = ${modifier}CONTROL,down, resizeactive, 0 10
+            bindr = ${modifier}CONTROL,down,scroller:setmode, col
+            bindr = ${modifier}CONTROL,down,scroller:fitsize, all
+            bindr = ${modifier}CONTROL,down,scroller:setmode, row
 
             bind = ${modifier},h,scroller:movefocus,l
             bind = ${modifier},l,scroller:movefocus,r
