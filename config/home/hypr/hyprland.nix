@@ -55,7 +55,7 @@ in
               gaps_in = 2
               gaps_out = 4
               border_size = 2
-              col.active_border = rgba(3584e480)
+              col.active_border = rgba(33d17a80)
               col.inactive_border = rgba(b5b8b680)
               layout = scroller
               resize_on_border = true

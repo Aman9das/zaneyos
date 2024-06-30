@@ -48,7 +48,7 @@ in
         color7                #b5b8b6
         color15               #5a6169
         selection_foreground  #161718
-        active_border_color   #b5b8b6
+        active_border_color   #b3be5a
         inactive_border_color #506169
         bell_border_color     #b74d50
 

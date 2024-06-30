@@ -21,7 +21,7 @@ in
 
           modules-center = ["hyprland/workspaces"];
           modules-left = ["clock" "hyprland/window" "group/groupcpu"];
-          modules-right = ["pulseaudio" "custom/exit" "idle_inhibitor" "custom/notification" "tray" "battery"];
+          modules-right = ["pulseaudio" "custom/notification" "tray" "group/grouppower"];
 
           "hyprland/workspaces" = {
             format-icons = {
@@ -135,11 +135,6 @@ in
             format = "";
             on-click = "sleep 0.1 && theme-selector";
           };
-          "custom/exit" = {
-            tooltip = false;
-            format = "";
-            on-click = "rofi-exit";
-          };
           "custom/startmenu" = {
             tooltip = false;
             format = "";
@@ -150,14 +145,6 @@ in
             tooltip = false;
             format = "?";
             on-click = "sleep 0.1 && list-hypr-bindings";
-          };
-          "idle_inhibitor" = {
-            format = "{icon}";
-            format-icons = {
-              activated = "󰅶";
-              deactivated = "󰾪";
-            };
-            tooltip = "true";
           };
           "custom/notification" = {
             tooltip = false;
@@ -178,6 +165,18 @@ in
             on-click = "sleep 0.1 && task-waybar";
             escape = true;
           };
+          "group/grouppower" = {
+            orientation = "inherit";
+            modules = [
+              "battery" # First element is the "group leader" and won't ever be hidden
+              "custom/exit"
+              "idle_inhibitor"
+            ];
+            drawer = {
+              transition-duration = 250;
+              transition-left-to-right = true;
+            };
+          };
           "battery" = {
             states = {
               warning = 30;
@@ -190,6 +189,19 @@ in
             on-click = "";
             tooltip = true;
             tooltip-format = "󱐋 {power}W";
+          };
+          "custom/exit" = {
+            tooltip = false;
+            format = "";
+            on-click = "rofi-exit";
+          };
+          "idle_inhibitor" = {
+            format = "{icon}";
+            format-icons = {
+              activated = "󰅶";
+              deactivated = "󰾪";
+            };
+            tooltip = "true";
           };
         }
       ];
