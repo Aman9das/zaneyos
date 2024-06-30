@@ -202,7 +202,7 @@ in
               no_gaps_when_only = 2
             }
             master {
-              new_is_master = true
+              # new_is_master = true
             }
 
             bindr = ${modifier},SUPER_L,exec,rofi-launcher

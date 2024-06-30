@@ -15,7 +15,7 @@
     la = "ls -a";
     lal = "ls -al";
     ".." = "cd ..";
-    neofetch = "neofetch --off";
+    neofetch = "fastfetch";
     "db" = "distrobox";
     "nv" = "nvim";
 

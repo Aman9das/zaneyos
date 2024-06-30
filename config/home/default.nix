@@ -9,7 +9,7 @@
     ./gtk-qt.nix
     ./kitty.nix
     ./mime.nix
-    ./neofetch.nix
+    ./fastfetch.nix
     ./packages.nix
     ./starship.nix
     ./zsh.nix

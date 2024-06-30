@@ -14,7 +14,6 @@
     git
     cmatrix
     lolcat
-    fastfetch
     htop
     btop
     libvirt
@@ -23,12 +22,10 @@
     unzip
     unrar
     libnotify
-    eza
     v4l-utils
     wl-clipboard
     socat
     cowsay
-    lsd
     lshw
     pkg-config
     meson
@@ -41,7 +38,6 @@
     symbola
     brightnessctl
     virt-viewer
-    swappy
     ripgrep
     appimage-run
     networkmanagerapplet
@@ -130,4 +126,8 @@
   };
 
   services.cinnamon.apps.enable = false;
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-28.3.3"
+  ];
 }

@@ -34,7 +34,7 @@ in {
     xournalpp
     calibre
     celluloid
-    transmission-gtk
+    transmission_4-gtk
     libreoffice-fresh
     loupe
     _64gram
