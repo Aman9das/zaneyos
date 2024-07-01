@@ -1,48 +1,118 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "~/.config/fastfetch/logo.gif",
+    "type": "kitty",
+    "height": 22
+  },
+  "display": {
+    "separator": "➜ "
+  },
   "modules": [
-    "title",
-    "separator",
+    "break",
+    "break",
     {
       "type": "os",
-      "format": "{3} {12}"
+      "key": "  OS",
+      "keyColor": "blue"
     },
     {
-      "type": "host",
-      "format": "{/2}{-}{/}{2}{?3} {3}{?}"
+      "type": "kernel",
+      "key": " ├  ",
+      "keyColor": "blue"
     },
-    "kernel",
-    "uptime",
-    "packages",
-    "shell",
     {
-      "type": "display",
-      "compactType": "original",
-      "key": "Resolution"
+      "type": "packages",
+      "key": " ├  ",
+      "keyColor": "blue"
     },
-    "de",
-    "wm",
-    "wmtheme",
+    {
+      "type": "shell",
+      "key": " ├  ",
+      "keyColor": "blue"
+    },
+    {
+      "type": "datetime",
+      "key": " ├  ",
+      "keyColor": "blue",
+      "format": "{11}/{3}/{1}"
+    },
+    {
+      "type": "datetime",
+      "key": " └  ",
+      "keyColor": "blue",
+      "format": "{14}:{18}:{20}"
+    },
+    "break",
+    {
+      "type": "wm",
+      "key": "  WM",
+      "keyColor": "green"
+    },
     {
       "type": "theme",
-      "format": "{?1}{1}{?3} {3}{?} [Plasma], {?}{7}"
+      "key": " ├  ",
+      "keyColor": "green"
     },
-    "icons",
-    "terminal",
+    {
+      "type": "icons",
+      "key": " ├  ",
+      "keyColor": "green"
+    },
+    {
+      "type": "cursor",
+      "key": " ├  ",
+      "keyColor": "green"
+    },
+    {
+      "type": "terminal",
+      "key": " ├  ",
+      "keyColor": "green"
+    },
     {
       "type": "terminalfont",
-      "format": "{/2}{-}{/}{2}{?3} {3}{?}"
+      "key": " └  ",
+      "keyColor": "green"
     },
-    "cpu",
+    "break",
+    {
+      "type": "host",
+      "format": "{5} {1} Type {2}",
+      "key": "  PC",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "cpu",
+      "format": "{1} ({3}) @ {7} GHz",
+      "key": " ├  ",
+      "keyColor": "yellow"
+    },
     {
       "type": "gpu",
-      "key": "GPU"
+      "format": "{1} {2} @ {12} GHz",
+      "key": " ├  ",
+      "keyColor": "yellow"
     },
     {
       "type": "memory",
-      "format": "{/1}{-}{/}{/2}{-}{/}{} / {}"
+      "key": " ├  ",
+      "keyColor": "yellow"
     },
-    "break",
-    "colors"
+    // {
+    //   "type": "swap",
+    //   "key": " ├  ",
+    //   "keyColor": "yellow"
+    // },
+    // {
+    //   "type": "disk",
+    //   "key": " ├  ",
+    //   "keyColor": "yellow"
+    // },
+    {
+      "type": "monitor",
+      "key": " └  ",
+      "keyColor": "yellow"
+    },
+    "break"
   ]
 }

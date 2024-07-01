@@ -17,6 +17,7 @@ in {
   home.packages = with pkgs; [
     libvirt
     jq
+    fastfetch
     hypridle
     gnome.file-roller
     swaynotificationcenter
