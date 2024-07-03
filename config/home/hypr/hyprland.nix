@@ -37,7 +37,7 @@ in
       xwayland.enable = true;
       systemd = {
         enable = true;
-        enableXdgAutostart = false;
+        enableXdgAutostart = true;
       };
       plugins = [
         # hyprplugins.hyprtrails
@@ -53,9 +53,9 @@ in
             ${extraMonitorSettings}
             general {
               gaps_in = 2
-              gaps_out = 4
+              gaps_out = 4,16
               border_size = 2
-              col.active_border = rgba(33d17a80)
+              col.active_border = rgba(57e389c0)
               col.inactive_border = rgba(b5b8b680)
               layout = scroller
               resize_on_border = true
@@ -240,6 +240,9 @@ in
             bind = ${modifier}SHIFT,right,scroller:movewindow,r
             bind = ${modifier}SHIFT,up,scroller:movewindow,u
             bind = ${modifier}SHIFT,down,scroller:movewindow,d
+
+            bind = ${modifier}ALT,left,scroller:alignwindow,l
+            bind = ${modifier}ALT,right,scroller:alignwindow,r
 
             binde = ${modifier}CONTROL,left, resizeactive, -10 0
             binde = ${modifier}CONTROL,right, resizeactive, 10 0

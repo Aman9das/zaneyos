@@ -1,17 +1,5 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  home.packages = with pkgs; [
-    nil
-    alejandra
-    marksman
-    icu
-    gcc
-    zathura
-  ];
+{ config, lib, pkgs, ... }: {
+  home.packages = with pkgs; [ nil alejandra marksman icu gcc zathura ];
 
   programs.neovim = {
     enable = true;
@@ -42,13 +30,11 @@
       marksman
 
       black
-      (pkgs.python3.withPackages (python-pkgs: [
-        python-pkgs.pip
-      ]))
+      (pkgs.python3.withPackages (python-pkgs: [ python-pkgs.pip ]))
 
       #nix
       nil
-      alejandra
+      nixfmt-classic
     ];
 
     #   plugins = with pkgs.vimPlugins; [
@@ -160,7 +146,7 @@
   #   "${parsers}/parser";
 
   # Normal LazyVim config here, see https://github.com/LazyVim/starter/tree/main/lua
-  home.activation.setup-nvim = lib.hm.dag.entryAfter ["installPackages"] ''
+  home.activation.setup-nvim = lib.hm.dag.entryAfter [ "installPackages" ] ''
     PATH="${config.home.path}/bin:$PATH"
         if ! [ -d "${config.xdg.configHome}/nvim" ]; then
          git clone --depth=1 --single-branch "https://github.com/Aman9das/lazy-nvim-dotfiles.git" "${config.xdg.configHome}/nvim"

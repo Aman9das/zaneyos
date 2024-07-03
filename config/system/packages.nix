@@ -13,8 +13,6 @@
     curl
     git
     cmatrix
-    lolcat
-    htop
     btop
     libvirt
     polkit_gnome
@@ -24,8 +22,6 @@
     libnotify
     v4l-utils
     wl-clipboard
-    socat
-    cowsay
     lshw
     pkg-config
     meson
@@ -47,6 +43,7 @@
     xdg-terminal-exec
     rsync
     pulseaudio
+    glibc
   ];
 
   fonts = {

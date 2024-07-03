@@ -174,7 +174,7 @@ in
             ];
             drawer = {
               transition-duration = 250;
-              transition-left-to-right = true;
+              transition-left-to-right = false;
             };
           };
           "battery" = {
@@ -218,7 +218,8 @@ in
               margin: 0 2px 1px 2px;
               background-color: #1e1e1e; /* Base */
               border-radius: 10px;
-              padding: 2px 10px;
+              border: 2px solid #303030;
+              padding: 0px 8px;
               font-family: Rec Mono Linear, Simple Icons, Symbols Nerd Font, JetBrains Mono, sans-serif;
           }
 
