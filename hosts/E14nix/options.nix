@@ -4,7 +4,8 @@
 let
   setUsername = "aman";
   setHostname = "E14nix";
-in {
+in
+{
   # No Change Needed Below
   username = "${setUsername}";
   hostname = "${setHostname}";

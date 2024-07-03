@@ -3,7 +3,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   config = {
     home.file."thunderbird-gnome-theme" = {
       target = ".thunderbird/default/chrome/thunderbird-gnome-theme";

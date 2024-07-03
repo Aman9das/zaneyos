@@ -4,7 +4,8 @@
   lib,
   host,
   ...
-}: {
+}:
+{
   services = {
     syncthing = {
       enable = true;

@@ -3,7 +3,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   # Steam Configuration
   programs.steam = {
     enable = true;

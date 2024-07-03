@@ -21,7 +21,7 @@ pkgs.stdenv.mkDerivation {
     pkgs.pkg-config
     hyprland
   ];
-  buildInputs = [hyprland] ++ hyprland.buildInputs;
+  buildInputs = [ hyprland ] ++ hyprland.buildInputs;
 
   buildPhase = ''
     make all

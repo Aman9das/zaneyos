@@ -4,7 +4,8 @@
   lib,
   ...
 }:
-with pkgs; let
+with pkgs;
+let
   rpkgs = with rPackages; [
     tidyverse
     quarto
@@ -45,14 +46,15 @@ with pkgs; let
         '';
     }
   );
-  r-set = rWrapper.override {packages = rpkgs;};
+  r-set = rWrapper.override { packages = rpkgs; };
   rstudio-set = rstudioWrapper.override {
     packages = rpkgs;
     rstudio = my-rstudio;
   };
-  radian-set = radianWrapper.override {packages = rpkgs;};
-  quarto-set = quarto.override {extraRPackages = rpkgs;};
-in {
+  radian-set = radianWrapper.override { packages = rpkgs; };
+  quarto-set = quarto.override { extraRPackages = rpkgs; };
+in
+{
   # R
   home.packages = with pkgs; [
     r-set

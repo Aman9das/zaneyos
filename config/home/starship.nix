@@ -1,8 +1,5 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{ config, pkgs, ... }:
+let
   lang = icon: color: {
     symbol = icon;
     format = "[$symbol ](${color})";
@@ -33,14 +30,16 @@
       "$status"
       "$line_break"
       "[❯](bold purple)"
-      ''''${custom.space}''
+      "\${custom.space}"
     ];
     custom.space = {
-      when = ''! test $env'';
+      when = "! test $env";
       format = "  ";
     };
     continuation_prompt = "∙  ┆ ";
-    line_break = {disabled = false;};
+    line_break = {
+      disabled = false;
+    };
     status = {
       symbol = "✗";
       not_found_symbol = "󰍉 Not Found";
@@ -111,9 +110,10 @@
     dart = lang "" "blue";
     elixir = lang "" "purple";
   };
-  tomlFormat = pkgs.formats.toml {};
+  tomlFormat = pkgs.formats.toml { };
   starshipCmd = "${pkgs.starship}/bin/starship";
-in {
+in
+{
   xdg.configFile."starship.toml" = {
     source = tomlFormat.generate "starship-config" settings;
   };

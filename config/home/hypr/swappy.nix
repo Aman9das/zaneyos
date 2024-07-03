@@ -3,9 +3,11 @@
   config,
   host,
   ...
-}: let
+}:
+let
   inherit (import ../../../hosts/${host}/options.nix) screenshotDir;
-in {
+in
+{
   home.file.".config/swappy/config".text = ''
     [Default]
     save_dir=${screenshotDir}

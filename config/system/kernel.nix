@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   imports = [
     ./kernel/default.nix
     ./kernel/latest.nix

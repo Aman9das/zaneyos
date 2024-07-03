@@ -1,8 +1,5 @@
-{
-  pkgs,
-  lib,
-  ...
-}: let
+{ pkgs, lib, ... }:
+let
   nerdfonts = pkgs.nerdfonts.override {
     fonts = [
       "JetBrainsMono"
@@ -30,10 +27,11 @@
   };
   iconTheme = {
     name = "Papirus-Dark";
-    package = pkgs.papirus-icon-theme.override {color = "adwaita";};
+    package = pkgs.papirus-icon-theme.override { color = "adwaita"; };
   };
-  kvlibadwaita = pkgs.callPackage ../pkgs/kvantum-libadwaita.nix {};
-in {
+  kvlibadwaita = pkgs.callPackage ../pkgs/kvantum-libadwaita.nix { };
+in
+{
   home = {
     packages = with pkgs; [
       cantarell-fonts
@@ -54,12 +52,10 @@ in {
       XCURSOR_SIZE = "${toString cursorTheme.size}";
       GTK_THEME = "adw-gtk3-dark";
     };
-    pointerCursor =
-      cursorTheme
-      // {
-        gtk.enable = true;
-        x11.enable = true;
-      };
+    pointerCursor = cursorTheme // {
+      gtk.enable = true;
+      x11.enable = true;
+    };
     file = {
       ".local/share/themes/${theme.name}" = {
         source = "${theme.package}/share/themes/${theme.name}";

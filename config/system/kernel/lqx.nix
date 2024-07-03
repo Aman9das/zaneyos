@@ -4,9 +4,8 @@
   pkgs,
   host,
   ...
-}: let
+}:
+let
   inherit (import ../../../hosts/${host}/options.nix) theKernel;
 in
-  lib.mkIf (theKernel == "lqx") {
-    boot.kernelPackages = pkgs.linuxPackages_lqx;
-  }
+lib.mkIf (theKernel == "lqx") { boot.kernelPackages = pkgs.linuxPackages_lqx; }

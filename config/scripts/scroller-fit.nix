@@ -1,4 +1,4 @@
-{pkgs}:
+{ pkgs }:
 pkgs.writeShellScriptBin "scroller-fitsize" ''
   handle() {
     case $1 in

@@ -3,10 +3,9 @@
   config,
   lib,
   ...
-}: {
-  home.packages = with pkgs; [
-    quickemu
-  ];
+}:
+{
+  home.packages = with pkgs; [ quickemu ];
 
   # home.activation.setup-windowsvm = lib.hm.dag.entryAfter ["installPackages"] ''
   #   PATH="${config.home.path}/bin:$PATH"

@@ -7,21 +7,23 @@
   pkgs,
   modulesPath,
   ...
-}: {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
+}:
+{
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-amd"];
-  boot.extraModulePackages = [];
-  boot.kernelParams = ["psmouse.synaptics_intertouch=0"];
+  boot.initrd.availableKernelModules = [
+    "nvme"
+    "xhci_pci"
+  ];
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-amd" ];
+  boot.extraModulePackages = [ ];
+  boot.kernelParams = [ "psmouse.synaptics_intertouch=0" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/be27ed0e-b902-4597-89db-28aabc196a8d";
     fsType = "btrfs";
-    options = ["subvol=@"];
+    options = [ "subvol=@" ];
   };
 
   fileSystems."/mnt/Data" = {
@@ -32,7 +34,7 @@
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/3d8db8ca-6606-4199-9eb7-8324279405e9";
     fsType = "btrfs";
-    options = ["subvol=home"];
+    options = [ "subvol=home" ];
   };
 
   fileSystems."/boot" = {
@@ -40,9 +42,7 @@
     fsType = "vfat";
   };
 
-  swapDevices = [
-    {device = "/dev/disk/by-uuid/bfdea7e1-68f1-4611-92f5-57352b5d2d31";}
-  ];
+  swapDevices = [ { device = "/dev/disk/by-uuid/bfdea7e1-68f1-4611-92f5-57352b5d2d31"; } ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

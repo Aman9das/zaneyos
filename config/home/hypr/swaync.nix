@@ -1,10 +1,8 @@
+{ pkgs, config, ... }:
+let
+in
+# palette = config.colorScheme.palette;
 {
-  pkgs,
-  config,
-  ...
-}: let
-  # palette = config.colorScheme.palette;
-in {
   home.file.".config/swaync/config.json".text = ''
         {
             "$schema": "/etc/xdg/swaync/configSchema.json",

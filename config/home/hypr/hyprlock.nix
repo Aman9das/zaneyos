@@ -3,11 +3,10 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   # screen idle
-  home.packages = with pkgs; [
-    hyprlock
-  ];
+  home.packages = with pkgs; [ hyprlock ];
 
   xdg.configFile."hypr/hyprlock.conf".text = ''
     background {

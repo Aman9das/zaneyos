@@ -23,7 +23,7 @@ stdenv.mkDerivation rec {
     description = "Libadwaita style theme for Kvantum. Based on Colloid-kde.";
     homepage = "https://github.com/GabePoel/KvLibadwaita";
     license = licenses.gpl3;
-    maintainers = [];
+    maintainers = [ ];
     platforms = platforms.all;
   };
 }

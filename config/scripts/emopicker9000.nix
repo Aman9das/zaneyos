@@ -1,4 +1,4 @@
-{pkgs}:
+{ pkgs }:
 pkgs.writeShellScriptBin "emopicker9000" ''
   if pgrep -x "rofi" > /dev/null; then
     # Rofi is running, kill it

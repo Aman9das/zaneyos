@@ -3,7 +3,8 @@
   config,
   host,
   ...
-}: let
+}:
+let
   inherit (import ../../hosts/${host}/options.nix) flakeDir theShell hostname;
   shellAliases = {
     sv = "sudo nvim";
@@ -22,18 +23,17 @@
     ":q" = "exit";
     "q" = "exit";
   };
-in {
-  home.packages = with pkgs; [
-    carapace
-  ];
+in
+{
+  home.packages = with pkgs; [ carapace ];
 
   programs = {
     nushell = {
       inherit shellAliases;
       enable = true;
       environmentVariables = {
-        PROMPT_INDICATOR_VI_INSERT = "\"  \"";
-        PROMPT_INDICATOR_VI_NORMAL = "\"∙ \"";
+        PROMPT_INDICATOR_VI_INSERT = ''"  "'';
+        PROMPT_INDICATOR_VI_NORMAL = ''"∙ "'';
         PROMPT_COMMAND = ''""'';
         PROMPT_COMMAND_RIGHT = ''""'';
         TRANSIENT_PROMPT_COMMAND = ''"❯"'';
@@ -43,71 +43,83 @@ in {
         EDITOR = config.home.sessionVariables.EDITOR;
         VISUAL = config.home.sessionVariables.VISUAL;
       };
-      extraConfig = let
-        conf = builtins.toJSON {
-          show_banner = false;
-          edit_mode = "vi";
+      extraConfig =
+        let
+          conf = builtins.toJSON {
+            show_banner = false;
+            edit_mode = "vi";
 
-          ls.clickable_links = true;
-          rm.always_trash = true;
+            ls.clickable_links = true;
+            rm.always_trash = true;
 
-          table = {
-            mode = "compact"; # compact thin rounded
-            index_mode = "always"; # always never auto
-            header_on_separator = false;
+            table = {
+              mode = "compact"; # compact thin rounded
+              index_mode = "always"; # always never auto
+              header_on_separator = false;
+            };
+
+            shell_integration = {
+              osc2 = true;
+              osc7 = true;
+              osc8 = true;
+              osc133 = true;
+              reset_application_mode = true;
+            };
+
+            cursor_shape = {
+              vi_insert = "line";
+              vi_normal = "block";
+            };
+
+            menus = [
+              {
+                name = "completion_menu";
+                only_buffer_difference = false;
+                marker = "? ";
+                type = {
+                  layout = "columnar"; # list, description
+                  columns = 4;
+                  col_padding = 2;
+                };
+                style = {
+                  text = "magenta";
+                  selected_text = "blue_reverse";
+                  description_text = "yellow";
+                };
+              }
+            ];
           };
-
-          shell_integration = {
-            osc2 = true;
-            osc7 = true;
-            osc8 = true;
-            osc133 = true;
-            reset_application_mode = true;
-          };
-
-          cursor_shape = {
-            vi_insert = "line";
-            vi_normal = "block";
-          };
-
-          menus = [
-            {
-              name = "completion_menu";
-              only_buffer_difference = false;
-              marker = "? ";
-              type = {
-                layout = "columnar"; # list, description
-                columns = 4;
-                col_padding = 2;
-              };
-              style = {
-                text = "magenta";
-                selected_text = "blue_reverse";
-                description_text = "yellow";
-              };
-            }
-          ];
-        };
-        completions = let
-          completion = name: ''
-            source ${pkgs.nu_scripts}/share/nu_scripts/custom-completions/${name}/${name}-completions.nu
-          '';
+          completions =
+            let
+              completion = name: ''
+                source ${pkgs.nu_scripts}/share/nu_scripts/custom-completions/${name}/${name}-completions.nu
+              '';
+            in
+            names:
+            builtins.foldl' (prev: str: ''
+              ${prev}
+              ${str}'') "" (map (name: completion name) names);
         in
-          names:
-            builtins.foldl'
-            (prev: str: "${prev}\n${str}") ""
-            (map (name: completion name) names);
-      in ''
-        $env.config = ${conf};
-        ${completions ["cargo" "git" "nix" "npm" "curl" "gh" "man" "rg"]}
+        ''
+          $env.config = ${conf};
+          ${completions [
+            "cargo"
+            "git"
+            "nix"
+            "npm"
+            "curl"
+            "gh"
+            "man"
+            "rg"
+          ]}
 
-        source ~/.cache/carapace/init.nu
-        def gcCleanup [] {
-          nix-collect-garbage --delete-old
-          sudo nix-collect-garbage -d
-          sudo /run/current-system/bin/switch-to-configuration boot
-          }
-      '';
+          source ~/.cache/carapace/init.nu
+          def gcCleanup [] {
+            nix-collect-garbage --delete-old
+            sudo nix-collect-garbage -d
+            sudo /run/current-system/bin/switch-to-configuration boot
+            }
+        '';
       extraEnv = ''
         $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
         mkdir ~/.cache/carapace

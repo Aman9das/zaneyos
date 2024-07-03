@@ -3,13 +3,16 @@
   lib,
   config,
   ...
-}: {
-  home.packages = with pkgs; [
-    fusuma
-  ];
+}:
+{
+  home.packages = with pkgs; [ fusuma ];
   services.fusuma = {
     enable = true;
-    extraPackages = with pkgs; [hyprland hyprnome coreutils];
+    extraPackages = with pkgs; [
+      hyprland
+      hyprnome
+      coreutils
+    ];
     settings = {
       threshold = {
         swipe = 0.25;

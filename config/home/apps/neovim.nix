@@ -1,5 +1,18 @@
-{ config, lib, pkgs, ... }: {
-  home.packages = with pkgs; [ nil alejandra marksman icu gcc zathura ];
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  home.packages = with pkgs; [
+    nil
+    alejandra
+    marksman
+    icu
+    gcc
+    zathura
+  ];
 
   programs.neovim = {
     enable = true;
@@ -34,7 +47,7 @@
 
       #nix
       nil
-      nixfmt-classic
+      nixfmt-rfc-style
     ];
 
     #   plugins = with pkgs.vimPlugins; [

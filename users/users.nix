@@ -4,9 +4,11 @@
   username,
   host,
   ...
-}: let
+}:
+let
   inherit (import ./../hosts/${host}/options.nix) gitUsername theShell;
-in {
+in
+{
   users.users = {
     "${username}" = {
       homeMode = "755";
@@ -22,7 +24,7 @@ in {
       ];
       shell = pkgs.${theShell};
       ignoreShellProgramCheck = true;
-      packages = with pkgs; [];
+      packages = with pkgs; [ ];
     };
     # "newuser" = {
     #   homeMode = "755";

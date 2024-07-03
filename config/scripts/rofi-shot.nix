@@ -1,4 +1,4 @@
-{pkgs}:
+{ pkgs }:
 pkgs.writeShellScriptBin "rofi-shot" ''
   # Kill if any other rofi instance is running
   if pgrep -x "rofi" > /dev/null; then

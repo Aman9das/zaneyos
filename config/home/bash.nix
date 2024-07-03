@@ -4,16 +4,17 @@
   pkgs,
   host,
   ...
-}: let
-  inherit
-    (import ../../hosts/${host}/options.nix)
+}:
+let
+  inherit (import ../../hosts/${host}/options.nix)
     flakeDir
     flakePrev
     hostname
     flakeBackup
     theShell
     ;
-in {
+in
+{
   # Configure Bash
   programs.bash = {
     enable = true;
@@ -23,8 +24,7 @@ in {
       #  exec Hyprland
       #fi
     '';
-    initExtra = ''
-    '';
+    initExtra = "";
     sessionVariables = {
       ZANEYOS = true;
       FLAKEBACKUP = "${flakeBackup}";

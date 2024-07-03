@@ -5,9 +5,11 @@
   username,
   host,
   ...
-}: let
+}:
+let
   inherit (import ../../hosts/${host}/options.nix) username;
-in {
+in
+{
   environment.persistence."/nix/persist" = {
     hideMounts = true;
     directories = [
@@ -36,8 +38,7 @@ in {
         ".config/obs-studio"
         ".steam"
       ];
-      files = [
-      ];
+      files = [ ];
     };
   };
 }

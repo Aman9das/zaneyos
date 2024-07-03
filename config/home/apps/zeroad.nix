@@ -4,11 +4,8 @@
   lib,
   host,
   ...
-}: let
+}:
+let
   inherit (import ../../../hosts/${host}/options.nix) enableZeroAD;
 in
-  lib.mkIf (enableZeroAD == true) {
-    home.packages = with pkgs; [
-      zeroad
-    ];
-  }
+lib.mkIf (enableZeroAD == true) { home.packages = with pkgs; [ zeroad ]; }

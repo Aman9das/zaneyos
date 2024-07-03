@@ -3,7 +3,8 @@
   config,
   inputs,
   ...
-}: {
+}:
+{
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -70,7 +71,6 @@
         "Noto Color Emoji"
         "Symbols Nerd Font Mono"
         "Simple Icons"
-        "DejaVu Sans Mono"
       ];
       emoji = [
         "Noto Color Emoji"
@@ -116,7 +116,7 @@
   hardware.opentabletdriver.enable = true;
 
   services.xserver = {
-    excludePackages = with pkgs; [xterm];
+    excludePackages = with pkgs; [ xterm ];
     desktopManager = {
       cinnamon.enable = true;
     };
@@ -126,5 +126,6 @@
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-28.3.3"
+    "electron-27.3.11"
   ];
 }

@@ -27,55 +27,58 @@
     # impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = inputs @ {
-    nixpkgs,
-    home-manager,
-    hyprland,
-    nur,
-    ...
-  }: let
-    system = "x86_64-linux";
-    host = "E14nix";
-    inherit (import ./hosts/${host}/options.nix) username hostname;
+  outputs =
+    inputs@{
+      nixpkgs,
+      home-manager,
+      hyprland,
+      nur,
+      ...
+    }:
+    let
+      system = "x86_64-linux";
+      host = "E14nix";
+      inherit (import ./hosts/${host}/options.nix) username hostname;
 
-    pkgs = import nixpkgs {
-      inherit system;
-      config = {
-        allowUnfree = true;
-      };
-    };
-  in {
-    nixosConfigurations = {
-      "${hostname}" = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit system;
-          inherit inputs;
-          inherit username;
-          inherit hostname;
-          inherit host;
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
         };
-        modules = [
-          ./system.nix
-          # impermanence.nixosModules.impermanence
-          home-manager.nixosModules.home-manager
+      };
+    in
+    {
+      nixosConfigurations = {
+        "${hostname}" = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit system;
+            inherit inputs;
+            inherit username;
+            inherit hostname;
+            inherit host;
+          };
+          modules = [
+            ./system.nix
+            # impermanence.nixosModules.impermanence
+            home-manager.nixosModules.home-manager
 
-          nur.nixosModules.nur
+            nur.nixosModules.nur
 
-          {
-            home-manager.extraSpecialArgs = {
-              inherit username;
-              inherit inputs;
-              inherit host;
-              # inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
-              inherit system;
-            };
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.${username} = import ./users/default/home.nix;
-          }
-        ];
+            {
+              home-manager.extraSpecialArgs = {
+                inherit username;
+                inherit inputs;
+                inherit host;
+                # inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
+                inherit system;
+              };
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "backup";
+              home-manager.users.${username} = import ./users/default/home.nix;
+            }
+          ];
+        };
       };
     };
-  };
 }

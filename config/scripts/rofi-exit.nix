@@ -1,4 +1,4 @@
-{pkgs}:
+{ pkgs }:
 pkgs.writeShellScriptBin "rofi-exit" ''
   if pgrep -x "rofi" > /dev/null; then
     # Rofi is running, kill it

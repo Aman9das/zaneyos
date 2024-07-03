@@ -4,7 +4,8 @@
 let
   setUsername = "defaultuser";
   setHostname = "nixos";
-in {
+in
+{
   # No Change Needed Below
   username = "${setUsername}";
   hostname = "${setHostname}";

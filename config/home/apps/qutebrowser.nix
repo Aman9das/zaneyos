@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.qutebrowser = {
     enable = true;
     loadAutoconfig = true;
@@ -10,8 +11,8 @@
     keyBindings = {
       normal = {
         "<Shift-!>" = "cmd-set-text :open ! ";
-        "\v" = "spawn -d mpv {url}";
-        "\V" = "hint links spawn -d mpv {hint-url}";
+        "v" = "spawn -d mpv {url}";
+        "V" = "hint links spawn -d mpv {hint-url}";
       };
     };
     aliases = {

@@ -5,14 +5,16 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   mpv_scripts = pkgs.fetchFromGitHub {
     owner = "Eisa01";
     repo = "mpv-scripts";
     rev = "ed615db8bc1dd7820d5ec9faa45426f64a69ec58";
     hash = "sha256-fg0JJaEnkzFvvipi8p1h2Ik589Mgfrf1dJ2WCCWwu+U=";
   };
-in {
+in
+{
   programs.mpv = {
     enable = true;
     scripts = with pkgs; [
@@ -44,7 +46,7 @@ in {
       title = "\${?media-title:\${media-title}}\${!media-title:No file.}";
 
       ytdl-format = "bestvideo[height<=?1080]+bestaudio/best";
-      script-opts = "ytdl_hook-ytdl_path=${pkgs.yt-dlp}/bin/yt-dlp,ytdl_hook-try_ytdl_first=yes,ytdl_hook-exclude=\"%.webm$|%.ts$|%.mp3$|%.m3u8$|%.m3u$|%.mkv$|%.mp4$|%.VOB$\"";
+      script-opts = ''ytdl_hook-ytdl_path=${pkgs.yt-dlp}/bin/yt-dlp,ytdl_hook-try_ytdl_first=yes,ytdl_hook-exclude="%.webm$|%.ts$|%.mp3$|%.m3u8$|%.m3u$|%.mkv$|%.mp4$|%.VOB$"'';
 
       # save-position-on-quit = true;
       # resume-playback = "no";
@@ -61,7 +63,5 @@ in {
     };
   };
 
-  home.packages = with pkgs; [
-    ffmpeg
-  ];
+  home.packages = with pkgs; [ ffmpeg ];
 }

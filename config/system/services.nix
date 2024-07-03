@@ -3,7 +3,8 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   # List services that you want to enable:
   services.openssh.enable = true;
   services.fstrim.enable = true;
@@ -64,7 +65,7 @@
   services.blueman.enable = true;
   services.dbus = {
     enable = true;
-    packages = [pkgs.gcr];
+    packages = [ pkgs.gcr ];
   };
 
   services.logind.extraConfig = ''

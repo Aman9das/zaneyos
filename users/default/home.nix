@@ -6,9 +6,9 @@
   host,
   gtkThemeFromScheme,
   ...
-}: let
-  inherit
-    (import ./../../hosts/${host}/options.nix)
+}:
+let
+  inherit (import ./../../hosts/${host}/options.nix)
     gitUsername
     gitEmail
     theme
@@ -18,7 +18,8 @@
     flakeDir
     waybarStyle
     ;
-in {
+in
+{
   # Home Manager Settings
   home.username = "${username}";
   home.homeDirectory = "/home/${username}";
@@ -64,8 +65,8 @@ in {
 
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system"];
-      uris = ["qemu:///system"];
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
     };
   };
 

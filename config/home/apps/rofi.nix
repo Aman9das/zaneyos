@@ -1,8 +1,5 @@
+{ pkgs, config, ... }:
 {
-  pkgs,
-  config,
-  ...
-}: {
   home.packages = [
     pkgs.rofi-rbw-wayland
     pkgs.rofi-power-menu
@@ -12,12 +9,8 @@
     package = pkgs.rofi-wayland;
 
     plugins = [
-      (pkgs.rofi-calc.override {
-        rofi-unwrapped = pkgs.rofi-wayland-unwrapped;
-      })
-      (pkgs.rofi-emoji.override {
-        rofi-unwrapped = pkgs.rofi-wayland-unwrapped;
-      })
+      (pkgs.rofi-calc.override { rofi-unwrapped = pkgs.rofi-wayland-unwrapped; })
+      (pkgs.rofi-emoji.override { rofi-unwrapped = pkgs.rofi-wayland-unwrapped; })
     ];
     theme."@import" = "${config.xdg.configHome}/rofi/theme.rasi";
 

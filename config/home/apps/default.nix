@@ -1,8 +1,5 @@
+{ pkgs, config, ... }:
 {
-  pkgs,
-  config,
-  ...
-}: {
   imports = [
     ./thunderbird.nix
     ./zeroad.nix

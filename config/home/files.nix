@@ -1,8 +1,5 @@
+{ pkgs, config, ... }:
 {
-  pkgs,
-  config,
-  ...
-}: {
   # Place Files Inside Home Directory
   home.file.".emoji".source = ./files/emoji;
   home.file.".base16-themes".source = ./files/base16-themes;
@@ -10,7 +7,8 @@
   home.file.".face.icon".source = ./files/face.jpg; # For SDDM
   # home.file.".config/rofi/rofi.jpg".source = ./files/rofi.jpg;
   # home.file.".config/starship.toml".source = ./files/starship.toml;
-  home.file.".config/swaylock-bg.jpg".source = pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
+  home.file.".config/swaylock-bg.jpg".source =
+    pkgs.nixos-artwork.wallpapers.nineish-dark-gray.gnomeFilePath;
   # home.file.".config/ascii-neofetch".source = ./files/ascii-neofetch;
   home.file.".local/share/fonts" = {
     source = ./files/fonts;

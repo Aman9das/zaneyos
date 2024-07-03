@@ -3,8 +3,7 @@
   config,
   lib,
   ...
-}: {
-  home.packages = with pkgs; [
-    logseq
-  ];
+}:
+{
+  home.packages = with pkgs; [ logseq ];
 }

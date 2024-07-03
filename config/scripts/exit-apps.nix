@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 pkgs.writeShellScriptBin "exit_apps" ''
   # Close Applications
   main() {

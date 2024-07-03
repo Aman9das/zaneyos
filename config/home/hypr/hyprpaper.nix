@@ -1,9 +1,9 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   wallpaper = "$HOME/.config/wallpaper/wall.jpeg";
-in {
-  home.packages = with pkgs; [
-    hyprpaper
-  ];
+in
+{
+  home.packages = with pkgs; [ hyprpaper ];
 
   xdg.configFile."hypr/hyprpaper.conf" = {
     text = ''

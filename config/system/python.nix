@@ -4,19 +4,20 @@
   lib,
   host,
   ...
-}: let
+}:
+let
   inherit (import ../../hosts/${host}/options.nix) python;
-  my-python-packages = ps:
-    with ps; [
+  my-python-packages =
+    ps: with ps; [
       pandas
       requests
       ipython
       pip
     ];
 in
-  lib.mkIf (python == true) {
-    environment.systemPackages = with pkgs; [
-      jetbrains.pycharm-community-bin
-      (pkgs.python3.withPackages my-python-packages)
-    ];
-  }
+lib.mkIf (python == true) {
+  environment.systemPackages = with pkgs; [
+    jetbrains.pycharm-community-bin
+    (pkgs.python3.withPackages my-python-packages)
+  ];
+}

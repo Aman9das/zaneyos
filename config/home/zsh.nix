@@ -4,9 +4,11 @@
   pkgs,
   host,
   ...
-}: let
+}:
+let
   inherit (import ../../hosts/${host}/options.nix) flakeDir theShell hostname;
-in {
+in
+{
   programs.zsh = {
     enable = true;
     syntaxHighlighting.enable = true;
@@ -44,8 +46,7 @@ in {
       autoload -Uz compinit
       compinit
     '';
-    sessionVariables = {
-    };
+    sessionVariables = { };
     shellAliases = {
       sv = "sudo nvim";
       flake-rebuild = "nh os switch --hostname ${hostname}";

@@ -3,19 +3,20 @@
   lib,
   config,
   ...
-}: {
-  home.packages = [pkgs.libinput-gestures];
+}:
+{
+  home.packages = [ pkgs.libinput-gestures ];
   systemd.user.services = {
     libinput-gestures = {
       Unit = {
         Description = "Launch libinput-gestures";
-        PartOf = ["graphical-session.target"];
+        PartOf = [ "graphical-session.target" ];
       };
       Service = {
         Type = "simple";
         ExecStart = "${pkgs.libinput-gestures}/bin/libinput-gestures";
       };
-      Install.WantedBy = ["graphical-session.target"];
+      Install.WantedBy = [ "graphical-session.target" ];
     };
   };
 }

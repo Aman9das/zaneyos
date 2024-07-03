@@ -4,9 +4,11 @@
   username,
   host,
   ...
-}: let
+}:
+let
   inherit (import ../../hosts/${host}/options.nix) wallpaperDir wallpaperGit;
-in {
+in
+{
   # system.userActivationScripts = {
   #   gitwallpapers.text = ''
   #   '';
