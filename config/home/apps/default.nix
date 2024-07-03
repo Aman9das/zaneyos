@@ -5,7 +5,6 @@
     ./zeroad.nix
     ./blender.nix
     ./rofi.nix
-    ./neovim.nix
     ./bw.nix
     ./mpv.nix
     ./logseq.nix

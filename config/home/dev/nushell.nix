@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (import ../../hosts/${host}/options.nix) flakeDir theShell hostname;
+  inherit (import ../../../hosts/${host}/options.nix) flakeDir theShell hostname;
   shellAliases = {
     sv = "sudo nvim";
     flake-rebuild = "nh os switch --hostname ${hostname}";

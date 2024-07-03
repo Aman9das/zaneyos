@@ -62,5 +62,6 @@ in
     radian-set
     quarto-set
     texliveFull
+    visidata
   ];
 }

@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (import ../../hosts/${host}/options.nix) flakeDir theShell hostname;
+  inherit (import ../../../hosts/${host}/options.nix) flakeDir theShell hostname;
 in
 {
   programs.zsh = {

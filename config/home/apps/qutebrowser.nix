@@ -13,6 +13,10 @@
         "<Shift-!>" = "cmd-set-text :open ! ";
         "v" = "spawn -d mpv {url}";
         "V" = "hint links spawn -d mpv {hint-url}";
+        "<Ctrl-Tab>" = "tab-next";
+        "<Ctrl-Shift-Tab>" = "tab-prev";
+        "<Alt-Left>" = "back";
+        "<Alt-Right>" = "forward";
       };
     };
     aliases = {

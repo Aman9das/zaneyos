@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (import ../../hosts/${host}/options.nix)
+  inherit (import ../../../hosts/${host}/options.nix)
     flakeDir
     flakePrev
     hostname
