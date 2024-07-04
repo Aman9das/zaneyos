@@ -29,8 +29,23 @@ in
   ];
 
   # Enable networking
-  networking.hostName = "${hostname}"; # Define your hostname
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "${hostname}"; # Define your hostname
+    networkmanager.enable = true;
+    firewall.enable = true;
+    firewall.allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ]; # for kdeconnect
+    firewall.allowedUDPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ]; # for kdeconnect
+  };
 
   # Set your time zone
   time.timeZone = "${theTimezone}";

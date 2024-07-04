@@ -25,7 +25,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    pkgs-may.vivaldi
+    vivaldi
     uget
     uget-integrator
   ];

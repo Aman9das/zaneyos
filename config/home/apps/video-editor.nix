@@ -1,4 +1,8 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [ openshot-qt ];
+  home.packages = with pkgs; [
+    kdePackages.kdenlive
+    mlt
+    glaxnimate
+  ];
 }

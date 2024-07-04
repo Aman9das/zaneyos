@@ -112,6 +112,7 @@
   };
 
   virtualisation.libvirtd.enable = true;
+  virtualisation.waydroid.enable = true;
 
   hardware.opentabletdriver.enable = true;
 

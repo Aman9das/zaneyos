@@ -13,5 +13,7 @@
     ./syncthing.nix
     ./nemo.nix
     ./qutebrowser.nix
+    ./kdeconnect.nix
+    ./video-editor.nix
   ];
 }

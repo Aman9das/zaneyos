@@ -44,8 +44,9 @@ in
       libsForQt5.breeze-qt5
       qt5ct
       qt6ct
-      libsForQt5.qtstyleplugin-kvantum
       libsForQt5.qt5.qtwayland
+      kdePackages.qtwayland
+
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;
@@ -95,17 +96,19 @@ in
     enable = true;
     platformTheme.name = "qt5ct";
     style = {
-      name = "kvantum";
+      name = "qt5ct-style";
     };
   };
 
   xdg = {
     configFile = {
+      kdeglobals.source = "${pkgs.libsForQt5.breeze-qt5}/share/color-schemes/BreezeDark.colors";
+
       "qt5ct/qt5ct.conf".text = ''
         [Appearance]
         icon_theme=${iconTheme.name}
-        style=kvantum
-        standard_dialogs=gtk2
+        style=Breeze
+        standard_dialogs=Default
 
         [Fonts]
         fixed="RecMonoLinear Nerd Font"
@@ -115,8 +118,8 @@ in
       "qt6ct/qt6ct.conf".text = ''
         [Appearance]
         icon_theme=${iconTheme.name}
-        style=kvantum
-        standard_dialogs=gtk2
+        style=Breeze
+        standard_dialogs=Default
 
         [Fonts]
         fixed="RecMonoLinear Nerd Font"
