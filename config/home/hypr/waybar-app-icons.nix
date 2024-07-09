@@ -42,4 +42,7 @@
   "class<kitty> title<.*nvim.*>" = "";
   "class<pavucontrol>" = "";
   "class<logseq>" = "㨴";
+  "class<Waydroid>" = "";
+  "class<org.kde.kdenlive>" = "";
+  "class<spicy> title<windows-11>" = "㿫";
 }

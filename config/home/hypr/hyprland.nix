@@ -131,10 +131,12 @@ with lib;
             windowrule = workspace current,org.qutebrowser.qutebrowser
             windowrule = maximize,thunderbird
             windowrule = workspace current,org.gnome.Loupe
+            windowrule = workspace current,fusuma
             windowrule = workspace current,polkit-gnome-authentication-agent-1
             windowrule = maximize,ferdium
             windowrule = maximize,Logseq
-            windowrulev2 = maximize,class:(Waydroid),title:(Waydroid)
+            windowrule = fullscreen,spicy
+            windowrulev2 = fullscreen,class:(Waydroid),title:(Waydroid)
 
             windowrule = float, org.gnome.FileRoller
 

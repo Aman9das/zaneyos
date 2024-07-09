@@ -243,13 +243,21 @@ with lib;
         #window, #memory, #clock, #cpu, #disk, #battery, #network, #custom-hyprbindings,
         #tray, #custom-notification, #pulseaudio, #custom-startmenu,
         #custom-exit, #custom-themeselector, #idle_inhibitor, #temperature,
-        #group-groupcpu {
-            margin: 0 2px 1px 2px;
+        #group-groupcpu, #group-grouppower {
+            margin: 0 0 1px 2px;
             background-color: #1e1e1e; /* Base */
             border-radius: 10px;
             border: 2px solid #303030;
             padding: 0px 8px;
             font-family: Rec Mono Linear, Simple Icons, Symbols Nerd Font, JetBrains Mono, sans-serif;
+        }
+
+        #battery, #group-grouppower {
+            margin-right: 0px;
+        }
+
+        #clock {
+            margin-left: 0px;
         }
 
         #clock, #window {

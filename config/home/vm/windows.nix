@@ -5,12 +5,16 @@
   ...
 }:
 {
-  home.packages = with pkgs; [ quickemu ];
+  home.packages = with pkgs; [
+    quickemu
+    spice-gtk
+  ];
 
-  # home.activation.setup-windowsvm = lib.hm.dag.entryAfter ["installPackages"] ''
-  #   PATH="${config.home.path}/bin:$PATH"
-  #       if ! [ -d "${config.xdg.configHome}/nvim" ]; then
-  #        git clone --depth=1 --single-branch "https://github.com/Aman9das/lazy-nvim-dotfiles.git" "${config.xdg.configHome}/nvim"
-  #      fi
-  # '';
+  xdg.desktopEntries.windows = {
+    name = "Windows VM";
+    genericName = "Windows VM";
+    exec = "quickemu --vm system/vm/windows-11.conf --display spice";
+    icon = "distributor-logo-windows";
+    terminal = false;
+  };
 }
