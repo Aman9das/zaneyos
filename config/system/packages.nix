@@ -119,14 +119,20 @@
   services.xserver = {
     excludePackages = with pkgs; [ xterm ];
     desktopManager = {
-      cinnamon.enable = true;
+      gnome.enable = true;
     };
   };
 
   services.cinnamon.apps.enable = false;
+  services.gnome = {
+    core-utilities.enable = false;
+    tracker-miners.enable = false;
+    tracker.enable = false;
+  };
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-28.3.3"
     "electron-27.3.11"
+    "freeimage-unstable-2021-11-01"
   ];
 }

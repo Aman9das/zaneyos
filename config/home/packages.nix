@@ -29,9 +29,9 @@ in
     cliphist
     nix-prefetch-github
     grimblast
-    localsend
 
     easyeffects
+    localsend
 
     xournalpp
     calibre
@@ -46,8 +46,32 @@ in
     ferdium
     gnome.gnome-disk-utility
     libsForQt5.dolphin
-    yt-dlp
 
+    (retroarch.override {
+      cores = with libretro; [
+        genesis-plus-gx
+        snes9x
+        mame2003-plus
+        fbneo
+        fbalpha2012
+        puae
+        dosbox-pure
+        beetle-vb
+        melonds
+        fceumm
+        mupen64plus
+        dolphin
+        scummvm
+        picodrive
+        beetle-saturn
+        flycast
+        swanstation
+        pcsx2
+        ppsspp
+      ];
+    })
+
+    zed-editor
     vscode-fhs
 
     # Import Scripts
