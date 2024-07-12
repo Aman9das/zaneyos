@@ -44,5 +44,9 @@
   "class<logseq>" = "㨴";
   "class<Waydroid>" = "";
   "class<org.kde.kdenlive>" = "";
+  "class<org.libretro.RetroArch>" = "";
+  "class<dev.zed.Zed>" = "䀿";
+  "class<com.usebottles.bottles>" = "";
+  "class<heroic>" = "";
   "class<spicy> title<windows-11>" = "";
 }

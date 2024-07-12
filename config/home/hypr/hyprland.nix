@@ -135,6 +135,8 @@ with lib;
             windowrule = workspace current,polkit-gnome-authentication-agent-1
             windowrule = maximize,ferdium
             windowrule = maximize,Logseq
+            windowrule = maximize,org.libretro.RetroArch
+            windowrule = maximize,heroic
             windowrule = fullscreen,spicy
             windowrulev2 = fullscreen,class:(Waydroid),title:(Waydroid)
 

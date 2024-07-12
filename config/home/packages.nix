@@ -56,12 +56,15 @@ in
         fbalpha2012
         puae
         dosbox-pure
+        gambatte
+        mgba
         beetle-vb
         melonds
         fceumm
         mupen64plus
         dolphin
         scummvm
+        opera
         picodrive
         beetle-saturn
         flycast
@@ -70,6 +73,8 @@ in
         ppsspp
       ];
     })
+    bottles
+    heroic
 
     zed-editor
     vscode-fhs
