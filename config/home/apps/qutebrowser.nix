@@ -48,11 +48,9 @@
       };
       qt = {
         highdpi = true;
-        force_platformtheme = "kvantum";
-        force_platform = "wayland";
       };
       window = {
-        hide_decoration = true;
+        hide_decoration = false;
       };
     };
     extraConfig = ''
@@ -65,7 +63,7 @@
           if (path.endswith(('.woff', '.woff2', '.ttf', '.otf')) and
               not any(substring in path.lower() for substring in [
                   '/fa-', 'icon', 'symbol', 'theme',
-                  'awesome', 'zillaslab', 'tinymce', 'math'
+                  'awesome', 'zillaslab', 'tinymce', 'math', 'lichess'
               ]) and
               host not in ['allowed-domain.com']):
               request.block()
