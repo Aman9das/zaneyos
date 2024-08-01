@@ -58,13 +58,14 @@ in
               header_on_separator = false;
             };
 
-            shell_integration = {
-              osc2 = true;
-              osc7 = true;
-              osc8 = true;
-              osc133 = true;
-              reset_application_mode = true;
-            };
+            # shell_integration = {
+            #   osc2 = true;
+            #   osc7 = true;
+            #   osc8 = true;
+            #   osc133 = true;
+            #   reset_application_mode = true;
+            # };
+            shell_integration = true;
 
             cursor_shape = {
               vi_insert = "line";

@@ -46,6 +46,7 @@ in
     ferdium
     gnome.gnome-disk-utility
     libsForQt5.dolphin
+    parabolic
 
     (retroarch.override {
       cores = with libretro; [
