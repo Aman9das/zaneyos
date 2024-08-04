@@ -303,7 +303,7 @@ with lib;
           bind = ${modifier},T,exec,${terminal}
           bind = ${modifier},W,exec, qutebrowser
           bind = ${modifier},E,exec, nemo
-          bind = ${modifier}SHIFT,E,exec, rofi -show emoji
+          bind = ${modifier},period,exec, rofi -show emoji
           bind = ${modifier},equal,exec, rofi -show calc
           bind = ${modifier},B,exec, bwm
           # bind = ${modifier},Y,exec, vivaldi
