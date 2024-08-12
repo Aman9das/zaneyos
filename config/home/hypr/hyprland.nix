@@ -139,6 +139,7 @@ with lib;
             windowrule = maximize,heroic
             windowrule = fullscreen,spicy
             windowrulev2 = fullscreen,class:(Waydroid),title:(Waydroid)
+            windowrule = fullscreen,^(waydroid.*)
 
             windowrule = float, org.gnome.FileRoller
 

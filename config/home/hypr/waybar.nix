@@ -20,14 +20,13 @@ with lib;
       {
         layer = "top";
         position = "top";
-
-        modules-center = [ "hyprland/workspaces" ];
         modules-left = [
           "clock"
           "hyprland/window"
-          "group/groupcpu"
         ];
+        modules-center = [ "hyprland/workspaces" ];
         modules-right = [
+          "group/groupcpu"
           "pulseaudio"
           "custom/notification"
           "tray"
@@ -87,7 +86,7 @@ with lib;
           ];
           drawer = {
             transition-duration = 250;
-            transition-left-to-right = true;
+            transition-left-to-right = false;
           };
         };
         "memory" = {

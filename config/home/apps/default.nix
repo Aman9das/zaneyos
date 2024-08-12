@@ -15,5 +15,6 @@
     ./qutebrowser.nix
     ./kdeconnect.nix
     ./video-editor.nix
+    ./ebook.nix
   ];
 }

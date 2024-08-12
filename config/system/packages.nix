@@ -119,7 +119,8 @@
   services.xserver = {
     excludePackages = with pkgs; [ xterm ];
     desktopManager = {
-      gnome.enable = true;
+      # gnome.enable = true;
+      cinnamon.enable = true;
     };
   };
 

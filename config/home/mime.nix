@@ -49,6 +49,11 @@
           "imv-dir.desktop"
           "imv.desktop"
         ];
+        "image/webp" = [
+          "org.gnome.Loupe.desktop"
+          "imv-dir.desktop"
+          "imv.desktop"
+        ];
         "text/markdown" = [ "nvim.desktop" ];
         "application/pdf" = [
           "com.github.ahrm.sioyek.desktop"

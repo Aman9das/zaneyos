@@ -11,7 +11,6 @@
     marksman
     icu
     gcc
-    zathura
   ];
 
   programs.neovim = {

@@ -34,7 +34,6 @@ in
     localsend
 
     xournalpp
-    calibre
     celluloid
     transmission_4-gtk
     libreoffice-fresh
@@ -45,6 +44,8 @@ in
     # monophony
     ferdium
     gnome.gnome-disk-utility
+    baobab
+    android-studio
     libsForQt5.dolphin
     parabolic
 
