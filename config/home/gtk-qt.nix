@@ -34,12 +34,10 @@ in
 {
   home = {
     packages = with pkgs; [
-      cantarell-fonts
       theme.package
       font.package
       cursorTheme.package
       iconTheme.package
-      gnome.adwaita-icon-theme
 
       libsForQt5.breeze-qt5
       qt5ct
@@ -57,38 +55,19 @@ in
       gtk.enable = true;
       x11.enable = true;
     };
-    file = {
-      ".local/share/themes/${theme.name}" = {
-        source = "${theme.package}/share/themes/${theme.name}";
-      };
-      ".config/gtk-4.0/gtk.css".text = ''
-        window.messagedialog .response-area > button,
-        window.dialog.message .dialog-action-area > button,
-        .background.csd{
-          border-radius: 0;
-        }
-      '';
-    };
   };
 
   fonts.fontconfig.enable = true;
 
   gtk = {
-    inherit font cursorTheme iconTheme;
-    theme.name = theme.name;
     enable = true;
+    inherit cursorTheme iconTheme theme;
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
-    gtk3.extraCss = ''
-      headerbar, .titlebar,
-      .csd:not(.popup):not(tooltip):not(messagedialog) decoration{
-        border-radius: 0;
-      }
-    '';
   };
 
   # Theme QT -> GTK
