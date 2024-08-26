@@ -53,6 +53,7 @@ lib.mkIf (wezterm == false && alacritty == false || kitty == true) {
       tab_bar_style separator
       tab_separator ""
       tab_title_template " {index}: {title} "
+      hide_window_decorations yes
 
       # tall layout
       enabled_layouts tall:bias=64;full_size=2

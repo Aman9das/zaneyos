@@ -15,6 +15,7 @@
     git
     cmatrix
     btop
+    socat
     libvirt
     polkit_gnome
     lm_sensors

@@ -31,10 +31,10 @@
             command = "hyprctl dispatch scroller:movefocus r";
           };
           down = {
-            command = "hyprnome --previous";
+            command = "hyprctl dispatch exec \"hyprnome --previous\"";
           };
           up = {
-            command = "hyprnome";
+            command = "hyprctl dispatch exec hyprnome";
           };
         };
         "4" = {
@@ -44,14 +44,9 @@
           right = {
             sendkey = "LEFTALT+RIGHT"; # history forward
           };
-          down = {
-            sendkey = "LEFTCTRL+TAB"; # change tab
+          up = {
+            command = "hyprctl dispatch scroller:toggleoverview";
           };
-        };
-      };
-      hold = {
-        "4" = {
-          # command = "hyprctl dispatch hyprexpo:expo toggle";
         };
       };
     };

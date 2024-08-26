@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   config,
   lib,
   inputs,
@@ -29,7 +30,7 @@ let
 in
 with lib;
 {
-  home.packages = with pkgs; [ hyprnome ];
+  home.packages = with pkgs-unstable; [ hyprnome ];
   wayland.windowManager.hyprland = {
     enable = true;
     package = hyprland;
@@ -65,7 +66,7 @@ with lib;
           input {
             kb_layout = ${theKBDLayout}, ${theSecondKBDLayout}
             kb_options = grp:alt_shift_toggle
-            kb_options=caps:swapescape
+            kb_options = caps:escape
             follow_mouse = 2
             # mouse_refocus = false
             touchpad {
@@ -129,14 +130,9 @@ with lib;
             windowrule = workspace current,xdg-desktop-portal-gtk
             windowrule = workspace current,thunderbird
             windowrule = workspace current,org.qutebrowser.qutebrowser
-            windowrule = maximize,thunderbird
             windowrule = workspace current,org.gnome.Loupe
             windowrule = workspace current,fusuma
             windowrule = workspace current,polkit-gnome-authentication-agent-1
-            windowrule = maximize,ferdium
-            windowrule = maximize,Logseq
-            windowrule = maximize,org.libretro.RetroArch
-            windowrule = maximize,heroic
             windowrule = fullscreen,spicy
             windowrulev2 = fullscreen,class:(Waydroid),title:(Waydroid)
             windowrule = fullscreen,^(waydroid.*)
@@ -184,8 +180,8 @@ with lib;
           }
           plugin {
             scroller {
-              # column_default_width = onehalf
               focus_wrap = false
+              column_widths = onehalf one onethird
             }
           }
           exec-once = hyprctl dispatch workspace 5000000
@@ -220,11 +216,9 @@ with lib;
           bind = ${modifier},Q,killactive,
 
 
-          bind = ${modifier},Z,scroller:cyclesize,1
+          bind = ${modifier},F,scroller:cyclesize,1
           bind = ${modifier}SHIFT,Z,fullscreen,0
-          bind = ${modifier}CONTROL,F,scroller:fitsize, all
-          bind = ${modifier},F,fullscreen,1
-          bind = ${modifier}SHIFT,F,togglefloating
+          bind = ${modifier}CONTROL,F,togglefloating
           bind = ${modifier}SHIFT,C,exit,
 
           bind = ${modifier},bracketleft,scroller:setmode, col

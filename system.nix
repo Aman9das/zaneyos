@@ -2,6 +2,7 @@
   inputs,
   config,
   pkgs,
+  pkgs-unstable,
   username,
   hostname,
   host,
@@ -100,5 +101,5 @@ in
     };
   };
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 }

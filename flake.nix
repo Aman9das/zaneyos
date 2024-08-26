@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
@@ -30,6 +31,7 @@
   outputs =
     inputs@{
       nixpkgs,
+      nixpkgs-unstable,
       home-manager,
       hyprland,
       nur,
@@ -46,12 +48,19 @@
           allowUnfree = true;
         };
       };
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
     in
     {
       nixosConfigurations = {
         "${hostname}" = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit system;
+            inherit pkgs-unstable;
             inherit inputs;
             inherit username;
             inherit hostname;
@@ -71,6 +80,7 @@
                 inherit host;
                 # inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
                 inherit system;
+                inherit pkgs-unstable;
               };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

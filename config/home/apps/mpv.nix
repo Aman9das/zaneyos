@@ -64,7 +64,7 @@ in
   };
 
   home.packages = with pkgs; [
-    ffmpeg 
+    ffmpeg
     vlc
   ];
 }
