@@ -13,7 +13,7 @@ in
             "control-center-margin-right": 10,
             "control-center-margin-left": 10,
             "notification-icon-size": 64,
-            "notification-body-image-height": 100,
+            "notification-body-image-height": 400,
             "notification-body-image-width": 200,
             "timeout": 10,
             "timeout-low": 5,

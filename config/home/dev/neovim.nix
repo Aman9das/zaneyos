@@ -39,10 +39,13 @@
       # other language servers
       rPackages.languageserver
       rPackages.languageserversetup
+      markdownlint-cli2
+      sqlfluff
 
       codeium
       marksman
       icu
+      prettierd
 
       black
       (pkgs.python3.withPackages (python-pkgs: [ python-pkgs.pip ]))

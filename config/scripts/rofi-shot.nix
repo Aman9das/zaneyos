@@ -18,9 +18,9 @@ pkgs.writeShellScriptBin "rofi-shot" ''
   FILENAME="$SCREENSHOT_DIR/$(date +%Y-%m-%d-T-%H-%M-%S).png"
 
 
-  screen='  Capture screen'
-  area='  Capture area'
-  window='  Capture current window'
+  screen='  capture screen'
+  area='  capture area'
+  window='  capture current window'
 
   chosen=$(printf '%s\n%s\n%s\n' "$screen" "$area" "$window" \
           | rofi -dmenu -l 3 -p "Screenshot:"\

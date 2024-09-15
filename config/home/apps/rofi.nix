@@ -29,6 +29,7 @@
       window-format = "{w} · {c} · {t}";
       terminal = "kitty";
       sorting-method = "fzf";
+      scroll-method = 1;
       sort = true;
     };
   };

@@ -21,6 +21,8 @@
     lm_sensors
     unzip
     unrar
+    fzf
+    ripgrep
     libnotify
     v4l-utils
     wl-clipboard
@@ -32,6 +34,7 @@
     gnumake
     ninja
     go
+    icu
     nodejs
     symbola
     brightnessctl
@@ -112,7 +115,23 @@
     ydotool.enable = true;
   };
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [
+          (pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          }).fd
+        ];
+      };
+    };
+  };
   virtualisation.waydroid.enable = true;
 
   hardware.opentabletdriver.enable = true;
@@ -123,6 +142,7 @@
       gnome.enable = true;
       # cinnamon.enable = true;
     };
+    displayManager.session = [ ];
   };
 
   services.cinnamon.apps.enable = false;

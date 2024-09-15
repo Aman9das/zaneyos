@@ -133,7 +133,7 @@ with lib;
             windowrule = workspace current,org.gnome.Loupe
             windowrule = workspace current,fusuma
             windowrule = workspace current,polkit-gnome-authentication-agent-1
-            windowrule = fullscreen,spicy
+            windowrule = maximize, spicy
             windowrulev2 = fullscreen,class:(Waydroid),title:(Waydroid)
             windowrule = fullscreen,^(waydroid.*)
 
@@ -161,7 +161,7 @@ with lib;
             animation = windowsOut, 1, 5, winOut, slide
             animation = windowsMove, 1, 5, wind, slide
             animation = border, 1, 1, liner
-            animation = layers, 1, 1, default, fade
+            animation = layers, 1, 0.5, default, fade
             ${
               if borderAnim == true then
                 ''
@@ -217,7 +217,7 @@ with lib;
 
 
           bind = ${modifier},F,scroller:cyclesize,1
-          bind = ${modifier}SHIFT,Z,fullscreen,0
+          bind = ${modifier}SHIFT,F,fullscreen,0
           bind = ${modifier}CONTROL,F,togglefloating
           bind = ${modifier}SHIFT,C,exit,
 

@@ -11,14 +11,14 @@ pkgs.writeShellScriptBin "rofi-exit" ''
   host=$(hostname)
 
   # Options
-  shutdown=' Shutdown'
-  reboot=' Reboot'
-  lock=' Lock'
-  suspend=' Suspend'
-  logout=' Logout'
-  hibernate=' Hibernate'
-  yes=' Yes'
-  no=' No'
+  shutdown=' shutdown'
+  reboot=' reboot'
+  lock=' lock'
+  suspend=' suspend'
+  logout=' logout'
+  hibernate=' hibernate'
+  yes=' yes'
+  no=' no'
 
   # Rofi CMD
   rofi_cmd() {

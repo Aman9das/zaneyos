@@ -45,8 +45,9 @@ in
     ferdium
     gnome.gnome-disk-utility
     baobab
+    evince
+    kdePackages.okular
     android-studio
-    libsForQt5.dolphin
     parabolic
 
     (retroarch.override {

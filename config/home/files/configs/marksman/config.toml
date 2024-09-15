@@ -1,2 +1,2 @@
 [core]
-markdown.file_extensions = ["md", "markdown", "qmd"]
+markdown.file_extensions = ["md", "markdown", "qmd", "rmd"]
