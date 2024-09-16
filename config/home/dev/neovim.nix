@@ -53,6 +53,14 @@
       #nix
       nil
       nixfmt-rfc-style
+
+      #images
+      imagemagick
+    ];
+
+    extraLuaPackages = with pkgs; [
+      luajitPackages.magick
+      luajitPackages.luarocks
     ];
   };
 

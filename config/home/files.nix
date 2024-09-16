@@ -17,4 +17,7 @@
   home.file.".prettierrc" = {
     source = ./files/.prettierrc;
   };
+  home.file.".markdownlint-cli2.yaml" = {
+    source = ./files/.markdownlint-cli2.yaml;
+  };
 }
