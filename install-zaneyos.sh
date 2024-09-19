@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
 if [ -n "$(cat /etc/os-release | grep -i nixos)" ]; then
-    echo "Verified this is NixOS."
-    echo "-----"
+  echo "Verified this is NixOS."
+  echo "-----"
 else
-    echo "This is not NixOS or the distribution information is not available."
-    exit
+  echo "This is not NixOS or the distribution information is not available."
+  exit
 fi
 
-if command -v git &> /dev/null; then
-    echo "Git is installed, continuing with installation."
+if command -v git &>/dev/null; then
+  echo "Git is installed, continuing with installation."
 else
-    echo "Git is not installed. Please install Git and try again."
-    echo "Example: nix-shell -p git"
-    exit
+  echo "Git is not installed. Please install Git and try again."
+  echo "Example: nix-shell -p git"
+  exit
 fi
 
 echo "-----"
@@ -51,7 +51,7 @@ fi
 echo "-----"
 
 echo "Cloning & Entering ZaneyOS Repository"
-git clone https://gitlab.com/zaney/zaneyos.git
+git clone https://github.com/aman9das/zaneyos.git
 cd zaneyos
 mkdir hosts/$hostName
 cp hosts/default/*.nix hosts/$hostName
@@ -78,11 +78,11 @@ else
       read -s -p "Enter New User Password: " newPass
       read -s -p "Enter New User Password Again: " newPass2
       if [ $newPass == $newPass2 ]; then
-	echo "Passwords Match. Setting password."
-	userPassword=$(mkpasswd -m sha-512 $newPass)
-	escaped_userPassword=$(echo "$userPassword" | sed 's/\//\\\//g')
-	sed -i "/^\s*hashedPassword[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_userPassword\"#" ./system.nix
-	break
+        echo "Passwords Match. Setting password."
+        userPassword=$(mkpasswd -m sha-512 $newPass)
+        escaped_userPassword=$(echo "$userPassword" | sed 's/\//\\\//g')
+        sed -i "/^\s*hashedPassword[[:space:]]*=[[:space:]]*\"/s#\"\(.*\)\"#\"$escaped_userPassword\"#" ./system.nix
+        break
       fi
     done
   fi
@@ -92,7 +92,7 @@ sed -i "/^\s*setUsername[[:space:]]*=[[:space:]]*\"/s/\"\(.*\)\"/\"$userName\"/"
 echo "-----"
 
 echo "Generating The Hardware Configuration"
-sudo nixos-generate-config --show-hardware-config > ./hosts/$hostName/hardware.nix
+sudo nixos-generate-config --show-hardware-config >./hosts/$hostName/hardware.nix
 
 echo "-----"
 
