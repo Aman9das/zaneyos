@@ -44,7 +44,7 @@ Simply copy this and run it:
 
 ``` sh
 nix-shell -p git curl
-sh <(curl -L https://github.com/aman9das/zaneyos/-/raw/main/install-zaneyos.sh)
+sh <(curl -L https://raw.githubusercontent.com/Aman9das/zaneyos/aman9das/install-zaneyos.sh)
 ```
 
 ### 🦽 Manual
