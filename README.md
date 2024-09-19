@@ -10,10 +10,6 @@ This is a simple way of reproducing my configuration on any NixOS system. This i
 - Must have installed using GPT & UEFI.
 - Manually editing options.nix file in hosts/<yourhostname> folder.
 
-### 🎹 Pipewire, Spotify, & Notification Menu Controls
-
-- We are using the latest and greatest audio solution for Linux. If you like listening to music Spotify comes pre-installed out of the box. Not to mention you will have media and volume controls in the notification center available in the top bar.
-
 ### 🏇 Optimized Hyprland Workflow, Reliable GNOME Desktop, & Simple Yet Elegant Neovim
 
 - Opinionated Hyprland setup for increased functionality and efficiency.
@@ -25,11 +21,6 @@ This is a simple way of reproducing my configuration on any NixOS system. This i
 - You can now define separate settings for different host machines and users!
 - Easily specify extra packages for your users in the users/users.nix file.
 - Easy to understand file structure where each host just has its generated hardware.nix file and option.nix file in a folder with the hostname as its title.
-
-### 👼 An Incredible Community Focused On Support
-
-- The entire idea of ZaneyOS is to make NixOS an approachable space that is actually a great community that you want to be in.
-- Many people who are patient and happy to spend their free time helping you are running ZaneyOS. Feel free to reach out on the Discord for any help with anything.
 
 ![Apps](./config/home/files/showcase/wall.png)
 
