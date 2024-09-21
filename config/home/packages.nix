@@ -79,7 +79,6 @@ in
     bottles
     heroic
 
-    zed-editor
     vscode-fhs
 
     # Import Scripts

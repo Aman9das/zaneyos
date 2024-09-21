@@ -9,5 +9,6 @@
     ./kitty.nix
     ./nushell.nix
     ./starship.nix
+    ./c.nix
   ];
 }

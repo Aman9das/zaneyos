@@ -1,0 +1,20 @@
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
+  home.packages = with pkgs; [
+    clang-tools
+    cmake
+    codespell
+    conan
+    cppcheck
+    doxygen
+    gtest
+    lcov
+    vcpkg-tool
+    gdb
+  ];
+}

@@ -44,169 +44,175 @@ with lib;
       hyprscroller
       # plugins.hyprexpo
     ];
+    settings = {
+      monitor = ",preferred,auto,1";
+
+      general = {
+        gaps_in = 2;
+        gaps_out = "4,16";
+        border_size = 2;
+        "col.active_border" = "rgba(57e389c0)";
+        "col.inactive_border" = "rgba(b5b8b680)";
+        layout = "scroller";
+        resize_on_border = true;
+        resize_corner = 3;
+      };
+
+      input = {
+        kb_layout = "${theKBDLayout}, ${theSecondKBDLayout}";
+        kb_options = [
+          "grp:alt_shift_toggle"
+          "caps:escape"
+        ];
+        follow_mouse = 2;
+        touchpad = {
+          natural_scroll = true;
+        };
+        sensitivity = 0.8;
+        accel_profile = "flat";
+      };
+
+      env = [
+        "NIXOS_OZONE_WL, 1"
+        "NIXPKGS_ALLOW_UNFREE, 1"
+        "XDG_CURRENT_DESKTOP, Hyprland"
+        "XDG_SESSION_TYPE, wayland"
+        "XDG_SESSION_DESKTOP, Hyprland"
+        "GDK_BACKEND, wayland"
+        "CLUTTER_BACKEND, wayland"
+        "SDL_VIDEODRIVER, ${sdl-videodriver}"
+        "QT_QPA_PLATFORM, wayland"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
+        "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
+        # "WLR_NO_HARDWARE_CURSORS,1"
+        "MOZ_ENABLE_WAYLAND, 1"
+        (if cpuType == "vm" then "WLR_NO_HARDWARE_CURSORS,1" "WLR_RENDERER_ALLOW_SOFTWARE,1" else "")
+        (if gpuType == "nvidia" then "WLR_NO_HARDWARE_CURSORS,1" else "")
+      ];
+
+      gestures = {
+        # workspace_swipe = true
+        workspace_swipe_fingers = 3;
+        workspace_swipe_cancel_ratio = 0.6;
+        # workspace_swipe_forever = true
+        # workspace_swipe_direction_lock = false
+      };
+
+      misc = {
+        mouse_move_enables_dpms = true;
+        key_press_enables_dpms = false;
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+        focus_on_activate = true;
+        vfr = true;
+      };
+
+      rules = {
+        layerrule = [
+          "blur, waybar"
+          "animation popin 80%, rofi$"
+        ];
+        windowrule = [
+          "tile, ^(Vivaldi-stable)$"
+
+          "workspace current,title:MainPicker"
+          "workspace current,.blueman-manager-wrapped"
+          "workspace current,xdg-desktop-portal-gtk"
+          "workspace current,thunderbird"
+          "workspace current,org.qutebrowser.qutebrowser"
+          "workspace current,org.gnome.Loupe"
+          "workspace current,fusuma"
+          "workspace current,polkit-gnome-authentication-agent-1"
+
+          "maximize, spicy"
+          "fullscreen,^(waydroid.*)"
+          "float, org.gnome.FileRoller"
+        ];
+        windowrulev2 = [
+          "fullscreen,class:(Waydroid),title:(Waydroid)"
+
+          "workspace special silent, title:^(.*is sharing (your screen|a window)\.)$"
+          "workspace special silent, title:^(Firefox — Sharing Indicator)$"
+        ];
+      };
+
+      binds = {
+        # allow_workspace_cycles = true
+      };
+
+      cursor = {
+        # hotspot_padding = 4
+        inactive_timeout = 30;
+        # no_warps = true
+      };
+
+      animations = {
+        enabled = true;
+        bezier = [
+          "wind, 0.05, 0.9, 0.1, 1.05"
+          "winIn, 0.1, 1.1, 0.1, 1.1"
+          "winOut, 0.3, -0.3, 0, 1"
+          "liner, 1, 1, 1, 1"
+        ];
+        animation = [
+          "windows, 1, 6, wind, slide"
+          "windowsIn, 1, 6, winIn, slide"
+          "windowsOut, 1, 5, winOut, slide"
+          "windowsMove, 1, 5, wind, slide"
+          "border, 1, 1, liner"
+          "layers, 1, 0.5, default, fade"
+          "fade, 1, 10, default"
+          "workspaces, 1, 5, wind, slidevert"
+        ];
+      };
+
+      decoration = {
+        rounding = 10;
+        drop_shadow = false;
+        dim_inactive = true;
+      };
+
+      plugin = {
+        scroller = {
+          focus_wrap = false;
+          column_widths = "onehalf one onethird";
+        };
+      };
+
+      exec-once = [
+        "hyprctl dispatch workspace 5000000"
+        "[workspace current silent] $POLKIT_BIN"
+        "[workspace current silent] dbus-update-activation-environment --systemd --all"
+        "[workspace current silent] systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "[workspace current silent] ${wallpaper}"
+        "[pin] waybar"
+        "[workspace current silent] swaync"
+        "[workspace current silent] scroller-fitsize"
+        "[workspace current silent] nm-applet --indicator"
+        "[workspace current silent] hypridle"
+        "[workspace current silent] wl-paste --type text --watch cliphist store" # Stores only text data
+        "[workspace current silent] wl-paste --type image --watch cliphist store" # Stores only image data
+        "[workspace current silent] ferdium"
+      ];
+
+      dwindle = {
+        pseudotile = true;
+        preserve_split = true;
+        no_gaps_when_only = 2;
+      };
+
+      master = {
+        # new_is_master = true;
+      };
+
+    };
     extraConfig =
       let
         modifier = "SUPER";
       in
       concatStrings [
         ''
-          monitor=,preferred,auto,1
           ${extraMonitorSettings}
-          general {
-            gaps_in = 2
-            gaps_out = 4,16
-            border_size = 2
-            col.active_border = rgba(57e389c0)
-            col.inactive_border = rgba(b5b8b680)
-            layout = scroller
-            resize_on_border = true
-            resize_corner = 3
-          }
-
-          input {
-            kb_layout = ${theKBDLayout}, ${theSecondKBDLayout}
-            kb_options = grp:alt_shift_toggle
-            kb_options = caps:escape
-            follow_mouse = 2
-            # mouse_refocus = false
-            touchpad {
-              natural_scroll = true
-            }
-            sensitivity = 0.8 # -1.0 - 1.0, 0 means no modification.
-            accel_profile = flat
-          }
-          env = NIXOS_OZONE_WL, 1
-          env = NIXPKGS_ALLOW_UNFREE, 1
-          env = XDG_CURRENT_DESKTOP, Hyprland
-          env = XDG_SESSION_TYPE, wayland
-          env = XDG_SESSION_DESKTOP, Hyprland
-          env = GDK_BACKEND, wayland
-          env = CLUTTER_BACKEND, wayland
-          env = SDL_VIDEODRIVER, ${sdl-videodriver}
-          env = QT_QPA_PLATFORM, wayland
-          env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
-          env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
-          # env = WLR_NO_HARDWARE_CURSORS,1
-          env = MOZ_ENABLE_WAYLAND, 1
-          ${
-            if cpuType == "vm" then
-              ''
-                env = WLR_NO_HARDWARE_CURSORS,1
-                env = WLR_RENDERER_ALLOW_SOFTWARE,1
-              ''
-            else
-              ""
-          }
-          ${
-            if gpuType == "nvidia" then
-              ''
-                env = WLR_NO_HARDWARE_CURSORS,1
-              ''
-            else
-              ""
-          }
-          gestures {
-            # workspace_swipe = true
-            workspace_swipe_fingers = 3
-            workspace_swipe_cancel_ratio = 0.6
-            # workspace_swipe_forever = true
-            # workspace_swipe_direction_lock = false
-          }
-          misc {
-            mouse_move_enables_dpms = true
-            key_press_enables_dpms = false
-            disable_hyprland_logo = true
-            disable_splash_rendering = true
-            focus_on_activate = true
-            vfr = true
-          }
-          rules {
-            layerrule = blur, waybar
-            layerrule = animation popin 80%, rofi$
-            windowrule = tile, ^(Vivaldi-stable)$
-
-            windowrule = workspace current,title:MainPicker
-            windowrule = workspace current,.blueman-manager-wrapped
-            windowrule = workspace current,xdg-desktop-portal-gtk
-            windowrule = workspace current,thunderbird
-            windowrule = workspace current,org.qutebrowser.qutebrowser
-            windowrule = workspace current,org.gnome.Loupe
-            windowrule = workspace current,fusuma
-            windowrule = workspace current,polkit-gnome-authentication-agent-1
-            windowrule = maximize, spicy
-            windowrulev2 = fullscreen,class:(Waydroid),title:(Waydroid)
-            windowrule = fullscreen,^(waydroid.*)
-
-            windowrule = float, org.gnome.FileRoller
-
-            windowrulev2 = workspace special silent, title:^(.*is sharing (your screen|a window)\.)$
-            windowrulev2 = workspace special silent, title:^(Firefox — Sharing Indicator)$
-            }
-          binds {
-              # allow_workspace_cycles = true
-            }
-          cursor {
-              # hotspot_padding = 4
-              inactive_timeout = 30
-              # no_warps = true
-            }
-          animations {
-            enabled = yes
-            bezier = wind, 0.05, 0.9, 0.1, 1.05
-            bezier = winIn, 0.1, 1.1, 0.1, 1.1
-            bezier = winOut, 0.3, -0.3, 0, 1
-            bezier = liner, 1, 1, 1, 1
-            animation = windows, 1, 6, wind, slide
-            animation = windowsIn, 1, 6, winIn, slide
-            animation = windowsOut, 1, 5, winOut, slide
-            animation = windowsMove, 1, 5, wind, slide
-            animation = border, 1, 1, liner
-            animation = layers, 1, 0.5, default, fade
-            ${
-              if borderAnim == true then
-                ''
-                  animation = borderangle, 1, 30, liner, loop
-                ''
-              else
-                ""
-            }
-            animation = fade, 1, 10, default
-            animation = workspaces, 1, 5, wind, slidevert
-          }
-          decoration {
-            rounding = 10
-            drop_shadow = false
-            # blur = false
-          }
-          plugin {
-            scroller {
-              focus_wrap = false
-              column_widths = onehalf one onethird
-            }
-          }
-          exec-once = hyprctl dispatch workspace 5000000
-
-          exec-once = [workspace current silent] $POLKIT_BIN
-          exec-once = [workspace current silent] dbus-update-activation-environment --systemd --all
-          exec-once = [workspace current silent] systemctl --user import-environment QT_QPA_PLATFORMTHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-          exec-once = [workspace current silent] ${wallpaper}
-          exec-once = [pin] waybar
-          exec-once = [workspace current silent] swaync
-          exec-once = [workspace current silent] scroller-fitsize
-          exec-once = [workspace current silent] nm-applet --indicator
-          exec-once = [workspace current silent] hypridle
-          exec-once = [workspace current silent] wl-paste --type text --watch cliphist store #Stores only text data
-          exec-once = [workspace current silent] wl-paste --type image --watch cliphist store #Stores only image data
-          exec-once = [workspace current silent] ferdium
-
-          dwindle {
-            pseudotile = true
-            preserve_split = true
-            no_gaps_when_only = 2
-          }
-          master {
-            # new_is_master = true
-          }
 
           bindr = ${modifier},SUPER_L,exec,rofi-launcher
           bind = ${modifier}, V, exec, cliphist list | rofi -dmenu -p Clipboard | cliphist decode | wl-copy
