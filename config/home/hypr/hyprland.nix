@@ -67,6 +67,9 @@ with lib;
         follow_mouse = 2;
         touchpad = {
           natural_scroll = true;
+          disable_while_typing = false;
+          drag_lock = true;
+          scroll_factor = 0.75;
         };
         sensitivity = 0.8;
         accel_profile = "flat";

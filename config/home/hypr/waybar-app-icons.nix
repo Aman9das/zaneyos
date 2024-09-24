@@ -6,7 +6,6 @@
   "class<vivaldi.*>" = "㾒";
   "class<vivaldi.*> title<meet.*>" = "㡩";
   "class<ferdium>" = "";
-  "title<Ferdium>" = "";
   "class<ferdium.*> title<.*trello.*>" = "㼇";
   "class<ferdium.*> title<.*whatsapp.*>" = "㿞";
   "class<ferdium.*> title<.*discord.*>" = "㛤";

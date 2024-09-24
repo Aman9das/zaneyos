@@ -4,10 +4,17 @@
 
     plymouth = {
       enable = true;
-      theme = "rings";
+      theme = "loader_2";
       themePackages = with pkgs; [
         # By default we would install all themes
-        (adi1090x-plymouth-themes.override { selected_themes = [ "rings" ]; })
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [
+            "rings"
+            "spinner_alt"
+            "loader_2"
+            "cuts_alt"
+          ];
+        })
       ];
     };
 
