@@ -60,6 +60,7 @@ in
       "file://${homeDir}/downloads"
       "file://${homeDir}/projects"
       "file://${homeDir}/pictures"
+      "file:///mnt/Data"
     ];
 
   dconf.settings = {

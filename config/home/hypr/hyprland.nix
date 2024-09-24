@@ -175,7 +175,7 @@ with lib;
       plugin = {
         scroller = {
           focus_wrap = false;
-          column_widths = "onehalf one onethird";
+          column_widths = "onehalf one onethird twothirds";
         };
       };
 

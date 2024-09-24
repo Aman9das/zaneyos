@@ -13,6 +13,7 @@ let
       requests
       ipython
       pip
+      virtualenv
     ];
 in
 lib.mkIf (python == true) {

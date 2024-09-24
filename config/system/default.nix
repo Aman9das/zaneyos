@@ -24,5 +24,6 @@
     ./services.nix
     ./steam.nix
     ./vm.nix
+    ./plymouth.nix
   ];
 }
