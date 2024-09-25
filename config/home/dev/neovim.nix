@@ -7,11 +7,10 @@
 }:
 {
   home.packages = with pkgs; [
-    nil
-    alejandra
-    marksman
     icu
     gcc
+
+    neovide
   ];
 
   programs.neovim = {
@@ -58,9 +57,9 @@
       imagemagick
     ];
 
-    extraLuaPackages = with pkgs; [
-      luajitPackages.magick
-      luajitPackages.luarocks
+    extraLuaPackages = ps: [
+      ps.magick
+      ps.luarocks
     ];
   };
 
