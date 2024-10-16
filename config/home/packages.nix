@@ -78,8 +78,12 @@ in
     })
     bottles
     heroic
+    jstest-gtk
+    qjoypad
 
     vscode-fhs
+
+    google-chrome
 
     # Import Scripts
     (import ./../scripts/task-waybar.nix { inherit pkgs; })

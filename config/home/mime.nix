@@ -54,12 +54,14 @@
           "imv-dir.desktop"
           "imv.desktop"
         ];
+        "image/gif" = [ "org.gnome.Loupe.desktop" ];
         "text/markdown" = [ "nvim.desktop" ];
         "application/pdf" = [
           "com.github.ahrm.sioyek.desktop"
           "zathura.desktop"
         ];
         "x-scheme-handler/magnet" = [ "transmission-gtk.desktop" ];
+        "application/x-mimearchive" = [ "org.qutebrowser.qutebrowser.desktop" ];
       };
     };
   };

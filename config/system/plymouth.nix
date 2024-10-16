@@ -4,7 +4,7 @@
 
     plymouth = {
       enable = true;
-      theme = "loader_2";
+      theme = "nixos-bgrt";
       themePackages = with pkgs; [
         # By default we would install all themes
         (adi1090x-plymouth-themes.override {
@@ -15,6 +15,8 @@
             "cuts_alt"
           ];
         })
+
+        nixos-bgrt-plymouth
       ];
     };
 
