@@ -21,6 +21,9 @@
 
     extraPackages = with pkgs; [
       # LazyVim
+      # neovim needs lua 5.1 and luarocks 5.1
+      lua51Packages.lua
+      lua51Packages.luarocks
       lua-language-server
       stylua
 

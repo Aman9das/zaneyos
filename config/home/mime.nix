@@ -34,7 +34,8 @@
         "application/x-extension-rss" = [ "thunderbird.desktop" ];
         "x-scheme-handler/webcal" = [ "thunderbird.desktop" ];
         "x-scheme-handler/webcals" = [ "thunderbird.desktop" ];
-        "image/png" = [
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = [ "writer.desktop" ];
+         "image/png" = [
           "org.gnome.Loupe.desktop"
           "imv-dir.desktop"
           "imv.desktop"

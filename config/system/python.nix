@@ -14,6 +14,10 @@ let
       ipython
       pip
       virtualenv
+      ipykernel
+      numpy
+      matplotlib
+      statsmodels
     ];
 in
 lib.mkIf (python == true) {

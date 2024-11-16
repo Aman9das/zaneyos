@@ -26,6 +26,7 @@ let
     learnr
     shiny
     nycflights13
+    reticulate
     # colorout
   ];
   my-rstudio = pkgs.rstudio.overrideAttrs (
