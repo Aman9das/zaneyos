@@ -26,6 +26,8 @@
     };
 
     # impermanence.url = "github:nix-community/impermanence";
+
+    flatpaks.url = "github:gmodena/nix-flatpak";
   };
 
   outputs =
@@ -35,6 +37,7 @@
       home-manager,
       hyprland,
       nur,
+      flatpaks,
       ...
     }:
     let
@@ -70,6 +73,7 @@
             ./system.nix
             # impermanence.nixosModules.impermanence
             home-manager.nixosModules.home-manager
+            flatpaks.nixosModules.nix-flatpak
 
             nur.nixosModules.nur
 

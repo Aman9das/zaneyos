@@ -6,6 +6,7 @@
     ./mime.nix
     # ./fastfetch.nix
     ./packages.nix
+    ./packages-unstable.nix
 
     # Place Home Files Like Pictures
     ./files.nix

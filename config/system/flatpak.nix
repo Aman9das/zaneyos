@@ -11,11 +11,16 @@ in
 lib.mkIf (flatpak == true) {
   services.flatpak.enable = true;
 
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
+  services.flatpak.remotes = lib.mkOptionDefault [ ];
+
+  services.flatpak.update.auto.enable = true;
+  services.flatpak.uninstallUnmanaged = false;
+  services.flatpak.packages = [
+    #{ appId = "com.brave.Browser"; origin = "flathub"; }
+    "com.github.tchx84.Flatseal"
+    "io.ente.auth"
+    "org.fontforge.FontForge"
+    "org.gtk.Gtk3theme.adw-gtk3-dark"
+    "com.remnantsoftheprecursors.ROTP"
+  ];
 }
