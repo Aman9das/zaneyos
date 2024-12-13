@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
-  home.packages = [ config.nur.repos.dustinblackman.oatmeal ];
+  home.packages = with pkgs; [ nur.repos.dustinblackman.oatmeal ];
 }

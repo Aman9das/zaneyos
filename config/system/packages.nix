@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   config,
   inputs,
   ...
@@ -32,6 +33,7 @@
     libgccjit
     hugo
     gnumake
+    jdk
     ninja
     go
     icu
@@ -134,7 +136,10 @@
   };
   virtualisation.waydroid.enable = true;
 
-  hardware.opentabletdriver.enable = true;
+  hardware.opentabletdriver = {
+    enable = true;
+    package = pkgs-unstable.opentabletdriver;
+  };
 
   services.xserver = {
     excludePackages = with pkgs; [ xterm ];
@@ -148,8 +153,8 @@
   services.cinnamon.apps.enable = false;
   services.gnome = {
     core-utilities.enable = false;
-    tracker-miners.enable = false;
-    tracker.enable = false;
+    localsearch.enable = false;
+    tinysparql.enable = false;
   };
 
   nixpkgs.config.permittedInsecurePackages = [

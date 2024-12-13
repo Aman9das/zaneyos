@@ -35,7 +35,7 @@
         "x-scheme-handler/webcal" = [ "thunderbird.desktop" ];
         "x-scheme-handler/webcals" = [ "thunderbird.desktop" ];
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = [ "writer.desktop" ];
-         "image/png" = [
+        "image/png" = [
           "org.gnome.Loupe.desktop"
           "imv-dir.desktop"
           "imv.desktop"
@@ -58,6 +58,7 @@
         "image/gif" = [ "org.gnome.Loupe.desktop" ];
         "text/markdown" = [ "nvim.desktop" ];
         "application/pdf" = [
+          "sioyek.desktop"
           "com.github.ahrm.sioyek.desktop"
           "zathura.desktop"
         ];

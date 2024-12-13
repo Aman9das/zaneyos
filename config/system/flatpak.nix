@@ -21,6 +21,6 @@ lib.mkIf (flatpak == true) {
     "io.ente.auth"
     "org.fontforge.FontForge"
     "org.gtk.Gtk3theme.adw-gtk3-dark"
-    "com.remnantsoftheprecursors.ROTP"
+    # "com.remnantsoftheprecursors.ROTP"
   ];
 }

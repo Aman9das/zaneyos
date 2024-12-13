@@ -11,7 +11,7 @@ let
     name = "gnome-terminal";
     text = ''kitty "$@"'';
   };
-  nemo-patched = pkgs.cinnamon.nemo-with-extensions.overrideAttrs (_: {
+  nemo-patched = pkgs.nemo-with-extensions.overrideAttrs (_: {
     postFixup = ''
       wrapProgram $out/bin/nemo \
         --prefix PATH : "${lib.makeBinPath [ fakeGnomeTerminal ]}"

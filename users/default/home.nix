@@ -33,7 +33,7 @@ in
   imports = [
     # inputs.nix-colors.homeManagerModules.default
     ./../../config/home
-    inputs.nur.hmModules.nur
+    inputs.nur.modules.homeManager.default
   ];
 
   # Define Settings For Xresources

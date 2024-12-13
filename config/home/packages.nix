@@ -21,7 +21,7 @@ in
     jq
     fastfetch
     hypridle
-    gnome.file-roller
+    file-roller
     swaynotificationcenter
     imv
     obs-studio
@@ -44,7 +44,7 @@ in
     gimp
     # monophony
     ferdium
-    gnome.gnome-disk-utility
+    gnome-disk-utility
     baobab
     evince
     kdePackages.okular

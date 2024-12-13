@@ -2,28 +2,28 @@
   description = "ZaneyOS";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
 
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # nix-colors.url = "github:misterio77/nix-colors";
 
     # hyprwm
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland/?rev=9a09eac79b85c846e3a865a9078a3f8ff65a9259&submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hyprscroller = {
-      url = "github:dawsers/hyprscroller";
-      inputs.hyprland.follows = "hyprland";
-    };
+    # hyprland = {
+    #   url = "git+https://github.com/hyprwm/Hyprland/?submodules=1&ref=refs/tags/v0.45.2";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+    # hyprscroller = {
+    #   url = "github:dawsers/hyprscroller";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
 
     # impermanence.url = "github:nix-community/impermanence";
 
@@ -35,7 +35,7 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
-      hyprland,
+      # hyprland,
       nur,
       flatpaks,
       ...
@@ -75,7 +75,7 @@
             home-manager.nixosModules.home-manager
             flatpaks.nixosModules.nix-flatpak
 
-            nur.nixosModules.nur
+            nur.modules.nixos.default
 
             {
               home-manager.extraSpecialArgs = {

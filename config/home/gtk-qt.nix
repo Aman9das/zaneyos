@@ -40,7 +40,7 @@ in
       iconTheme.package
 
       libsForQt5.breeze-qt5
-      qt5ct
+      libsForQt5.qt5ct
       qt6ct
       libsForQt5.qt5.qtwayland
       kdePackages.qtwayland

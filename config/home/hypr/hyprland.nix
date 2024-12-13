@@ -24,26 +24,22 @@ let
     extraMonitorSettings
     ;
 
-  hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
-  plugins = inputs.hyprland-plugins.packages.${pkgs.system};
-  hyprscroller = inputs.hyprscroller.packages.${pkgs.system}.default;
 in
+# hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
+# plugins = inputs.hyprland-plugins.packages.${pkgs.system};
+# hyprscroller = inputs.hyprscroller.packages.${pkgs.system}.default;
 with lib;
 {
-  home.packages = with pkgs-unstable; [ hyprnome ];
+  home.packages = with pkgs; [ hyprnome ];
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyprland;
+    # package = hyprland;
     xwayland.enable = true;
     systemd = {
       enable = true;
       enableXdgAutostart = true;
     };
-    plugins = [
-      # hyprplugins.hyprtrails
-      hyprscroller
-      # plugins.hyprexpo
-    ];
+    plugins = with pkgs.hyprlandPlugins; [ hyprscroller ];
     settings = {
       monitor = ",preferred,auto,1";
 
@@ -94,7 +90,7 @@ with lib;
       ];
 
       gestures = {
-        # workspace_swipe = true
+        workspace_swipe = true;
         workspace_swipe_fingers = 3;
         workspace_swipe_cancel_ratio = 0.6;
         # workspace_swipe_forever = true
@@ -113,7 +109,7 @@ with lib;
       rules = {
         layerrule = [
           "blur, waybar"
-          "animation popin 80%, rofi$"
+          # "animation popin 80%, rofi$"
         ];
         windowrule = [
           "tile, ^(Vivaldi-stable)$"
@@ -163,7 +159,7 @@ with lib;
           "windowsOut, 1, 5, winOut, slide"
           "windowsMove, 1, 5, wind, slide"
           "border, 1, 1, liner"
-          "layers, 1, 0.5, default, fade"
+          "layers, 1, 0.3, default, fade"
           "fade, 1, 10, default"
           "workspaces, 1, 5, wind, slidevert"
         ];
@@ -171,7 +167,7 @@ with lib;
 
       decoration = {
         rounding = 10;
-        drop_shadow = false;
+        # drop_shadow = false;
         dim_inactive = true;
       };
 
@@ -201,7 +197,7 @@ with lib;
       dwindle = {
         pseudotile = true;
         preserve_split = true;
-        no_gaps_when_only = 2;
+        # no_gaps_when_only = 2;
       };
 
       master = {
