@@ -41,7 +41,7 @@ in
   theLCVariables = "en_IN";
   theTimezone = "Asia/Kolkata";
   theShell = "nushell"; # Possible options: bash, zsh, nushell
-  theKernel = "linuxPackages_zen"; # Possible options: linuxPackages_6_6, linuxPackages_5_10, linuxPackages_latest
+  theKernel = "linuxPackages"; # Possible options: linuxPackages, linuxPackages_6_6, linuxPackages_zen, linuxPackages_latest
   sdl-videodriver = "x11"; # Either x11 or wayland ONLY. Games might require x11 set here
   # For Hybrid Systems intel-nvidia
   # Should Be Used As gpuType
