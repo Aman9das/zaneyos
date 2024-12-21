@@ -25,9 +25,6 @@ let
     ;
 
 in
-# hyprland = inputs.hyprland.packages.${pkgs.system}.hyprland;
-# plugins = inputs.hyprland-plugins.packages.${pkgs.system};
-# hyprscroller = inputs.hyprscroller.packages.${pkgs.system}.default;
 with lib;
 {
   home.packages = with pkgs; [ hyprnome ];
@@ -39,13 +36,15 @@ with lib;
       enable = true;
       enableXdgAutostart = true;
     };
-    plugins = with pkgs.hyprlandPlugins; [ hyprscroller ];
+    plugins = with pkgs.hyprlandPlugins; [
+      # hyprscroller
+    ];
     settings = {
       monitor = ",preferred,auto,1";
 
       general = {
         gaps_in = 2;
-        gaps_out = "4,16";
+        gaps_out = 4;
         border_size = 2;
         "col.active_border" = "rgba(57e389c0)";
         "col.inactive_border" = "rgba(b5b8b680)";
@@ -85,12 +84,17 @@ with lib;
         "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
         # "WLR_NO_HARDWARE_CURSORS,1"
         "MOZ_ENABLE_WAYLAND, 1"
-        (if cpuType == "vm" then "WLR_NO_HARDWARE_CURSORS,1" "WLR_RENDERER_ALLOW_SOFTWARE,1" else "")
-        (if gpuType == "nvidia" then "WLR_NO_HARDWARE_CURSORS,1" else "")
+        (
+          if cpuType == "vm" then
+            "WLR_NO_HARDWARE_CURSORS,1" "WLR_RENDERER_ALLOW_SOFTWARE,1"
+          else
+            "WLR_NO_HARDWARE_CURSORS,0"
+        )
+        (if gpuType == "nvidia" then "WLR_NO_HARDWARE_CURSORS,1" else "WLR_NO_HARDWARE_CURSORS,0")
       ];
 
       gestures = {
-        workspace_swipe = true;
+        workspace_swipe = false;
         workspace_swipe_fingers = 3;
         workspace_swipe_cancel_ratio = 0.6;
         # workspace_swipe_forever = true
@@ -186,7 +190,7 @@ with lib;
         "[workspace current silent] ${wallpaper}"
         "[pin] waybar"
         "[workspace current silent] swaync"
-        "[workspace current silent] scroller-fitsize"
+        # "[workspace current silent] scroller-fitsize"
         "[workspace current silent] nm-applet --indicator"
         "[workspace current silent] hypridle"
         "[workspace current silent] wl-paste --type text --watch cliphist store" # Stores only text data
@@ -221,52 +225,67 @@ with lib;
           bind = ${modifier},Q,killactive,
 
 
-          bind = ${modifier},F,scroller:cyclesize,1
           bind = ${modifier}SHIFT,F,fullscreen,0
           bind = ${modifier}CONTROL,F,togglefloating
           bind = ${modifier}SHIFT,C,exit,
 
-          bind = ${modifier},bracketleft,scroller:setmode, col
-          bind = ${modifier},bracketleft,scroller:admitwindow,
-          bind = ${modifier},bracketleft,scroller:fitsize, all
-          bind = ${modifier},bracketleft,scroller:setmode, row
-          bind = ${modifier},bracketright,scroller:setmode, col
-          bind = ${modifier},bracketright,scroller:expelwindow,
-          bind = ${modifier},bracketright,scroller:movefocus, l
-          bind = ${modifier},bracketright,scroller:fitsize, all
-          bind = ${modifier},bracketright,scroller:movefocus, r
-          bind = ${modifier},bracketright,scroller:setmode, row
+          bindr = ${modifier},left, movefocus,l
+          bindr = ${modifier},right, movefocus,r
+          bindr = ${modifier},up, movefocus,u
+          bindr = ${modifier},down, movefocus,d
 
-          bindr = ${modifier},left,scroller:movefocus,l
-          bindr = ${modifier},right,scroller:movefocus,r
-          bindr = ${modifier},up, scroller:movefocus,u
-          bindr = ${modifier},down,scroller:movefocus,d
+          bind = ${modifier}SHIFT,left, movewindow,l
+          bind = ${modifier}SHIFT,right, movewindow,r
+          bind = ${modifier}SHIFT,up, movewindow,u
+          bind = ${modifier}SHIFT,down, movewindow,d
 
-          bind = ${modifier}SHIFT,left,scroller:movewindow,l
-          bind = ${modifier}SHIFT,right,scroller:movewindow,r
-          bind = ${modifier}SHIFT,up,scroller:movewindow,u
-          bind = ${modifier}SHIFT,down,scroller:movewindow,d
 
-          bind = ${modifier}ALT,left,scroller:alignwindow,l
-          bind = ${modifier}ALT,right,scroller:alignwindow,r
+          # bind = ${modifier},F,scroller:cyclesize,1
+          # bind = ${modifier},bracketleft,scroller:setmode, col
+          # bind = ${modifier},bracketleft,scroller:admitwindow,
+          # bind = ${modifier},bracketleft,scroller:fitsize, all
+          # bind = ${modifier},bracketleft,scroller:setmode, row
+          # bind = ${modifier},bracketright,scroller:setmode, col
+          # bind = ${modifier},bracketright,scroller:expelwindow,
+          # bind = ${modifier},bracketright,scroller:movefocus, l
+          # bind = ${modifier},bracketright,scroller:fitsize, all
+          # bind = ${modifier},bracketright,scroller:movefocus, r
+          # bind = ${modifier},bracketright,scroller:setmode, row
+          #
+          # bindr = ${modifier},left,scroller:movefocus,l
+          # bindr = ${modifier},right,scroller:movefocus,r
+          # bindr = ${modifier},up, scroller:movefocus,u
+          # bindr = ${modifier},down,scroller:movefocus,d
+          #
+          # bind = ${modifier}SHIFT,left,scroller:movewindow,l
+          # bind = ${modifier}SHIFT,right,scroller:movewindow,r
+          # bind = ${modifier}SHIFT,up,scroller:movewindow,u
+          # bind = ${modifier}SHIFT,down,scroller:movewindow,d
+          #
+          # bind = ${modifier}ALT,left,scroller:alignwindow,l
+          # bind = ${modifier}ALT,right,scroller:alignwindow,r
+          #
 
           binde = ${modifier}CONTROL,left, resizeactive, -10 0
           binde = ${modifier}CONTROL,right, resizeactive, 10 0
           binde = ${modifier}CONTROL,up, resizeactive, 0 -10
-          bindr = ${modifier}CONTROL,up,scroller:setmode, col
-          bindr = ${modifier}CONTROL,up,scroller:fitsize, all
-          bindr = ${modifier}CONTROL,up,scroller:setmode, row
+          # bindr = ${modifier}CONTROL,up,scroller:setmode, col
+          # bindr = ${modifier}CONTROL,up,scroller:fitsize, all
+          # bindr = ${modifier}CONTROL,up,scroller:setmode, row
           binde = ${modifier}CONTROL,down, resizeactive, 0 10
-          bindr = ${modifier}CONTROL,down,scroller:setmode, col
-          bindr = ${modifier}CONTROL,down,scroller:fitsize, all
-          bindr = ${modifier}CONTROL,down,scroller:setmode, row
+          # bindr = ${modifier}CONTROL,down,scroller:setmode, col
+          # bindr = ${modifier}CONTROL,down,scroller:fitsize, all
+          # bindr = ${modifier}CONTROL,down,scroller:setmode, row
+          #
+          # bind = ${modifier},h,scroller:movefocus,l
+          # bind = ${modifier},l,scroller:movefocus,r
+          # bind = ${modifier}SHIFT,h,scroller:movewindow,l
+          # bind = ${modifier}SHIFT,l,scroller:movewindow,r
 
-          bind = ${modifier},h,scroller:movefocus,l
-          bind = ${modifier},l,scroller:movefocus,r
+          # bind = ${modifier},SPACE,scroller:toggleoverview
+
           bind = ${modifier},k,exec, hyprnome --previous
           bind = ${modifier},j,exec, hyprnome
-          bind = ${modifier}SHIFT,h,scroller:movewindow,l
-          bind = ${modifier}SHIFT,l,scroller:movewindow,r
           bind = ${modifier}SHIFT,k,exec, hyprnome --previous --move
           bind = ${modifier}SHIFT,j,exec, hyprnome --move
 
@@ -277,7 +296,6 @@ with lib;
 
           bind = ${modifier},0,togglespecialworkspace
           bind = ${modifier}SHIFT,0,movetoworkspace,special
-          bind = ${modifier},SPACE,scroller:toggleoverview
           bind = ${modifier}SHIFT,SPACE,movetoworkspace,current
 
           bind = ${modifier},mouse_down,exec, hyprnome

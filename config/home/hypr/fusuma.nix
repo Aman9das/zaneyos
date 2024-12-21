@@ -25,10 +25,10 @@
       swipe = {
         "3" = {
           left = {
-            command = "hyprctl dispatch scroller:movefocus l";
+            command = "hyprctl dispatch movefocus l";
           };
           right = {
-            command = "hyprctl dispatch scroller:movefocus r";
+            command = "hyprctl dispatch movefocus r";
           };
           down = {
             command = "hyprctl dispatch exec \"hyprnome --previous\"";
@@ -44,9 +44,9 @@
           right = {
             sendkey = "LEFTALT+RIGHT"; # history forward
           };
-          up = {
-            command = "hyprctl dispatch scroller:toggleoverview";
-          };
+          # up = {
+          #   command = "hyprctl dispatch scroller:toggleoverview";
+          # };
         };
       };
     };
