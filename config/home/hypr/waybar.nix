@@ -23,8 +23,13 @@ with lib;
         modules-left = [
           "clock"
           "hyprland/window"
+          # "niri/window"
+          "wlr/taskbar"
         ];
-        modules-center = [ "hyprland/workspaces" ];
+        modules-center = [
+          "hyprland/workspaces"
+          "niri/workspaces"
+        ];
         modules-right = [
           "group/groupcpu"
           "pulseaudio"
@@ -43,6 +48,24 @@ with lib;
           window-rewrite-default = "󰙵";
           window-rewrite = import ./waybar-app-icons.nix;
         };
+        # "niri/workspaces" = {
+        #   format-icons = {
+        #     default = " ";
+        #     empty = " ";
+        #   };
+        #   format = "{icon}{windows}{icon}";
+        #   format-window-separator = " ";
+        #   window-rewrite-default = "󰙵";
+        #   window-rewrite = import ./waybar-app-icons.nix;
+        # };
+        "wlr/taskbar" = {
+          format = "{icon}";
+          icon-size = 20;
+          icon-theme = "Papirus Dark";
+          on-click = "activate";
+          on-click-middle = "close";
+        };
+
         "clock" = {
           format = if clock24h == true then "{:L%H:%M}" else "{:L%I:%M %p}";
           tooltip = true;
@@ -63,6 +86,19 @@ with lib;
           on-click-right = "thunderbird -calendar";
         };
         "hyprland/window" = {
+          max-length = 48;
+          # icons = true;
+          icon-size = 16;
+          separate-outputs = false;
+          rewrite = {
+            "" = " Desktop ";
+          };
+          format = "{title}";
+          tooltip = true;
+          tooltip-format = "{title}";
+          on-click = "rofi-launcher";
+        };
+        "niri/window" = {
           max-length = 48;
           # icons = true;
           icon-size = 16;
@@ -289,6 +325,25 @@ with lib;
             padding-left: 16px;
             padding-right: 16px;
             transition: all 150ms ease;
+        }
+
+        #taskbar {
+            margin: 0px 4px 0px 4px;
+
+            background-color: #1e1e1e; /* Base */
+            border-radius: 10px;
+            transition: all 150ms ease;
+        }
+
+        #taskbar button.active, #taskbar button {
+            padding: 0px 2px 0px 2px;
+            border-radius: 10px;
+            margin: 0;
+            transition: all 150ms ease;
+        }
+
+        #taskbar button.active {
+            background-color: #3584e4; /* Muave */
         }
 
         window#waybar {

@@ -16,6 +16,7 @@
 
     ./apps
     ./hypr
+    ./niri
     ./vm
     ./dev
   ];

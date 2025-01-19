@@ -61,7 +61,9 @@ pkgs.writeShellScriptBin "rofi-exit" ''
   			sleep 0.5 && systemctl suspend
   		elif [[ $1 == '--logout' ]]; then
         exit_apps
-  			sleep 0.5 && hyprctl dispatch exit
+  			sleep 0.5
+        hyprctl dispatch exit
+        niri msg action quit --skip-confirmation
   		fi
   	else
   		exit 0
