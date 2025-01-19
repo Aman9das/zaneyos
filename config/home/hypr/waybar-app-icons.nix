@@ -30,6 +30,7 @@
   "class<.*xournalpp.*>" = "";
   "class<calibre-gui>" = "";
   "class<org.telegram.desktop>" = "㺤";
+  "io.github.tdesktop_x64.TDesktop" = "㺤";
   "class<io.gitlab.zehkira.Monophony>" = "";
   "class<com.github.weclaw1.ImageRoll>" = "";
   "class<org.gnome.Loupe>" = "";

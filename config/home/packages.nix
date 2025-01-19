@@ -51,6 +51,9 @@ in
     android-studio
     parabolic
 
+    ente-auth
+    bitwarden-desktop
+
     (retroarch.override {
       cores = with libretro; [
         genesis-plus-gx
@@ -79,8 +82,6 @@ in
     })
     bottles
     heroic
-    jstest-gtk
-    qjoypad
 
     vscode-fhs
 

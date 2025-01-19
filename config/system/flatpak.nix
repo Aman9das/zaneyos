@@ -18,7 +18,7 @@ lib.mkIf (flatpak == true) {
   services.flatpak.packages = [
     #{ appId = "com.brave.Browser"; origin = "flathub"; }
     "com.github.tchx84.Flatseal"
-    "io.ente.auth"
+    # "io.ente.auth"
     "org.fontforge.FontForge"
     "org.gtk.Gtk3theme.adw-gtk3-dark"
     # "com.remnantsoftheprecursors.ROTP"

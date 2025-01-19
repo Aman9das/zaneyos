@@ -105,8 +105,12 @@
     seahorse.enable = true;
     hyprland = {
       enable = true;
-      xwayland.enable = true;
+      # xwayland.enable = true;
+      withUWSM = false;
     };
+    niri.enable = true;
+
+    xwayland.enable = true;
     fuse.userAllowOther = true;
     mtr.enable = true;
     gnupg.agent = {
