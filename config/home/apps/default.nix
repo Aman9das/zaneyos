@@ -6,12 +6,12 @@
     ./blender.nix
     ./rofi.nix
     ./bw.nix
-    ./mpv.nix
+    # ./mpv.nix
     ./logseq.nix
     ./vivaldi.nix
     ./firefox.nix
     ./syncthing.nix
-    ./nemo.nix
+    # ./nemo.nix
     ./qutebrowser.nix
     ./kdeconnect.nix
     ./video-editor.nix

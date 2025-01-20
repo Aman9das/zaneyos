@@ -142,7 +142,7 @@
 
   hardware.opentabletdriver = {
     enable = true;
-    package = pkgs-unstable.opentabletdriver;
+    # package = pkgs-unstable.opentabletdriver;
   };
 
   services.xserver = {
@@ -155,11 +155,11 @@
   };
 
   services.cinnamon.apps.enable = false;
-  services.gnome = {
-    core-utilities.enable = false;
-    localsearch.enable = false;
-    tinysparql.enable = false;
-  };
+  # services.gnome = {
+  #   core-utilities.enable = false;
+  #   localsearch.enable = false;
+  #   tinysparql.enable = false;
+  # };
 
   nixpkgs.config.permittedInsecurePackages = [
     "electron-28.3.3"

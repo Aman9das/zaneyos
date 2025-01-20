@@ -40,7 +40,7 @@ in
     libreoffice-fresh
     loupe
     _64gram
-    protonup-qt
+    protonplus
     gimp
     # monophony
     ferdium
@@ -48,7 +48,7 @@ in
     baobab
     evince
     kdePackages.okular
-    android-studio
+    # android-studio
     parabolic
 
     ente-auth

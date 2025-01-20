@@ -50,7 +50,7 @@ let
   r-set = rWrapper.override { packages = rpkgs; };
   rstudio-set = rstudioWrapper.override {
     packages = rpkgs;
-    rstudio = my-rstudio;
+    # rstudio = my-rstudio;
   };
   radian-set = radianWrapper.override { packages = rpkgs; };
   quarto-set = quarto.override { extraRPackages = rpkgs; };

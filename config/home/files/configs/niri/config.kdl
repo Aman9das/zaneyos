@@ -13,6 +13,7 @@ input {
             // For more information, see xkeyboard-config(7).
 
             // For example:
+            // layout "us,ru"
             layout "us"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
             options "caps:escape, grp:alt_shift_toggle"
@@ -22,25 +23,41 @@ input {
     // Next sections include libinput settings.
     // Omitting settings disables them, or leaves them at their default values.
     touchpad {
+        // off
         tap
         // dwt
         // dwtp
         natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
+        // scroll-method "two-finger"
+        // disabled-on-external-mouse
     }
 
     mouse {
+        // off
         // natural-scroll
         // accel-speed 0.2
         // accel-profile "flat"
+        // scroll-method "no-scroll"
+    }
+
+    trackpoint {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "on-button-down"
+        // scroll-button 273
+        // middle-emulation
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
     warp-mouse-to-focus
 
     // Focus windows and outputs automatically when moving the mouse into them.
-    focus-follows-mouse
+    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
+    focus-follows-mouse max-scroll-amount="60%"
 }
 
 // You can configure outputs by their name, which you can find
@@ -59,9 +76,9 @@ output "eDP-1" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    // mode "1920x1080@60.001"
+    // mode "1920x1080@120.030"
 
-    // Scale is a floating-point number, but at the moment only integer values work.
+    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1.0
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
@@ -109,6 +126,9 @@ layout {
         // fixed 1920
     }
 
+    // You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
+    // preset-window-heights { }
+
     // You can change the default width of the new windows.
     default-column-width { proportion 0.5; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
@@ -128,10 +148,10 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-        // off
+        off
 
         // How many logical pixels the ring extends out from the windows.
-        width 2
+        width 4
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -139,19 +159,19 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#57e389c0"
+        active-color "#7fc8ff"
 
         // Color of the ring on inactive monitors.
-        inactive-color "#b5b8b680"
+        inactive-color "#505050"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
         // The angle is the same as in linear-gradient, and is optional,
         // defaulting to 180 (top-to-bottom gradient).
         // You can use any CSS linear-gradient tool on the web to set these up.
+        // Changing the color space is also supported, check the wiki for more info.
         //
         // active-gradient from="#80c8ff" to="#bbddff" angle=45
-        // active-gradient from="#80c8ff" to="#57e389" angle=45
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
@@ -164,11 +184,11 @@ layout {
     border {
         // The settings are the same as for the focus ring.
         // If you enable the border, you probably want to disable the focus ring.
-        off
+        // off
 
         width 2
-        active-color "#ffc87f"
-        inactive-color "#505050"
+        active-color "#57e389c0"
+        inactive-color "#b5b8b680"
 
         // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
@@ -190,16 +210,20 @@ layout {
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
+// See the binds section below for more spawn examples.
+// spawn-at-startup "alacritty" "-e" "fish"
 spawn-at-startup "waybar"
 spawn-at-startup "hyprpaper"
 spawn-at-startup "ferdium"
-spawn-at-startup "wl-paste --type text --watch cliphist store"
-spawn-at-startup "wl-paste --type image --watch cliphist store"
+spawn-at-startup "bash" "-c" "wl-paste --type text --watch cliphist store"
+spawn-at-startup "bash" "-c" "wl-paste --type image --watch cliphist store"
 
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
-// Additionally, clients will be informed that they are tiled, removing some rounded corners.
+// Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
+// This option will also fix border/focus ring drawing behind some semitransparent windows.
+// After enabling or disabling this, you need to restart the apps for this to take effect.
 prefer-no-csd
 
 // You can change the path where screenshots are saved.
@@ -225,11 +249,6 @@ animations {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
-// window-rule {
-//     geometry-corner-radius 12
-//     clip-to-geometry true
-// }
-
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {
@@ -238,6 +257,15 @@ window-rule {
     // You can get away with just app-id="wezterm" if you want.
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
 }
 
 // Example: block out two password managers from screen capture.
@@ -250,6 +278,13 @@ window-rule {
 
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
+}
+
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
 }
 
 binds {
@@ -275,10 +310,11 @@ binds {
     Mod+Space repeat=false { spawn "rofi-launcher"; }
     Mod+Shift+Q repeat=false { spawn "rofi-exit"; }
 
-    Mod+V repeat=false {spawn "bash" "-c" "cliphist list | rofi -dmenu -p Clipboard | cliphist decode | wl-copy"; }
+    Mod+slash repeat=false {spawn "bash" "-c" "cliphist list | rofi -dmenu -p Clipboard | cliphist decode | wl-copy"; }
     Mod+N repeat=false {spawn "swaync-client --toggle -sw"; }
 
-    // You can also use a shell:
+    // You can also use a shell. Do this if you need pipes, multiple commands, etc.
+    // Note: the entire command goes as a single argument in the end.
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
 
     // Example volume keys mappings for PipeWire & WirePlumber.
@@ -440,14 +476,20 @@ binds {
     // Switches focus between the current and the previous workspace.
     Mod+Tab { focus-workspace-previous; }
 
-    // Mod+Comma  { consume-window-into-column; }
-    // Mod+Period { expel-window-from-column; }
-
-    // There are also commands that consume or expel a single window to the side.
+    // The following binds move the focused window in and out of a column.
+    // If the window is alone, they will consume it into the nearby column to the side.
+    // If the window is already in a column, they will expel it out.
     Mod+BracketLeft  { consume-or-expel-window-left; }
     Mod+BracketRight { consume-or-expel-window-right; }
 
+    // Consume one window from the right to the bottom of the focused column.
+    Mod+Comma  { consume-window-into-column; }
+    // Expel the bottom window from the focused column to the right.
+    Mod+Period { expel-window-from-column; }
+
     Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
     Mod+C { center-column; }
@@ -467,6 +509,10 @@ binds {
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
 
+    // Move the focused window between the floating and the tiling layout.
+    Mod+V       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
     // Actions to switch layouts.
     // Note: if you uncomment these, make sure you do NOT have
     // a matching layout switch hotkey configured in xkb options above.
@@ -480,9 +526,10 @@ binds {
     Alt+Print { screenshot-window; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    // Mod+Shift+E { quit; }
+    Mod+Shift+E { quit; }
+    Ctrl+Alt+Delete { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    // Mod+Shift+P { power-off-monitors; }
+    Mod+Shift+P { power-off-monitors; }
 }

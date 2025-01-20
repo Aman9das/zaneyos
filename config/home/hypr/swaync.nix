@@ -72,11 +72,11 @@ in
                         },
                         {
                             "label": "󰿅",
-                            "command": "sh -c 'exit_apps && sleep 0.5 && hyprctl dispatch exit'"
+                            "command": "sh -c 'exit_apps && sleep 0.5 && hyprctl dispatch exit && niri msg action quit'"
                         },
                         {
                             "label": "󰉋",
-                            "command": "hyprctl dispatch exec nemo"
+                            "command": "nautilus"
                         },
                         {
                             "label": "󰖁",
@@ -88,7 +88,7 @@ in
                         },
                         {
                             "label": "",
-                            "command": "hyprctl dispatch exec obs"
+                            "command": "obs"
                         }
                     ]
                 }

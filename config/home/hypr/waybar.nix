@@ -60,7 +60,7 @@ with lib;
         # };
         "wlr/taskbar" = {
           format = "{icon}";
-          icon-size = 20;
+          icon-size = 18;
           icon-theme = "Papirus Dark";
           on-click = "activate";
           on-click-middle = "close";
@@ -134,7 +134,7 @@ with lib;
           interval = 5;
           format = " {usage}%";
           tooltip = true;
-          on-click = "hyprctl dispatch exec [workspace current] xdg-terminal-exec btop";
+          on-click = "xdg-terminal-exec btop";
         };
         "disk" = {
           format = " {percentage_used}%";
@@ -181,7 +181,7 @@ with lib;
               ""
             ];
           };
-          on-click = "hyprctl dispatch exec [workspace current] pavucontrol";
+          on-click = "pavucontrol";
         };
         "custom/themeselector" = {
           tooltip = false;
@@ -343,7 +343,7 @@ with lib;
         }
 
         #taskbar button.active {
-            background-color: #3584e4; /* Muave */
+            background-color: #303030;
         }
 
         window#waybar {
