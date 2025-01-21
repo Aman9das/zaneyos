@@ -32,7 +32,7 @@ in
     grimblast
 
     easyeffects
-    localsend
+    # localsend
 
     xournalpp
     celluloid

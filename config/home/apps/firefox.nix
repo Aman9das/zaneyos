@@ -6,8 +6,8 @@
       source = pkgs.fetchFromGitHub {
         "owner" = "rafaelmardojai";
         "repo" = "firefox-gnome-theme";
-        "rev" = "fb5b578a4f49ae8705e5fea0419242ed1b8dba70";
-        "hash" = "sha256-MOE9NeU2i6Ws1GhGmppMnjOHkNLl2MQMJmGhaMzdoJM=";
+        "rev" = "91ca1f82d717b02ceb03a3f423cbe8082ebbb26d";
+        "hash" = "sha256-S79Hqn2EtSxU4kp99t8tRschSifWD4p/51++0xNWUxw=";
       };
     };
   };

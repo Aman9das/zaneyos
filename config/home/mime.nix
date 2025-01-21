@@ -22,7 +22,7 @@
         "x-scheme-handler/unknown" = [ "org.qutebrowser.qutebrowser.desktop" ];
         "x-scheme-handler/qute" = [ "org.qutebrowser.qutebrowser.desktop" ];
         "x-scheme-handler/vivaldi" = [ "vivaldi-stable.desktop" ];
-        "inode/directory" = [ "nemo.desktop" ];
+        "inode/directory" = [ "nautilus.desktop" ];
         "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
         "message/rfc822" = [ "thunderbird.desktop" ];
         "x-scheme-handler/mid" = [ "thunderbird.desktop" ];

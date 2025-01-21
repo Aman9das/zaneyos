@@ -22,13 +22,13 @@ with lib;
         position = "top";
         modules-left = [
           "clock"
-          "hyprland/window"
+          # "hyprland/window"
           # "niri/window"
-          "wlr/taskbar"
-        ];
-        modules-center = [
           "hyprland/workspaces"
           "niri/workspaces"
+        ];
+        modules-center = [
+          "wlr/taskbar"
         ];
         modules-right = [
           "group/groupcpu"
@@ -40,28 +40,30 @@ with lib;
 
         "hyprland/workspaces" = {
           format-icons = {
-            default = " ";
+            default = "";
+            # active = "";
             empty = " ";
           };
-          format = "{icon}{windows}{icon}";
-          format-window-separator = " ";
-          window-rewrite-default = "󰙵";
-          window-rewrite = import ./waybar-app-icons.nix;
+          format = "{icon}";
+          # format-window-separator = " ";
+          # window-rewrite-default = "󰙵";
+          # window-rewrite = import ./waybar-app-icons.nix;
         };
-        # "niri/workspaces" = {
-        #   format-icons = {
-        #     default = " ";
-        #     empty = " ";
-        #   };
-        #   format = "{icon}{windows}{icon}";
-        #   format-window-separator = " ";
-        #   window-rewrite-default = "󰙵";
-        #   window-rewrite = import ./waybar-app-icons.nix;
-        # };
+        "niri/workspaces" = {
+          format-icons = {
+            default = "";
+            # active = "";
+            empty = " ";
+          };
+          # format = "{icon}";
+          # format-window-separator = " ";
+          # window-rewrite-default = "󰙵";
+          # window-rewrite = import ./waybar-app-icons.nix;
+        };
         "wlr/taskbar" = {
           format = "{icon}";
           icon-size = 18;
-          icon-theme = "Papirus Dark";
+          icon-theme = "Papirus";
           on-click = "activate";
           on-click-middle = "close";
         };
@@ -305,8 +307,7 @@ with lib;
             color: #fafafa; /* Text */
             font-weight: 400;
             transition: all 150ms ease;
-            padding-top: 0;
-            padding-bottom: 0;
+            padding: 0px 4px;
         }
 
         #workspaces button:not(:last-child) {
@@ -322,8 +323,6 @@ with lib;
         #workspaces button.active {
             background-color: #3584e4; /* Muave */
             color: #fafafa; /* Base */
-            padding-left: 16px;
-            padding-right: 16px;
             transition: all 150ms ease;
         }
 

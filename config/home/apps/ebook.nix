@@ -8,8 +8,8 @@
 }:
 {
   home.packages = with pkgs; [
-    zotero
+    # zotero
     calibre
-    zathura
+    # zathura
   ];
 }

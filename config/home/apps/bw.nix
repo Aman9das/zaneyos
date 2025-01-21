@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 {
   home.packages = with pkgs; [
-    bitwarden-cli
+    # bitwarden-cli
     bitwarden-menu
   ];
 
@@ -21,7 +21,7 @@
     terminal = kitty
     type_library = wtype
     session_timeout_min = 60
-    autotype_default = {USERNAME}{TAB}{PASSWORD}{ENTER}
+    autotype_default = {USERNAME}{TAB}{PASSWORD}
   '';
 
   # programs.rbw = {

@@ -25,5 +25,6 @@
     ./steam.nix
     ./vm.nix
     ./plymouth.nix
+    ./niri/keyd.nix
   ];
 }

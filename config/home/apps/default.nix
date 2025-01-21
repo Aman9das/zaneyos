@@ -2,7 +2,7 @@
 {
   imports = [
     ./thunderbird.nix
-    ./zeroad.nix
+    # ./zeroad.nix
     ./blender.nix
     ./rofi.nix
     ./bw.nix
