@@ -113,6 +113,9 @@ layout {
     center-focused-column "on-overflow"
     always-center-single-column
 
+    // Empty workspaces on both sides
+    // empty-workspace-above-first
+
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
         // Proportion sets the width as a fraction of the output width, taking gaps into account.
@@ -212,12 +215,25 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
-spawn-at-startup "waybar"
+spawn-at-startup "bash" "-c" "swayidle -w before-sleep 'loginctl lock-session' timeout 60 'brightnessctl -s set 1' resume 'brightnessctl -r' timeout 120 'niri msg action power-off-monitors' timeout 130 'systemctl suspend' lock 'pidof hyprlock || hyprlock' after-resume 'niri msg action power-on-monitors'"
 spawn-at-startup "hyprpaper"
-spawn-at-startup "ferdium"
+spawn-at-startup "waybar"
+spawn-at-startup "sway-audio-idle-inhibit"
 spawn-at-startup "bash" "-c" "wl-paste --type text --watch cliphist store"
 spawn-at-startup "bash" "-c" "wl-paste --type image --watch cliphist store"
+spawn-at-startup "bash" "-c" "xwayland-satellite :7"
 
+spawn-at-startup "ferdium"
+
+// environment variables
+environment {
+    QT_QPA_PLATFORM "wayland"
+    XDG_CURRENT_DESKTOP "Niri"
+    XDG_SESSION_DESKTOP "Niri"
+    MOZ_ENABLE_WAYLAND "1"
+    _JAVA_AWT_WM_NONREPARENTING "1"
+    DISPLAY ":7"
+}
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.

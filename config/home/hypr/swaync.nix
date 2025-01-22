@@ -1,7 +1,4 @@
 { pkgs, config, ... }:
-let
-in
-# palette = config.colorScheme.palette;
 {
   home.file.".config/swaync/config.json".text = ''
         {

@@ -1,6 +1,9 @@
 { pkgs, config, ... }:
 {
-  imports = [
+  home.packages = with pkgs; [
+    swayidle
+    sway-audio-idle-inhibit
 
+    xwayland-satellite
   ];
 }

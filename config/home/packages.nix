@@ -6,14 +6,6 @@
   host,
   ...
 }:
-let
-  inherit (import ../../hosts/${host}/options.nix)
-    browser
-    wallpaperDir
-    wallpaperGit
-    flakeDir
-    ;
-in
 {
   # Install Packages For The User
   home.packages = with pkgs; [
@@ -32,7 +24,7 @@ in
     grimblast
 
     easyeffects
-    # localsend
+    localsend
 
     xournalpp
     celluloid

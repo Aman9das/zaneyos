@@ -274,7 +274,7 @@ with lib;
     style = concatStrings [
       ''
         * {
-        font-size: 14px;
+        font-size: 15px;
         }
 
         #window, #memory, #clock, #cpu, #disk, #battery, #network, #custom-hyprbindings,

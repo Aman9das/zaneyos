@@ -48,6 +48,7 @@
       };
       qt = {
         highdpi = true;
+        force_platform = "wayland";
       };
       window = {
         hide_decoration = false;
