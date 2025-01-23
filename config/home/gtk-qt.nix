@@ -39,12 +39,12 @@ in
       cursorTheme.package
       iconTheme.package
 
-      libsForQt5.breeze-qt5
-      libsForQt5.qt5ct
+      # libsForQt5.breeze-qt5
+      # libsForQt5.qt5ct
       qt6ct
       libsForQt5.qt5.qtwayland
       kdePackages.qtwayland
-
+      kdePackages.breeze
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;
@@ -61,6 +61,10 @@ in
 
   gtk = {
     enable = true;
+    font = {
+      name = "Recursive Sans Linear Static";
+      size = 10;
+    };
     inherit cursorTheme iconTheme theme;
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
@@ -73,15 +77,15 @@ in
   # Theme QT -> GTK
   qt = {
     enable = true;
-    platformTheme.name = "qt5ct";
-    style = {
-      name = "qt5ct-style";
-    };
+    platformTheme.name = "qt6ct";
+    # style = {
+    #   name = "qt5ct-style";
+    # };
   };
 
   xdg = {
     configFile = {
-      kdeglobals.source = "${pkgs.libsForQt5.breeze-qt5}/share/color-schemes/BreezeDark.colors";
+      kdeglobals.source = "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeDark.colors";
 
       "qt5ct/qt5ct.conf".text = ''
         [Appearance]

@@ -215,7 +215,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
-spawn-at-startup "bash" "-c" "swayidle -w before-sleep 'loginctl lock-session' timeout 60 'brightnessctl -s set 1' resume 'brightnessctl -r' timeout 120 'niri msg action power-off-monitors' timeout 130 'systemctl suspend' lock 'pidof hyprlock || hyprlock' after-resume 'niri msg action power-on-monitors'"
+spawn-at-startup "bash" "-c" "swayidle -w before-sleep 'loginctl lock-session' timeout 60 'brightnessctl -s set 1' resume 'brightnessctl -r' timeout 120 'niri msg action power-off-monitors' timeout 130 'systemctl suspend' lock 'pidof hyprlock || hyprlock'"
 spawn-at-startup "hyprpaper"
 spawn-at-startup "waybar"
 spawn-at-startup "sway-audio-idle-inhibit"
