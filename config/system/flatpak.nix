@@ -21,6 +21,8 @@ lib.mkIf (flatpak == true) {
     # "io.ente.auth"
     "org.fontforge.FontForge"
     "org.gtk.Gtk3theme.adw-gtk3-dark"
+    "net.supertuxkart.SuperTuxKart"
+    "info.beyondallreason.bar"
     # "org.localsend.localsend_app"
     # "com.remnantsoftheprecursors.ROTP"
   ];
