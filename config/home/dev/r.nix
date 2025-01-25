@@ -28,6 +28,9 @@ let
     nycflights13
     reticulate
     # colorout
+    styler
+    miniUI
+    rstudioapi
   ];
   my-rstudio = pkgs.rstudio.overrideAttrs (
     finalAttrs: previousAttrs: {

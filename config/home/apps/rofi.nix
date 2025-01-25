@@ -1,38 +1,77 @@
 { pkgs, config, ... }:
 {
-  home.packages = [
-    pkgs.rofi-rbw-wayland
-    pkgs.rofi-power-menu
+  home.packages = with pkgs; [
+    rofi-wayland
+    rofi-rbw-wayland
+    rofi-power-menu
+
   ];
-  programs.rofi = {
-    enable = true;
-    package = pkgs.rofi-wayland;
+  # programs.rofi = {
+  #   enable = true;
+  #   package = pkgs.rofi-wayland;
+  #
+  #   plugins = [
+  #     (pkgs.rofi-calc.override { rofi-unwrapped = pkgs.rofi-wayland-unwrapped; })
+  #     pkgs.rofi-emoji-wayland
+  #   ];
+  #   theme."@import" = "${config.xdg.configHome}/rofi/theme.rasi";
+  #
+  #   extraConfig = {
+  #     modi = "drun,run,filebrowser,window,";
+  #     combi-modes = "run,window,drun";
+  #     show-icons = true;
+  #     display-drun = "";
+  #     display-run = "";
+  #     display-filebrowser = "";
+  #     display-window = "";
+  #     display-calc = "";
+  #     display-emoji = "";
+  #     display-combi = "";
+  #     drun-display-format = "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+  #     window-format = "{w} · {c} · {t}";
+  #     terminal = "kitty";
+  #     sorting-method = "fzf";
+  #     scroll-method = 1;
+  #     sort = true;
+  #
+  #     icon-theme = "Papirus";
+  #
+  #     window = ''
+  #       {
+  #         fallback-icon = "gnome-window-manager";
+  #       }
+  #     '';
+  #   };
+  # };
 
-    plugins = [
-      (pkgs.rofi-calc.override { rofi-unwrapped = pkgs.rofi-wayland-unwrapped; })
-      pkgs.rofi-emoji-wayland
-    ];
-    theme."@import" = "${config.xdg.configHome}/rofi/theme.rasi";
-
-    extraConfig = {
-      modi = "drun,run,filebrowser,window,";
-      combi-modes = "run,window,drun";
-      show-icons = true;
-      display-drun = "";
-      display-run = "";
-      display-filebrowser = "";
-      display-window = "";
-      display-calc = "";
-      display-emoji = "";
-      display-combi = "";
-      drun-display-format = "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
-      window-format = "{w} · {c} · {t}";
-      terminal = "kitty";
-      sorting-method = "fzf";
-      scroll-method = 1;
-      sort = true;
-    };
-  };
+  home.file.".config/rofi/config.rasi".text = ''
+    configuration {
+    combi-modes: "run,window,drun";
+    display-calc: "";
+    display-combi: "";
+    display-drun: "";
+    display-emoji: "";
+    display-filebrowser: "";
+    display-run: "";
+    display-window: "";
+    drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    icon-theme: "Papirus";
+    location: 0;
+    modi: "drun,run,filebrowser,window,";
+    scroll-method: 1;
+    show-icons: true;
+    sort: true;
+    sorting-method: "fzf";
+    terminal: "kitty";
+    window {
+      fallback-icon : "gnome-window-manager";
+    }
+    window-format: "{w} · {c} · {t}";
+    xoffset: 0;
+    yoffset: 0;
+    }
+    @theme "theme"
+  '';
   home.file.".config/rofi/theme.rasi".text = ''
     /**
      *

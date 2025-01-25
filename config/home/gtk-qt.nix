@@ -27,7 +27,18 @@ let
   };
   iconTheme = {
     name = "Papirus-Dark";
-    package = pkgs.papirus-icon-theme.override { color = "adwaita"; };
+    package =
+      (pkgs.papirus-icon-theme.overrideAttrs (previousAttrs: {
+        version = "20250124";
+
+        src = pkgs.fetchFromGitHub {
+          owner = "PapirusDevelopmentTeam";
+          repo = "papirus-icon-theme";
+          rev = "985f829a6297c7da2366405286bd3a6db574943f";
+          hash = "sha256-uqiEtjdYNVDu5YGbIWHHy9g0MVxgsdUP9d8/Za5YJUU=";
+        };
+      })).override
+        { color = "adwaita"; };
   };
   kvlibadwaita = pkgs.callPackage ../pkgs/kvantum-libadwaita.nix { };
 in
@@ -41,7 +52,7 @@ in
 
       # libsForQt5.breeze-qt5
       # libsForQt5.qt5ct
-      qt6ct
+      # qt6ct
       libsForQt5.qt5.qtwayland
       kdePackages.qtwayland
       kdePackages.breeze
@@ -77,15 +88,16 @@ in
   # Theme QT -> GTK
   qt = {
     enable = true;
-    platformTheme.name = "qt6ct";
+    platformTheme.name = "kde";
     # style = {
-    #   name = "qt5ct-style";
+    #   name = "Breeze Dark";
+    #   package = pkgs.kdePackages.breeze;
     # };
   };
 
   xdg = {
     configFile = {
-      kdeglobals.source = "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeDark.colors";
+      # kdeglobals.source = "${pkgs.kdePackages.breeze}/share/color-schemes/BreezeDark.colors";
 
       "qt5ct/qt5ct.conf".text = ''
         [Appearance]

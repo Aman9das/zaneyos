@@ -81,12 +81,13 @@
 
     # Import Scripts
     (import ./../scripts/task-waybar.nix { inherit pkgs; })
-    (import ./../scripts/nvidia-offload.nix { inherit pkgs; })
+    # (import ./../scripts/nvidia-offload.nix { inherit pkgs; })
     (import ./../scripts/web-search.nix { inherit pkgs; })
     (import ./../scripts/exit-apps.nix { inherit pkgs; })
     (import ./../scripts/rofi-exit.nix { inherit pkgs; })
     (import ./../scripts/rofi-shot.nix { inherit pkgs; })
     (import ./../scripts/rofi-launcher.nix { inherit pkgs; })
+    (import ./../scripts/rofi-alttab.nix { inherit pkgs; })
     (import ./../scripts/scroller-fit.nix { inherit pkgs; })
   ];
 

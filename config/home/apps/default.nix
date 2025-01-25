@@ -8,7 +8,7 @@
     ./bw.nix
     # ./mpv.nix
     ./logseq.nix
-    ./vivaldi.nix
+    # ./vivaldi.nix
     ./firefox.nix
     ./syncthing.nix
     # ./nemo.nix

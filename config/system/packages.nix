@@ -104,7 +104,7 @@
     dconf.enable = true;
     seahorse.enable = true;
     hyprland = {
-      enable = true;
+      # enable = true;
       # xwayland.enable = true;
       withUWSM = false;
     };

@@ -184,6 +184,7 @@ with lib;
             ];
           };
           on-click = "pavucontrol";
+          on-click-right = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         };
         "custom/themeselector" = {
           tooltip = false;
@@ -218,6 +219,7 @@ with lib;
           exec-if = "which swaync-client";
           exec = "swaync-client -swb";
           on-click = "sleep 0.1 && task-waybar";
+          on-click-right = "swaync-client --toggle-dnd -sw";
           escape = true;
         };
         "group/grouppower" = {

@@ -57,7 +57,7 @@ input {
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    focus-follows-mouse max-scroll-amount="60%"
+    focus-follows-mouse max-scroll-amount="20%"
 }
 
 // You can configure outputs by their name, which you can find
@@ -203,8 +203,8 @@ layout {
     // Top and bottom struts will simply add outer gaps in addition to the area occupied by
     // layer-shell panels and regular gaps.
     struts {
-        left 16
-        right 16
+        left 12
+        right 12
         // top 64
         // bottom 64
     }
@@ -224,6 +224,10 @@ spawn-at-startup "bash" "-c" "wl-paste --type image --watch cliphist store"
 spawn-at-startup "bash" "-c" "xwayland-satellite :7"
 
 spawn-at-startup "ferdium"
+
+hotkey-overlay {
+    skip-at-startup
+}
 
 // environment variables
 environment {
@@ -323,11 +327,15 @@ binds {
     Mod+Return repeat=false { spawn "kitty"; }
 
     Mod+D repeat=false { spawn "rofi-launcher"; }
-    Mod+Space repeat=false { spawn "rofi-launcher"; }
+    // Mod+Space repeat=false { spawn "rofi-launcher"; }
+    Alt+Tab { spawn "rofi-alttab"; }
     Mod+Shift+Q repeat=false { spawn "rofi-exit"; }
 
     Mod+slash repeat=false {spawn "bash" "-c" "cliphist list | rofi -dmenu -p Clipboard | cliphist decode | wl-copy"; }
-    Mod+N repeat=false {spawn "swaync-client --toggle -sw"; }
+    Mod+N repeat=false {spawn "bash" "-c" "swaync-client --toggle-panel -sw"; }
+
+    Mod+W repeat=false {spawn "qutebrowser"; }
+    Mod+E repeat=false {spawn "nautilus"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
