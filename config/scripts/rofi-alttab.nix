@@ -8,6 +8,6 @@ pkgs.writeShellScriptBin "rofi-alttab" ''
       ydotool key 108:1 108:0
   else
       # Rofi is not running, start rofi in window mode
-      rofi -modi window -show window -kb-cancel "Alt+Escape,Escape" -timeout-delay 0.5 -timeout-action "kb-accept-entry" -kb-element-next "Alt+Tab,Alt+Down" -kb-element-prev "Alt+Up,Alt+Shift+Tab"
+      rofi -show window -kb-cancel "Alt+Escape,Escape" -timeout-delay 0.5 -timeout-action "kb-accept-entry" -kb-element-next "Alt+Tab,Alt+Down" -kb-element-prev "Alt+Up,Alt+Shift+Tab"
   fi
 ''

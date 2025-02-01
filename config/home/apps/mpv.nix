@@ -22,7 +22,7 @@ in
       mpvScripts.modernx-zydezu
       mpvScripts.mpv-cheatsheet
       mpvScripts.sponsorblock-minimal
-      mpvScripts.youtube-upnext
+      # mpvScripts.youtube-upnext
       mpvScripts.thumbfast
       # mpvScripts.webtorrent-mpv-hook
       mpvScripts.quality-menu

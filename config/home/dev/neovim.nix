@@ -10,7 +10,7 @@
     icu
     gcc
 
-    neovide
+    # neovide
   ];
 
   programs.neovim = {

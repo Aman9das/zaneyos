@@ -5,5 +5,7 @@
     sway-audio-idle-inhibit
 
     xwayland-satellite
+
+    gammastep
   ];
 }

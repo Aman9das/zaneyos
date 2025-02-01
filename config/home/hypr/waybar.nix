@@ -24,7 +24,7 @@ with lib;
           "clock"
           # "hyprland/window"
           # "niri/window"
-          "hyprland/workspaces"
+          # "hyprland/workspaces"
           "niri/workspaces"
         ];
         modules-center = [

@@ -11,8 +11,8 @@
     keyBindings = {
       normal = {
         "<Shift-!>" = "cmd-set-text :open ! ";
-        "v" = "spawn -d mpv {url}";
-        "V" = "hint links spawn -d mpv {hint-url}";
+        "v" = "spawn -d umpv {url}";
+        "V" = "hint links spawn -d umpv {hint-url}";
         "<Ctrl-Tab>" = "tab-next";
         "<Ctrl-Shift-Tab>" = "tab-prev";
         "<Alt-Left>" = "back";

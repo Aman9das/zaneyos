@@ -54,8 +54,11 @@ in
       # libsForQt5.qt5ct
       # qt6ct
       libsForQt5.qt5.qtwayland
+      libsForQt5.kio
+
       kdePackages.qtwayland
       kdePackages.breeze
+      kdePackages.kio
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme.name;

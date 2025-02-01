@@ -46,6 +46,10 @@
     ente-auth
     bitwarden-desktop
 
+    ventoy
+    uget
+    uget-integrator
+
     (retroarch.override {
       cores = with libretro; [
         genesis-plus-gx

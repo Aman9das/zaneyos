@@ -54,10 +54,11 @@
     display-filebrowser: "";
     display-run: "";
     display-window: "";
-    drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+    drun-match-fields: "all";
+    drun-display-format: "{name} [<span weight='light' size='small'>({comment})</span>]";
     icon-theme: "Papirus";
     location: 0;
-    modi: "drun,run,filebrowser,window,";
+    modi: "drun,window,filebrowser,";
     scroll-method: 1;
     show-icons: true;
     sort: true;

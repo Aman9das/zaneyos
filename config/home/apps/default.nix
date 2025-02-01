@@ -3,10 +3,10 @@
   imports = [
     ./thunderbird.nix
     # ./zeroad.nix
-    ./blender.nix
+    # ./blender.nix
     ./rofi.nix
-    ./bw.nix
-    # ./mpv.nix
+    # ./bw.nix
+    ./mpv.nix
     ./logseq.nix
     # ./vivaldi.nix
     ./firefox.nix
