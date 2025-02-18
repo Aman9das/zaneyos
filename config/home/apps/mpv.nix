@@ -4,6 +4,7 @@
   lib,
   config,
   pkgs,
+  pkgs-unstable,
   ...
 }:
 let
@@ -17,16 +18,20 @@ in
 {
   programs.mpv = {
     enable = true;
-    scripts = with pkgs; [
-      mpvScripts.mpris
-      mpvScripts.modernx-zydezu
-      mpvScripts.mpv-cheatsheet
-      mpvScripts.sponsorblock-minimal
-      # mpvScripts.youtube-upnext
-      mpvScripts.thumbfast
-      # mpvScripts.webtorrent-mpv-hook
-      mpvScripts.quality-menu
-    ];
+    scripts =
+      with pkgs;
+      [
+        mpvScripts.mpris
+        mpvScripts.modernx-zydezu
+        mpvScripts.mpv-cheatsheet
+        mpvScripts.sponsorblock-minimal
+        # mpvScripts.youtube-upnext
+        mpvScripts.thumbfast
+        # mpvScripts.webtorrent-mpv-hook
+        mpvScripts.quality-menu
+      ]
+      ++ [ pkgs-unstable.mpvScripts.smart-copy-paste-2 ];
+
     config = {
       volume = 100;
       volume-max = 200;
@@ -60,6 +65,9 @@ in
 
       alang = "bn,Bengali,Bangla,en,eng,jp,jpn,ja,Japanese,japanese";
       slang = "bn,Bengali,Bangla,en,eng,jp,jpn,ja,Japanese,japanese";
+
+      linux-copy = "wl-copy";
+      linux-paste = "wl-paste";
     };
   };
 

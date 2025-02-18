@@ -48,6 +48,10 @@
       marksman
       icu
       prettierd
+      mermaid-cli
+      ghostscript
+
+      mdformat
 
       black
       (pkgs.python3.withPackages (python-pkgs: [ python-pkgs.pip ]))
