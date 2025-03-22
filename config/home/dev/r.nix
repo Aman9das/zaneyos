@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   config,
   lib,
   ...
@@ -31,6 +32,9 @@ let
     styler
     miniUI
     rstudioapi
+    BSDA
+    emplik
+    nloptr
   ];
   my-rstudio = pkgs.rstudio.overrideAttrs (
     finalAttrs: previousAttrs: {
@@ -50,7 +54,18 @@ let
         '';
     }
   );
-  r-set = rWrapper.override { packages = rpkgs; };
+  # Custom rWrapper with modified R script
+  r-set = (rWrapper.override { packages = rpkgs; }).overrideAttrs (
+    finalAttrs: previousAttrs: {
+      buildCommand =
+        previousAttrs.buildCommand
+        + ''
+          # Modify the R script to add the desired comment
+          sed -i '2i# Shell wrapper for R executable' $out/bin/R
+          sed -i '3iR_HOME_DIR=${pkgs.R}/lib/R' $out/bin/R
+        '';
+    }
+  );
   rstudio-set = rstudioWrapper.override {
     packages = rpkgs;
     # rstudio = my-rstudio;
@@ -66,5 +81,7 @@ in
     radian-set
     quarto-set
     texliveFull
+    pkgs-unstable.positron-bin
   ];
+
 }

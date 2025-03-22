@@ -26,6 +26,7 @@ let
 in
 {
   home.packages = with pkgs; [ carapace ];
+  home.sessionPath = [ "$HOME/.local/share/bin" ];
 
   programs = {
     nushell = {

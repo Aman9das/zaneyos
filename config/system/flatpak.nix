@@ -24,7 +24,7 @@ lib.mkIf (flatpak == true) {
     "net.supertuxkart.SuperTuxKart"
     "info.beyondallreason.bar"
     "com.steamgriddb.SGDBoop"
-    # "org.localsend.localsend_app"
+    "org.localsend.localsend_app"
     # "com.remnantsoftheprecursors.ROTP"
   ];
 }

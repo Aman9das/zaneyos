@@ -27,9 +27,10 @@
       lua-language-server
       stylua
 
-      # Telescope
+      # Snacks
       ripgrep
       fd
+      sqlite
 
       # Clipboard
       wl-clipboard-x11

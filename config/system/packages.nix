@@ -51,6 +51,8 @@
     rsync
     pulseaudio
     glibc
+
+    sqlite
   ];
 
   fonts = {
