@@ -21,6 +21,8 @@
       };
     }))
 
+    # pkgs-unstable.gimp
+
     # (pkgs.papirus-icon-theme.overrideAttrs (previousAttrs: {
     #   version = "20250124";
     #

@@ -25,6 +25,7 @@ lib.mkIf (flatpak == true) {
     "info.beyondallreason.bar"
     "com.steamgriddb.SGDBoop"
     "org.localsend.localsend_app"
+    "org.gimp.GIMP"
     # "com.remnantsoftheprecursors.ROTP"
   ];
 }

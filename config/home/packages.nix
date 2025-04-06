@@ -33,7 +33,6 @@
     loupe
     _64gram
     protonplus
-    gimp
     # monophony
     ferdium
     gnome-disk-utility
