@@ -46,13 +46,24 @@
     networkmanagerapplet
     wtype
     playerctl
+    clang_multi
+    libstdcxx5
     nh
     xdg-terminal-exec
     rsync
     pulseaudio
     glibc
 
+    gcc
+    libgcc
+    gnumake
+    cmake
+    extra-cmake-modules
+
     sqlite
+
+    distrobox
+    podman
   ];
 
   fonts = {

@@ -18,6 +18,18 @@ let
       numpy
       matplotlib
       statsmodels
+      seaborn
+      pandas
+      statistics
+      # math
+      typing
+      jsonpickle
+      uv
+
+      stdenv
+      faust-cchardet
+      # python-datamodel
+      polars
     ];
 in
 lib.mkIf (python == true) {

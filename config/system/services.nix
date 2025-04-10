@@ -65,7 +65,13 @@
   services.thermald.enable = true;
   services.upower.enable = true;
 
-  programs.nix-ld.enable = true;
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
+      pythonPackages.stdenv
+    ];
+  };
 
   security.rtkit.enable = true;
   services.gvfs.enable = true;

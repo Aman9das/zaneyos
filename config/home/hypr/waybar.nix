@@ -59,6 +59,7 @@ with lib;
           # format-window-separator = " ";
           # window-rewrite-default = "󰙵";
           # window-rewrite = import ./waybar-app-icons.nix;
+
         };
         "wlr/taskbar" = {
           format = "{icon}";

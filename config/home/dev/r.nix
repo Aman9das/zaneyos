@@ -35,6 +35,15 @@ let
     BSDA
     emplik
     nloptr
+
+    ctv
+    ape
+    BiocManager
+    Biostrings
+    seqinr
+
+    ggtree
+    fastreeR
   ];
   my-rstudio = pkgs.rstudio.overrideAttrs (
     finalAttrs: previousAttrs: {
